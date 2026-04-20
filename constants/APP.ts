@@ -14,8 +14,8 @@ export const APP = {
   launchData: "2026-02-14T09:00:00.000",
   //
   domain: "northwindai.org",
-  website: "https://northwindai.org",
-  socialPreview: "https://northwindai.org/social-preview.png",
+  website: "https://plus5000.vercel.app",
+  socialPreview: "https://plus5000.vercel.app/social-preview.png",
   email: "no-reply@northwindai.org",
   ccEmail: "etugbeh@outlook.com",
   bccEmail: "tugbeh.osaretin@gmail.com",
