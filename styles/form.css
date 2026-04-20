@@ -1,17 +1,35 @@
 @layer components {
   .ghost-btn {
-    @apply hover:bg-brand-hover hover:text-accent cursor-pointer rounded-md px-3.5 py-1.5 font-medium whitespace-nowrap text-white;
+    @apply hover:bg-primary-hover hover:text-tertiary cursor-pointer rounded-md px-3.5 py-1.5 font-medium whitespace-nowrap text-white;
   }
   .tonal-btn {
-    @apply hover:text-brand rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
   }
   /* .solid-btn {
-    @apply hover:text-brand rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
   }
   .outline-btn {
-    @apply hover:text-brand rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
   }
   .submit-btn {
-    @apply hover:text-brand rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
   } */
+  .auth-input-container {
+    @apply border-ash3 focus-within:border-secondary flex items-center gap-2 border-b px-2.5 py-2;
+  }
+  .auth-input {
+    @apply font-roboto w-full border-none outline-none focus:border-none focus:ring-0 focus:outline-none;
+  }
+  .auth-checkbox-container {
+    @apply font-roboto flex cursor-pointer items-center gap-2.5 text-sm;
+  }
+  .auth-checkbox {
+    @apply bg-ash2 hover:bg-ash3 flex size-6 items-center justify-center rounded;
+  }
+  .auth-submit-btn {
+    @apply bg-primary hover:bg-secondary font-roboto block w-full rounded px-4 py-2.5 font-medium text-white transition-colors;
+  }
+  .link {
+    @apply hover:text-secondary text-primary;
+  }
 }

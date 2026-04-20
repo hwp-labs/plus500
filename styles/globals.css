@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @import "./debug.css";
 @import "./media-query.css";
 @import "./flex.css";
@@ -11,11 +12,23 @@
   --foreground: #171717;
   --white: #ffffff;
   --black: #171717;
-  --brand: #0c2780;
-  --brand-hover: #0a2270;
-  --accent: #11afff;
-  --icon: #8693bd;
-  --icon-hover: #3988b4;
+  --primary: #0c2780;
+  --primary-hover: #0a2270;
+  --secondary: #2e86fe;
+  --tertiary: #11afff;
+  /*  */
+  --info: #0288d1;
+  --success: #2e7d32;
+  --warning: #ed6c02;
+  --danger: #d93e3e;
+  /*  */
+  --ash2: #e5e7eb;
+  --ash3: #d1d5dc;
+  --ash4: #99a1af;
+  --ash5: #6a7282;
+  --ash6: #4a5565;
+  --ash7: #364153;
+  --ash8: #1e2939;
 }
 
 .dark {
@@ -26,17 +39,30 @@
 }
 
 @theme inline {
+  --font-poppins: var(--font-poppins);
+  --font-roboto: var(--font-roboto);
+  /*  */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-white: var(--white);
   --color-black: var(--black);
-  --color-brand: var(--brand);
-  --color-brand-hover: var(--brand-hover);
-  --color-icon: var(--icon);
-  --color-icon-hover: var(--icon-hover);
-  --color-accent: var(--accent);
-  --font-poppins: var(--font-poppins);
-  --font-roboto: var(--font-roboto);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  /*  */
+  --color-info: var(--info);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  /*  */
+  --color-ash2: var(--ash2);
+  --color-ash3: var(--ash3);
+  --color-ash4: var(--ash4);
+  --color-ash5: var(--ash5);
+  --color-ash6: var(--ash6);
+  --color-ash7: var(--ash7);
+  --color-ash8: var(--ash8);
 }
 
 body {
@@ -49,4 +75,9 @@ body {
 .dark {
   background: var(--background);
   color: var(--foreground);
+}
+
+i,
+address {
+  font-style: normal;
 }

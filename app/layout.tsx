@@ -16,7 +16,7 @@ export default function RootLayout({
       lang="en"
       className={`${fontPoppins.variable} ${fontRoboto.variable} h-full antialiased`}
     >
-      <body className="min-h-full grid">{children}</body>
+      <body className="">{children}</body>
     </html>
   );
 }

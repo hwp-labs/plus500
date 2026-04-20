@@ -44,7 +44,7 @@ export const Logo = () => (
 );
 
 export const LogoLogin = () => (
-  <div className="">
+  <div className="flex-col-end gap-1">
     <svg
       viewBox="0 0 120 30"
       height="60"
@@ -86,6 +86,8 @@ export const LogoLogin = () => (
         ></path>
       </g>
     </svg>
-    <strong>Futures</strong>
+    <div className="mr-4 rounded-tl-lg rounded-r-lg bg-primary px-1.5 py-0 text-lg font-semibold text-white font-roboto">
+      FUTURES
+    </div>
   </div>
 );
