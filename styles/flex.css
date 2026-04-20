@@ -1,0 +1,17 @@
+@layer utilities {
+  .flex-centered {
+    @apply flex items-center justify-center min-h-screen;
+  }
+
+  .flex-cs {
+    @apply flex items-center justify-start;
+  }
+
+  .flex-cb {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-cc {
+    @apply flex items-center justify-center;
+  }
+}

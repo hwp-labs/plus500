@@ -1,26 +1,46 @@
 @import "tailwindcss";
+@import "../styles/flex.css";
+@import "../styles/form.css";
+
+@variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --white: #ffffff;
+  --black: #171717;
+  --brand: #0c2780;
+  --brand-dark: #0a2270;
+  --accent: #11afff;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --white: #ededed;
+  --black: #0a0a0a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-white: var(--white);
+  --color-black: var(--black);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-accent: var(--accent);
+  --font-poppins: var(--font-poppins);
+  --font-roboto: var(--font-roboto);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins);
+}
+
+.dark body,
+.dark {
+  background: var(--background);
+  color: var(--foreground);
 }
