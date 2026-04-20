@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { APP } from "./APP";
-import { COPY } from "./LOCALE";
+// import { COPY } from "./LOCALE";
 
 export const VIEWPORT: Viewport = {
   colorScheme: "dark",
@@ -40,26 +40,26 @@ export const METADATA: Metadata = {
     },
   },
   // https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest
-  manifest: `/manifest.json`,
+  // manifest: `/manifest.json`,
   // OPEN GRAPH
   openGraph: {
     type: "website",
     url: APP.website,
     siteName: APP.name,
     title: APP.titleVerbose,
-    description: COPY.transform,
+    description: APP.description,
     images: {
       url: APP.socialPreview,
       alt: "",
-      width: 1280,
-      height: 640,
+      width: 640,
+      height: 320,
     },
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: APP.titleVerbose,
-    description: COPY.transform,
+    description: APP.description,
     creator: "@2gbeh",
     images: {
       url: APP.socialPreview,
