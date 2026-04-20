@@ -12,7 +12,6 @@ export default function DashboardLayout({
 }>) {
   return (
     <div className="dark">
-      {/* DashboardLayout */}
       {children}
     </div>
   );

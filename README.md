@@ -1,4 +1,4 @@
-<a href="https://plus500.vercel.app" target="_blank">
+<a href="https://plus5000.vercel.app" target="_blank">
   <img src="./public/social-preview.png" alt="" width="100%" />
 </a>
 

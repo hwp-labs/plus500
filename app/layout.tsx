@@ -1,24 +1,10 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 
-import { Roboto, Poppins } from "next/font/google";
+import { METADATA } from "@/constants/META";
+import { fontPoppins, fontRoboto } from "@/constants/FONT";
 import "./globals.css";
-import { APP } from "@/constants/APP";
-import { METADATA, VIEWPORT } from "@/constants/META";
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = METADATA;
-// export const viewport: Viewport = VIEWPORT;
 
 export default function RootLayout({
   children,
@@ -28,7 +14,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${roboto.variable} ${poppins.variable} h-full antialiased`}
+      className={`${fontPoppins.variable} ${fontRoboto.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

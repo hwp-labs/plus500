@@ -1,6 +1,8 @@
 // https://hexcolorpedia.com/color/?q=0c2780
 
 export const COLOR = {
+  white: "#ffffff",
+  black: "#171717",
   brand: {
     100: "#d6ddf5",
     200: "#adbaea",
@@ -23,4 +25,8 @@ export const COLOR = {
     800: "#08608a",
     900: "#05435c",
   },
+  info: "oklch(0.488 0.243 264.376)",
+  success: "oklch(0.696 0.17 162.48)",
+  warning: "oklch(0.769 0.188 70.08)",
+  danger: "oklch(0.645 0.246 16.439)",
 } as const;

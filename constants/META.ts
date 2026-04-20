@@ -1,19 +1,10 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { APP } from "./APP";
-// import { COPY } from "./LOCALE";
-
-export const VIEWPORT: Viewport = {
-  colorScheme: "dark",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: APP.colors.white },
-    { media: "(prefers-color-scheme: dark)", color: APP.colors.black },
-  ],
-};
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-metadata
 export const METADATA: Metadata = {
   title: {
-    default: APP.titleVerbose,
+    default: APP.title,
     template: `%s | ${APP.name}`,
   },
   description: APP.description,
@@ -22,8 +13,8 @@ export const METADATA: Metadata = {
   // META
   generator: "Next.js",
   applicationName: APP.name,
-  category: "technology",
-  classification: "AI Automation",
+  category: APP.category,
+  classification: APP.classification,
   referrer: "origin-when-cross-origin",
   publisher: APP.owner,
   formatDetection: {
@@ -46,23 +37,23 @@ export const METADATA: Metadata = {
     type: "website",
     url: APP.website,
     siteName: APP.name,
-    title: APP.titleVerbose,
+    title: APP.title,
     description: APP.description,
     images: {
-      url: APP.socialPreview,
+      url: APP.socialPreview.src,
       alt: "",
-      width: 640,
-      height: 320,
+      width: APP.socialPreview.width,
+      height: APP.socialPreview.height,
     },
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: APP.titleVerbose,
+    title: APP.title,
     description: APP.description,
-    creator: "@2gbeh",
+    creator: APP.twitterCreator,
     images: {
-      url: APP.socialPreview,
+      url: APP.socialPreview.src,
       alt: "",
     },
   },
