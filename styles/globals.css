@@ -1,6 +1,8 @@
 @import "tailwindcss";
-@import "../styles/flex.css";
-@import "../styles/form.css";
+@import "./debug.css";
+@import "./media-query.css";
+@import "./flex.css";
+@import "./form.css";
 
 @variant dark (&:where(.dark, .dark *));
 
@@ -10,8 +12,10 @@
   --white: #ffffff;
   --black: #171717;
   --brand: #0c2780;
-  --brand-dark: #0a2270;
+  --brand-hover: #0a2270;
   --accent: #11afff;
+  --icon: #8693bd;
+  --icon-hover: #3988b4;
 }
 
 .dark {
@@ -27,7 +31,9 @@
   --color-white: var(--white);
   --color-black: var(--black);
   --color-brand: var(--brand);
-  --color-brand-dark: var(--brand-dark);
+  --color-brand-hover: var(--brand-hover);
+  --color-icon: var(--icon);
+  --color-icon-hover: var(--icon-hover);
   --color-accent: var(--accent);
   --font-poppins: var(--font-poppins);
   --font-roboto: var(--font-roboto);

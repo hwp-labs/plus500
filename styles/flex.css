@@ -1,6 +1,6 @@
 @layer utilities {
   .flex-centered {
-    @apply flex items-center justify-center min-h-screen;
+    @apply flex items-center justify-center min-h-svh;
   }
 
   .flex-cs {

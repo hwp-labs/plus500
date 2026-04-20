@@ -5,7 +5,7 @@ import { IconChevronDown } from "@tabler/icons-react";
 
 export default function DashboardPage() {
   return (
-    <div className="flex flex-1 items-center justify-center min-h-screen">
+    <div className="flex-centered">
      DashboardPage
     </div>
   );

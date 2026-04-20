@@ -1,5 +1,17 @@
 @layer components {
-  .cta-btn {
-    @apply whitespace-nowrap text-white py-2 px-8 rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] hover:from-[#53e3ef] hover:to-[#1ebafc] hover:text-[#0c2780];
+  .ghost-btn {
+    @apply hover:bg-brand-hover hover:text-accent cursor-pointer rounded-md px-3.5 py-1.5 font-medium whitespace-nowrap text-white;
   }
+  .tonal-btn {
+    @apply hover:text-brand rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+  }
+  /* .solid-btn {
+    @apply hover:text-brand rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+  }
+  .outline-btn {
+    @apply hover:text-brand rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+  }
+  .submit-btn {
+    @apply hover:text-brand rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+  } */
 }

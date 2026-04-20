@@ -1,0 +1,52 @@
+@layer utilities {
+  /* Show when screen >= width */
+  .show-lg-block {
+    @apply hidden lg:block;
+  }
+
+  .show-md-block {
+    @apply hidden md:block;
+  }
+
+  .show-sm-block {
+    @apply hidden sm:block;
+  }
+
+  .show-lg-flex {
+    @apply hidden lg:flex;
+  }
+
+  .show-md-flex {
+    @apply hidden md:flex;
+  }
+
+  .show-sm-flex {
+    @apply hidden sm:flex;
+  }
+
+  /* Hide when screen >= width */
+
+  .hide-lg-block {
+    @apply block lg:hidden;
+  }
+
+  .hide-md-block {
+    @apply block md:hidden;
+  }
+
+  .hide-sm-block {
+    @apply block sm:hidden;
+  }
+
+  .hide-lg-flex {
+    @apply flex lg:hidden;
+  }
+
+  .hide-md-flex {
+    @apply flex md:hidden;
+  }
+
+  .hide-sm-flex {
+    @apply flex sm:hidden;
+  }
+}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { METADATA } from "@/constants/META";
 import { fontPoppins, fontRoboto } from "@/constants/FONT";
-import "./globals.css";
+import "../styles/globals.css";
 
 export const metadata: Metadata = METADATA;
 
@@ -16,7 +16,7 @@ export default function RootLayout({
       lang="en"
       className={`${fontPoppins.variable} ${fontRoboto.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full grid">{children}</body>
     </html>
   );
 }
