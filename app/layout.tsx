@@ -18,7 +18,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = METADATA;
-export const viewport: Viewport = VIEWPORT;
+// export const viewport: Viewport = VIEWPORT;
 
 export default function RootLayout({
   children,
