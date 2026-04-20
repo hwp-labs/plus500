@@ -1,3 +1,18 @@
+<a href="https://plus500.vercel.app" target="_blank">
+  <img src="./public/social-preview.png" alt="" width="100%" />
+</a>
+
+# Futures Trading Platform | Trade Futures Online | Plus500
+
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)
+![React](https://img.shields.io/badge/React-19.x-58c4dc.svg)
+![Next](https://img.shields.io/badge/Next-16.x-000.svg)
+
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
