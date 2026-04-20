@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
 import { Roboto, Poppins } from "next/font/google";
 import "./globals.css";
 import { APP } from "@/constants/APP";
+import { METADATA, VIEWPORT } from "@/constants/META";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -15,10 +17,8 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: APP.titleVerbose,
-  description: APP.description,
-};
+export const metadata: Metadata = METADATA;
+export const viewport: Viewport = VIEWPORT;
 
 export default function RootLayout({
   children,
