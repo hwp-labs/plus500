@@ -1,24 +1,28 @@
-import Link from "next/link";
 import Image from "next/image";
-import { PATH } from "@/constants/PATH";
+import { Hyperlink } from "../atoms/hyperlink";
+import { APP } from "@/constants/APP";
 
 export const Ribbon = () => {
   return (
-    <section className="flex-cb bg-[#040c29] text-white">
-      <Image
-        src="/images/pride.png"
-        alt=""
-        width={548}
-        height={43}
-        priority
-      />
-      <Image
-        src="/images/google-play.png"
-        alt=""
-        width={144}
-        height={42}
-        priority
-      />
+    <section className="bg-[#040c29] text-white">
+      <div className="flex-cb container py-6">
+        <Image
+          src="/images/pride.png"
+          alt=""
+          width={548}
+          height={43}
+          priority
+        />
+        <Hyperlink title="Play Store" href={APP.androidAppUrl}>
+          <Image
+            src="/images/google-play.png"
+            alt=""
+            width={144}
+            height={42}
+            priority
+          />
+        </Hyperlink>
+      </div>
     </section>
   );
 };
