@@ -107,7 +107,7 @@ export const Checkbox = ({ children }: PropsWithChildren) => {
 
 export const SubmitButton = ({ children }: PropsWithChildren) => {
   return (
-    <button type="submit" className="auth-submit-btn mt-5">
+    <button type="submit" className="auth-solid-btn btn mt-5">
       {children}
     </button>
   );

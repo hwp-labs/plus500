@@ -14,11 +14,11 @@ export const Nav = () => {
     <nav className="show-lg-block">
       <ul className="flex-cs">
         {nav.map((item, i) => (
-          <li key={i} className="text-[15px]">
+          <li key={i} className="">
             {item.menu ? (
               <MenuButton>{item.label}</MenuButton>
             ) : (
-              <Link href="#" className="ghost-btn">
+              <Link href="#" className="ghost-btn btn">
                 {item.label}
               </Link>
             )}

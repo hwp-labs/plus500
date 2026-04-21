@@ -11,7 +11,7 @@ export const OAuthButtons = ({ children }: PropsWithChildren) => {
   //
   return (
     <div className="flex-col-cc debug_ gap-4">
-      <p className="text-ash5 text-xl font-roboto">{children}</p>
+      <p className="text-ash5 text-xl">{children}</p>
       <ul className="flex-cc gap-6">
         {data.map(({ url, icon }, i) => {
           const lastButton = i === data.length - 1;

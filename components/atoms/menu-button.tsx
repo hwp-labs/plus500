@@ -3,7 +3,7 @@ import { IconChevronDown } from "@tabler/icons-react";
 
 export const MenuButton = ({ children }: PropsWithChildren) => {
   return (
-    <button className="flex-cs ghost-btn group gap-1">
+    <button className="flex-cs ghost-btn btn group gap-1">
       {children}
       <IconChevronDown
         size={24}

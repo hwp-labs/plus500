@@ -1,0 +1,23 @@
+@layer components {
+  .btn {
+    @apply font-f1 flex cursor-pointer items-center justify-center whitespace-nowrap transition-colors duration-300;
+  }
+  .btn-lg {
+    @apply px-20 py-4.5 text-xl font-medium inline-block;
+  }
+  .ghost-btn {
+    @apply hover:bg-primary-hover hover:text-tertiary font-medium text-white h-[36px] rounded-lg px-3;
+  }
+  .tonal-btn {
+    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+  }
+  .solid-btn {
+    @apply text-secondary hover:bg-secondary rounded-lg bg-white hover:text-white;
+  }
+  .outline-btn {
+    @apply rounded-lg border-2 border-white;
+  }
+  .auth-solid-btn {
+    @apply bg-primary hover:bg-secondary w-full rounded px-4 py-2.5 font-medium text-white;
+  }
+}

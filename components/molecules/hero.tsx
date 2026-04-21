@@ -4,10 +4,9 @@ import { PATH } from "@/constants/PATH";
 
 export const Hero = () => {
   return (
-    <section className="bg-primary relative overflow-hidden text-white">
-      <div className="absolute inset-0 bg-[url('/images/hero.png')] bg-cover bg-right" />
-      <div className="flex-cs relative container min-h-[600px] px-6">
-        <div className="debug2_ max-w-2xl">
+    <section className="bg-primary bg-[url('/images/hero.png')] bg-cover bg-center text-white">
+      <div className="flex-cs container min-h-[600px] px-6">
+        <div className="max-w-2xl">
           {renderTitle}
           {renderDescription}
           {renderCta}
@@ -20,31 +19,31 @@ export const Hero = () => {
 };
 
 const renderTitle = (
-  <hgroup className="text-5xl leading-14 font-bold">
+  <hgroup className="text-[40px] leading-12 font-bold font-f2">
     <h1 className="">Volatility fuels markets</h1>
     <h1 className="text-tertiary">Ride the Oil & Gold wave</h1>
   </hgroup>
 );
 
 const renderDescription = (
-  <h2 className="mt-5 text-3xl text-[#82b6fe]">
+  <h2 className="mt-5 text-3xl text-[#82b6fe] font-f2">
     Trade Futures & Prediction Markets in one app.
   </h2>
 );
 
 const renderCta = (
   <div className="my-10 space-x-6">
-    <Link href={PATH.register} className="tonal-btn lg-btn">
+    <Link href={PATH.register} className="tonal-btn btn-lg btn">
       Start Trading Now
     </Link>
-    <Link href={PATH.register + "?demo=true"} className="solid-btn lg-btn">
+    <Link href={PATH.register + "?demo=true"} className="solid-btn btn-lg btn">
       Try FREE Demo
     </Link>
   </div>
 );
 
 const renderPerksList = (
-  <ul className="flex-cc font-roboto text-xl font-semibold [&>li]:px-5 [&>li]:py-0.5 [&>li]:whitespace-nowrap">
+  <ul className="flex-cc text-xl font-semibold [&>li]:px-5 [&>li]:py-0.5 [&>li]:whitespace-nowrap">
     <li className="border-r-1">Free Live Charts</li>
     <li className="border-r-1">No Platform Fees</li>
     <li className="">Advanced Technology</li>

@@ -1,0 +1,20 @@
+@layer components {
+  .auth-input-container {
+    @apply border-ash3 focus-within:border-secondary flex items-end gap-2 border-b px-2.5 py-2 transition-colors;
+  }
+  .auth-input-wrapper {
+    @apply grid w-full gap-1;
+  }
+  .auth-label {
+    @apply text-ash5 text-xs;
+  }
+  .auth-input {
+    @apply font-f1 w-full border-none outline-none focus:border-none focus:ring-0 focus:outline-none;
+  }
+  .auth-checkbox-container {
+    @apply flex cursor-pointer items-center gap-2.5 text-sm;
+  }
+  .auth-checkbox {
+    @apply bg-ash2 hover:bg-ash3 flex size-6 items-center justify-center rounded transition-colors;
+  }
+}

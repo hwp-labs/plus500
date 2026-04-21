@@ -8,7 +8,7 @@ import { PATH } from "@/constants/PATH";
 
 export const Header = () => {
   return (
-    <header className="bg-primary px-4 py-2.5 lg:py-4">
+    <header className="bg-primary px-2 py-2 lg:py-4">
       <div className="flex-cb container">
         <a href={PATH.home} title="Home">
           <Logo />
@@ -17,14 +17,14 @@ export const Header = () => {
         <div className="show-lg-block">
           <div className="flex-cs gap-4">
             <MenuButton>EN</MenuButton>
-            <Link href={PATH.login} className="tonal-btn px-8 py-2">
+            <Link href={PATH.login} className="tonal-btn btn px-14 h-[38px]">
               Start Trading
             </Link>
           </div>
         </div>
         <div className="hide-lg-block">
           <div className="flex-cs gap-4">
-            <Link href={PATH.login} className="tonal-btn px-5 py-2">
+            <Link href={PATH.login} className="tonal-btn btn px-4.5 h-[38px]">
               Trade
             </Link>
             <button className="">

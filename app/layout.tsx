@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { METADATA } from "@/constants/META";
-import { fontPoppins, fontRoboto } from "@/constants/FONT";
+import { robotoFont, poppinsFont } from "@/constants/FONT";
 import "../styles/globals.css";
 
 export const metadata: Metadata = METADATA;
@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontPoppins.variable} ${fontRoboto.variable} h-full antialiased`}
+      className={`${robotoFont.variable} ${poppinsFont.variable} h-full antialiased`}
     >
       <body className="">{children}</body>
     </html>

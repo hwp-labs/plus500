@@ -4,7 +4,8 @@
 
 @import "./media-query.css";
 @import "./flex.css";
-@import "./form.css";
+@import "./buttons.css";
+@import "./inputs.css";
 
 @variant dark (&:where(.dark, .dark *));
 
@@ -41,8 +42,8 @@
 }
 
 @theme inline {
-  --font-poppins: var(--font-poppins);
-  --font-roboto: var(--font-roboto);
+  --font-f1: var(--font-roboto);
+  --font-f2: var(--font-poppins);
   /*  */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -71,7 +72,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins);
+  font-family: var(--font-roboto);
 }
 
 .dark body,

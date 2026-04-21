@@ -1,5 +1,5 @@
 @layer components {
   .link {
-    @apply text-primary font-roboto hover:text-[#356ebb];
+    @apply text-primary hover:text-[#356ebb];
   }
 }

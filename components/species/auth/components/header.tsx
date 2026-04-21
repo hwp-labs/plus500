@@ -15,7 +15,7 @@ export const Header = () => {
             </Link>
           </div>
           <div className="flex-ce flex-1">
-            <select className="border-ash4 font-roboto focus:border-ash7 w-[150px] rounded-lg border px-2 py-1.5 text-sm">
+            <select className="border-ash4 focus:border-ash7 w-[150px] rounded-lg border px-2 py-1.5 text-sm">
               <option value="eng">English</option>
               <option value="esp">Espa&ntilde;ol</option>
             </select>
@@ -27,7 +27,7 @@ export const Header = () => {
           <Link href={PATH.home} title="Home">
             <LogoAuth mobile />
           </Link>
-          <select className="border-ash4 font-roboto focus:border-ash7 rounded-lg border px-2 py-1.5 text-sm">
+          <select className="border-ash4 focus:border-ash7 rounded-lg border px-2 py-1.5 text-sm">
             <option value="eng">English</option>
             <option value="esp">Espa&ntilde;ol</option>
           </select>

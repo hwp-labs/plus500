@@ -5,7 +5,7 @@ import { APP } from "@/constants/APP";
 export const Ribbon = () => {
   return (
     <section className="bg-[#040c29] text-white">
-      <div className="flex-cb container py-6">
+      <figure className="flex-cb container py-6">
         <Image
           src="/images/pride.png"
           alt=""
@@ -22,7 +22,7 @@ export const Ribbon = () => {
             priority
           />
         </Hyperlink>
-      </div>
+      </figure>
     </section>
   );
 };
