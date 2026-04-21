@@ -27,7 +27,7 @@ export default function LoginPage() {
         <div className="mt-5 mb-5 lg:mb-10">
           <OAuthButtons>or log in with</OAuthButtons>
         </div>
-        <div className="mt-10">
+        <div className="mt-8 mb-4">
           <Checkbox>Keep me logged in</Checkbox>
         </div>
       </AuthContainer>

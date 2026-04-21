@@ -16,7 +16,7 @@ export const MOCK = {
     show: devMode,
   },
   auth: {
-    portal: 1,
+    portal: 0,
     formData: 0,
     action: 0,
     router: 0,

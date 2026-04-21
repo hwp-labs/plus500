@@ -23,9 +23,9 @@ export default function ForgotPasswordPage() {
         </Alert>
         <Email />
         <SubmitButton>Send Email</SubmitButton>
-        <div className="flex-cc">
+        <div className="flex-cc mb-4">
           <Link href={PATH.login} className="link">
-            Cancel 
+            Cancel
             {/* change to "Log in" onSubmitted */}
           </Link>
         </div>
