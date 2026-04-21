@@ -33,6 +33,6 @@
     @apply bg-primary hover:bg-secondary font-roboto block w-full rounded px-4 py-2.5 font-medium text-white transition-colors;
   }
   .link {
-    @apply hover:text-[#356ebb] text-primary;
+    @apply hover:text-[#356ebb] text-primary font-roboto;
   }
 }

@@ -9,9 +9,20 @@ import {
   IconCheck,
 } from "@tabler/icons-react";
 import clsx from "clsx";
+import { MOCK } from "@/constants/MOCK";
+
+const form = MOCK.auth.formData
+  ? {
+      email: "dehphantom@yahoo.com",
+      password: "$Thatplus500b0y",
+    }
+  : {
+      email: "",
+      password: "",
+    };
 
 export const Email = () => {
-  const [value, setValue] = useState("dehphantom@yahoo.com");
+  const [value, setValue] = useState(form.email);
   //
   return (
     <div className="auth-input-container">
@@ -33,8 +44,7 @@ export const Email = () => {
 };
 
 export const Password = () => {
-  // const [value, setValue] = useState("$Thatplus500b0y");
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(form.password);
   const [show, setShow] = useState(false);
   //
   return (
@@ -97,7 +107,7 @@ export const Checkbox = ({ children }: PropsWithChildren) => {
 
 export const SubmitButton = ({ children }: PropsWithChildren) => {
   return (
-    <button type="submit" className="auth-submit-btn">
+    <button type="submit" className="auth-submit-btn mt-5">
       {children}
     </button>
   );

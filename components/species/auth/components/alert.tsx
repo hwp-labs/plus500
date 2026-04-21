@@ -5,18 +5,20 @@ import { IconX } from "@tabler/icons-react";
 import clsx from "clsx";
 //
 import { ErrorVariantType } from "@/types";
+import { MOCK } from "@/constants/MOCK";
 
+const form = MOCK.auth.portal
 interface AlertProps extends PropsWithChildren {
   variant?: ErrorVariantType;
 }
 
 export const Alert = ({ children, variant = "danger" }: AlertProps) => {
-  const [show, setShow] = useState(children ? true : false);
+  const [show, setShow] = useState(Boolean(form));
   //
   return show ? (
     <div
       className={clsx(
-        "flex-sb font-roboto px-2.5 py-3 text-[#fefafd] mt-5",
+        "flex-sb font-roboto px-2.5 py-3 text-[#fefafd] mt-4",
         {
           info: "bg-info",
           success: "bg-success",

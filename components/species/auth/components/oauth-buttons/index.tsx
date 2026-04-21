@@ -10,8 +10,8 @@ export const OAuthButtons = ({ children }: PropsWithChildren) => {
   const open = usePopupWindow();
   //
   return (
-    <div className="flex-col-cc debug_ mt-5 mb-10 gap-4">
-      <p className="text-ash5 text-lg">{children}</p>
+    <div className="flex-col-cc debug_ gap-4">
+      <p className="text-ash5 text-xl font-roboto">{children}</p>
       <ul className="flex-cc gap-6">
         {data.map(({ url, icon }, i) => {
           const lastButton = i === data.length - 1;
