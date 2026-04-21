@@ -27,6 +27,10 @@
     @apply flex items-start justify-center;
   }
 
+  .flex-col-cc {
+    @apply flex flex-col items-center justify-center;
+  }
+
   .flex-col-end {
     @apply flex flex-col items-end;
   }

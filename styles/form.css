@@ -10,12 +10,15 @@
   }
   .outline-btn {
     @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
-  }
-  .submit-btn {
-    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
-  } */
+  }*/
   .auth-input-container {
-    @apply border-ash3 focus-within:border-secondary flex items-center gap-2 border-b px-2.5 py-2;
+    @apply border-ash3 focus-within:border-secondary flex items-end gap-2 border-b px-2.5 py-2;
+  }
+  .auth-input-wrapper {
+    @apply grid w-full gap-1;
+  }
+  .auth-label {
+    @apply text-ash5 text-xs;
   }
   .auth-input {
     @apply font-roboto w-full border-none outline-none focus:border-none focus:ring-0 focus:outline-none;
@@ -24,12 +27,12 @@
     @apply font-roboto flex cursor-pointer items-center gap-2.5 text-sm;
   }
   .auth-checkbox {
-    @apply bg-ash2 hover:bg-ash3 flex size-6 items-center justify-center rounded;
+    @apply bg-ash2 hover:bg-ash3 flex size-6 items-center justify-center rounded transition-colors;
   }
   .auth-submit-btn {
     @apply bg-primary hover:bg-secondary font-roboto block w-full rounded px-4 py-2.5 font-medium text-white transition-colors;
   }
   .link {
-    @apply hover:text-secondary text-primary;
+    @apply hover:text-[#356ebb] text-primary;
   }
 }

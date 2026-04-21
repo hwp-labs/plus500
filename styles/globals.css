@@ -22,6 +22,7 @@
   --warning: #ed6c02;
   --danger: #d93e3e;
   /*  */
+  --ash1: #f3f4f6;
   --ash2: #e5e7eb;
   --ash3: #d1d5dc;
   --ash4: #99a1af;
@@ -56,6 +57,7 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
   /*  */
+  --color-ash1: var(--ash1);
   --color-ash2: var(--ash2);
   --color-ash3: var(--ash3);
   --color-ash4: var(--ash4);

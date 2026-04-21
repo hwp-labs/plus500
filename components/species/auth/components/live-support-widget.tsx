@@ -1,13 +1,11 @@
 "use client";
 
-import React from "react";
 import { IconMessageDots } from "@tabler/icons-react";
-import Link from "next/link";
 
 export const LiveSupportWidget = () => {
   return (
-    <button className="">
-      <IconMessageDots />
+    <button className="flex-cc bg-ash1 text-primary hover:bg-secondary w-full gap-2 px-4 py-3 text-sm font-medium transition-colors hover:text-white">
+      <IconMessageDots size={18} />
       Live Support
     </button>
   );

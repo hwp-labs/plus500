@@ -15,44 +15,57 @@ export const Email = () => {
   //
   return (
     <div className="auth-input-container">
-      <IconMail className="text-ash4" />
-      <input
-        type="email"
-        placeholder="Email"
-        value={value}
-        onChange={(ev) => setValue(ev.currentTarget.value)}
-        className="auth-input"
-      />
+      <IconMail size={28} className="text-ash4" />
+      <div className="auth-input-wrapper">
+        <label className={clsx("auth-label", !value.length && "text-white")}>
+          Email
+        </label>
+        <input
+          type="email"
+          placeholder="Email"
+          value={value}
+          onChange={(ev) => setValue(ev.currentTarget.value)}
+          className="auth-input"
+        />
+      </div>
     </div>
   );
 };
 
 export const Password = () => {
-  const [value, setValue] = useState("$Thatplus500b0y");
+  // const [value, setValue] = useState("$Thatplus500b0y");
+  const [value, setValue] = useState("");
   const [show, setShow] = useState(false);
   //
   return (
     <div className="auth-input-container">
-      <IconLockPassword className="text-ash4" />
-      <input
-        type={show ? "text" : "password"}
-        placeholder="Password"
-        value={value}
-        onChange={(ev) => setValue(ev.currentTarget.value)}
-        className="auth-input"
-      />
-      <button
-        type="button"
-        onClick={() => setShow((p) => !p)}
-        title={show ? "Hide" : "Show"}
-        className="cursor-pointer"
-      >
-        {show ? (
-          <IconEyeOff className="text-ash4" />
-        ) : (
-          <IconEye className="text-ash4" />
-        )}
-      </button>
+      <IconLockPassword size={28} className="text-ash4" />
+      <div className="auth-input-wrapper">
+        <label className={clsx("auth-label", !value.length && "text-white")}>
+          Password
+        </label>
+        <div className="flex-cb">
+          <input
+            type={show ? "text" : "password"}
+            placeholder="Password"
+            value={value}
+            onChange={(ev) => setValue(ev.currentTarget.value)}
+            className="auth-input"
+          />
+          <button
+            type="button"
+            onClick={() => setShow((p) => !p)}
+            title={show ? "Hide" : "Show"}
+            className="cursor-pointer"
+          >
+            {show ? (
+              <IconEyeOff size={28} className="text-ash4" />
+            ) : (
+              <IconEye size={28} className="text-ash4" />
+            )}
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
@@ -83,5 +96,9 @@ export const Checkbox = ({ children }: PropsWithChildren) => {
 };
 
 export const SubmitButton = ({ children }: PropsWithChildren) => {
-  return <button className="auth-submit-btn">{children}</button>;
+  return (
+    <button type="submit" className="auth-submit-btn">
+      {children}
+    </button>
+  );
 };

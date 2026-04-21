@@ -16,7 +16,7 @@ export const Alert = ({ children, variant = "danger" }: AlertProps) => {
   return show ? (
     <div
       className={clsx(
-        "flex-sb font-roboto px-2.5 py-3 text-[#fefafd]",
+        "flex-sb font-roboto px-2.5 py-3 text-[#fefafd] mt-5",
         {
           info: "bg-info",
           success: "bg-success",
