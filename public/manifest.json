@@ -1,0 +1,45 @@
+{
+  "id": "/v1",
+  "name": "Plus500",
+  "short_name": "Plus500",
+  "description": "Futures Trading Platform | Trade Futures Online | Plus500",
+  "background_color": "#0c2780",
+  "theme_color": "#0c2780",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "ltr",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Trading Now",
+      "short_name": "Start Trading",
+      "url": "/login"
+    },
+    {
+      "name": "Try FREE Demo",
+      "short_name": "FREE Demo",
+      "url": "/register?demo=true"
+    }
+  ]
+}

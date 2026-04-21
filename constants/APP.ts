@@ -16,11 +16,11 @@ export const APP = {
   launchData: "2026-04-20T09:00:00.000",  
   domain: "plus5000.vercel.app",
   website: "https://plus5000.vercel.app",
+  email: "no-reply@plus5000.vercel.app",
+  tel: "",
   socialPreview: {
     src: "https://plus5000.vercel.app/social-preview.png",
     width: 640,
     height: 320,
   },
-  email: "no-reply@plus5000.vercel.app",
-  tel: "",
 } as const;

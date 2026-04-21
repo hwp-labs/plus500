@@ -38,7 +38,7 @@ const renderCta = (
       Start Trading Now
     </Link>
     <Link href={PATH.register + "?demo=true"} className="solid-btn lg-btn">
-      Try free demo
+      Try FREE Demo
     </Link>
   </div>
 );
