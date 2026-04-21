@@ -1,18 +1,21 @@
 @layer components {
+  .lg-btn {
+    @apply px-20 py-4.5 text-xl font-medium inline-block;
+  }
   .ghost-btn {
-    @apply hover:bg-primary-hover hover:text-tertiary cursor-pointer rounded-md px-3.5 py-1.5 font-medium whitespace-nowrap text-white;
+    @apply hover:bg-primary-hover hover:text-tertiary cursor-pointer rounded-md px-3.5 py-1.5 font-medium whitespace-nowrap text-white transition-colors font-roboto;
   }
   .tonal-btn {
-    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+    @apply hover:text-primary font-roboto rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white transition-colors hover:from-[#53e3ef] hover:to-[#1ebafc];
   }
-  /* .solid-btn {
-    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+  .solid-btn {
+    @apply text-secondary hover:bg-secondary rounded-lg bg-white hover:text-white;
   }
   .outline-btn {
     @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] whitespace-nowrap text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
-  }*/
+  }
   .auth-input-container {
-    @apply border-ash3 focus-within:border-secondary flex items-end gap-2 border-b px-2.5 py-2;
+    @apply border-ash3 focus-within:border-secondary flex items-end gap-2 border-b px-2.5 py-2 transition-colors;
   }
   .auth-input-wrapper {
     @apply grid w-full gap-1;
@@ -31,8 +34,5 @@
   }
   .auth-submit-btn {
     @apply bg-primary hover:bg-secondary font-roboto block w-full rounded px-4 py-2.5 font-medium text-white transition-colors;
-  }
-  .link {
-    @apply hover:text-[#356ebb] text-primary font-roboto;
   }
 }

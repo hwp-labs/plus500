@@ -8,9 +8,12 @@ import {
   SubmitButton,
 } from "@/components/species/auth/components/form-builder";
 import { OAuthButtons } from "@/components/species/auth/components/oauth-buttons";
+import { PageParams } from "@/types";
 import { PATH } from "@/constants/PATH";
 
-export default function RegisterPage() {
+export default async function RegisterPage({ searchParams }: PageParams) {
+  const searchParamsAsync = await searchParams;
+  //
   return (
     <>
       <AuthContainer>
@@ -22,7 +25,9 @@ export default function RegisterPage() {
           <Email />
           <Password />
         </div>
-        <SubmitButton>Create Demo Account</SubmitButton>
+        <SubmitButton>
+          {searchParamsAsync.demo ? "Create Demo Account" : "Create Account"}
+        </SubmitButton>
         <div className="flex-ce">
           <Link href={PATH.login} className="link">
             Already have an account?

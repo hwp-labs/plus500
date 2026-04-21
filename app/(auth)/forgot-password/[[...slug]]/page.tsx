@@ -23,10 +23,10 @@ export default function ForgotPasswordPage() {
         </Alert>
         <Email />
         <SubmitButton>Send Email</SubmitButton>
-        <div className="flex-cc mb-4">
+        <div className="flex-cc my-4">
           <Link href={PATH.login} className="link">
-            Cancel
             {/* change to "Log in" onSubmitted */}
+            Cancel
           </Link>
         </div>
       </AuthContainer>

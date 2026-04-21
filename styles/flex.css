@@ -31,7 +31,11 @@
     @apply flex flex-col items-center justify-center;
   }
 
-  .flex-col-end {
+  .flex-col-xc {
+    @apply flex flex-col justify-center;
+  }
+
+  .flex-col-xe {
     @apply flex flex-col items-end;
   }
 }

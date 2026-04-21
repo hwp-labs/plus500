@@ -8,7 +8,7 @@ export const Header = () => {
     <section>
       <div className="show-md-block">
         <header className="flex-cb px-10 py-2">
-          <div className="debug_ flex-1" />
+          <div className="debug_ flex-1">&nbsp;</div>
           <div className="debug_ flex-cc flex-1">
             <Link href={PATH.home} title="Home">
               <LogoAuth />

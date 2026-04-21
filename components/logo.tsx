@@ -3,7 +3,7 @@ import Image from "next/image";
 // https://nextjs.org/docs/app/api-reference/components/image
 
 export const Logo = () => (
-  <Image src="/logo-white.png" alt="" width="160" height="38" priority />
+  <Image src="/logo.png" alt="" width="160" height="38" priority />
 );
 
 export const LogoAuth = ({ mobile }: { mobile?: boolean }) =>
