@@ -7,7 +7,7 @@ export const Ribbon = () => {
     <section className="bg-[#040c29] text-white">
       <figure className="flex-cb container py-6">
         <Image
-          src="/images/pride.png"
+          src="/images/ribbon-pride.png"
           alt=""
           width={548}
           height={43}

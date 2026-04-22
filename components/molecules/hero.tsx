@@ -4,7 +4,7 @@ import { PATH } from "@/constants/PATH";
 
 export const Hero = () => {
   return (
-    <section className="bg-primary bg-[url('/images/hero.png')] bg-cover bg-center text-white">
+    <section className="bg-primary bg-[url('/images/cover-hero.png')] bg-cover bg-center text-white">
       <div className="flex-cs container min-h-[600px] px-6">
         <div className="max-w-2xl">
           {renderTitle}
@@ -53,14 +53,14 @@ const renderPerksList = (
 const renderApprovals = (
   <figure className="flex-cc mt-12 gap-12">
     <Image
-      src="/images/fx-empire.png"
+      src="/images/hero-fx-empire.png"
       alt=""
       width={226}
       height={91}
       priority
     />
     <Image
-      src="/images/trust-pilot.png"
+      src="/images/hero-trust-pilot.png"
       alt=""
       width={206}
       height={108}

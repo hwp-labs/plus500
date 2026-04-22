@@ -13,7 +13,7 @@ const data = [
 
 export const PaymentMethods = () => {
   return (
-    <section className="flex-col-cc min-h-[800px] space-y-5 bg-[url('/images/white-crosses.png')] bg-contain bg-no-repeat">
+    <section className="flex-col-cc min-h-[800px] space-y-5 bg-[url('/images/cover-white-crosses.png')] bg-contain bg-no-repeat">
       <hgroup className="max-w-2xl space-y-5 text-center">
         <h1 className="text-5xl leading-12 font-bold text-[#136de8]">
           Futures markets finally made accessible!
