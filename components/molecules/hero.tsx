@@ -1,6 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
-import { PATH } from "@/constants/PATH";
+import { CtaButtons } from "./cta-buttons";
 
 export const Hero = () => {
   return (
@@ -9,7 +8,7 @@ export const Hero = () => {
         <div className="max-w-2xl">
           {renderTitle}
           {renderDescription}
-          {renderCta}
+          <CtaButtons className="my-10 gap-6" />
           {renderPerksList}
           {renderApprovals}
         </div>
@@ -19,27 +18,16 @@ export const Hero = () => {
 };
 
 const renderTitle = (
-  <hgroup className="text-[40px] leading-12 font-bold font-f2">
+  <hgroup className="font-f2 text-[40px] leading-12 font-bold">
     <h1 className="">Volatility fuels markets</h1>
     <h1 className="text-tertiary">Ride the Oil & Gold wave</h1>
   </hgroup>
 );
 
 const renderDescription = (
-  <h2 className="mt-5 text-3xl text-[#82b6fe] font-f2">
+  <h2 className="font-f2 mt-5 text-3xl text-[#82b6fe]">
     Trade Futures & Prediction Markets in one app.
   </h2>
-);
-
-const renderCta = (
-  <div className="my-10 space-x-6">
-    <Link href={PATH.register} className="tonal-btn btn-lg btn">
-      Start Trading Now
-    </Link>
-    <Link href={PATH.register + "?demo=true"} className="solid-btn btn-lg btn">
-      Try FREE Demo
-    </Link>
-  </div>
 );
 
 const renderPerksList = (
