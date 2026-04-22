@@ -3,9 +3,9 @@ import { CtaButtons } from "./cta-buttons";
 
 export const Hero = () => {
   return (
-    <section className="bg-primary bg-[url('/images/cover-hero.png')] bg-cover bg-center text-white">
-      <div className="flex-cs container min-h-[600px] px-6">
-        <div className="max-w-2xl">
+    <section className="bg-primary debug_ bg-[url('/images/cover-hero.png')] bg-cover bg-center text-white">
+      <div className="flex-cs container min-h-[580px]">
+        <div className="wrapper-sm  pl-8 pr-20">
           {renderTitle}
           {renderDescription}
           <CtaButtons className="my-10 gap-6" />

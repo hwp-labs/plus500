@@ -1,27 +1,47 @@
 @layer utilities {
   .debug {
-    @apply border border-dashed  border-red-500;
+    @apply border border-dashed border-red-500;
   }
 
   .debug1 {
-    @apply border border-dashed  border-gray-500;
+    @apply border border-dashed border-gray-500;
   }
 
   .debug2 {
-    @apply border border-dashed  border-green-500;
+    @apply border border-dashed border-green-500;
   }
 
   .debug3 {
-    @apply border border-dashed  border-blue-500;
+    @apply border border-dashed border-blue-500;
   }
-  
+
   .debug4 {
-    @apply border border-dashed  border-yellow-500;
+    @apply border border-dashed border-yellow-500;
   }
 }
 
 @layer utilities {
   .container {
-    @apply mx-auto max-w-7xl;
+    @apply mx-auto w-[1380px];
+  }
+
+  .container-md {
+    @apply mx-auto w-[1152px];
+  }
+
+  .container-sm {
+    @apply mx-auto w-[768px];
+  }
+
+  .wrapper {
+    @apply w-[1380px];
+  }
+
+  .wrapper-md {
+    @apply w-[1152px];
+  }
+
+  .wrapper-sm {
+    @apply w-[768px];
   }
 }

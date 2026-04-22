@@ -1,11 +1,12 @@
 import Image from "next/image";
+// 
 import { Hyperlink } from "../atoms/hyperlink";
 import { APP } from "@/constants/APP";
 
 export const Ribbon = () => {
   return (
-    <section className="bg-[#040c29] text-white">
-      <figure className="flex-cb container py-6">
+    <section className="bg-[#040c29] text-white py-8">
+      <figure className="flex-cb container">
         <Image
           src="/images/ribbon-pride.png"
           alt=""

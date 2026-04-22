@@ -1,13 +1,14 @@
-import { PATH } from "@/constants/PATH";
-import { IconGift } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
+import { IconGift } from "@tabler/icons-react";
+// 
 import { CtaButtons } from "./cta-buttons";
+import { PATH } from "@/constants/PATH";
 
 export const TradingBenefits = () => {
   return (
     <section className="flex-col-cc min-h-[960px] bg-[url('/images/cover-blue-crosses.png')] bg-contain">
-      <h1 className="mt-40 text-5xl leading-12 font-bold text-[#11afff]">
+      <h1 className="container-sm text-tertiary mt-40 text-5xl leading-12 font-bold">
         Benefits of Trading with Plus500
       </h1>
       <ul className="flex-sb container flex-wrap text-white">
@@ -17,20 +18,18 @@ export const TradingBenefits = () => {
               <Image src={icon} alt="" width={100} height={100} />
             </figure>
             <h2 className="mt-5 text-[32px] font-light">{title}</h2>
-            <p className="text-lg leading-8">{description}</p>
+            <p className="text-lg leading-6">{description}</p>
           </li>
         ))}
       </ul>
-      <div className="my-20">
+      <div className="container-sm mt-20">
         <CtaButtons className="gap-4" />
-        <Link
-          href={PATH.register + "?demo=true"}
-          className="outline-btn btn-lg btn mt-4"
-        >
+        <Link href={PATH.hash} className="outline-btn btn-lg btn mt-4">
           <IconGift />
-          <div>Discover our bonuses</div>
+          Discover our bonuses
         </Link>
       </div>
+      <div className="min-h-[250px]"></div>
     </section>
   );
 };

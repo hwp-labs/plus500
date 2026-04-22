@@ -8,7 +8,7 @@ import { PATH } from "@/constants/PATH";
 
 export const Header = () => {
   return (
-    <header className="bg-primary px-2 py-2 lg:py-4">
+    <header className="bg-primary px-2 py-2 lg:py-4 sticky top-0 z-50">
       <div className="flex-cb container">
         <a href={PATH.home} title="Home">
           <Logo />
