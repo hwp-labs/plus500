@@ -31,6 +31,10 @@
     @apply flex items-start justify-end;
   }
 
+  .flex-sx {
+    @apply flex items-start;
+  }
+
   .flex-col-cc {
     @apply flex flex-col items-center justify-center;
   }

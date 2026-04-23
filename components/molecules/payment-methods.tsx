@@ -3,12 +3,12 @@ import { IconBox } from "@tabler/icons-react";
 
 export const PaymentMethods = () => {
   return (
-    <section className="flex-col-cc min-h-[800px] bg-[url('/images/cover-white-crosses.png')] bg-contain bg-no-repeat">
+    <section className="flex-col-cc min-h-[800px] bg-[url('/images/cover-white-crosses.png')] bg-contain">
       <hgroup className="container-sm text-center">
         <h1 className="text-5xl leading-13 font-bold text-[#136de8]">
           Futures markets finally made accessible!
         </h1>
-        <h2 className="text-muted mt-5 text-[22px] leading-7 font-light px-10">
+        <h2 className="text-muted mt-5 px-10 text-[22px] leading-7 font-light">
           Discover a new way to trade with attractive day margins, and get
           access to a wide range of instruments.
           <br />
@@ -21,7 +21,7 @@ export const PaymentMethods = () => {
         {data.map(({ icon, label }, i) => (
           <li
             key={i}
-            className="border-primary text-primary btn gap-2 rounded-lg border px-5 py-4 text-lg font-semibold"
+            className="outline-pri-btn btn btn-lg text-lg font-semibold hover:shadow-2xl"
           >
             {icon}
             {label}

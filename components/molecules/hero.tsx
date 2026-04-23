@@ -5,7 +5,7 @@ export const Hero = () => {
   return (
     <section className="bg-primary debug_ bg-[url('/images/cover-hero.png')] bg-cover bg-center text-white">
       <div className="flex-cs container min-h-[580px]">
-        <div className="wrapper-sm  pl-8 pr-20">
+        <div className="wrapper-sm pr-20 pl-8">
           {renderTitle}
           {renderDescription}
           <CtaButtons className="my-10 gap-6" />

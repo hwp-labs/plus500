@@ -1,26 +1,32 @@
+/* hover:border-primary-hover  */
+
 @layer components {
   .btn {
-    @apply font-f1 flex cursor-pointer items-center justify-center whitespace-nowrap transition-colors duration-300;
+    @apply font-f1 flex h-[36px] cursor-pointer items-center justify-center rounded-lg border-2 border-inherit whitespace-nowrap transition-colors duration-300;
   }
 
   .btn-lg {
-    @apply gap-2 p-4.5 text-xl font-medium w-full;
+    @apply h-[62px]! w-full gap-2 p-5 text-xl font-medium;
   }
 
   .ghost-btn {
-    @apply hover:bg-primary-hover hover:text-tertiary h-[36px] rounded-lg px-3 font-medium text-white;
+    @apply hover:bg-primary-hover hover:text-tertiary border-primary hover:border-primary-hover px-3 font-medium text-white;
   }
 
   .tonal-btn {
-    @apply hover:text-primary rounded-lg bg-gradient-to-r from-[#13abfe] to-[#2d88fe] text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
+    @apply hover:text-primary h-[38px] border-0 bg-gradient-to-r from-[#13abfe] to-[#2d88fe] text-white hover:from-[#53e3ef] hover:to-[#1ebafc];
   }
 
   .solid-btn {
-    @apply text-secondary hover:bg-secondary rounded-lg bg-white hover:text-white;
+    @apply text-secondary hover:bg-secondary hover:border-secondary border-white bg-white hover:text-white;
   }
 
   .outline-btn {
-    @apply rounded-lg border-2 border-white text-white;
+    @apply border text-white hover:bg-[#184ab5];
+  }
+
+  .outline-pri-btn {
+    @apply border-primary text-primary hover:text-secondary hover:border-secondary border;
   }
 
   .auth-solid-btn {

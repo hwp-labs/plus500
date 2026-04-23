@@ -1,9 +1,10 @@
 import { Hero } from "@/components/molecules/hero";
 import { Ribbon } from "@/components/molecules/ribbon";
 import { PaymentMethods } from "@/components/molecules/payment-methods";
-import { TradingBenefits } from "@/components/molecules/trading-benefits";
+import { Benefits } from "@/components/molecules/benefits";
 import { FuturesAcademy } from "@/components/molecules/futures-academy";
-import { CustomerKpis } from "@/components/molecules/customer-kpis";
+import { Kpis } from "@/components/molecules/kpis";
+import { WhyUs } from "@/components/molecules/why-us";
 
 export default function HomePage() {
   return (
@@ -11,13 +12,14 @@ export default function HomePage() {
       <Hero />
       <Ribbon />
       <PaymentMethods />
-      <TradingBenefits />
+      <Benefits />
       <div className="relative">
-        <div className="absolute -top-30 w-full debug_">
+        <div className="debug_ absolute -top-30 w-full">
           <FuturesAcademy />
         </div>
-        <CustomerKpis />
+        <Kpis />
       </div>
+      <WhyUs />
     </>
   );
 }
