@@ -35,6 +35,10 @@
     @apply flex items-start;
   }
 
+  .flex-col-cb {
+    @apply flex flex-col items-center justify-between;
+  }
+
   .flex-col-cc {
     @apply flex flex-col items-center justify-center;
   }

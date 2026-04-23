@@ -7,29 +7,26 @@ import { CtaButtons } from "./cta-buttons";
 export const FuturesAcademy = () => {
   return (
     <section className="container-md bg-[url('/images/cover-cme-group.png')] bg-contain bg-no-repeat">
-      <div className="h-[490px] container-md  text-white"></div>
-      {/* <div className="flex-cs debug container hidden min-h-[600px] px-6">
-        <div className="max-w-2xl">
-          <figure className="flex-cc debug_ min-h-[110px]">
-            <Image
-              src="/images/cme-group.png"
-              alt=""
-              width={100}
-              height={100}
-            />
-            <figcaption className="text-tertiary mt-40 text-5xl leading-12 font-bold">
-              Futures Academy
-            </figcaption>
-          </figure>
-          <p className="">
-            Dive into our articles and videos to get an in-depth look at all you
-            need to know about Futures trading.
-          </p>
-          <Link href={PATH.hash} className="solid-btn btn-lg btn text-primary">
+      <div className="flex-col-sc h-[500px] w-[700px] px-20 text-white">
+        <figure className="flex-col-cc mt-12 gap-2">
+          <Image src="/images/cme-group.png" alt="" width={183} height={161} />
+          <figcaption className="text-[32px] font-light">
+            Futures Academy
+          </figcaption>
+        </figure>
+        <p className="text-center text-lg leading-6 mt-3">
+          Dive into our articles and videos to get an in-depth look at all you
+          need to know about Futures trading.
+        </p>
+        <div className="mt-5 w-[300px] mx-auto">
+          <Link
+            href={PATH.hash}
+            className="solid-btn btn-lg btn text-primary hover:text-white"
+          >
             Learn to Trade
           </Link>
         </div>
-      </div> */}
+      </div>
     </section>
   );
 };

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export const Kpis = () => {
+export const Signals = () => {
   const [tuple, setTuple] = useState([0, 1]);
 
   useEffect(() => {

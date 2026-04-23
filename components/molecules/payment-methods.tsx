@@ -4,7 +4,7 @@ import { IconBox } from "@tabler/icons-react";
 export const PaymentMethods = () => {
   return (
     <section className="flex-col-cc min-h-[800px] bg-[url('/images/cover-white-crosses.png')] bg-contain">
-      <hgroup className="container-sm text-center">
+      <hgroup className="container-sm text-center my-20">
         <h1 className="text-5xl leading-13 font-bold text-[#136de8]">
           Futures markets finally made accessible!
         </h1>
@@ -28,7 +28,7 @@ export const PaymentMethods = () => {
           </li>
         ))}
       </ul>
-      <figure className="flex-cc mt-20">
+      <figure className="flex-cc mt-20 mb-40">
         <Image
           src="/images/payment-methods.png"
           alt=""
