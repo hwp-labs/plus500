@@ -1,8 +1,7 @@
-import { PATH } from "@/constants/PATH";
-import { IconGift } from "@tabler/icons-react";
-import Image from "next/image";
 import Link from "next/link";
-import { CtaButtons } from "./cta-buttons";
+import Image from "next/image";
+// 
+import { PATH } from "@/constants/PATH";
 
 export const FuturesAcademy = () => {
   return (

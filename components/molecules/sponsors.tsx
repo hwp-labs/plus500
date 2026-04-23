@@ -12,9 +12,8 @@ export const Sponsors = () => {
       </hgroup>
       <ul className="mt-30 grid grid-cols-3 gap-12">
         {data.map(({ uniform, logo, width, height }, i) => (
-          <li className="flex-col-cb group">
+          <li key={i} className="flex-col-cb group">
             <Image
-              key={i}
               src={uniform}
               alt=""
               width={360}

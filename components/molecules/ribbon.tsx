@@ -1,7 +1,5 @@
 import Image from "next/image";
-//
-import { Hyperlink } from "../atoms/hyperlink";
-import { APP } from "@/constants/APP";
+import { GooglePlayButton } from "../atoms/google-play-button";
 
 export const Ribbon = () => {
   return (
@@ -15,18 +13,10 @@ export const Ribbon = () => {
             height={43}
             priority
           />
-          <Hyperlink title="Play Store" href={APP.androidAppUrl}>
-            <Image
-              src="/images/google-play.png"
-              alt=""
-              width={144}
-              height={42}
-              priority
-            />
-          </Hyperlink>
+          <GooglePlayButton />
         </div>
       </div>
-      <div className="bg-gradient-to-b from-[#040c29]/20 h-[80px]"></div>
+      <div className="h-[80px] bg-gradient-to-b from-[#040c29]/20"></div>
     </section>
   );
 };

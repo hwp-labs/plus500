@@ -1,4 +1,6 @@
 import { Header } from "@/components/organisms/header";
+import { Footer } from "@/components/organisms/footer";
+import { Fab } from "@/components/organisms/fab";
 
 export default function MainLayout({
   children,
@@ -9,6 +11,8 @@ export default function MainLayout({
     <>
       <Header />
       {children}
+      <Footer />
+      <Fab />
     </>
   );
 }

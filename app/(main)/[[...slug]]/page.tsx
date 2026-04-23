@@ -21,9 +21,9 @@ export default function HomePage() {
           </div>
           <Signals />
         </div>
+        <WhyUs />
+        <Sponsors />
       </div>
-      <WhyUs />
-      <Sponsors />
     </>
   );
 }
