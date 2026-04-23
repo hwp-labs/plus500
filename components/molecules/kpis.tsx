@@ -22,17 +22,20 @@ export const Kpis = () => {
         <h2 className="text-primary container-sm text-[30px] leading-9 font-semibold">
           Over 33 million customers worldwide have already chosen Plus500.
         </h2>
-        <div className="flex-cs mt-10 h-[320px] bg-[url('/images/cover-worldwide.png')] bg-contain bg-no-repeat">
-          <div className="grid grid-cols-2 w-[1080px]">
-            {renderKpi(tuple[0])}
-            {renderKpi(tuple[1])}
+        <div className="relative mt-10 h-[320px] _debug px-10">
+          <div className="flex-cs absolute -right-10 size-full bg-[url('/images/cover-worldwide.png')] bg-contain bg-no-repeat">
+            <div className="grid w-[1070px] grid-cols-2">
+              {renderKpi(tuple[0])}
+              {renderKpi(tuple[1])}
+            </div>
           </div>
         </div>
-        <p className="text-muted mt-2 leading-5 mb-20">
+        <p className="text-muted mt-0 leading-5">
           * Instrument availability is subject to jurisdiction. Futures trading
           by U.S. market participants occurs through Plus500US Financial
           Services LLC, a registered futures commission merchant.
         </p>
+        <div className="min-h-[200px]"></div>
       </div>
     </section>
   );
