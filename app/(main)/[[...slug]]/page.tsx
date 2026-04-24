@@ -12,8 +12,8 @@ export default function HomePage() {
     <>
       <Hero />
         <Ribbon />
-      <div className="hidden">
         <PaymentMethods />
+      <div className="hidden">
         <Benefits />
         <div className="relative">
           <div className="debug_ absolute -top-30 w-full">

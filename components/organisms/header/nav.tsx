@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MenuButton } from "../atoms/menu-button";
+import { MenuButton } from "@/components/atoms/menu-button";
 
 const nav = [
   { label: "Markets", menu: true },

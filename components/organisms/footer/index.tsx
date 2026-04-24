@@ -1,23 +1,14 @@
-import Link from "next/link";
 import Image from "next/image";
 //
-import { GooglePlayButton } from "../atoms/google-play-button";
-import { PATH } from "@/constants/PATH";
+import { SocialLinks } from "./social-links";
+import { SiteLinks } from "./site-links";
 
 export const Footer = () => {
   return (
-    <footer className="min-h-[700px] bg-[#07183d] pt-25 text-white">
-      <div className="container flex gap-10">
-        <ul className="flex flex-1 flex-col gap-2.5">
-          {footerLinks.map((item, i) => (
-            <li key={i}>
-              <Link href={PATH.hash} className="hover:underline">
-                {item}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="w-[640px] pr-20">
+    <footer className="bg-[#07183d] px-2 pt-15 pb-20 lg:pb-0 text-white lg:min-h-[700px] lg:px-0 lg:pt-25">
+      <div className="container flex flex-wrap gap-10">
+        <SiteLinks />
+        <div className="lg:w-[640px] lg:pr-20">
           {renderArticle}
           <p className="mt-5">Web-Platform</p>
           <address className="flex-cs mt-10 gap-2">
@@ -25,42 +16,11 @@ export const Footer = () => {
             Secured by SSL. Copyright © Plus500. All rights reserved.
           </address>
         </div>
-        <div className="flex-1">
-          <p>Follow Us On</p>
-          <ul className="flex-cs mt-4 gap-4">
-            {socialMediaIcons.map((item, i) => (
-              <li key={i}>
-                <Image src={item} alt="" width={24} height={24} />
-              </li>
-            ))}
-          </ul>
-          <GooglePlayButton
-            classNames={{ a: "mt-20 inline-block", img: "w-[207px]" }}
-          />
-        </div>
+        <SocialLinks />
       </div>
     </footer>
   );
 };
-
-const footerLinks = [
-  "Accessibility Statement",
-  "Privacy Policy",
-  "Firm Disclosure",
-  "Risk Disclosure Statement",
-  "Terms & Agreements",
-  "Cookie Policy",
-];
-
-const socialMediaIcons = [
-  "/images/icon-app-fb.png",
-  "/images/icon-app-x.png",
-  "/images/icon-app-ig.png",
-  "/images/icon-app-in.png",
-  "/images/icon-app-yt.png",
-  "/images/icon-app-tg.png",
-  "/images/icon-app-tk.png",
-];
 
 const renderArticle = (
   <article className="leading-5">
@@ -82,6 +42,6 @@ const renderArticle = (
     Plus500US Financial Services LLC is a wholly-owned subsidiary of Plus500US
     Inc. Trading privileges subject to review and approval. Not all applicants
     will qualify. Information collected on account applications will be used to
-    verify an applicant’s identity, as required under Federal law.
+    verify an applicant's identity, as required under Federal law.
   </article>
 );

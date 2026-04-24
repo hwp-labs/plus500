@@ -11,8 +11,8 @@ export default function MainLayout({
     <>
       <Header />
       {children}
-      {/* <Footer />
-      <Fab /> */}
+      <Footer />
+      <Fab />
     </>
   );
 }
