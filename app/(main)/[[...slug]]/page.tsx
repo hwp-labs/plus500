@@ -12,6 +12,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Ribbon />
+        <WhyUs />
       <Sponsors />
       <div className="hidden">
         <PaymentMethods />
@@ -22,7 +23,6 @@ export default function HomePage() {
           </div>
           <Signals />
         </div>
-        <WhyUs />
       </div>
     </>
   );
