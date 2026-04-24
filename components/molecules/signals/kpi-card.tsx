@@ -16,7 +16,7 @@ export const KpiCard = () => {
   }, []);
   //
   return (
-    <div className="debug_ border-primary relative mt-10 h-[280px] lg:h-[320px] rounded-4xl lg:border-0 border-b-2 border-l-2 px-10">
+    <div className="debug_ border-primary relative mt-10 h-[280px] lg:h-[320px] rounded-b-4xl lg:border-0 border-b-2 border-l-2 px-10">
       <div className="-right-10 flex lg:size-full lg:items-center justify-center bg-contain bg-no-repeat lg:absolute lg:justify-start lg:bg-[url('/images/cover-worldwide.png')]">
         <div className="_debug grid gap-20 lg:w-[1070px] lg:grid-cols-2 lg:gap-0">
           {renderKpi(tuple[0])}
@@ -42,11 +42,11 @@ const renderKpi = (i: number) => {
   //
   return (
     <div className="text-primary text-center">
-      <h1 className="space-x-3 text-[30px] leading-5 font-medium lg:text-[50px] lg:leading-10 lg:font-semibold">
+      <h1 className="space-x-3 text-[28px] leading-5 font-medium lg:text-[50px] lg:leading-10 lg:font-semibold">
         <span>{value}</span>
         <span className="font-light">{valueSuffix}</span>
       </h1>
-      <h2 className="mt-1 text-[24px] font-light lg:mt-0 lg:text-[30px]">
+      <h2 className="mt-1 text-[22px] font-light lg:mt-0 lg:text-[30px]">
         {label}
       </h2>
     </div>

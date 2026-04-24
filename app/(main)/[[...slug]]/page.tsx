@@ -13,12 +13,10 @@ export default function HomePage() {
       <div className="hidden_">
         <Hero />
         <Ribbon />
-        {/* <PaymentMethods /> */}
+        <PaymentMethods />
         <Benefits />
         <div className="relative">
-          <div className="debug_ absolute -top-30 w-full">
-            {/* <FuturesAcademy /> */}
-          </div>
+          <FuturesAcademy />
           <Signals />
         </div>
         <WhyUs />

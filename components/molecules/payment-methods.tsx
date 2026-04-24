@@ -40,15 +40,16 @@ export const PaymentMethods = () => {
             {label}
           </li>
         ))}
-      </ul>
-      <figure className="flex-cc mt-20 mb-40">
+      </ul>*/}
+      <figure className="flex-cc mt-20 px-5 lg:px-0">
         <Image
           src="/images/payment-methods.png"
           alt=""
           width={746}
           height={58}
         />
-      </figure> */}
+      </figure> 
+      <div className="lg:min-h-[150px] min-h-[90px]"></div>
     </section>
   );
 };

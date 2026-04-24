@@ -4,7 +4,7 @@ import { Approvals } from "./approvals";
 export const Hero = () => {
   return (
     <section className="bg-primary bg-cover bg-center text-white lg:bg-[url('/images/cover-hero.png')]">
-      <div className="min-h-[250px] bg-[url('/images/cover-hero-mobile.png')] bg-contain bg-center bg-no-repeat lg:hidden"></div>
+      <div className="min-h-[250px] bg-[url('/images/cover-hero-mobile-2.png')] bg-contain bg-center bg-no-repeat lg:hidden"></div>
       <div className="sm:flex-cc lg:flex-cs container lg:min-h-[580px]">
         <div className="wrapper-sm pr-8 pl-8 text-center lg:pr-20 lg:pl-8 lg:text-left">
           {renderTitle}
@@ -20,10 +20,10 @@ export const Hero = () => {
 
 const renderTitle = (
   <hgroup className="font-f2 leading-8 lg:leading-12">
-    <h1 className="text-[28px] font-bold lg:text-[40px]">
+    <h1 className="text-[26px] font-bold lg:text-[40px]">
       Volatility fuels markets
     </h1>
-    <h1 className="text-secondary lg:text-tertiary text-[25px] font-medium lg:text-[40px] lg:font-bold">
+    <h1 className="text-tertiary text-[24px] font-medium_ lg:text-[40px] lg:font-bold">
       Ride the Oil & Gold wave
     </h1>
   </hgroup>

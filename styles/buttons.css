@@ -6,7 +6,7 @@
   }
 
   .btn-lg {
-    @apply h-[46px]! lg:h-[62px]! w-full gap-2 p-5 lg:text-xl lg:font-medium;
+    @apply h-[48px]! lg:h-[62px]! w-full gap-2 p-5 lg:text-xl lg:font-medium;
   }
 
   .ghost-btn {

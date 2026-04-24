@@ -13,7 +13,7 @@ export const SocialLinks = () => {
         ))}
       </ul>
       <GooglePlayButton
-        classNames={{ a: "mt-10 lg:mt-20 inline-block", img: "w-[207px]" }}
+        classNames={{ a: "mt-10 lg:mt-20 inline-block", img: "lg:w-[207px] w-[160px]" }}
       />
     </div>
   );

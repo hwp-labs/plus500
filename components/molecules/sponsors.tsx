@@ -12,7 +12,7 @@ export const Sponsors = () => {
           Sponsor
         </h2>
       </hgroup>
-      <ul className="mt-10 grid grid-cols-3 gap-12 lg:mt-30">
+      <ul className="mt-10 grid grid-cols-3 lg:gap-12 gap-2 lg:mt-30">
         {data.map(({ uniform, logo, width, height }, i) => (
           <li key={i} className="flex flex-col items-center justify-center lg:justify-between group">
             <Image
@@ -27,7 +27,7 @@ export const Sponsors = () => {
               alt=""
               width={width}
               height={height}
-              className="scale-70 lg:opacity-40 lg:grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 lg:scale-100"
+              className="scale-60 lg:opacity-40 lg:grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0 lg:scale-100"
             />
           </li>
         ))}
