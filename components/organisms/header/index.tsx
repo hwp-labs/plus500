@@ -1,7 +1,7 @@
 import { Logo } from "@/components/logo";
 import { PATH } from "@/constants/PATH";
 //
-import { Nav } from "./nav";
+import { Nav } from "../nav";
 import { CtaButton } from "./cta-button";
 
 export const Header = () => {

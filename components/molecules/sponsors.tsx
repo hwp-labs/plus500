@@ -3,7 +3,7 @@ import Image from "next/image";
 export const Sponsors = () => {
   return (
     <section className="flex-col-cc px-4 lg:px-0">
-      <div className="lg:min-h-[280px]"></div>
+      <div className="lg:min-h-[280px] min-h-[100px]"></div>
       <hgroup className="space-y-2 text-center">
         <h1 className="text-primary text-[22px] leading-5 font-light lg:text-[32px] lg:leading-9">
           We

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { CtaButtons } from "./cta-buttons";
+import { CtaButtons } from "../cta-buttons";
+import { Approvals } from "./approvals";
 
 export const Hero = () => {
   return (
@@ -11,7 +11,7 @@ export const Hero = () => {
           {renderDescription}
           <CtaButtons classNames={{ div: "my-5 gap-2.5 lg:gap-6 lg:my-10" }} />
           {renderPerksList}
-          {renderApprovals}
+          <Approvals />
         </div>
       </div>
     </section>
@@ -42,30 +42,5 @@ const renderPerksList = (
       <li className="border-r-1">No Platform Fees</li>
       <li className="">Advanced Technology</li>
     </ul>
-  </div>
-);
-
-const renderApprovals = (
-  <div className="flex-col-cc gap-6">
-    <figure className="flex-cc gap-6 lg:mt-12 lg:gap-12">
-      <Image
-        src="/images/hero-fx-empire.png"
-        alt=""
-        width={226}
-        height={91}
-        priority
-      />
-      <Image
-        src="/images/hero-trust-pilot.png"
-        alt=""
-        width={206}
-        height={108}
-        priority
-      />
-    </figure>
-    <div className="hide-lg-block text-center leading-7 pb-5">
-      <div className="text-[40px] font-bold">CFTC</div>
-      <div className="">Registered</div>
-    </div>
   </div>
 );

@@ -10,19 +10,19 @@ import { Sponsors } from "@/components/molecules/sponsors";
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <Ribbon />
-        <WhyUs />
-      <Sponsors />
-      <div className="hidden">
-        <PaymentMethods />
-        <Benefits />
+      <div className="hidden_">
+        <Hero />
+        <Ribbon />
+        {/* <PaymentMethods /> */}
+        {/* <Benefits /> */}
         <div className="relative">
           <div className="debug_ absolute -top-30 w-full">
-            <FuturesAcademy />
+            {/* <FuturesAcademy /> */}
           </div>
           <Signals />
         </div>
+        <WhyUs />
+        <Sponsors />
       </div>
     </>
   );
