@@ -14,7 +14,7 @@ export default function HomePage() {
         <Hero />
         <Ribbon />
         {/* <PaymentMethods /> */}
-        {/* <Benefits /> */}
+        <Benefits />
         <div className="relative">
           <div className="debug_ absolute -top-30 w-full">
             {/* <FuturesAcademy /> */}

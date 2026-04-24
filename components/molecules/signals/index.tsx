@@ -4,7 +4,7 @@ export const Signals = () => {
   return (
     <section className="flex-cc _bg-no-repeat bg-[url('/images/cover-white-crosses.png')] bg-contain lg:min-h-[800px]">
       <div className="container-md px-4 text-center lg:px-0">
-        <div className="lg:min-h-[700px]"></div>
+        <div className="lg:min-h-[700px] min-h-[100px]"></div>
         <h2 className="text-primary container-sm text-[22px] leading-7 font-medium lg:text-[30px] lg:leading-9 lg:font-semibold">
           Over 33 million customers worldwide have already chosen Plus500.
         </h2>

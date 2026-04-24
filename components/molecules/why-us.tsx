@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export const WhyUs = () => {
   return (
-    <section className="from-primary container skew-y-4 rounded-2xl bg-gradient-to-b to-[#112c86]/90 p-2 lg:-rotate-6 lg:skew-y-0 lg:bg-gradient-to-r">
-      <div className="border-secondary rounded-2xl border-2">
+    <section className="from-primary container skew-y-4 rounded-4xl bg-gradient-to-b to-[#112c86]/90 p-2 lg:-rotate-6 lg:skew-y-0 lg:rounded-2xl lg:bg-gradient-to-r">
+      <div className="border-secondary rounded-4xl border-2 lg:rounded-2xl">
         <div className="flex-col-cc mt-16 min-h-[700px] -skew-y-4 lg:mt-0 lg:rotate-6 lg:-skew-y-0">
           <h1 className="lg:text-tertiary text-secondary text-3xl leading-12 font-bold lg:text-5xl">
             Why Us?
