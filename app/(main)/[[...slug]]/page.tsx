@@ -11,9 +11,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-        <Ribbon />
-        <PaymentMethods />
+      <Ribbon />
+      <Sponsors />
       <div className="hidden">
+        <PaymentMethods />
         <Benefits />
         <div className="relative">
           <div className="debug_ absolute -top-30 w-full">
@@ -22,7 +23,6 @@ export default function HomePage() {
           <Signals />
         </div>
         <WhyUs />
-        <Sponsors />
       </div>
     </>
   );
