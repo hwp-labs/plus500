@@ -22,26 +22,26 @@
 
 @layer utilities {
   .container {
-    @apply mx-auto w-[1380px];
+    @apply mx-auto w-full lg:w-[1380px];
   }
 
   .container-md {
-    @apply mx-auto w-[1152px];
+    @apply mx-auto w-full lg:w-[1152px];
   }
 
   .container-sm {
-    @apply mx-auto w-[768px];
+    @apply mx-auto w-full lg:w-[768px];
   }
 
   .wrapper {
-    @apply w-[1380px];
+    @apply w-full lg:w-[1380px];
   }
 
   .wrapper-md {
-    @apply w-[1152px];
+    @apply w-full lg:w-[1152px];
   }
 
   .wrapper-sm {
-    @apply w-[768px];
+    @apply w-full lg:w-[768px];
   }
 }

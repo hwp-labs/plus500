@@ -10,8 +10,8 @@ import { Sponsors } from "@/components/molecules/sponsors";
 export default function HomePage() {
   return (
     <>
-      <div className="hidden_">
         <Hero />
+      <div className="hidden">
         <Ribbon />
         <PaymentMethods />
         <Benefits />

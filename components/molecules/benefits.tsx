@@ -27,7 +27,7 @@ export const Benefits = () => {
         ))}
       </ul>
       <div className="container-sm mt-10">
-        <CtaButtons className="gap-4" classNameBtn2="border-secondary" />
+        <CtaButtons classNames={{ div: "gap-4", btn2: "border-secondary" }} />
         <Link href={PATH.hash} className="outline-btn btn-lg btn mt-4">
           <IconGift />
           Discover our bonuses

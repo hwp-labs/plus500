@@ -1,31 +1,35 @@
-import clsx from "clsx";
+"use client";
+
 import Link from "next/link";
+import clsx from "clsx";
+//
 import { PATH } from "@/constants/PATH";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 interface Props {
-  className?: string;
-  classNameBtn1?: string;
-  classNameBtn2?: string;
+  classNames?: {
+    div?: string;
+    btn1?: string;
+    btn2?: string;
+  };
 }
 
-export const CtaButtons = ({
-  className,
-  classNameBtn1,
-  classNameBtn2,
-}: Props) => {
+export const CtaButtons = ({ classNames }: Props) => {
+  const isMobile = useIsMobile();
+  //
   return (
-    <div className={clsx("flex-cs", className)}>
+    <div className={clsx(isMobile ? "grid" : "flex-cs", classNames?.div)}>
       <Link
         href={PATH.register}
-        className={clsx("tonal-btn btn-lg btn", classNameBtn1)}
+        className={clsx("tonal-btn btn-lg btn", classNames?.btn1)}
       >
-        Start Trading Now
+        {isMobile ? "Download the App" : "Start Trading Now"}
       </Link>
       <Link
         href={PATH.register + "?demo=true"}
-        className={clsx("solid-btn btn-lg btn", classNameBtn2)}
+        className={clsx("solid-btn btn-lg btn", classNames?.btn2)}
       >
-        Try FREE Demo
+        {isMobile ? "Try our Free Demo" : "Try FREE Demo"}
       </Link>
     </div>
   );
