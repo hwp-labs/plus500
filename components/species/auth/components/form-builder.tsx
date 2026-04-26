@@ -9,6 +9,7 @@ import {
   IconCheck,
 } from "@tabler/icons-react";
 import clsx from "clsx";
+//
 import { MOCK } from "@/constants/MOCK";
 
 const form = MOCK.auth.formData
@@ -102,13 +103,5 @@ export const Checkbox = ({ children }: PropsWithChildren) => {
         {children}
       </button>
     </div>
-  );
-};
-
-export const SubmitButton = ({ children }: PropsWithChildren) => {
-  return (
-    <button type="submit" className="auth-solid-btn btn mt-5">
-      {children}
-    </button>
   );
 };

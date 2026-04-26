@@ -3,7 +3,7 @@
   "name": "Plus500",
   "short_name": "Plus500",
   "description": "Futures Trading Platform | Trade Futures Online | Plus500",
-  "background_color": "#0c2780",
+  "background_color": "#0c3667",
   "theme_color": "#0c2780",
   "start_url": "/",
   "display": "standalone",

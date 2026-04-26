@@ -9,7 +9,7 @@ interface Props extends PropsWithChildren {
 
 export const AuthContainer = ({ children, h1, p, err }: Props) => {
   return (
-    <main className="border-ash3 mx-auto max-w-[640px] sm:mt-10 sm:border sm:shadow-lg">
+    <main className="border-ash3 mx-auto max-w-[600px] sm:mt-10 sm:border sm:shadow-lg">
       <hgroup className="text-primary space-y-2 text-center px-5">
         {h1 ? <h1 className="text-[26px] font-medium mt-4 lg:mt-8">{h1}</h1> : null}
         {p ? <p className="leading-5">{p}</p> : null}

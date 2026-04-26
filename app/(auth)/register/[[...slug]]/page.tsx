@@ -5,8 +5,8 @@ import { Alert } from "@/components/species/auth/components/alert";
 import {
   Email,
   Password,
-  SubmitButton,
 } from "@/components/species/auth/components/form-builder";
+import { SubmitButton } from "@/components/species/auth/components/submit-button";
 import { OAuthButtons } from "@/components/species/auth/components/oauth-buttons";
 import { PageParams } from "@/types";
 import { PATH } from "@/constants/PATH";

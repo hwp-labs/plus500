@@ -2,14 +2,20 @@
 
 import { useEffect, useState } from "react";
 
+const generateIndices = () => {
+  const i = Math.floor(Math.random() * 5);
+  let j;
+  do { j = Math.floor(Math.random() * 5); } while (j === i);
+  return [i, j];
+};
+
 export const KpiCard = () => {
   const [tuple, setTuple] = useState([0, 1]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const i = Math.floor(Math.random() * 5);
-      const j = Math.floor(Math.random() * 5);
-      setTuple([i, j]);
+      const indices = generateIndices();
+      setTuple(indices);
     }, 5000);
 
     return () => clearInterval(interval);

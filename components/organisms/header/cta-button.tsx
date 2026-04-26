@@ -11,7 +11,7 @@ export const CtaButton = () => {
         <div className="flex-cs gap-4">
           <MenuButton>EN</MenuButton>
           <Link
-            href={PATH.login}
+            href={PATH.registerDemo}
             className="tonal-btn btn border-gradient-to-r border-to-[#2d88fe]! from-[#13abfe] px-14"
           >
             Start Trading
@@ -20,7 +20,7 @@ export const CtaButton = () => {
       </div>
       <div className="hide-lg-block">
         <div className="flex-cs gap-4">
-          <Link href={PATH.login} className="tonal-btn btn px-4.5">
+          <Link href={PATH.registerDemo} className="tonal-btn btn px-4.5">
             Trade
           </Link>
           <button className="">

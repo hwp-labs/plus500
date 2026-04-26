@@ -26,7 +26,7 @@ export const CtaButtons = ({ classNames }: Props) => {
         {isMobile ? "Download the App" : "Start Trading Now"}
       </Link>
       <Link
-        href={PATH.register + "?demo=true"}
+        href={PATH.registerDemo}
         className={clsx("solid-btn btn-lg btn", classNames?.btn2)}
       >
         {isMobile ? "Try our Free Demo" : "Try FREE Demo"}

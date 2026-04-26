@@ -5,10 +5,11 @@ export const PATH = {
   home: "/",
   login: "/login",
   register: "/register",
+  registerDemo: "/register?demo=true",
   forgotPassword: "/forgot-password",
   // PodcastTranscript: (id: unknown) => `/podcast/transcript/${id}`,
 } as const satisfies Record<string, PathType>;
 
-export const PROTECTED_PATH = {
+export const PATH_PROTECTED = {
   dashboard: "/dashboard",
 } as const satisfies Record<string, PathType>;
