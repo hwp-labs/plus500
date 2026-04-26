@@ -1,4 +1,8 @@
 @layer components {
+  .input-antialiased {
+    @apply font-f1 w-full outline-none focus:ring-0 focus:outline-none;
+  }
+
   .auth-input-container {
     @apply border-ash3 focus-within:border-secondary flex items-end gap-2 border-b px-2.5 py-2 transition-colors;
   }

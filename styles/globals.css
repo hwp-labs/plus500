@@ -36,10 +36,10 @@
 }
 
 .dark {
-  --background: #0a0a0a;
+  --background: #1f2c39;
   --foreground: #ededed;
   --white: #ededed;
-  --black: #0a0a0a;
+  --black: #1f2c39;
 }
 
 @theme inline {
