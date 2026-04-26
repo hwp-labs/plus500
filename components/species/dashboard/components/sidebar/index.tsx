@@ -10,7 +10,7 @@ import { Nav } from "./nav";
 
 export const Sidebar = () => {
   return (
-    <section className="flex-col-cb h-screen gap-4 bg-[#131c24] text-[#8a9499]">
+    <aside className="flex-col-cb h-screen gap-4 bg-aside text-[#8a9499]">
       <div className="flex-1">
         <i className="debug_ sidebar-btn">
           <TextAlignJustifyIcon className="sidebar-icon" />
@@ -19,7 +19,7 @@ export const Sidebar = () => {
       </div>
       <div className="flex-col-cx gap-2">
         <div className="space-y-4">
-          <div className="sidebar-toggle align-text-bottom">
+          <div className="sidebar-toggle">
             <MoonIcon className="sidebar-icon" />
           </div>
           <div className="sidebar-toggle">
@@ -30,6 +30,6 @@ export const Sidebar = () => {
           <MessageSquareMoreIcon className="sidebar-icon" />
         </i>
       </div>
-    </section>
+    </aside>
   );
 };

@@ -54,4 +54,8 @@
   .flex-col-xe {
     @apply flex flex-col items-end;
   }
+
+  .flex-col-xx {
+    @apply flex flex-col;
+  }
 }

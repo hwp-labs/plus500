@@ -15,6 +15,7 @@
   --white: #ffffff;
   --black: #171717;
   --muted: #555;
+  --logo: #0c3667;
   --primary: #0c2780;
   --primary-hover: #0a2270;
   --secondary: #2e86fe;
@@ -33,13 +34,18 @@
   --ash6: #4a5565;
   --ash7: #364153;
   --ash8: #1e2939;
+  --ash9: #101828;
 }
 
 .dark {
   --background: #1f2c39;
-  --foreground: #ededed;
-  --white: #ededed;
+  --foreground: #eee;
+  --white: #fff;
   --black: #1f2c39;
+  --muted: #888;
+  /*  */
+  --header: #1c2732;
+  --aside: #131c24;
 }
 
 @theme inline {
@@ -51,10 +57,14 @@
   --color-white: var(--white);
   --color-black: var(--black);
   --color-muted: var(--muted);
+  --color-logo: var(--logo);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
+  /*  */
+  --color-header: var(--header);
+  --color-aside: var(--aside);
   /*  */
   --color-info: var(--info);
   --color-success: var(--success);
@@ -69,6 +79,7 @@
   --color-ash6: var(--ash6);
   --color-ash7: var(--ash7);
   --color-ash8: var(--ash8);
+  --color-ash9: var(--ash9);
 }
 
 body {

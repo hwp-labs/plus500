@@ -2,8 +2,8 @@ import { EURO } from "@/constants";
 
 export const Kpis = () => {
   return (
-    <ul className="show-lg-flex flex-1">
-      <ul className="flex-cb gap-6 flex-1">
+    <ul className="show-md-flex flex-1">
+      <ul className="flex-cb gap-4 flex-1">
         {[
           { value: EURO + "40,000.00", label: "Available" },
           { value: EURO + "40,000.00", label: "Equity" },

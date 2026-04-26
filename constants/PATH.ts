@@ -11,5 +11,6 @@ export const PATH = {
 } as const satisfies Record<string, PathType>;
 
 export const PATH_PROTECTED = {
+  hash: "#",
   dashboard: "/dashboard",
 } as const satisfies Record<string, PathType>;

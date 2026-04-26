@@ -6,7 +6,7 @@ import { Kpis } from "./kpis";
 
 export const Header = () => {
   return (
-    <header className="flex-cb flex-1 gap-16 bg-[#1c2732] px-4 py-1">
+    <header className="flex-cb flex-1 gap-8 lg:gap-16 bg-header px-4 py-1">
       <div className="flex-cs debug_ gap-6">
         <LogoDashboard />
         <SearchBar />
