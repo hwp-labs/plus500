@@ -26,10 +26,26 @@
   }
 
   .outline-pri-btn {
-    @apply border-primary bg-white text-primary hover:text-secondary hover:border-secondary border transition-none! hover:shadow-[0_15px_15px_rgba(59,130,246,0.4)];
+    @apply border-primary text-primary hover:text-secondary hover:border-secondary border bg-white transition-none! hover:shadow-[0_15px_15px_rgba(59,130,246,0.4)];
   }
 
   .auth-solid-btn {
-    @apply bg-primary hover:bg-secondary w-full rounded-md! px-4 py-2.5 font-medium text-white h-[48px]! disabled:bg-muted;
+    @apply bg-primary hover:bg-secondary disabled:bg-muted h-[48px]! w-full rounded-md! px-4 py-2.5 font-medium text-white;
+  }
+
+  .sidebar-btn {
+    @apply flex items-center justify-center size-12;
+  }
+
+  .sidebar-btn-active {
+    @apply bg-secondary text-white!;
+  }
+
+  .sidebar-toggle {
+    @apply h-[50px] rounded-full bg-[#1b2631] px-1 py-1 flex flex-col justify-end;
+  }
+
+  .sidebar-icon {
+    @apply hover:text-secondary size-6 text-[#8a9499] cursor-pointer;
   }
 }

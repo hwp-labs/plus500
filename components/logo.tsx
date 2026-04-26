@@ -9,7 +9,7 @@ export const Logo = () => (
     width={160}
     height={38}
     priority
-    className="w-[128px] sm:w-[160]"
+    className="min-w-[128px] sm:min-w-[160]"
   />
 );
 
@@ -25,3 +25,14 @@ export const LogoAuth = ({ mobile }: { mobile?: boolean }) =>
   ) : (
     <Image src="/logo-futures.png" alt="" width={225} height={92} priority />
   );
+
+export const LogoDashboard = () => (
+  <Image
+    src="/logo-dashboard.png"
+    alt=""
+    width={106}
+    height={26}
+    priority
+    className="min-w-[106px]"
+  />
+);

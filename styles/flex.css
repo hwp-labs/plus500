@@ -43,6 +43,10 @@
     @apply flex flex-col items-center justify-center;
   }
 
+  .flex-col-cx {
+    @apply flex flex-col items-center;
+  }
+
   .flex-col-xc {
     @apply flex flex-col justify-center;
   }
