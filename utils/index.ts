@@ -8,6 +8,19 @@ export const isLocalhost = () => {
 export const sleep = (secs: number = 3) =>
   new Promise((resolve) => setTimeout(resolve, secs * 1000));
 
+export const asMoney = (
+  x?: null | number | string,
+  maximumFractionDigits?: boolean,
+) =>
+  x
+    ? maximumFractionDigits
+      ? x.toLocaleString(undefined, { maximumFractionDigits: 20 })
+      : x.toLocaleString()
+    : 0;
+
+export const asMoneyIntl = (x?: null | number) =>
+  x ? new Intl.NumberFormat().format(x) : 0;
+
 export const slugify = (s: string) =>
   s
     .toLowerCase()

@@ -24,13 +24,37 @@ export const GraphToolbar = () => {
       <SaveIcon className="dashboard-icon" />
       <RemoveFormattingIcon className="dashboard-icon" />
       <ChartCandlestickIcon className="dashboard-icon" />
-      <div className="flex-cc  gap-1 cursor-pointer">
+      <CalendarDaysIcon className="dashboard-icon" />
+      {/* <div className="flex-cc cursor-pointer gap-1">
         <CalendarDaysIcon className="dashboard-icon" />
         <ChevronDownIcon className="text-icon" />
-      </div>
-      <div className="flex-cc gap-1 cursor-pointer">
+      </div> */}
+      {/* <div className="flex-cc gap-1 cursor-pointer">
         <span className="text-icon font-medium">1 Minute</span>
         <ChevronDownIcon className="text-icon" />
+        <select name="" id=""></select>
+        {[]}
+      </div> */}
+      <div className="flex-cc debug_">
+        <select value={"1 Minute"} className="text-icon input-antialiased">
+          {[
+            "Tick",
+            "1 Minute",
+            "2 Minutes",
+            "5 Minutes",
+            "15 Minutes",
+            "30 Minutes",
+            "1 Hour",
+            "2 Hours",
+            "4 Hours",
+            "1 Day",
+            "1 Week",
+          ].map((item, i) => (
+            <option key={i} value={item}>
+              {item}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );

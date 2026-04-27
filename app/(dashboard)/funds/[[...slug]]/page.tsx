@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import {
   IconCash,
   IconChartPie2Filled,
@@ -6,6 +7,10 @@ import {
   IconMessage2Code,
 } from "@tabler/icons-react";
 import { EURO } from "@/constants";
+
+export const metadata: Metadata = {
+  title: "Funds Management",
+};
 
 export default function FundsPage() {
   return (

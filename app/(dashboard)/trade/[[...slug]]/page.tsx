@@ -1,9 +1,14 @@
-import { TableFilters } from "@/components/species/dashboard/components/table-filters";
-import { Table } from "@/components/species/dashboard/components/table";
+import { Metadata } from "next";
+import { TableFilters } from "@/components/species/trade/components/table-filters";
+import { Table } from "@/components/species/trade/components/table";
 import { GraphToolbar } from "@/components/species/dashboard/components/graph-toolbar";
 import { Graph } from "@/components/species/dashboard/components/graph";
 
-export default function DashboardPage() {
+export const metadata: Metadata = {
+  title: "Trade",
+};
+
+export default function TradePage() {
   return (
     <main className="flex-col-xx min-h-[92svh]">
       <section className="bg-aside debug_ flex min-h-[320px] gap-2">
