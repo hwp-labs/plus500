@@ -47,6 +47,10 @@
     @apply flex flex-col items-center;
   }
 
+  .flex-col-xb {
+    @apply flex flex-col justify-between;
+  }
+
   .flex-col-xc {
     @apply flex flex-col justify-center;
   }

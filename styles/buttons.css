@@ -45,6 +45,10 @@
     @apply flex h-[50px] flex-col justify-end rounded-full bg-[#1b2631] px-1 py-1;
   }
 
+  .sidebar-text {
+    @apply text-ash3 text-center text-[10px];
+  }
+
   .dashboard-icon {
     @apply hover:text-secondary size-6 cursor-pointer text-icon;
   }

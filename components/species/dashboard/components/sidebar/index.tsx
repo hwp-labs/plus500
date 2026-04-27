@@ -1,37 +1,66 @@
 "use client";
 
-import clsx from "clsx";
 import { useState } from "react";
+import clsx from "clsx";
 import {
   MessageSquareMoreIcon,
   RadioIcon,
   TextAlignJustifyIcon,
 } from "lucide-react";
+import { IconMoonFilled, IconCircleDotFilled } from "@tabler/icons-react";
 //
-import { Nav } from "./nav";
-import { ThemeToggle } from "./therme-toggle";
+import { MenuItem } from "./menu-item";
+import { Toggle } from "./toggle";
+import { menu } from "./utils";
 
 export const Sidebar = () => {
-  const [open, setOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   //
   return (
-    <aside className="flex-col-cb bg-aside text-icon h-screen gap-4">
+    <aside className="flex-col-cb bg-aside text-icon h-screen gap-4 pb-4">
       <div className="flex-1">
-        <i className="debug_ sidebar-btn" onClick={() => setOpen((s) => !s)}>
-          <TextAlignJustifyIcon className="dashboard-icon" />
-        </i>
-        <Nav open={open} />
+        <MenuItem
+          Icon={TextAlignJustifyIcon}
+          label="Menu"
+          onClick={() => setCollapsed((s) => !s)}
+          collapsed={collapsed}
+        />
+        <nav className={clsx("grid", collapsed && "gap-1")}>
+          {menu.map((item, i) => (
+            <MenuItem
+              key={i}
+              {...item}
+              active={i === 0}
+              collapsed={collapsed}
+            />
+          ))}
+        </nav>
       </div>
-      <div className="flex-col-cx gap-2">
+      <div className={clsx("flex-col-cx", collapsed ? "gap-4" : "gap-2")}>
         <div className="space-y-4">
-          <ThemeToggle />
-          <div className="sidebar-toggle">
+          <Toggle
+            label="Theme"
+            title={`${darkMode ? "Dark" : "Light"} Mode`}
+            onClick={() => setDarkMode((s) => !s)}
+            active={!darkMode}
+            collapsed={collapsed}
+          >
+            {darkMode ? (
+              <IconMoonFilled className="dashboard-icon" />
+            ) : (
+              <IconCircleDotFilled className="dashboard-icon" />
+            )}
+          </Toggle>
+          <Toggle label="Unknown" collapsed={collapsed}>
             <RadioIcon className="dashboard-icon" />
-          </div>
+          </Toggle>
         </div>
-        <i className="debug_ sidebar-btn">
-          <MessageSquareMoreIcon className="dashboard-icon" />
-        </i>
+        <MenuItem
+          Icon={MessageSquareMoreIcon}
+          label="Live Support"
+          collapsed={collapsed}
+        />
       </div>
     </aside>
   );
