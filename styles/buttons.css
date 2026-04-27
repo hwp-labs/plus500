@@ -34,7 +34,7 @@
   }
 
   .sidebar-btn {
-    @apply flex items-center justify-center size-12;
+    @apply flex size-12 items-center justify-center;
   }
 
   .sidebar-btn-active {
@@ -42,10 +42,10 @@
   }
 
   .sidebar-toggle {
-    @apply h-[50px] rounded-full bg-[#1b2631] px-1 py-1 flex flex-col justify-end;
+    @apply flex h-[50px] flex-col justify-end rounded-full bg-[#1b2631] px-1 py-1;
   }
 
-  .sidebar-icon {
-    @apply hover:text-secondary size-6 text-[#8a9499] cursor-pointer;
+  .dashboard-icon {
+    @apply hover:text-secondary size-6 cursor-pointer text-icon;
   }
 }

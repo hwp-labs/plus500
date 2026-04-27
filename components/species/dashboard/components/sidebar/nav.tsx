@@ -31,7 +31,7 @@ export const Nav = () => {
             >
               <Icon
                 className={clsx(
-                  "sidebar-icon",
+                  "dashboard-icon",
                   active && "text-white",
                   i === 5 && "text-secondary",
                 )}

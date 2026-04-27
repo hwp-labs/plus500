@@ -46,6 +46,7 @@
   /*  */
   --header: #1c2732;
   --aside: #131c24;
+  --icon: #8a9499;
 }
 
 @theme inline {
@@ -65,6 +66,7 @@
   /*  */
   --color-header: var(--header);
   --color-aside: var(--aside);
+  --color-icon: var(--icon);
   /*  */
   --color-info: var(--info);
   --color-success: var(--success);

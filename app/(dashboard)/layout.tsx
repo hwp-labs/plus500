@@ -7,7 +7,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="dark">
+    <div className="dark text-sm">
       <div className="hidden_ flex-sx">
         <Sidebar />
         <div className="flex-1">

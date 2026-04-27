@@ -65,7 +65,7 @@ export const Password = () => {
           />
           <button
             type="button"
-            onClick={() => setShow((p) => !p)}
+            onClick={() => setShow((s) => !s)}
             title={show ? "Hide" : "Show"}
             className="cursor-pointer"
           >
@@ -88,7 +88,7 @@ export const Checkbox = ({ children }: PropsWithChildren) => {
     <div className="flex-cc debug_">
       <button
         className="auth-checkbox-container"
-        onClick={() => setChecked((p) => !p)}
+        onClick={() => setChecked((s) => !s)}
       >
         <i
           className={clsx(

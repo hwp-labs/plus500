@@ -10,7 +10,7 @@ export default function DashboardPage() {
         <TableFilters />
         <Table />
       </section>
-      <section className="debug flex-1">
+      <section className="debug_ flex-1">
         <GraphToolbar />
         <Graph />
       </section>

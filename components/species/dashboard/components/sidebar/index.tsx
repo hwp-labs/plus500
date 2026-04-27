@@ -1,33 +1,31 @@
 import clsx from "clsx";
 import {
   MessageSquareMoreIcon,
-  MoonIcon,
   RadioIcon,
   TextAlignJustifyIcon,
 } from "lucide-react";
-// 
+//
 import { Nav } from "./nav";
+import { ThemeToggle } from "./therme-toggle";
 
 export const Sidebar = () => {
   return (
-    <aside className="flex-col-cb h-screen gap-4 bg-aside text-[#8a9499]">
+    <aside className="flex-col-cb bg-aside text-icon h-screen gap-4">
       <div className="flex-1">
         <i className="debug_ sidebar-btn">
-          <TextAlignJustifyIcon className="sidebar-icon" />
+          <TextAlignJustifyIcon className="dashboard-icon" />
         </i>
         <Nav />
       </div>
       <div className="flex-col-cx gap-2">
         <div className="space-y-4">
+          <ThemeToggle />
           <div className="sidebar-toggle">
-            <MoonIcon className="sidebar-icon" />
-          </div>
-          <div className="sidebar-toggle">
-            <RadioIcon className="sidebar-icon" />
+            <RadioIcon className="dashboard-icon" />
           </div>
         </div>
         <i className="debug_ sidebar-btn">
-          <MessageSquareMoreIcon className="sidebar-icon" />
+          <MessageSquareMoreIcon className="dashboard-icon" />
         </i>
       </div>
     </aside>

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "EUR/USD",
+    "change": 0.3,
+    "sell": 0.99985,
+    "buy": 0.99993,
+    "range": "1.00230 / 0.99551"
+  },
+  {
+    "name": "Czech 15",
+    "change": -0.48,
+    "sell": 1233,
+    "buy": 1238,
+    "range": "Market is Closed"
+  },
+  {
+    "name": "Natural Gas",
+    "change": 4.73,
+    "sell": 8.671,
+    "buy": 8.68,
+    "range": "8.842 / 8.323"
+  },
+  {
+    "name": "Gold",
+    "change": 0.2,
+    "sell": 1705.37,
+    "buy": 1705.75,
+    "range": "1,706.85 / 1,697.05"
+  },
+  {
+    "name": "NFT Giants Index",
+    "change": -0.03,
+    "sell": 762.65,
+    "buy": 768.39,
+    "range": "765.17 / 755.16"
+  },
+  {
+    "name": "Gold | Call 1710 | Oct",
+    "change": 1.13,
+    "sell": 16.76,
+    "buy": 17.34,
+    "range": "17.78 / 14.26"
+  }
+]

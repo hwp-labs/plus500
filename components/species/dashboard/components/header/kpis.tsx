@@ -12,7 +12,7 @@ export const Kpis = () => {
         ].map((item, i) => (
           <li key={i}>
             <div className="font-medium">{item.value}</div>
-            <div className="text-sm">{item.label}</div>
+            <div className="text-xs text-ash3">{item.label}</div>
           </li>
         ))}
       </ul>
