@@ -34,7 +34,7 @@
   }
 
   .sidebar-btn {
-    @apply flex size-12 items-center justify-center;
+    @apply flex size-12 items-center justify-center flex-col;
   }
 
   .sidebar-btn-active {

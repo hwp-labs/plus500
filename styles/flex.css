@@ -52,7 +52,7 @@
   }
 
   .flex-col-xe {
-    @apply flex flex-col items-end;
+    @apply flex flex-col justify-end;
   }
 
   .flex-col-xx {
