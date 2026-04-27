@@ -6,11 +6,11 @@ import { Graph } from "@/components/species/dashboard/components/graph";
 export default function DashboardPage() {
   return (
     <main className="flex-col-xx min-h-[92svh]">
-      <section className="bg-aside flex flex-1 gap-2 debug">
+      <section className="bg-aside debug_ flex min-h-[320px] gap-2">
         <TableFilters />
         <Table />
       </section>
-      <section className="debug flex-1 flex-col-xb">
+      <section className="debug_ flex-col-xb flex-1">
         <GraphToolbar />
         <Graph />
       </section>

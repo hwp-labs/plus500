@@ -9,7 +9,7 @@ import {
 import { PATH_PROTECTED } from "@/constants/PATH";
 
 export const menu = [
-  { Icon: ChartLineIcon, label: "Table", path: PATH_PROTECTED.hash },
+  { Icon: ChartLineIcon, label: "Trade", path: PATH_PROTECTED.dashboard },
   {
     Icon: RecycleIcon,
     label: "Open Positions",
@@ -23,8 +23,8 @@ export const menu = [
   },
   {
     Icon: TrendingUpIcon,
-    label: "Insights",
+    label: "+Insights",
     path: PATH_PROTECTED.hash,
   },
-  { Icon: LandmarkIcon, label: "Funds", path: PATH_PROTECTED.hash },
+  { Icon: LandmarkIcon, label: "Funds", path: PATH_PROTECTED.funds },
 ];

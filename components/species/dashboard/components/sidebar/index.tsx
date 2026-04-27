@@ -3,17 +3,20 @@
 import { useState } from "react";
 import clsx from "clsx";
 import {
-  MessageSquareMoreIcon,
-  RadioIcon,
+  XIcon,
   TextAlignJustifyIcon,
+  RadioIcon,
+  MessageSquareMoreIcon,
 } from "lucide-react";
-import { IconMoonFilled, IconCircleDotFilled } from "@tabler/icons-react";
+import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 //
 import { MenuItem } from "./menu-item";
 import { Toggle } from "./toggle";
 import { menu } from "./utils";
+import { usePathname } from "next/navigation";
 
 export const Sidebar = () => {
+  const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
   //
@@ -21,7 +24,7 @@ export const Sidebar = () => {
     <aside className="flex-col-cb bg-aside text-icon h-screen gap-4 pb-4">
       <div className="flex-1">
         <MenuItem
-          Icon={TextAlignJustifyIcon}
+          Icon={collapsed ? XIcon : TextAlignJustifyIcon}
           label="Menu"
           onClick={() => setCollapsed((s) => !s)}
           collapsed={collapsed}
@@ -31,7 +34,7 @@ export const Sidebar = () => {
             <MenuItem
               key={i}
               {...item}
-              active={i === 0}
+              active={pathname.startsWith(item.path)}
               collapsed={collapsed}
             />
           ))}
@@ -40,7 +43,7 @@ export const Sidebar = () => {
       <div className={clsx("flex-col-cx", collapsed ? "gap-4" : "gap-2")}>
         <div className="space-y-4">
           <Toggle
-            label="Theme"
+            label="Real Money"
             title={`${darkMode ? "Dark" : "Light"} Mode`}
             onClick={() => setDarkMode((s) => !s)}
             active={!darkMode}
@@ -49,12 +52,12 @@ export const Sidebar = () => {
             {darkMode ? (
               <IconMoonFilled className="dashboard-icon" />
             ) : (
-              <IconCircleDotFilled className="dashboard-icon" />
+              <IconSunFilled className="dashboard-icon" />
             )}
           </Toggle>
-          <Toggle label="Unknown" collapsed={collapsed}>
+          {/* <Toggle label="Real Money" collapsed={collapsed}>
             <RadioIcon className="dashboard-icon" />
-          </Toggle>
+          </Toggle> */}
         </div>
         <MenuItem
           Icon={MessageSquareMoreIcon}
