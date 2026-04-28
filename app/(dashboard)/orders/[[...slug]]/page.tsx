@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import { ChevronDownIcon } from "lucide-react";
 //
+import { Container } from "@/components/species/dashboard/components/graph/container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { asMoney } from "@/utils";
 import { DOLLAR } from "@/constants";
+// 
 import { data } from "@/components/species/orders/utils";
-import { ContentLayout } from "@/components/species/dashboard/components/content-layout";
 
 export const metadata: Metadata = {
   title: "Orders",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function OrdersPage() {
   return (
-    <ContentLayout>
+    <Container>
       <table className="w-full">
         <TableBuilder.Thead
           data={[
@@ -60,7 +61,7 @@ export default function OrdersPage() {
           ))}
         </TableBuilder.Tbody>
       </table>
-    </ContentLayout>
+    </Container>
   );
 }
 

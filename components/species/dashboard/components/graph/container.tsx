@@ -1,13 +1,13 @@
 import { PropsWithChildren } from "react";
-import { GraphToolbar } from "./graph-toolbar";
-import { Graph } from "./graph";
+import { Toolbar } from "./toolbar";
+import { Graph } from "./";
 
-export const ContentLayout = ({ children }: PropsWithChildren) => {
+export const Container = ({ children }: PropsWithChildren) => {
   return (
     <main className="flex-col-xx min-h-[92svh]">
       <section className="min-h-[320px]">{children}</section>
       <section className="flex-col-xb flex-1">
-        <GraphToolbar />
+        <Toolbar />
         <Graph />
       </section>
     </main>

@@ -12,7 +12,7 @@ import {
   TrendingUpDownIcon,
 } from "lucide-react";
 
-export const GraphToolbar = () => {
+export const Toolbar = () => {
   return (
     <div className="flex-cs gap-6 border-t-3 border-b-3 border-t-[#2b4058] border-b-[#9b89b2] px-4 pt-2 pb-4">
       <ExpandIcon className="dashboard-icon" />
