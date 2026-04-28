@@ -1,8 +1,7 @@
 import { Metadata } from "next";
+import { ContentLayout } from "@/components/species/dashboard/components/content-layout";
 import { TableFilters } from "@/components/species/trade/components/table-filters";
 import { Table } from "@/components/species/trade/components/table";
-import { GraphToolbar } from "@/components/species/dashboard/components/graph-toolbar";
-import { Graph } from "@/components/species/dashboard/components/graph";
 
 export const metadata: Metadata = {
   title: "Trade",
@@ -10,15 +9,11 @@ export const metadata: Metadata = {
 
 export default function TradePage() {
   return (
-    <main className="flex-col-xx min-h-[92svh]">
-      <section className="bg-aside debug_ flex min-h-[320px] gap-2">
+    <ContentLayout>
+      <div className="bg-aside flex gap-2">
         <TableFilters />
         <Table />
-      </section>
-      <section className="debug_ flex-col-xb flex-1">
-        <GraphToolbar />
-        <Graph />
-      </section>
-    </main>
+      </div>
+    </ContentLayout>
   );
 }

@@ -4,6 +4,8 @@ import { ChevronDownIcon } from "lucide-react";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { asMoney } from "@/utils";
 import { DOLLAR } from "@/constants";
+import { data } from "@/components/species/orders/utils";
+import { ContentLayout } from "@/components/species/dashboard/components/content-layout";
 
 export const metadata: Metadata = {
   title: "Orders",
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function OrdersPage() {
   return (
-    <div className="bg-background flex-1">
+    <ContentLayout>
       <table className="w-full">
         <TableBuilder.Thead
           data={[
@@ -58,30 +60,9 @@ export default function OrdersPage() {
           ))}
         </TableBuilder.Tbody>
       </table>
-    </div>
+    </ContentLayout>
   );
 }
-
-const data = [
-  {
-    type: "Amazon",
-    value: 4489.1,
-    rates: { order: 128.56, current: 128.52 },
-    amount: 35,
-    limit: 200.0,
-    snap: 115.0,
-    createdAt: "2022-09-14 17:12",
-  },
-  {
-    type: "EUR/USD",
-    value: 9993.7,
-    rates: { order: 1.00017, current: 1.00017 },
-    amount: 10000,
-    limit: 1.2051,
-    snap: 0.98814,
-    createdAt: "2022-09-14 17:14",
-  },
-];
 
 const renderRibbon = (
   <tr>
