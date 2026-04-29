@@ -11,7 +11,7 @@ export const TableBody = () => {
   const [collapsed, setCollapsed] = useState(true);
   //
   return (
-    <TableBuilder.Tbody>
+    <TableBuilder.TBody>
       <tr>
         <td colSpan={9}>
           <div
@@ -54,6 +54,6 @@ export const TableBody = () => {
             </tr>
           ))
         : null}
-    </TableBuilder.Tbody>
+    </TableBuilder.TBody>
   );
 };

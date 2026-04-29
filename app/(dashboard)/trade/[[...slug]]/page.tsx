@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 //
 import { Container } from "@/components/species/dashboard/components/graph/container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
-// 
+//
 import { TableFilters } from "@/components/species/trade/components/table-filters";
 import { FormBuilder } from "@/components/species/dashboard/components/form-builder";
 import data from "@/components/species/trade/data.json";
@@ -18,7 +18,7 @@ export default function TradePage() {
         <TableFilters />
         <div className="bg-background flex-1">
           <table className="w-full">
-            <TableBuilder.Thead
+            <TableBuilder.THead
               data={[
                 "Instrument",
                 "Change|c",
@@ -30,24 +30,33 @@ export default function TradePage() {
               ]}
               hasActions
             />
-            <TableBuilder.Tbody>
+            <TableBuilder.TBody>
               {data.map((item, i) => (
                 <tr key={i}>
                   <td>{item.name}</td>
-                  <TableBuilder.Amount value={item.change} suffix="%" tc colored />
+                  <TableBuilder.Amount
+                    value={item.change}
+                    suffix="%"
+                    tc
+                    colored
+                  />
                   <TableBuilder.Amount value={item.sell} tc colored />
                   <TableBuilder.Tc>
-                    <FormBuilder.Button className="py-1!">Sell</FormBuilder.Button>
+                    <FormBuilder.Button className="py-1!">
+                      Sell
+                    </FormBuilder.Button>
                   </TableBuilder.Tc>
                   <TableBuilder.Amount value={item.buy} tc colored />
                   <TableBuilder.Tc>
-                    <FormBuilder.Button className="py-1!">Buy</FormBuilder.Button>
+                    <FormBuilder.Button className="py-1!">
+                      Buy
+                    </FormBuilder.Button>
                   </TableBuilder.Tc>
                   <TableBuilder.Tc>{item.range}</TableBuilder.Tc>
                   <TableBuilder.Action hasStar hasBell hasInfo />
                 </tr>
               ))}
-            </TableBuilder.Tbody>
+            </TableBuilder.TBody>
           </table>
         </div>
       </div>

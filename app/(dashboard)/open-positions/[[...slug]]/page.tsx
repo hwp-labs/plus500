@@ -13,7 +13,7 @@ export default function OpenPositionsPage() {
   return (
     <Container>
       <table className="w-full">
-        <TableBuilder.Thead
+        <TableBuilder.THead
           data={[
             "Type/Instrument",
             "Net P&L",
@@ -27,7 +27,7 @@ export default function OpenPositionsPage() {
           ]}
           hasActions
         />
-        <TableBuilder.Tbody>
+        <TableBuilder.TBody>
           {data.map((item, i) => (
             <tr key={i}>
               <TableBuilder.BuyBr text={item.type} />
@@ -51,7 +51,7 @@ export default function OpenPositionsPage() {
               <TableBuilder.Action hasInfo />
             </tr>
           ))}
-        </TableBuilder.Tbody>
+        </TableBuilder.TBody>
       </table>
     </Container>
   );

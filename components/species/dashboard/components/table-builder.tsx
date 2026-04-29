@@ -12,7 +12,7 @@ interface TheadProps {
   hasActions?: boolean;
 }
 
-const Thead = ({ data, hasNumbers, hasActions }: TheadProps) => (
+const THead = ({ data, hasNumbers, hasActions }: TheadProps) => (
   <thead className="border-ash6 border-b text-left [&>tr>th]:px-4 [&>tr>th]:py-2">
     <tr>
       {hasNumbers && <th></th>}
@@ -38,10 +38,26 @@ const Thead = ({ data, hasNumbers, hasActions }: TheadProps) => (
   </thead>
 );
 
-const Tbody = ({ children }: PropsWithChildren) => (
+const TBody = ({ children }: PropsWithChildren) => (
   <tbody className="[&>tr]:border-ash7 [&>tr]:border-b [&>tr>td]:px-4 [&>tr>td]:py-2">
     {children}
   </tbody>
+);
+
+const TBodyPlaceholder = ({ className }: { className?: string }) => (
+  <TableBuilder.TBody>
+    <tr>
+      <td colSpan={9}>
+        <div className={clsx("min-h-[65svh]", className)}></div>
+      </td>
+    </tr>
+  </TableBuilder.TBody>
+);
+
+const TFoot = ({ children }: PropsWithChildren) => (
+  <tfoot className="[&>tr]:border-ash7 [&>tr]:border-t [&>tr>td]:px-4 [&>tr>td]:py-2">
+    {children}
+  </tfoot>
 );
 
 const Tc = ({ children }: PropsWithChildren) => (
@@ -136,8 +152,10 @@ const ObjBr = ({ data }: ObjBrProps) => (
 );
 
 export const TableBuilder = {
-  Thead,
-  Tbody,
+  THead,
+  TBody,
+  TBodyPlaceholder,
+  TFoot,
   Tc,
   Tr,
   Amount,

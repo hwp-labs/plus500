@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ClosedPositionsPage() {
   return (
     <main className="flex-col-xx min-h-[92svh]">
-      <section className="flex-1">
+      <section className="debug_ flex-1">
         <div className="flex-es gap-6 bg-[#25364b] px-4 pt-2 pb-4">
           <DateInput name="from" label="From" defaultValue="2021-09-14" />
           <DateInput name="to" label="To" defaultValue="2022-09-14" />
@@ -22,29 +22,29 @@ export default function ClosedPositionsPage() {
           </div>
         </div>
         <table className="w-full">
-          <TableBuilder.Thead
+          <TableBuilder.THead
             data={[
               "Type",
               "Net P&L",
               "Close Value",
               "Opening Rate<br/>Close Rate",
-              "Adjustments",
-              "Overnight Fun...",
+              "Adjustments|c",
+              "Overnight Fun...|c",
               "Close Time",
               "Close Reason",
             ]}
-            hasActions
           />
+          <TableBuilder.TBodyPlaceholder/>
+          <TableBuilder.TFoot>
+            <tr>
+              <td></td>
+              <td colSpan={3}>{CURRENCY.Euro.symbol}0.00 Total</td>
+              <td className="text-center">{CURRENCY.Euro.symbol}0.00</td>
+              <td className="text-center">{CURRENCY.Euro.symbol}0.00</td>
+              <td colSpan={2}></td>
+            </tr>
+          </TableBuilder.TFoot>
         </table>
-      </section>
-      <section className="debug_ border-ash6 border-t pt-2 pb-4">
-        <div className="container-sm flex-cb">
-          <div>{CURRENCY.Euro.symbol}0.00 Total</div>
-          <div className="flex-cs gap-8">
-            <div>{CURRENCY.Euro.symbol}0.00</div>
-            <div>{CURRENCY.Euro.symbol}0.00</div>
-          </div>
-        </div>
       </section>
     </main>
   );

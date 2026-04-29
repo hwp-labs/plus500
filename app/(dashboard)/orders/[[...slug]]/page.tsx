@@ -13,7 +13,7 @@ export default function OrdersPage() {
   return (
     <Container>
       <table className="w-full">
-        <TableBuilder.Thead
+        <TableBuilder.THead
           data={[
             "Type",
             "Value",

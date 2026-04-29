@@ -6,7 +6,7 @@ import {
   IconCreditCardRefund,
   IconMessage2Code,
 } from "@tabler/icons-react";
-// 
+//
 import { asMoney } from "@/utils";
 import { CURRENCY } from "@/constants/CURRENCY";
 
@@ -59,7 +59,7 @@ const renderButtons = (
 );
 
 const renderCards = (
-  <ul className="flex-cb gap-6">
+  <ul className="flex-cb flex-wrap gap-6">
     {[
       { label: "Account Snapshot", Icon: IconChartPie2Filled },
       { label: "Payment Methods", Icon: IconCash },
