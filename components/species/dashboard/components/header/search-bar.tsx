@@ -7,7 +7,7 @@ export const SearchBar = () => {
         type="search"
         list="search-list"
         placeholder="Search our instruments"
-        className="input-antialiased border-ash6 border-b-2 px-2 py-1"
+        className="input-reset border-ash6 border-b-2 px-2 py-1"
       />
       <datalist id="search-list">
         <option value="EUR/USD" />

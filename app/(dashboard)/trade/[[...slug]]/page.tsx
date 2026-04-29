@@ -1,10 +1,10 @@
-import { PropsWithChildren } from "react";
 import type { Metadata } from "next";
 //
 import { Container } from "@/components/species/dashboard/components/graph/container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 // 
 import { TableFilters } from "@/components/species/trade/components/table-filters";
+import { FormBuilder } from "@/components/species/dashboard/components/form-builder";
 import data from "@/components/species/trade/data.json";
 
 export const metadata: Metadata = {
@@ -37,11 +37,11 @@ export default function TradePage() {
                   <TableBuilder.Amount value={item.change} suffix="%" tc colored />
                   <TableBuilder.Amount value={item.sell} tc colored />
                   <TableBuilder.Tc>
-                    <BuySellBtn>Sell</BuySellBtn>
+                    <FormBuilder.Button className="py-1!">Sell</FormBuilder.Button>
                   </TableBuilder.Tc>
                   <TableBuilder.Amount value={item.buy} tc colored />
                   <TableBuilder.Tc>
-                    <BuySellBtn>Buy</BuySellBtn>
+                    <FormBuilder.Button className="py-1!">Buy</FormBuilder.Button>
                   </TableBuilder.Tc>
                   <TableBuilder.Tc>{item.range}</TableBuilder.Tc>
                   <TableBuilder.Action hasStar hasBell hasInfo />
@@ -54,10 +54,3 @@ export default function TradePage() {
     </Container>
   );
 }
-
-
-const BuySellBtn = ({ children }: PropsWithChildren) => (
-  <button className="border-ash6 text-ash3 cursor-pointer rounded-full border-2 px-6 py-1 font-medium text-xs">
-    {children}
-  </button>
-);

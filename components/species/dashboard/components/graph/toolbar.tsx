@@ -36,7 +36,7 @@ export const Toolbar = () => {
         {[]}
       </div> */}
       <div className="flex-cc debug_">
-        <select defaultValue="1 Minute" className="text-icon input-antialiased">
+        <select defaultValue="1 Minute" className="text-icon input-reset">
           {[
             "Tick",
             "1 Minute",

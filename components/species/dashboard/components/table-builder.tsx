@@ -25,12 +25,12 @@ const Thead = ({ data, hasNumbers, hasActions }: TheadProps) => (
           <th
             key={i}
             className={clsx(
+              "font-semibold",
               alignCenter && "text-center",
               alignRight && "text-right",
             )}
-          >
-            {safeText}
-          </th>
+            dangerouslySetInnerHTML={{ __html: safeText }}
+          />
         );
       })}
       {hasActions && <th></th>}

@@ -19,6 +19,10 @@
     @apply flex items-center justify-start;
   }
 
+  .flex-es {
+    @apply flex items-end justify-start;
+  }
+
   .flex-sb {
     @apply flex items-start justify-between;
   }
