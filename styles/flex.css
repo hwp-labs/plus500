@@ -47,6 +47,10 @@
     @apply flex flex-col items-center;
   }
 
+  .flex-col-sx {
+    @apply flex flex-col items-start;
+  }
+
   .flex-col-xb {
     @apply flex flex-col justify-between;
   }

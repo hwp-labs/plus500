@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import {
   IconCash,
   IconChartPie2Filled,
@@ -6,7 +6,9 @@ import {
   IconCreditCardRefund,
   IconMessage2Code,
 } from "@tabler/icons-react";
-import { EURO } from "@/constants";
+// 
+import { asMoney } from "@/utils";
+import { CURRENCY } from "@/constants/CURRENCY";
 
 export const metadata: Metadata = {
   title: "Funds Management",
@@ -28,15 +30,15 @@ const renderInvoice = (
     <h2 className="text-lg font-bold">Account Balance</h2>
     <ul className="mt-2 space-y-1 px-4">
       {[
-        { label: "Equity", value: 0.0 },
-        { label: "Initial margin", value: 0.0 },
-        { label: "Maintenance margin", value: 0.0 },
-        { label: "Available to withdraw", value: 0.0 },
+        { label: "Equity", value: 0 },
+        { label: "Initial margin", value: 0 },
+        { label: "Maintenance margin", value: 0 },
+        { label: "Available to withdraw", value: 0 },
       ].map(({ label, value }, i) => (
         <li key={i} className="flex-cb gap-4">
           <div>{label}</div>
           <div className="border-muted flex-1 border-b border-dashed"></div>
-          <div>{EURO + value}</div>
+          <div>{CURRENCY.Euro.symbol + asMoney(value)}</div>
         </li>
       ))}
     </ul>

@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { ChevronDownIcon } from "lucide-react";
 //
 import { Container } from "@/components/species/dashboard/components/graph/container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
+import { asMoney } from "@/utils";
 //
 import { data } from "@/components/species/orders/utils";
 
 export const metadata: Metadata = {
-  title: "Orders",
+  title: "Close Positions",
 };
 
-export default function OrdersPage() {
+export default function ClosedPositionsPage() {
   return (
     <Container>
       <table className="w-full">
@@ -30,19 +31,23 @@ export default function OrdersPage() {
           {renderRibbon}
           {data.map((item, i) => (
             <tr key={i}>
-              <TableBuilder.BuyBr text={item.type} />
+              <TableBuilder.BuyBr>{item.type}</TableBuilder.BuyBr>
+              <TableBuilder.Amount value={item.value} />
               <TableBuilder.Amount currency="usd" value={item.value} />
-              <TableBuilder.ObjBr
-                data={{
-                  "Order rate": item.rates.order,
-                  "Current rate": item.rates.current,
-                }}
-              />
-              <TableBuilder.Amount value={item.amount} tc noDp />
-              <TableBuilder.ObjBr
-                data={{ Limit: item.limit, Snap: item.snap }}
-              />
-              <TableBuilder.DateTime dt={item.createdAt} />
+              <td>
+                <strong>Order rate: </strong>
+                {asMoney(item.rates.order)} <br />
+                <strong>Current rate: </strong>
+                {asMoney(item.rates.current)}
+              </td>
+              <TableBuilder.Amount value={item.amount} tc />
+              <td>
+                <strong>Limit: </strong>
+                {asMoney(item.limit)} <br />
+                <strong>Snap: </strong>
+                {asMoney(item.snap)}
+              </td>
+              <TableBuilder.DateTime dt={item.createdAt} tc />
               <td></td>
               <TableBuilder.Action hasInfo />
             </tr>

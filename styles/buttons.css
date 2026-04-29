@@ -34,7 +34,7 @@
   }
 
   .sidebar-btn {
-    @apply flex size-12 items-center justify-center flex-col;
+    @apply relative flex size-12 flex-col items-center justify-center;
   }
 
   .sidebar-btn-active {
@@ -49,7 +49,11 @@
     @apply text-ash3 text-center text-[10px];
   }
 
+  .sidebar-badge {
+    @apply absolute top-1 right-1 rounded bg-[#35837a] px-1.5 py-0.5 text-[10px] font-semibold text-white;
+  }
+
   .dashboard-icon {
-    @apply hover:text-secondary size-6 cursor-pointer text-icon;
+    @apply hover:text-secondary text-icon size-6 cursor-pointer;
   }
 }

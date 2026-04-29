@@ -1,0 +1,16 @@
+export const CURRENCY = {
+  Australian_Dollar: { name: "Australian Dollar", country: "Australia", symbol: "A$", abbreviation: "AUD" },
+  British_Pound: { name: "British Pound", country: "United Kingdom", symbol: "£", abbreviation: "GBP" },
+  Canadian_Dollar: { name: "Canadian Dollar", country: "Canada", symbol: "C$", abbreviation: "CAD" },
+  Chinese_Yuan: { name: "Chinese Yuan", country: "China", symbol: "¥", abbreviation: "CNY" },
+  Euro: { name: "Euro", country: "European Union", symbol: "€", abbreviation: "EUR" },
+  Ghanaian_Cedi: { name: "Ghanaian Cedi", country: "Ghana", symbol: "₵", abbreviation: "GHS" },
+  Indian_Rupee: { name: "Indian Rupee", country: "India", symbol: "₹", abbreviation: "INR" },
+  Japanese_Yen: { name: "Japanese Yen", country: "Japan", symbol: "¥", abbreviation: "JPY" },
+  Nigerian_Naira: { name: "Nigerian Naira", country: "Nigeria", symbol: "₦", abbreviation: "NGN" },
+  Singapore_Dollar: { name: "Singapore Dollar", country: "Singapore", symbol: "S$", abbreviation: "SGD" },
+  South_African_Rand: { name: "South African Rand", country: "South Africa", symbol: "R", abbreviation: "ZAR" },
+  Swedish_Krona: { name: "Swedish Krona", country: "Sweden", symbol: "kr", abbreviation: "SEK" },
+  Swiss_Franc: { name: "Swiss Franc", country: "Switzerland", symbol: "₣", abbreviation: "CHF" },
+  US_Dollar: { name: "US Dollar", country: "United States", symbol: "$", abbreviation: "USD" },  
+} as const;

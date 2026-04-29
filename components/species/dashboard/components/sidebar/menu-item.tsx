@@ -8,6 +8,7 @@ interface Props {
   Icon: LucideIcon;
   label: string;
   path?: string;
+  badge?: string | number;
   onClick?: (label: string) => void;
   active?: boolean;
   collapsed?: boolean;
@@ -17,6 +18,7 @@ export const MenuItem = ({
   Icon,
   label,
   path,
+  badge,
   onClick,
   active,
   collapsed,
@@ -40,6 +42,7 @@ export const MenuItem = ({
       <i className="min-size-6">
         <Icon className={clsx("dashboard-icon", active && "text-white")} />
       </i>
+      {badge ? <span className="sidebar-badge">{badge}</span> : null}
       {collapsed && <small className="sidebar-text">{label}</small>}
     </button>
   );

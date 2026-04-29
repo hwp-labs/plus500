@@ -8,18 +8,22 @@ export const isLocalhost = () => {
 export const sleep = (secs: number = 3) =>
   new Promise((resolve) => setTimeout(resolve, secs * 1000));
 
-export const asMoney = (
-  x?: null | number | string,
-  maximumFractionDigits?: boolean,
-) =>
-  x
-    ? maximumFractionDigits
-      ? x.toLocaleString(undefined, { maximumFractionDigits: 20 })
-      : x.toLocaleString()
-    : 0;
+export const asMoney = (n?: null | number, noDp?: boolean) => {
+  if (!n) return noDp ? "0" : "0.00";
 
-export const asMoneyIntl = (x?: null | number) =>
-  x ? new Intl.NumberFormat().format(x) : 0;
+  const [_v, _dp] = String(n).split(".");
+  const v = Number(_v).toLocaleString();
+  const dp = _dp ? (_dp.length < 2 ? `${_dp}0` : _dp) : "00";
+  return noDp ? v : `${v}.${dp}`;
+};
+
+export const asMoneyIntl = (n?: null | number) =>
+  n
+    ? Intl.NumberFormat("en", {
+        notation: "compact",
+        minimumFractionDigits: 2,
+      }).format(n)
+    : 0;
 
 export const slugify = (s: string) =>
   s

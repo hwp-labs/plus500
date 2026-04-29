@@ -1,18 +1,22 @@
-import { EURO } from "@/constants";
+import { asMoney } from "@/utils";
+import { CURRENCY } from "@/constants/CURRENCY";
 
 export const Kpis = () => {
   return (
     <ul className="show-md-flex flex-1">
-      <ul className="flex-cb gap-4 flex-1">
+      <ul className="flex-cb flex-1 gap-4">
         {[
-          { value: EURO + "40,000.00", label: "Available" },
-          { value: EURO + "40,000.00", label: "Equity" },
-          { value: EURO + "0.00", label: "M. Margin" },
-          { value: EURO + "0.00", label: "Profit/Loss" },
+          { value: 38730.68, label: "Available" },
+          { value: 39963.85, label: "Equity" },
+          { value: 616.58, label: "M. Margin" },
+          { value: -36.15, label: "Profit/Loss" },
         ].map((item, i) => (
           <li key={i}>
-            <div className="font-medium">{item.value}</div>
-            <div className="text-xs text-ash3">{item.label}</div>
+            <div className="font-medium">
+              {CURRENCY.Euro.symbol}
+              {asMoney(item.value)}
+            </div>
+            <div className="text-ash3 text-xs">{item.label}</div>
           </li>
         ))}
       </ul>

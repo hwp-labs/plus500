@@ -1,7 +1,3 @@
-export const NAIRA = "₦";
-export const DOLLAR = "$";
-export const EURO = "€"; // € — Euro (&euro; or &#8364;)
-//
 export const ZERO = "0";
 export const EMPTY_STR = "";
 export const HYPHENS = "---";

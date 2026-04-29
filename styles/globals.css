@@ -45,6 +45,9 @@
   --muted: #888;
   --secondary: #5697ec;
   /*  */
+  --success: #4caf50;
+  --danger: #ef5350;
+  /*  */
   --header: #1c2732;
   --aside: #131c24;
   --icon: #8a9499;
@@ -102,4 +105,8 @@ body {
 i,
 address {
   font-style: normal;
+}
+
+strong {
+  font-weight: 500;
 }

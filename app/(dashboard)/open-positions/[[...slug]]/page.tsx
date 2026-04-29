@@ -1,0 +1,58 @@
+import type { Metadata } from "next";
+//
+import { Container } from "@/components/species/dashboard/components/graph/container";
+import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
+//
+import { data } from "@/components/species/open-positions/utils";
+
+export const metadata: Metadata = {
+  title: "Open Positions",
+};
+
+export default function OpenPositionsPage() {
+  return (
+    <Container>
+      <table className="w-full">
+        <TableBuilder.Thead
+          data={[
+            "Type/Instrument",
+            "Net P&L",
+            "Current Value",
+            "Change|c",
+            "",
+            "Limit Shop",
+            "Adjustments|c",
+            "Overnight F...|c",
+            "Open Time|c",
+          ]}
+          hasActions
+        />
+        <TableBuilder.Tbody>
+          {data.map((item, i) => (
+            <tr key={i}>
+              <TableBuilder.BuyBr text={item.type} />
+              <TableBuilder.Amount value={item.netPl} currency="eur" colored />
+              <TableBuilder.Amount value={item.value} currency="usd" />
+              <TableBuilder.Amount value={item.change} suffix="%" colored tc />
+              <TableBuilder.Tc>
+                <div className="flex-col-cc gap-0.5">
+                  <span className="text-blue-400">Edit</span>
+                  <button className="rounded-full border px-3 py-0.5 text-xs">
+                    x Close
+                  </button>
+                </div>
+              </TableBuilder.Tc>
+              <TableBuilder.ObjBr
+                data={{ Limit: item.limit, Shop: item.shop }}
+              />
+              <TableBuilder.Amount value={item.adjustments} currency="eur" tc />
+              <TableBuilder.Amount value={item.overnightF} currency="eur" tc />
+              <TableBuilder.DateTime dt={item.createdAt} />
+              <TableBuilder.Action hasInfo />
+            </tr>
+          ))}
+        </TableBuilder.Tbody>
+      </table>
+    </Container>
+  );
+}
