@@ -7,7 +7,7 @@ import { UserCircleIcon } from "lucide-react";
 import { Accordion } from "./accordion";
 import { Menu } from "./menu";
 
-export const ProfileAvatar = () => {
+export const ProfileAvatarMenu = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
 
