@@ -40,7 +40,7 @@ export const MenuItem = ({
       )}
     >
       <i className="min-size-6">
-        <Icon className={clsx("dashboard-icon", active && "text-white")} />
+        <Icon className={clsx("dash-icon", active && "text-white")} />
       </i>
       {badge ? <span className="sidebar-badge">{badge}</span> : null}
       {collapsed && <small className="sidebar-text">{label}</small>}

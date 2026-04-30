@@ -14,17 +14,17 @@ import {
 
 export const Toolbar = () => {
   return (
-    <div className="flex-cs gap-6 border-t-3 _border-b-3 border-t-[#2b4058] border-b-[#9b89b2] px-4 pt-2 pb-4">
-      <ExpandIcon className="dashboard-icon" />
-      <MessageSquareTextIcon className="dashboard-icon" />
-      <FilePenLineIcon className="dashboard-icon" />
-      <ScanLineIcon className="dashboard-icon" />
-      <TrendingUpDownIcon className="dashboard-icon" />
-      <LayoutGridIcon className="dashboard-icon" />
-      <SaveIcon className="dashboard-icon" />
-      <RemoveFormattingIcon className="dashboard-icon" />
-      <ChartCandlestickIcon className="dashboard-icon" />
-      <CalendarDaysIcon className="dashboard-icon" />
+    <div className="flex-cs _border-b-3 gap-6 border-t-3 border-t-[#2b4058] border-b-[#9b89b2] px-4 pt-2 pb-4">
+      <ExpandIcon className="dash-icon" />
+      <MessageSquareTextIcon className="dash-icon" />
+      <FilePenLineIcon className="dash-icon" />
+      <ScanLineIcon className="dash-icon" />
+      <TrendingUpDownIcon className="dash-icon" />
+      <LayoutGridIcon className="dash-icon" />
+      <SaveIcon className="dash-icon" />
+      <RemoveFormattingIcon className="dash-icon" />
+      <ChartCandlestickIcon className="dash-icon" />
+      <CalendarDaysIcon className="dash-icon" />
       <div className="flex-cc debug_">
         <select defaultValue="1 Minute" className="text-icon input-reset">
           {[

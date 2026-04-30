@@ -9,7 +9,7 @@ interface Props extends PropsWithChildren {
 }
 
 export const SectionHeading = ({ children, label }: Props) => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   //
   return (
     <div className="border-ash6 grid gap-2 border-t py-4">

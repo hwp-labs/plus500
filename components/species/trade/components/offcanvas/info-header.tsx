@@ -27,7 +27,7 @@ export const InfoHeader = () => {
 };
 
 const renderIcon = (Icon: LucideIcon) => (
-  <i className="flex-cc hover:bg-secondary hover:border-secondary border-ash4 size-8 cursor-pointer rounded-full border">
+  <i className="flex-cc hover:bg-secondary hover:border-secondary border-ash4 size-8 btn-fx rounded-full border">
     <Icon size={16} strokeWidth={3} />
   </i>
 );

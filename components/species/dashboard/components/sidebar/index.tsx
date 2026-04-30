@@ -50,13 +50,13 @@ export const Sidebar = () => {
             collapsed={collapsed}
           >
             {darkMode ? (
-              <IconMoonFilled className="dashboard-icon" />
+              <IconMoonFilled className="dash-icon" />
             ) : (
-              <IconSunFilled className="dashboard-icon" />
+              <IconSunFilled className="dash-icon" />
             )}
           </Toggle>
           {/* <Toggle label="Real Money" collapsed={collapsed}>
-            <RadioIcon className="dashboard-icon" />
+            <RadioIcon className="dash-icon" />
           </Toggle> */}
         </div>
         <MenuItem

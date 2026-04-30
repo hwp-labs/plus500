@@ -57,7 +57,11 @@
     @apply absolute top-1 right-1 rounded bg-[#35837a] px-1.5 py-0.5 text-[10px] font-semibold text-white;
   }
 
-  .dashboard-icon {
+  .dash-icon {
     @apply hover:text-secondary text-icon size-6 cursor-pointer;
+  }
+
+  .dash-outline-btn {
+    @apply border-ash5 hover:bg-secondary flex items-center justify-center border-2 text-2xl hover:text-white;
   }
 }
