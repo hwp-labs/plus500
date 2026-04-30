@@ -1,13 +1,14 @@
-import { IconUserCircle , IconSearch } from "@tabler/icons-react";
+import { IconSearch } from "@tabler/icons-react";
 //
 import { LogoDashboard } from "@/components/logo";
 import { SearchBar } from "./search-bar";
 import { Kpis } from "./kpis";
+import { Notifications } from "../notifications";
 import { ProfileAvatar } from "../profile-avatar";
 
 export const Header = () => {
   return (
-    <header className="flex-cb flex-1 gap-8 lg:gap-16 bg-header px-4 py-1">
+    <header className="flex-cb bg-header flex-1 gap-8 px-4 py-1 lg:gap-16">
       <div className="flex-cs debug_ gap-6">
         <LogoDashboard />
         <SearchBar />
@@ -17,15 +18,9 @@ export const Header = () => {
         <div className="hide-lg-block">
           <IconSearch />
         </div>
-        {renderNotifications}
-        <ProfileAvatar  />
+        <Notifications />
+        <ProfileAvatar />
       </div>
     </header>
   );
 };
-
-const renderNotifications = (
-  <div className="flex-cc size-10 rounded-full bg-[#54273f]">
-    <div className="flex-cc size-6 rounded-full bg-[#c22e5d] text-xs">1</div>
-  </div>
-);

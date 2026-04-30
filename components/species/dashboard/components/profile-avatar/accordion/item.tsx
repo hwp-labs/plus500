@@ -28,7 +28,7 @@ export const AccordionItem = ({ Icon, label, data = [] }: Props) => {
       <button
         onClick={toggleCollapsed}
         className={clsx(
-          "btn-fx flex-cb hover:bg-secondary debug2_ w-full rounded bg-[#2d3b4e] px-4 py-3 hover:text-white",
+          "btn-fx flex-cb cursor-default! hover:bg-secondary debug2_ w-full rounded bg-[#2d3b4e] px-4 py-3 hover:text-white",
           collapsed && "text-secondary! rounded-none hover:text-white!",
         )}
       >

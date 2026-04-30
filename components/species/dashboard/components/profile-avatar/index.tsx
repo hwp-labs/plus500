@@ -9,7 +9,7 @@ import { Menu } from "./menu";
 
 export const ProfileAvatar = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -33,7 +33,7 @@ export const ProfileAvatar = () => {
 
       {open && (
         <div className="bg-header absolute top-10 right-0 z-50 w-90 rounded shadow-lg">
-          <div className="flex-col-cc border-ash6 mt-2 gap-2 border-b py-2">
+          <div className="flex-col-cc border-ash6 mt-2 gap-2 border-b-2 py-2">
             <UserCircleIcon className="text-secondary" size={40} />
             <p className="text-muted">dehphantom@yahoo.com</p>
           </div>
