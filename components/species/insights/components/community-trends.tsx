@@ -13,7 +13,7 @@ export const CommunityTrends = () => {
         {data.map(({ label, Icon }, i) => (
           <li
             key={i}
-            className="cover flex-col-xb h-[200px] flex-1 rounded bg-[url('/images/cover-trends.png')] px-8 py-8"
+            className="cover flex-col-xb h-[200px] flex-1 rounded bg-[url('/images/cover-insights-trends.png')] px-8 py-8"
           >
             <div className="bg-background flex-cc size-15 rounded-full">
               <Icon strokeWidth={3} />

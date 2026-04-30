@@ -3,7 +3,6 @@ import { CalendarDaysIcon } from "lucide-react";
 //
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { FormBuilder } from "@/components/species/dashboard/components/form-builder";
-import { CURRENCY } from "@/constants/CURRENCY";
 
 export const metadata: Metadata = {
   title: "Close Positions",
@@ -34,14 +33,20 @@ export default function ClosedPositionsPage() {
               "Close Reason",
             ]}
           />
-          <TableBuilder.TBodyPlaceholder/>
+          <TableBuilder.TBodyPlaceholder />
           <TableBuilder.TFoot>
             <tr>
               <td></td>
-              <td colSpan={3}>{CURRENCY.Euro.symbol}0.00 Total</td>
-              <td className="text-center">{CURRENCY.Euro.symbol}0.00</td>
-              <td className="text-center">{CURRENCY.Euro.symbol}0.00</td>
+              <TableBuilder.Amount
+                value={0}
+                currency="eur"
+                suffix=" Total"
+                colored
+              />
               <td colSpan={2}></td>
+              <TableBuilder.Amount value={0} currency="eur" colored tc />
+              <TableBuilder.Amount value={0} currency="eur" colored tc />
+              <td></td>
             </tr>
           </TableBuilder.TFoot>
         </table>

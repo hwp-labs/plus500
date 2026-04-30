@@ -1,6 +1,10 @@
 /* hover:border-primary-hover disabled:bg-muted  */
 
 @layer components {
+  .btn-fx {
+    @apply cursor-pointer transition-colors duration-300;
+  }
+
   .btn {
     @apply font-f1 flex h-[36px] cursor-pointer items-center justify-center rounded-lg border-2 border-inherit whitespace-nowrap transition-colors duration-300;
   }

@@ -1,8 +1,9 @@
-import { IconEyeOff, IconSearch } from "@tabler/icons-react";
+import { IconUserCircle , IconSearch } from "@tabler/icons-react";
 //
 import { LogoDashboard } from "@/components/logo";
 import { SearchBar } from "./search-bar";
 import { Kpis } from "./kpis";
+import { ProfileAvatar } from "../profile-avatar";
 
 export const Header = () => {
   return (
@@ -16,8 +17,8 @@ export const Header = () => {
         <div className="hide-lg-block">
           <IconSearch />
         </div>
-        <IconEyeOff />
         {renderNotifications}
+        <ProfileAvatar  />
       </div>
     </header>
   );

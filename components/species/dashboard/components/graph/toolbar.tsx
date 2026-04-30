@@ -14,7 +14,7 @@ import {
 
 export const Toolbar = () => {
   return (
-    <div className="flex-cs gap-6 border-t-3 border-b-3 border-t-[#2b4058] border-b-[#9b89b2] px-4 pt-2 pb-4">
+    <div className="flex-cs gap-6 border-t-3 _border-b-3 border-t-[#2b4058] border-b-[#9b89b2] px-4 pt-2 pb-4">
       <ExpandIcon className="dashboard-icon" />
       <MessageSquareTextIcon className="dashboard-icon" />
       <FilePenLineIcon className="dashboard-icon" />
@@ -25,16 +25,6 @@ export const Toolbar = () => {
       <RemoveFormattingIcon className="dashboard-icon" />
       <ChartCandlestickIcon className="dashboard-icon" />
       <CalendarDaysIcon className="dashboard-icon" />
-      {/* <div className="flex-cc cursor-pointer gap-1">
-        <CalendarDaysIcon className="dashboard-icon" />
-        <ChevronDownIcon className="text-icon" />
-      </div> */}
-      {/* <div className="flex-cc gap-1 cursor-pointer">
-        <span className="text-icon font-medium">1 Minute</span>
-        <ChevronDownIcon className="text-icon" />
-        <select name="" id=""></select>
-        {[]}
-      </div> */}
       <div className="flex-cc debug_">
         <select defaultValue="1 Minute" className="text-icon input-reset">
           {[

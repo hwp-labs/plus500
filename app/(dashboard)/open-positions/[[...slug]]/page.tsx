@@ -52,6 +52,22 @@ export default function OpenPositionsPage() {
             </tr>
           ))}
         </TableBuilder.TBody>
+        <TableBuilder.TBodyPlaceholder className="min-h-[100px]!" />
+        <TableBuilder.TFoot>
+          <tr>
+            <td></td>
+            <TableBuilder.Amount
+              value={-36.05}
+              currency="eur"
+              suffix=" Total"
+              colored
+            />
+            <td colSpan={4}></td>
+            <TableBuilder.Amount value={0} currency="eur" colored tc />
+            <TableBuilder.Amount value={0} currency="eur" colored tc />
+            <td></td>
+          </tr>
+        </TableBuilder.TFoot>
       </table>
     </Container>
   );

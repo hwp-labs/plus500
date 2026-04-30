@@ -4,6 +4,7 @@ import { Container } from "@/components/species/dashboard/components/graph/conta
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 //
 import { TableBody } from "@/components/species/orders/components/table-body";
+import { CURRENCY } from "@/constants/CURRENCY";
 
 export const metadata: Metadata = {
   title: "Orders",

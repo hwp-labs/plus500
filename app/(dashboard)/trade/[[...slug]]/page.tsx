@@ -16,7 +16,7 @@ export default function TradePage() {
     <Container>
       <div className="bg-aside flex gap-2">
         <TableFilters />
-        <div className="bg-background flex-1">
+        <div className="bg-background h-[340px] flex-1 overflow-y-auto">
           <table className="w-full">
             <TableBuilder.THead
               data={[
