@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { FormBuilder } from "./form-builder";
+import {
+  CheckboxInput,
+  NumberInput,
+  PairedSubmitBtn,
+} from "@/components/species/dashboard/components/form-builder";
 
 export const BuySellForm = () => {
   const [checkedP, setCheckedP] = useState(false);
@@ -10,37 +14,37 @@ export const BuySellForm = () => {
   return (
     <div className="">
       {renderInputLabel}
-      <FormBuilder.NumberInput defaultValue={1992} />
+      <NumberInput defaultValue={1992} />
       {renderInputDescription}
       <div className="mt-6 space-y-4">
         <div>
-          <FormBuilder.CheckboxInput
+          <CheckboxInput
             label="Close at profit"
             checked={checkedP}
             onCheck={() => setCheckedP((s) => !s)}
           />
           {checkedP && (
             <div className="mt-2.5 space-y-1">
-              <FormBuilder.NumberInput defaultValue={200.0} sm />
+              <NumberInput defaultValue={200.0} sm />
               <small>Profit: E2,496.68 (55.45%)</small>
             </div>
           )}
         </div>
         <div>
-          <FormBuilder.CheckboxInput
+          <CheckboxInput
             label="Close at loss"
             checked={checkedL}
             onCheck={() => setCheckedL((s) => !s)}
           />
           {checkedL && (
             <div className="mt-2.5 space-y-1">
-              <FormBuilder.NumberInput defaultValue={127.37} sm />
+              <NumberInput defaultValue={127.37} sm />
               <small>Loss: E-45.15 (-1.00%)</small>
             </div>
           )}
         </div>
       </div>
-      <FormBuilder.SubmitButton>Sell</FormBuilder.SubmitButton>
+      <PairedSubmitBtn>Sell</PairedSubmitBtn>
     </div>
   );
 };

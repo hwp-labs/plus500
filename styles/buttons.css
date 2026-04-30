@@ -61,7 +61,11 @@
     @apply hover:text-secondary text-icon size-6 cursor-pointer;
   }
 
-  .dash-outline-btn {
+  .dash-btn {
+    @apply border-ash5 text-ash3 hover:border-ash4 flex items-center justify-start gap-2 rounded-full border-2 font-medium hover:text-white;
+  }
+
+  .dash-input-btn {
     @apply border-ash5 hover:bg-secondary flex items-center justify-center border-2 text-2xl hover:text-white;
   }
 }
