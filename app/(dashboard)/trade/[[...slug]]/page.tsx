@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 //
-import { Container } from "@/components/species/dashboard/components/graph/container";
+import { GraphContainer } from "@/components/species/dashboard/components/graph-container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
+import { FormBuilder } from "@/components/species/dashboard/components/form-builder";
+import { Offcanvas } from "@/components/species/trade/components/offcanvas";
 //
 import { TableFilters } from "@/components/species/trade/components/table-filters";
-import { FormBuilder } from "@/components/species/dashboard/components/form-builder";
 import data from "@/components/species/trade/data.json";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function TradePage() {
   return (
-    <Container>
+    <GraphContainer rightSection={<Offcanvas />}>
       <div className="bg-aside flex gap-2">
         <TableFilters />
         <div className="bg-background h-[340px] flex-1 overflow-y-auto">
@@ -60,6 +61,6 @@ export default function TradePage() {
           </table>
         </div>
       </div>
-    </Container>
+    </GraphContainer>
   );
 }

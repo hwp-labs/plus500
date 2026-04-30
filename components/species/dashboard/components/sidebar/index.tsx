@@ -21,7 +21,7 @@ export const Sidebar = () => {
   const [darkMode, setDarkMode] = useState(true);
   //
   return (
-    <aside className="flex-col-cb bg-aside text-icon h-screen gap-4 pb-4">
+    <aside className="flex-col-cb bg-aside text-icon h-svh gap-4 pb-4">
       <div className="flex-1">
         <MenuItem
           Icon={collapsed ? XIcon : TextAlignJustifyIcon}

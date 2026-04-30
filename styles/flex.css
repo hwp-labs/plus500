@@ -23,6 +23,10 @@
     @apply flex items-end justify-start;
   }
 
+  .flex-eb {
+    @apply flex items-end justify-between;
+  }
+
   .flex-sb {
     @apply flex items-start justify-between;
   }
@@ -49,6 +53,11 @@
 
   .flex-col-cx {
     @apply flex flex-col items-center;
+  }
+
+  .flex-col-ee {
+    @apply flex flex-col items-end justify-end
+    ;
   }
 
   .flex-col-sx {

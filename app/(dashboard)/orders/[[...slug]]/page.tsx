@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 //
-import { Container } from "@/components/species/dashboard/components/graph/container";
+import { GraphContainer } from "@/components/species/dashboard/components/graph-container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 //
 import { TableBody } from "@/components/species/orders/components/table-body";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function OrdersPage() {
   return (
-    <Container>
+    <GraphContainer>
       <table className="w-full">
         <TableBuilder.THead
           data={[
@@ -28,6 +28,6 @@ export default function OrdersPage() {
         />
         <TableBody />
       </table>
-    </Container>
+    </GraphContainer>
   );
 }

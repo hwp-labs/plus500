@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 //
-import { Container } from "@/components/species/dashboard/components/graph/container";
+import { GraphContainer } from "@/components/species/dashboard/components/graph-container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 //
 import { data } from "@/components/species/open-positions/utils";
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function OpenPositionsPage() {
   return (
-    <Container>
+    <GraphContainer>
       <table className="w-full">
         <TableBuilder.THead
           data={[
@@ -69,6 +69,6 @@ export default function OpenPositionsPage() {
           </tr>
         </TableBuilder.TFoot>
       </table>
-    </Container>
+    </GraphContainer>
   );
 }

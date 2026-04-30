@@ -35,7 +35,7 @@ const renderInvoice = (
         { label: "Maintenance margin", value: 0 },
         { label: "Available to withdraw", value: 0 },
       ].map(({ label, value }, i) => (
-        <li key={i} className="flex-cb gap-4">
+        <li key={i} className="flex-cb gap-2">
           <div>{label}</div>
           <div className="border-muted flex-1 border-b border-dashed"></div>
           <div>{CURRENCY.Euro.symbol + asMoney(value)}</div>

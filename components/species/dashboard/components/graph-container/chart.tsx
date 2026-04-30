@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export const Graph = () => {
+export const Chart = () => {
   return (
     <div className="">
       <Image
