@@ -122,9 +122,15 @@ interface ActionProps {
 const Action = ({ hasStar, hasBell, hasInfo }: ActionProps) => (
   <td className="">
     <div className="flex-cc debug_ gap-4">
-      {hasInfo && <InfoIcon size={16} />}
-      {hasBell && <BellIcon size={16} />}
-      {hasStar && <StarIcon size={16} />}
+      {hasInfo && (
+        <InfoIcon className="dash-icon text-foreground size-[16px]!" />
+      )}
+      {hasBell && (
+        <BellIcon className="dash-icon text-foreground size-[16px]!" />
+      )}
+      {hasStar && (
+        <StarIcon className="dash-icon text-foreground size-[16px]!" />
+      )}
     </div>
   </td>
 );

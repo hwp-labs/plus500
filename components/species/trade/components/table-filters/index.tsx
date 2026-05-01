@@ -6,7 +6,7 @@ export const TableFilters = () => {
       <Menu
         label="Most Popular"
         data={[
-          { label: "All Popular", selected: true },
+          { label: "All Popular" },
           { label: "Popular Options" },
           { label: "Risers & Fallers" },
           { label: "My Favorites" },

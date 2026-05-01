@@ -1,28 +1,38 @@
-import Link from "next/link";
+"use client";
+
 import { clsx } from "clsx";
-import { PATH_PROTECTED } from "@/constants/PATH";
+import { useAppStore } from "@/store/app-store";
+
+interface IData {
+  label: string;
+  value?: string;
+  selected?: boolean;
+}
 
 interface Props {
   label: string;
-  data: { label: string; selected?: boolean }[];
+  data: IData[];
 }
 
 export const Menu = ({ label, data }: Props) => {
+  const filter = useAppStore((s) => s.filter);
+  const setFilter = useAppStore((s) => s.setFilter);
+  //
   return (
     <div className="">
       <p className="text-muted px-4 py-1.5">{label}</p>
       <ul className="">
         {data.map((item, i) => (
-          <li key={i}>
-            <Link
-              href={PATH_PROTECTED.hash}
-              className={clsx(
-                "hover:bg-header block px-4 py-1.5 hover:text-white",
-                item.selected && "bg-secondary text-white",
-              )}
-            >
-              {item.label}
-            </Link>
+          <li
+            key={i}
+            onClick={() => setFilter(item.label)}
+            className={clsx(
+              "hover:text-secondary debug_ cursor-pointer px-4 py-1.5",
+              filter === item.label &&
+                "bg-secondary text-white hover:text-white",
+            )}
+          >
+            {item.label}
           </li>
         ))}
       </ul>

@@ -1,31 +1,22 @@
 import { ArrowRightIcon } from "lucide-react";
 //
-import { BuySellHeader } from "./buy-sell-header";
-import { BuySellForm } from "./buy-sell-form";
-import { SectionHeading } from "./section-heading";
 import { InfoHeader } from "./info-header";
 import { InfoCta } from "./info-cta";
+import { SectionHeading } from "./section-heading";
 import { TradersSentiments } from "./traders-sentiments";
 import { LiveStatistics } from "./live-statistics";
 import { InfoSection } from "./info-section";
+import { BuySellHeader } from "./buy-sell-header";
+import { BuySellForm } from "./buy-sell-form";
 
 export const Offcanvas = () => {
   return (
-    <aside className="h-svh w-120 space-y-4 overflow-y-auto bg-[#233042] px-8 py-4">
+    <aside className="h-svh w-120 space-y-4 overflow-y-auto bg-aside _bg-[#233042] px-8 py-4">
       <ArrowRightIcon />
       {renderBuySellContent}
     </aside>
   );
 };
-
-const renderBuySellContent = (
-  <>
-    <BuySellHeader />
-    <BuySellForm />
-    <SectionHeading label="Advanced"></SectionHeading>
-    <InfoSection />
-  </>
-);
 
 const renderInfoContent = (
   <>
@@ -36,3 +27,13 @@ const renderInfoContent = (
     <InfoSection />
   </>
 );
+
+const renderBuySellContent = (
+  <>
+    <BuySellHeader />
+    <BuySellForm />
+    <SectionHeading label="Advanced"></SectionHeading>
+    <InfoSection />
+  </>
+);
+

@@ -1,15 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import { IconSearch } from "@tabler/icons-react";
 import { OutlineBtn } from "../form-builder";
-
-const M = 0;
+import { APP_STORE, useAppStore } from "@/store/app-store";
 
 export const Chart = () => {
+  const filter = useAppStore((s) => s.filter);
+  //
   return (
     <div className="">
-      {M ? (
-        renderEmpty
-      ) : (
+      {filter === APP_STORE.filter  ? (
         <Image
           src="/images/graph.png"
           alt=""
@@ -18,6 +19,8 @@ export const Chart = () => {
           priority
           className="w-full"
         />
+      ) : (
+        renderEmpty
       )}
     </div>
   );

@@ -13,11 +13,11 @@ export const SearchBar = () => {
         className="input-reset border-ash6 border-b-2 px-2 py-1"
       />
       <datalist id="search-list">
-        <option value="EUR/USD" />
         <option value="AMD|AMD" />
-        <option value="DOX|Amdocs" />
-        <option value="CPT|Camden" />
         <option value="AMZN|Amazon" />
+        <option value="CPT|Camden" />
+        <option value="DOX|Amdocs" />
+        <option value="EUR/USD" />
       </datalist>
       <i className="absolute top-2 right-2">
         <IconSearch size={18} className="text-ash5" />
