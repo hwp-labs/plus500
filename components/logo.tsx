@@ -26,12 +26,12 @@ export const LogoAuth = ({ mobile }: { mobile?: boolean }) =>
     <Image src="/logo-futures.png" alt="" width={225} height={92} priority />
   );
 
-export const LogoDashboard = () => (
+export const LogoDashboard = ({ alt }: { alt?: boolean }) => (
   <Image
-    src="/logo-dashboard.png"
+    src={alt ? "/icon-dashboard.png" : "/logo-dashboard.png"}
     alt=""
-    width={106}
-    height={26}
+    width={alt ? 68 : 106}
+    height={alt ? 18 : 26}
     priority
     className="min-w-[106px]"
   />

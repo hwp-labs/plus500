@@ -25,7 +25,7 @@
   --info: #0288d1;
   --success: #13844e;
   --warning: #ed6c02;
-  --danger: #d93e3e;
+  --danger: #d93e3e;  
   /*  */
   --ash1: #f3f4f6;
   --ash2: #e5e7eb;
@@ -45,14 +45,13 @@
   --black: #1f2c39;
   --muted: #888;
   --secondary: #5697ec;
-  /*  */
-  --success: #a0d161;
-  --danger: #ee5f4b;
-  /*  */
   --header: #1c2732;
   --aside: #131c24;
   --icon: #8a9499;
   --card: #37414d;
+  /*  */
+  --success: #a0d161;
+  --danger: #ee5f4b;
 }
 
 @theme inline {

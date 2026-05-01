@@ -21,6 +21,8 @@ export const useAppStore = create<StoreType>()(
         immer<StoreType>((set) => ({
           ...defaultState,
 
+          reset: () => set(defaultState),
+
           setFilter: (p) =>
             set((s) => {
               s.filter = p;

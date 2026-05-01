@@ -15,9 +15,7 @@ export const GraphContainer = ({ children, rightSection }: Props) => {
   return (
     <main className="flex-sb">
       <div className="flex-col-xx min-h-[90svh] flex-1">
-        {fullScreen ? null : (
-          <section className="flex-1">{children}</section>
-        )}
+        {fullScreen ? null : <section className="flex-1">{children}</section>}
         <section className="flex-col-xb">
           <Toolbar />
           <Chart />

@@ -1,6 +1,7 @@
 type Variant = "info" | "buy" | "sell";
 
 interface IActions {
+  reset: () => void;
   setFilter: (payload: string) => void;
   setInstrument: (payload: string, variant?: Variant) => void;
   toggleOpen: () => void;

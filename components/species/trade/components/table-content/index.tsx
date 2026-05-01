@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { OutlineBtn } from "@/components/species/dashboard/components/form-builder";
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
@@ -9,8 +10,13 @@ import { Empty } from "./empty";
 import data from "./data.json";
 
 export const TableContent = () => {
+  const reset = useAppStore((s) => s.reset);
   const filter = useAppStore((s) => s.filter);
   const setInstrument = useAppStore((s) => s.setInstrument);
+  
+  useEffect(() => {
+    reset();
+  }, []);
   //
   return (
     <div className="bg-background h-[400px] flex-1 overflow-y-auto">

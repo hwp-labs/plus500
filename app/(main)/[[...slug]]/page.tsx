@@ -7,7 +7,9 @@ import { Signals } from "@/components/molecules/signals";
 import { WhyUs } from "@/components/molecules/why-us";
 import { Sponsors } from "@/components/molecules/sponsors";
 
-export default function HomePage() {
+export default async function HomePage() {
+  await new Promise((r) => setTimeout(r, 3000));
+
   return (
     <div className="hidden_">
       <Hero />
