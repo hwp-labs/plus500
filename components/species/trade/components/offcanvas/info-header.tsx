@@ -1,11 +1,16 @@
 import { ArrowUpIcon, BellIcon, type LucideIcon, StarIcon } from "lucide-react";
 
-export const InfoHeader = () => {
+interface Props {
+  name: string;
+  nameShort: string;
+}
+
+export const InfoHeader = ({ name, nameShort }: Props) => {
   return (
     <div className="flex-sb">
       <div className="">
-        <h1 className="text-lg font-semibold">Amazon</h1>
-        <p className="mt-2">(AMZN)</p>
+        <h1 className="text-lg font-semibold">{name}</h1>
+        <p className="mt-2">({nameShort})</p>
         <p className="mt-1 text-xs leading-4">
           Advanced Micro Devices Inc. An American multinational semiconductor
           company based in Santa Clara, Califonia.
@@ -27,7 +32,7 @@ export const InfoHeader = () => {
 };
 
 const renderIcon = (Icon: LucideIcon) => (
-  <i className="flex-cc hover:bg-secondary hover:border-secondary border-ash4 size-8 btn-fx rounded-full border">
+  <i className="flex-cc hover:bg-secondary hover:border-secondary border-ash4 btn-fx size-8 rounded-full border">
     <Icon size={16} strokeWidth={3} />
   </i>
 );

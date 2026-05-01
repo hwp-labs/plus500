@@ -7,42 +7,10 @@ import {
 } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import { slugify } from "@/utils";
+//
+import { defaultState, StoreType } from "./utils";
 
 const name = "app-store";
-
-const defaultState: IState = {
-  filter: "All Popular",
-  filterSlug: "all-popular",
-
-  instrument: null,
-  instrumentShort: null,
-
-  variant: "info",
-  open: false,
-  fullScreen: false,
-};
-
-interface IState {
-  filter: string;
-  filterSlug: string;
-
-  instrument: string | null;
-  instrumentShort: string | null;
-
-  variant: "info" | "buy" | "sell";
-  open: boolean;
-  fullScreen: boolean;
-}
-
-interface IActions {
-  setFilter: (payload: string) => void;
-  setInstrument: (payload: string) => void;
-  setVariant: (payload: IState["variant"]) => void;
-  toggleOpen: () => void;
-  toggleFullScreen: () => void;
-}
-
-type StoreType = IState & IActions;
 
 export const APP_STORE = defaultState;
 
@@ -59,21 +27,20 @@ export const useAppStore = create<StoreType>()(
               s.filterSlug = slugify(p);
             }),
 
-          setInstrument: (p) =>
+          setInstrument: (p, v) =>
             set((s) => {
               const [value, label] = p.split("|"); // "AMZN|Amazon"
               s.instrument = label || value;
               s.instrumentShort = value;
-            }),
-
-          setVariant: (p) =>
-            set((s) => {
-              s.variant = p;
+              s.variant = v || "info";
+              s.open = true;
             }),
 
           toggleOpen: () =>
             set((s) => {
               s.open = !s.open;
+
+              if (!s.open) s.variant = "info";
             }),
 
           toggleFullScreen: () =>

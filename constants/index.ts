@@ -1,7 +1,8 @@
 export const ZERO = "0";
 export const EMPTY_STR = "";
 export const HYPHENS = "---";
-export const NOT_APPLICABLE = "N/A";
+export const NOT_APPLICABLE = "Not Applicable";
+export const N_A = "N/A";
 export const UNKNOWN = "Unknown";
 //
 export const CUR_DATE = new Date().toISOString().slice(0, 10); // 1970-01-01

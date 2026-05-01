@@ -2,6 +2,7 @@
 @import "./components";
 @import "./utilities";
 
+@import "./scrollbar.css";
 @import "./media-query.css";
 @import "./flex.css";
 @import "./buttons.css";

@@ -2,7 +2,7 @@ import { Menu } from "./menu";
 
 export const TableFilters = () => {
   return (
-    <div className="debug_ bg-background h-[340px] min-w-50 space-y-2 overflow-y-auto">
+    <div className="debug_ bg-background h-[400px] min-w-50 space-y-2 overflow-y-auto">
       <Menu
         label="Most Popular"
         data={[

@@ -7,7 +7,7 @@ import {
   PairedSubmitBtn,
 } from "@/components/species/dashboard/components/form-builder";
 
-export const BuySellForm = () => {
+export const BuySellForm = ({ buy }: { buy?: boolean }) => {
   const [checkedP, setCheckedP] = useState(false);
   const [checkedL, setCheckedL] = useState(false);
   //
@@ -44,7 +44,7 @@ export const BuySellForm = () => {
           )}
         </div>
       </div>
-      <PairedSubmitBtn>Sell</PairedSubmitBtn>
+      <PairedSubmitBtn>{buy ? "Buy" : "Sell"}</PairedSubmitBtn>
     </div>
   );
 };

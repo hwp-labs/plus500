@@ -8,6 +8,7 @@ import { Earnings, EarningsToggle } from "./earnings";
 import { Notifications } from "../notifications";
 import { ProfileAvatarMenu } from "../profile-avatar-menu";
 import { useIsMobile } from "@/hooks/use-is-mobile";
+import { PATH_PROTECTED } from "@/constants/PATH";
 
 export const Header = () => {
   const isMobile = useIsMobile(960);
@@ -18,7 +19,9 @@ export const Header = () => {
     <header className="flex-cb bg-header flex-1 gap-8 px-4 py-1 lg:gap-16">
       <div className="flex-cs debug_ gap-6">
         {/* LOGO */}
-        <LogoDashboard />
+        <a href={PATH_PROTECTED.home} title="Home">
+          <LogoDashboard />
+        </a>
         {/* SEARCH BAR */}
         {isMobile ? showSearch ? <SearchBar /> : null : <SearchBar />}
       </div>

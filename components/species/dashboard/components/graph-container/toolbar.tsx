@@ -1,3 +1,6 @@
+"use client";
+
+import { useAppStore } from "@/store/app-store";
 import {
   CalendarDaysIcon,
   ChartCandlestickIcon,
@@ -13,9 +16,13 @@ import {
 } from "lucide-react";
 
 export const Toolbar = () => {
+  const toggleFullScreen = useAppStore((s) => s.toggleFullScreen);
+  //
   return (
-    <div className="flex-cs _border-b-3 gap-6 border-t-3 border-t-[#2b4058] border-b-[#9b89b2] px-4 pt-2 pb-4">
-      <ExpandIcon className="dash-icon" />
+    <div className="flex-cs _border-b-3 gap-6 border-t-3 border-t-[#2b4058] border-b-[#9b89b2] px-4 py-2">
+      <button title="Full Screen" onClick={toggleFullScreen}>
+        <ExpandIcon className="dash-icon" />
+      </button>
       <MessageSquareTextIcon className="dash-icon" />
       <FilePenLineIcon className="dash-icon" />
       <ScanLineIcon className="dash-icon" />

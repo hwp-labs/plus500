@@ -8,12 +8,10 @@ export const metadata: Metadata = {
   title: "Trade",
 };
 
-const M = 0;
-
 export default function TradePage() {
   return (
     <GraphContainer rightSection={<Offcanvas />}>
-      <div className="bg-aside flex gap-2">
+      <div className="flex">
         <TableFilters />
         <TableContent />
       </div>

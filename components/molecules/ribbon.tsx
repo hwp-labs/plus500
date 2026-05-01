@@ -3,8 +3,8 @@ import { GooglePlayButton } from "../atoms/google-play-button";
 
 export const Ribbon = () => {
   return (
-    <section className="px-4">
-      <div className="show-lg-block bg-[#040c29] py-8 text-white">
+    <section className="">
+      <div className="show-lg-block bg-[#040c29] py-8 text-white px-4">
         <div className="flex-cb container">
           <Image
             src="/images/ribbon-pride.png"

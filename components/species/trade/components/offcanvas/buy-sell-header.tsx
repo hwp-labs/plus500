@@ -1,11 +1,16 @@
 import { ArrowUpIcon } from "lucide-react";
 
-export const BuySellHeader = () => {
+interface Props {
+  name: string;
+  nameShort: string;
+}
+
+export const BuySellHeader = ({ name, nameShort }: Props) => {
   return (
     <div className="flex-cb">
       <div className="">
-        <h1 className="text-lg font-semibold">Amazon</h1>
-        <p className="">(AMZN)</p>
+        <h1 className="text-lg font-semibold">{name}</h1>
+        <p className="">({nameShort})</p>
       </div>
       <div className="flex-col-ee gap-1">
         <div className="flex-cs text-success gap-1">

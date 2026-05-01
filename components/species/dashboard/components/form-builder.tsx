@@ -20,7 +20,7 @@ export const NumberInput = ({
   const handleChange = (
     ev: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
   ) => {
-    const valueSafe = ev.currentTarget.value.replaceAll(",", "");
+    const valueSafe = ev.currentTarget.value.trim().replaceAll(",", "");
     const valueInt = Number(valueSafe);
     setValue(valueInt);
   };
@@ -87,11 +87,19 @@ export const CheckboxInput = ({
 );
 
 interface OutlineBtnProps extends PropsWithChildren {
+  onClick?: () => void;
   className?: string;
 }
 
-export const OutlineBtn = ({ children, className }: OutlineBtnProps) => (
-  <button className={clsx("dash-btn btn-fx px-6 py-1.5 text-xs", className)}>
+export const OutlineBtn = ({
+  children,
+  onClick,
+  className,
+}: OutlineBtnProps) => (
+  <button
+    onClick={onClick}
+    className={clsx("dash-btn btn-fx px-6 py-1.5 text-xs", className)}
+  >
     {children}
   </button>
 );
