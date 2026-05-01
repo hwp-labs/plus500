@@ -25,10 +25,7 @@ export const Menu = ({ label, data }: Props) => {
         {data.map((item, i) => (
           <li
             key={i}
-            onClick={() => {
-              reset();
-              setFilter(item.label);
-            }}
+            onClick={() => setFilter(item.label)}
             className={clsx(
               "hover:text-secondary debug_ cursor-pointer px-4 py-1.5",
               filter === item.label &&
