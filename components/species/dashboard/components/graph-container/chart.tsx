@@ -4,18 +4,22 @@ import Image from "next/image";
 import { IconSearch } from "@tabler/icons-react";
 import { OutlineBtn } from "../form-builder";
 import { APP_STORE, useAppStore } from "@/store/app-store";
+import ChartV2 from "./chart-v2";
 
 export const Chart = () => {
   const filter = useAppStore((s) => s.filter);
+  const fullScreen = useAppStore((s) => s.fullScreen);
   //
+  return <ChartV2 />;
+
   return (
     <div className="">
-      {filter === APP_STORE.filter  ? (
+      {filter === APP_STORE.filter ? (
         <Image
-          src="/images/graph.png"
+          src={fullScreen ? "/images/graph-lg.png" : "/images/graph.png"}
           alt=""
-          width={1193}
-          height={255}
+          width={fullScreen ? 1202 : 1193}
+          height={fullScreen ? 538 : 255}
           priority
           className="w-full"
         />

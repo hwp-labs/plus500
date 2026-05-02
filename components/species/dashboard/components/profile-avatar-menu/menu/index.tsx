@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { IconLogin, IconCircleArrowDown, IconCash } from "@tabler/icons-react";
-import { PATH } from "@/constants/PATH";
+import { PATH, PATH_PROTECTED } from "@/constants/PATH";
 //
 import { MenuItem } from "./item";
 
@@ -11,7 +11,13 @@ export const Menu = () => {
   //
   return (
     <div className="flex-col-xx mt-2.5">
-      <MenuItem Icon={IconCash} label="Switch To Real Money" />
+      <MenuItem
+        Icon={IconCash}
+        label="Switch to Real Money"
+        onClick={() =>
+          confirm("Switch to Real Money?") ? router.push(PATH_PROTECTED.funds) : null
+        }
+      />
       <MenuItem
         Icon={IconCircleArrowDown}
         label="Add To Home Screen"
@@ -20,9 +26,9 @@ export const Menu = () => {
       <MenuItem
         Icon={IconLogin}
         label="Log Out"
-        onClick={() => {
-          if (confirm("Exit Application?")) router.replace(PATH.login);
-        }}
+        onClick={() =>
+          confirm("Exit Application?") ? router.replace(PATH.login) : null
+        }
       />
     </div>
   );

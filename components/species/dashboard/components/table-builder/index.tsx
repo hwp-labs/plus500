@@ -96,7 +96,7 @@ const Amount = ({
     )}
   >
     {currency === "usd"
-      ? CURRENCY.US_Dollar.symbol
+      ? CURRENCY.USD.symbol
       : currency === "eur"
         ? CURRENCY.Euro.symbol
         : null}

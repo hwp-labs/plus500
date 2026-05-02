@@ -2,7 +2,7 @@ import { SectionHeading } from "./section-heading";
 
 export const TradersSentiments = () => {
   return (
-    <SectionHeading label="Traders' Sentiments">
+    <SectionHeading label="Traders' Sentiments" collapsed>
       <div className="flex-cb text-xs">
         <strong className="text-danger font-semibold">3% Sellers</strong>
         <strong className="text-success font-semibold">97% Buyers</strong>

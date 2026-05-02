@@ -40,6 +40,7 @@ export const Accordion = () => {
           { Icon: IconUserCog, label: "Privacy Settings" },
           { Icon: IconShieldCog, label: "Security Settings" },
           { Icon: IconBellCog, label: "Notification Settings" },
+          { Icon: IconBellCog, label: "Display Settings" },
         ]}
       />
     </div>

@@ -25,7 +25,7 @@
   --info: #0288d1;
   --success: #13844e;
   --warning: #ed6c02;
-  --danger: #d93e3e;  
+  --danger: #d93e3e;
   /*  */
   --ash1: #f3f4f6;
   --ash2: #e5e7eb;
@@ -108,5 +108,11 @@ address {
 }
 
 strong {
+  /*  medium */
   font-weight: 500;
+}
+
+b {
+  /* bold */
+  font-weight: 600;
 }

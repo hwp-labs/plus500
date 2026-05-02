@@ -4,7 +4,7 @@ import { LiveStatisticsScale } from "./live-statistics-scale";
 
 export const LiveStatistics = () => {
   return (
-    <SectionHeading label="Live Statistics">
+    <SectionHeading label="Live Statistics" collapsed>
       <small className="font-semibold">Change</small>
       <LiveStatisticsChange />
       <div className="mt-2 grid">

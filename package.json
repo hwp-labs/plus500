@@ -12,6 +12,7 @@
     "@tabler/icons-react": "^3.41.1",
     "clsx": "^2.1.1",
     "immer": "^11.1.4",
+    "lightweight-charts": "^5.2.0",
     "lucide-react": "^1.11.0",
     "moment-timezone": "^0.6.2",
     "next": "16.2.4",

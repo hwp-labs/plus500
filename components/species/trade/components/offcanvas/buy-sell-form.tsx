@@ -6,10 +6,14 @@ import {
   NumberInput,
   PairedSubmitBtn,
 } from "@/components/species/dashboard/components/form-builder";
+import { CURRENCY } from "@/constants/CURRENCY";
+import { useAppStore } from "@/store/app-store";
 
 export const BuySellForm = ({ buy }: { buy?: boolean }) => {
+  const reset = useAppStore((s) => s.reset);
   const [checkedP, setCheckedP] = useState(false);
   const [checkedL, setCheckedL] = useState(false);
+  const [checkedG, setCheckedG] = useState(false);
   //
   return (
     <div className="">
@@ -26,7 +30,7 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
           {checkedP && (
             <div className="mt-2.5 space-y-1">
               <NumberInput defaultValue={200.0} sm />
-              <small>Profit: E2,496.68 (55.45%)</small>
+              <small>Profit: {CURRENCY.Euro.symbol}2,496.68 (55.45%)</small>
             </div>
           )}
         </div>
@@ -37,14 +41,26 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
             onCheck={() => setCheckedL((s) => !s)}
           />
           {checkedL && (
-            <div className="mt-2.5 space-y-1">
-              <NumberInput defaultValue={127.37} sm />
-              <small>Loss: E-45.15 (-1.00%)</small>
-            </div>
+            <>
+              <div className="my-2.5 space-y-1">
+                <NumberInput defaultValue={127.37} sm />
+                <small>Loss: {CURRENCY.Euro.symbol}-45.15 (-1.00%)</small>
+              </div>
+              <CheckboxInput
+                label="Guaranteed stop"
+                checked={checkedG}
+                onCheck={() => setCheckedG((s) => !s)}
+              />
+              {checkedG && (
+                <div className="mt-2.5">
+                  <b>(Wider Spread 0.00008)</b>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
-      <PairedSubmitBtn>{buy ? "Buy" : "Sell"}</PairedSubmitBtn>
+      <PairedSubmitBtn onSubmit={reset}>{buy ? "Buy" : "Sell"}</PairedSubmitBtn>
     </div>
   );
 };
@@ -62,11 +78,15 @@ const renderInputLabel = (
 const renderInputDescription = (
   <div className="flex-cb mt-2">
     <div className="grid">
-      <strong>$154,722.40 = E154,744.55</strong>
+      <strong>
+        {CURRENCY.USD.symbol}154,722.40 = {CURRENCY.Euro.symbol}154,744.55
+      </strong>
       <small>Value</small>
     </div>
     <div className="grid text-right">
-      <strong>$30,954.48 = E30,948.91</strong>
+      <strong>
+        {CURRENCY.USD.symbol}30,954.48 = {CURRENCY.Euro.symbol}30,948.91
+      </strong>
       <small>Required Margin</small>
     </div>
   </div>

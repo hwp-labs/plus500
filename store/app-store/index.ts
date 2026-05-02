@@ -29,13 +29,23 @@ export const useAppStore = create<StoreType>()(
               s.filterSlug = slugify(p);
             }),
 
-          setInstrument: (p, v) =>
+          setInstrument: (i, v) =>
             set((s) => {
-              const [value, label] = p.split("|"); // "AMZN|Amazon"
+              const [value, label] = i.split("|"); // "AMZN|Amazon"
               s.instrument = label || value;
               s.instrumentShort = value;
               s.variant = v || "info";
               s.open = true;
+            }),
+
+          setVariant: (p) =>
+            set((s) => {
+              s.variant = p;
+            }),
+
+          toggleBackToInfo: () =>
+            set((s) => {
+              s.backToInfo = !s.backToInfo;
             }),
 
           toggleOpen: () =>
@@ -43,6 +53,16 @@ export const useAppStore = create<StoreType>()(
               s.open = !s.open;
 
               if (!s.open) s.variant = "info";
+            }),
+          
+          toggleStar: () =>
+            set((s) => {
+              s.star = !s.star;
+            }),
+
+          toggleAlert: () =>
+            set((s) => {
+              s.alert = !s.alert;
             }),
 
           toggleFullScreen: () =>

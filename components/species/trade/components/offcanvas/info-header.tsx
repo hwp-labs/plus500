@@ -1,4 +1,14 @@
-import { ArrowUpIcon, BellIcon, type LucideIcon, StarIcon } from "lucide-react";
+"use client";
+
+import clsx from "clsx";
+import { ArrowUpIcon } from "lucide-react";
+import {
+  IconStar,
+  IconStarFilled,
+  IconBellFilled,
+  IconBell,
+} from "@tabler/icons-react";
+import { useAppStore } from "@/store/app-store";
 
 interface Props {
   name: string;
@@ -6,6 +16,11 @@ interface Props {
 }
 
 export const InfoHeader = ({ name, nameShort }: Props) => {
+  const star = useAppStore((s) => s.star);
+  const toggleStar = useAppStore((s) => s.toggleStar);
+  const alert = useAppStore((s) => s.alert);
+  const toggleAlert = useAppStore((s) => s.toggleAlert);
+  //
   return (
     <div className="flex-sb">
       <div className="">
@@ -23,16 +38,35 @@ export const InfoHeader = ({ name, nameShort }: Props) => {
           <ArrowUpIcon size={16} />
         </div>
         <div className="flex-cs gap-2">
-          {renderIcon(StarIcon)}
-          {renderIcon(BellIcon)}
+          <button
+            onClick={toggleStar}
+            className={clsx(classNames.btnIcon, star && classNames.btnIcon_focus)}
+          >
+            {star ? (
+              <IconStarFilled size={16} strokeWidth={3} />
+            ) : (
+              <IconStar size={16} strokeWidth={3} />
+            )}
+          </button>
+          <button
+            onClick={toggleAlert}
+            className={clsx(classNames.btnIcon, alert && classNames.btnIcon_focus)}
+          >
+            {alert ? (
+              <IconBellFilled size={16} strokeWidth={3} />
+            ) : (
+              <IconBell size={16} strokeWidth={3} />
+            )}
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-const renderIcon = (Icon: LucideIcon) => (
-  <i className="flex-cc hover:bg-secondary hover:border-secondary border-ash4 btn-fx size-8 rounded-full border">
-    <Icon size={16} strokeWidth={3} />
-  </i>
-);
+const classNames = {
+  btnIcon:
+    "flex-cc hover:bg-[#426da5] hover:border-[#426da5] border-ash4 btn-fx size-8 rounded-full border",
+  btnIcon_focus:
+    "bg-[#2e4f79] border-ash5",
+};

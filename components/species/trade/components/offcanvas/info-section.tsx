@@ -1,8 +1,8 @@
 import { SectionHeading } from "./section-heading";
 
-export const InfoSection = () => {
+export const InfoSection = ({ collapsed }: { collapsed?: boolean }) => {
   return (
-    <SectionHeading label="Info">
+    <SectionHeading label="Info" collapsed={collapsed}>
       <div className="flex-cb">
         <div className="grid flex-1 -space-y-1">
           <strong className="text-xl">
@@ -19,7 +19,7 @@ export const InfoSection = () => {
           <small className="text-ash4">Dynamic Spread</small>
         </div>
       </div>
-      <ul className="grid gap-1 mt-2">
+      <ul className="mt-2 grid gap-1">
         {data.map(({ label, value }, i) => (
           <li key={i} className="flex-cb gap-2">
             <small>{label}</small>

@@ -63,7 +63,7 @@ export const NumberInput = ({
 };
 
 interface CheckboxInputProps {
-  label: string;
+  label: React.ReactNode;
   checked?: boolean;
   onCheck?: () => void;
 }
@@ -73,16 +73,16 @@ export const CheckboxInput = ({
   checked,
   onCheck,
 }: CheckboxInputProps) => (
-  <button onClick={onCheck} className="flex-cs cursor-pointer gap-2">
+  <button onClick={onCheck} className="flex-cs cursor-pointer gap-2 group">
     <div
       className={clsx(
-        "flex-cc size-5 rounded",
-        checked ? "bg-secondary" : "bg-ash6",
+        "flex-cc size-5 rounded group-hover:bg-[#446da4]",
+        checked ? "bg-secondary" : "bg-[#4d5e75]",
       )}
     >
       {checked && <CheckIcon size={14} strokeWidth={3} />}
     </div>
-    <span>{label}</span>
+    <div>{label}</div>
   </button>
 );
 
@@ -116,7 +116,7 @@ export const PairedSubmitBtn = ({
     <div className="flex-cb mt-6">
       <button
         onClick={onSubmit}
-        className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg"
+        className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:bg-[#4678b5] hover:border-[#4678b5] hover:text-white"
       >
         {children}
       </button>
