@@ -9,9 +9,7 @@ import ChartV2 from "./chart-v2";
 export const Chart = () => {
   const filter = useAppStore((s) => s.filter);
   const fullScreen = useAppStore((s) => s.fullScreen);
-  //
-  return <ChartV2 />;
-
+  // return <ChartV2 />;
   return (
     <div className="">
       {filter === APP_STORE.filter ? (
