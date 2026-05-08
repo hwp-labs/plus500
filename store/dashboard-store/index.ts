@@ -10,9 +10,9 @@ import { slugify } from "@/utils";
 //
 import { defaultState, StoreType } from "./utils";
 
-const name = "app-store";
+const name = "dashboard-store";
 
-export const APP_STORE = defaultState;
+export const DASHBOARD_STORE = defaultState;
 
 export const useAppStore = create<StoreType>()(
   devtools(
@@ -54,7 +54,7 @@ export const useAppStore = create<StoreType>()(
 
               if (!s.open) s.variant = "info";
             }),
-          
+
           toggleStar: () =>
             set((s) => {
               s.star = !s.star;

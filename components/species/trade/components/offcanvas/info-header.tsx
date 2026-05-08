@@ -8,7 +8,7 @@ import {
   IconBellFilled,
   IconBell,
 } from "@tabler/icons-react";
-import { useAppStore } from "@/store/app-store";
+import { useDashboardStore } from "@/store/dashboard-store";
 
 interface Props {
   name: string;
@@ -16,10 +16,10 @@ interface Props {
 }
 
 export const InfoHeader = ({ name, nameShort }: Props) => {
-  const star = useAppStore((s) => s.star);
-  const toggleStar = useAppStore((s) => s.toggleStar);
-  const alert = useAppStore((s) => s.alert);
-  const toggleAlert = useAppStore((s) => s.toggleAlert);
+  const star = useDashboardStore((s) => s.star);
+  const toggleStar = useDashboardStore((s) => s.toggleStar);
+  const alert = useDashboardStore((s) => s.alert);
+  const toggleAlert = useDashboardStore((s) => s.toggleAlert);
   //
   return (
     <div className="flex-sb">
@@ -40,7 +40,10 @@ export const InfoHeader = ({ name, nameShort }: Props) => {
         <div className="flex-cs gap-2">
           <button
             onClick={toggleStar}
-            className={clsx(classNames.btnIcon, star && classNames.btnIcon_focus)}
+            className={clsx(
+              classNames.btnIcon,
+              star && classNames.btnIcon_focus,
+            )}
           >
             {star ? (
               <IconStarFilled size={16} strokeWidth={3} />
@@ -50,7 +53,10 @@ export const InfoHeader = ({ name, nameShort }: Props) => {
           </button>
           <button
             onClick={toggleAlert}
-            className={clsx(classNames.btnIcon, alert && classNames.btnIcon_focus)}
+            className={clsx(
+              classNames.btnIcon,
+              alert && classNames.btnIcon_focus,
+            )}
           >
             {alert ? (
               <IconBellFilled size={16} strokeWidth={3} />
@@ -67,6 +73,5 @@ export const InfoHeader = ({ name, nameShort }: Props) => {
 const classNames = {
   btnIcon:
     "flex-cc hover:bg-[#426da5] hover:border-[#426da5] border-ash4 btn-fx size-8 rounded-full border",
-  btnIcon_focus:
-    "bg-[#2e4f79] border-ash5",
+  btnIcon_focus: "bg-[#2e4f79] border-ash5",
 };

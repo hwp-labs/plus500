@@ -3,16 +3,16 @@
 import Image from "next/image";
 import { IconSearch } from "@tabler/icons-react";
 import { OutlineBtn } from "../form-builder";
-import { APP_STORE, useAppStore } from "@/store/app-store";
+import { DASHBOARD_STORE, useDashboardStore } from "@/store/dashboard-store";
 import ChartV2 from "./chart-v2";
 
 export const Chart = () => {
-  const filter = useAppStore((s) => s.filter);
-  const fullScreen = useAppStore((s) => s.fullScreen);
+  const filter = useDashboardStore((s) => s.filter);
+  const fullScreen = useDashboardStore((s) => s.fullScreen);
   // return <ChartV2 />;
   return (
     <div className="">
-      {filter === APP_STORE.filter ? (
+      {filter === DASHBOARD_STORE.filter ? (
         <Image
           src={fullScreen ? "/images/graph-lg.png" : "/images/graph.png"}
           alt=""

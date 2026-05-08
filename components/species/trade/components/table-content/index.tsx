@@ -4,23 +4,23 @@ import { useEffect } from "react";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { OutlineBtn } from "@/components/species/dashboard/components/form-builder";
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
-import { APP_STORE, useAppStore } from "@/store/app-store";
+import { DASHBOARD_STORE, useDashboardStore } from "@/store/dashboard-store";
 //
 import { Empty } from "./empty";
 import data from "./data.json";
 
 export const TableContent = () => {
-  const reset = useAppStore((s) => s.reset);
-  const filter = useAppStore((s) => s.filter);
-  const setInstrument = useAppStore((s) => s.setInstrument);
-  
+  const reset = useDashboardStore((s) => s.reset);
+  const filter = useDashboardStore((s) => s.filter);
+  const setInstrument = useDashboardStore((s) => s.setInstrument);
+
   useEffect(() => {
     reset();
   }, []);
   //
   return (
     <div className="bg-background h-[400px] flex-1 overflow-y-auto">
-      {filter === APP_STORE.filter ? (
+      {filter === DASHBOARD_STORE.filter ? (
         <table className="w-full">
           <TableBuilder.THead
             data={[

@@ -2,13 +2,13 @@
 
 import { Dispatch, SetStateAction, useState } from "react";
 import { IconSearch } from "@tabler/icons-react";
-import { useAppStore } from "@/store/app-store";
+import { useDashboardStore } from "@/store/dashboard-store";
 
 const data = ["AMD|AMD", "AMZN|Amazon", "CPT|Camden", "DOX|Amdocs", "EUR/USD"];
 
 export const SearchBar = () => {
   const [value, setValue] = useState("");
-  const setInstrument = useAppStore((s) => s.setInstrument);
+  const setInstrument = useDashboardStore((s) => s.setInstrument);
 
   const handleChange = (
     ev: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,

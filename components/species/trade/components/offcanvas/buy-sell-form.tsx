@@ -7,10 +7,10 @@ import {
   PairedSubmitBtn,
 } from "@/components/species/dashboard/components/form-builder";
 import { CURRENCY } from "@/constants/CURRENCY";
-import { useAppStore } from "@/store/app-store";
+import { useDashboardStore } from "@/store/dashboard-store";
 
 export const BuySellForm = ({ buy }: { buy?: boolean }) => {
-  const reset = useAppStore((s) => s.reset);
+  const reset = useDashboardStore((s) => s.reset);
   const [checkedP, setCheckedP] = useState(false);
   const [checkedL, setCheckedL] = useState(false);
   const [checkedG, setCheckedG] = useState(false);

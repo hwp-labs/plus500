@@ -3,14 +3,14 @@
 import { PropsWithChildren } from "react";
 import { Toolbar } from "./toolbar";
 import { Chart } from "./chart";
-import { useAppStore } from "@/store/app-store";
+import { useDashboardStore } from "@/store/dashboard-store";
 
 interface Props extends PropsWithChildren {
   rightSection?: React.ReactNode;
 }
 
 export const GraphContainer = ({ children, rightSection }: Props) => {
-  const fullScreen = useAppStore((s) => s.fullScreen);
+  const fullScreen = useDashboardStore((s) => s.fullScreen);
   //
   return (
     <main className="flex-sb">

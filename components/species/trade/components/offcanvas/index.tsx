@@ -9,19 +9,19 @@ import { LiveStatistics } from "./live-statistics";
 import { InfoSection } from "./info-section";
 import { BuySellHeader } from "./buy-sell-header";
 import { BuySellForm } from "./buy-sell-form";
-import { useAppStore } from "@/store/app-store";
+import { useDashboardStore } from "@/store/dashboard-store";
 import { NOT_APPLICABLE, N_A } from "@/constants";
 import { AdvancedSection } from "./advanced-section";
 
 export const Offcanvas = () => {
-  const open = useAppStore((s) => s.open);
-  const toggleOpen = useAppStore((s) => s.toggleOpen);
-  const variant = useAppStore((s) => s.variant);
-  const setVariant = useAppStore((s) => s.setVariant);
-  const instrument = useAppStore((s) => s.instrument);
-  const instrumentShort = useAppStore((s) => s.instrumentShort);
-  const backToInfo = useAppStore((s) => s.backToInfo);
-  const toggleBackToInfo = useAppStore((s) => s.toggleBackToInfo);
+  const open = useDashboardStore((s) => s.open);
+  const toggleOpen = useDashboardStore((s) => s.toggleOpen);
+  const variant = useDashboardStore((s) => s.variant);
+  const setVariant = useDashboardStore((s) => s.setVariant);
+  const instrument = useDashboardStore((s) => s.instrument);
+  const instrumentShort = useDashboardStore((s) => s.instrumentShort);
+  const backToInfo = useDashboardStore((s) => s.backToInfo);
+  const toggleBackToInfo = useDashboardStore((s) => s.toggleBackToInfo);
 
   const handleBackButton = () => {
     if (variant !== "info" && backToInfo) {

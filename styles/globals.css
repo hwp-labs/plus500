@@ -19,8 +19,9 @@
   --logo: #0c3667;
   --primary: #0c2780;
   --primary-hover: #0a2270;
+  --primary-active: #465b9e;
   --secondary: #2e86fe;
-  --tertiary: #11afff;
+  --tertiary: #69f2ec;
   /*  */
   --info: #0288d1;
   --success: #13844e;
@@ -66,6 +67,7 @@
   --color-logo: var(--logo);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   /*  */
@@ -113,6 +115,6 @@ strong {
 }
 
 b {
-  /* bold */
+  /* semibold */
   font-weight: 600;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { clsx } from "clsx";
-import { useAppStore } from "@/store/app-store";
+import { useDashboardStore } from "@/store/dashboard-store";
 
 interface IData {
   label: string;
@@ -15,8 +15,8 @@ interface Props {
 }
 
 export const Menu = ({ label, data }: Props) => {
-  const filter = useAppStore((s) => s.filter);
-  const setFilter = useAppStore((s) => s.setFilter);
+  const filter = useDashboardStore((s) => s.filter);
+  const setFilter = useDashboardStore((s) => s.setFilter);
   //
   return (
     <div className="">
