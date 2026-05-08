@@ -16,8 +16,11 @@ export const PATH_PROTECTED = {
   dashboard: "/trade",
   trade: "/trade",
   orders: "/orders",
-  funds: "/funds",
   openPositions: "/open-positions",
   closedPositions: "/closed-positions",
   insights: "/insights",
+  //
+  funds: "/funds",
+  fundsDeposit: "/funds/deposit",
+  fundsWithdraw: "/funds/withdraw",
 } as const satisfies Record<string, PathType>;

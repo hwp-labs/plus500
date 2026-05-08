@@ -3,6 +3,7 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { CheckIcon } from "lucide-react";
 import clsx from "clsx";
+import { useFileInput } from "@/hooks/use-file-input";
 
 interface NumberInputProps {
   defaultValue?: number;
@@ -73,7 +74,7 @@ export const CheckboxInput = ({
   checked,
   onCheck,
 }: CheckboxInputProps) => (
-  <button onClick={onCheck} className="flex-cs cursor-pointer gap-2 group">
+  <button onClick={onCheck} className="flex-cs group cursor-pointer gap-2">
     <div
       className={clsx(
         "flex-cc size-5 rounded group-hover:bg-[#446da4]",
@@ -116,13 +117,44 @@ export const PairedSubmitBtn = ({
     <div className="flex-cb mt-6">
       <button
         onClick={onSubmit}
-        className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:bg-[#4678b5] hover:border-[#4678b5] hover:text-white"
+        className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white"
       >
         {children}
       </button>
       <button className="btn border-ash6 border_ max-h-[40]! rounded-none px-10">
         Cancel
       </button>
+    </div>
+  );
+};
+interface FileInputProps extends PropsWithChildren {
+  onSubmit?: () => void;
+}
+
+export const FileInput = ({
+  children,
+  onSubmit = () => undefined,
+}: FileInputProps) => {
+  const { data, error, loading, handleChange } = useFileInput();
+
+  if (error) alert(error);
+  //
+  return (
+    <div>
+      <label className="">
+        <input type="file" onChange={handleChange} className="hidden" />
+        <span
+          onClick={onSubmit}
+          className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white"
+        >
+          {loading ? "Uploading..." : children}
+        </span>
+      </label>
+      <p className="mt-2 text-center underline">
+        {data?.file?.name
+          ? `${data.file.name} (${data.fileSizeMb}mb)`
+          : "No file selected"}
+      </p>
     </div>
   );
 };

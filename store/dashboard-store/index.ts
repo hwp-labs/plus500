@@ -14,7 +14,7 @@ const name = "dashboard-store";
 
 export const DASHBOARD_STORE = defaultState;
 
-export const useAppStore = create<StoreType>()(
+export const useDashboardStore = create<StoreType>()(
   devtools(
     persist(
       subscribeWithSelector(

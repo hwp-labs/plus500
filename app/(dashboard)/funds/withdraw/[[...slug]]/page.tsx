@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import {
   IconCash,
   IconChartPie2Filled,
@@ -10,13 +9,12 @@ import {
 //
 import { asMoney } from "@/utils";
 import { CURRENCY } from "@/constants/CURRENCY";
-import { PATH_PROTECTED } from "@/constants/PATH";
 
 export const metadata: Metadata = {
-  title: "Funds Management",
+  title: "Withdraw Funds",
 };
 
-export default function FundsPage() {
+export default function WithdrawFundsPage() {
   return (
     <main className="container-sm space-y-8">
       <h1 className="mt-4 text-center text-3xl font-bold">Funds Management</h1>
@@ -49,14 +47,14 @@ const renderInvoice = (
 
 const renderButtons = (
   <div className="flex-cb gap-6">
-    <Link href={PATH_PROTECTED.fundsDeposit} className="btn btn-lg bg-secondary max-h-[50px] rounded-full border-none">
+    <button className="btn btn-lg bg-secondary max-h-[50px] rounded-full border-none">
       <IconCreditCardPay />
       Deposit
-    </Link>
-    <Link href={PATH_PROTECTED.fundsWithdraw} className="btn btn-lg bg-secondary max-h-[50px] rounded-full border-none">
+    </button>
+    <button className="btn btn-lg bg-secondary max-h-[50px] rounded-full border-none">
       <IconCreditCardRefund />
       Withdraw
-    </Link>
+    </button>
   </div>
 );
 
