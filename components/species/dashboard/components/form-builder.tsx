@@ -63,6 +63,38 @@ export const NumberInput = ({
   );
 };
 
+interface FileInputProps extends PropsWithChildren {
+  onSubmit?: () => void;
+}
+
+export const FileInput = ({
+  children,
+  onSubmit = () => undefined,
+}: FileInputProps) => {
+  const { data, error, loading, handleChange } = useFileInput();
+
+  if (error) alert(error);
+  //
+  return (
+    <div>
+      <label>
+        <input type="file" onChange={handleChange} className="hidden" />
+        <span
+          onClick={onSubmit}
+          className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white"
+        >
+          {loading ? "Uploading..." : children}
+        </span>
+      </label>
+      <p className="mt-2 text-center underline">
+        {data?.file?.name
+          ? `${data.file.name} (${data.fileSizeMb}mb)`
+          : "No file selected"}
+      </p>
+    </div>
+  );
+};
+
 interface CheckboxInputProps {
   label: React.ReactNode;
   checked?: boolean;
@@ -124,37 +156,6 @@ export const PairedSubmitBtn = ({
       <button className="btn border-ash6 border_ max-h-[40]! rounded-none px-10">
         Cancel
       </button>
-    </div>
-  );
-};
-interface FileInputProps extends PropsWithChildren {
-  onSubmit?: () => void;
-}
-
-export const FileInput = ({
-  children,
-  onSubmit = () => undefined,
-}: FileInputProps) => {
-  const { data, error, loading, handleChange } = useFileInput();
-
-  if (error) alert(error);
-  //
-  return (
-    <div>
-      <label className="">
-        <input type="file" onChange={handleChange} className="hidden" />
-        <span
-          onClick={onSubmit}
-          className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white"
-        >
-          {loading ? "Uploading..." : children}
-        </span>
-      </label>
-      <p className="mt-2 text-center underline">
-        {data?.file?.name
-          ? `${data.file.name} (${data.fileSizeMb}mb)`
-          : "No file selected"}
-      </p>
     </div>
   );
 };

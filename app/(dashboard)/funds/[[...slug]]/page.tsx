@@ -32,10 +32,10 @@ const renderInvoice = (
     <h2 className="text-lg font-bold">Account Balance</h2>
     <ul className="mt-2 space-y-1 px-4">
       {[
+        { label: "Available to withdraw", value: 0 },
         { label: "Equity", value: 0 },
         { label: "Initial margin", value: 0 },
         { label: "Maintenance margin", value: 0 },
-        { label: "Available to withdraw", value: 0 },
       ].map(({ label, value }, i) => (
         <li key={i} className="flex-cb gap-2">
           <div>{label}</div>
