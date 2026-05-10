@@ -34,13 +34,13 @@ export interface IUser extends BaseEntity {
   equity?: number;
   i_margin?: number;
   m_margin?: number;
-  profile_loss?: number;
+  profit_loss?: number;
 }
 
 export type CreateUserDto = Omit<IUser, keyof BaseEntity>;
 export type UpdateUserDto = Pick<
   IUser,
-  "available" | "equity" | "i_margin" | "m_margin" | "profile_loss"
+  "available" | "equity" | "i_margin" | "m_margin" | "profit_loss"
 >;
 
 export interface ITransaction extends BaseEntity {

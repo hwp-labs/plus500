@@ -4,6 +4,7 @@ import { TableBuilder } from "@/components/species/dashboard/components/table-bu
 import { TableButton } from "@/components/species/dashboard/components/table-builder/button";
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
 //
+import { ITransaction } from "@/lib/fsdb/config";
 import data from "@/lib/fsdb/data/transactions.json";
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function TransactionsPage() {
           hasActions // id:receipt,delete
         />
         <TableBuilder.TBody>
-          {data.map((item, i) => (
+          {(data as ITransaction[]).map((item, i) => (
             <TableBuilder.Tr key={i}>
               <TableBuilder.DateTime dt={item.updated_at} />
               <td>{item.email}</td>

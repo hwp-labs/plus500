@@ -11,7 +11,7 @@ export const Earnings = () => {
       {[
         { value: 38730.68, label: "Available" },
         { value: 39963.85, label: "Equity" },
-        { value: 616.58, label: "M. Margin" },
+        { value: 616.58, label: "Mtn. Margin" },
         { value: -36.15, label: "Profit/Loss" },
       ].map((item, i) => (
         <li key={i} className="whitespace-nowrap">

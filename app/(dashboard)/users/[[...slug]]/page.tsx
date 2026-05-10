@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 //
-import { GraphContainer } from "@/components/species/dashboard/components/graph-container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
-//
-import { data } from "@/components/species/open-positions/utils";
+import { TableContent } from "@/components/species/users/components/table-content";
 
 export const metadata: Metadata = {
   title: "Manage Users",
@@ -11,64 +9,72 @@ export const metadata: Metadata = {
 
 export default function UsersPage() {
   return (
-    <GraphContainer>
+    <main className="bg-background flex-1">
       <table className="w-full">
         <TableBuilder.THead
           data={[
-            "Type/Instrument",
-            "Net P&L",
-            "Current Value",
-            "Change|c",
+            "Account",
+            "Avail. Bal.",
+            "Equity",
+            "Ini. Margin",
+            "Mtn. Margin",
+            "Profit/Loss",
+            "Joined|c",
             "",
-            "Limit Shop",
-            "Adjustments|c",
-            "Overnight F...|c",
-            "Open Time|c",
           ]}
-          hasActions
+          hasActions // id:edit,delete
         />
-        <TableBuilder.TBody>
-          {data.map((item, i) => (
-            <TableBuilder.Tr key={i}>
-              <TableBuilder.BuyBr text={item.type} />
-              <TableBuilder.Amount value={item.netPl} currency="eur" colored />
-              <TableBuilder.Amount value={item.value} currency="usd" />
-              <TableBuilder.Amount value={item.change} suffix="%" colored tc />
-              <TableBuilder.Tdc>
-                <div className="flex-col-cc gap-0.5">
-                  <span className="text-blue-400">Edit</span>
-                  <button className="rounded-full border px-3 py-0.5 text-xs">
-                    x Close
-                  </button>
-                </div>
-              </TableBuilder.Tdc>
-              <TableBuilder.ObjBr
-                data={{ Limit: item.limit, Shop: item.shop }}
-              />
-              <TableBuilder.Amount value={item.adjustments} currency="eur" tc />
-              <TableBuilder.Amount value={item.overnightF} currency="eur" tc />
-              <TableBuilder.DateTime dt={item.createdAt} />
-              <TableBuilder.Action hasInfo />
-            </TableBuilder.Tr>
-          ))}
-        </TableBuilder.TBody>
-        <TableBuilder.TBodyPlaceholder className="min-h-[100px]!" />
-        <TableBuilder.TFoot>
-          <TableBuilder.Tr>
-            <td></td>
-            <TableBuilder.Amount
-              value={-36.05}
-              currency="eur"
-              suffix=" Total"
-              colored
-            />
-            <td colSpan={4}></td>
-            <TableBuilder.Amount value={0} currency="eur" colored tc />
-            <TableBuilder.Amount value={0} currency="eur" colored tc />
-            <td></td>
-          </TableBuilder.Tr>
-        </TableBuilder.TFoot>
+        <TableContent />
       </table>
-    </GraphContainer>
+    </main>
   );
 }
+
+
+/**
+ {[
+            {
+              name: "available",
+              placeholder: "Avail. Bal.",
+              value: formData.available,
+            },
+            {
+              name: "equity",
+              placeholder: "Equity",
+              value: formData.equity,
+            },
+            {
+              name: "i_margin",
+              placeholder: "Ini. Margin",
+              value: formData.i_margin,
+            },
+            {
+              name: "m_margin",
+              placeholder: "Mtn. Margin",
+              value: formData.m_margin,
+            },
+            {
+              name: "profit_loss",
+              placeholder: "Profit/Loss",
+              value: formData.profit_loss,
+            },
+          ].map((input, j) => (
+            <Fragment key={input.name}>
+              {i === editIndex ? (
+                <InlineEditForm
+                  placeholder={input.placeholder}
+                  value={input.value}
+                  onChange={(v) =>
+                    setFormData((s) => ({
+                      ...s,
+                      [input.name]: parseFloat(v),
+                    }))
+                  }
+                  // handleSave={handleChange}
+                />
+              ) : (
+                <TableBuilder.Amount value={item[item.name]} currency="usd" />
+              )}
+            </Fragment>
+          ))}
+ */

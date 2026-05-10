@@ -74,7 +74,7 @@ const Tdr = ({ children }: PropsWithChildren) => (
 );
 
 interface AmountProps {
-  value: number;
+  value?: number;
   noDp?: boolean;
   currency?: "usd" | "eur";
   suffix?: string;
@@ -84,7 +84,7 @@ interface AmountProps {
 }
 
 const Amount = ({
-  value,
+  value = 0,
   noDp,
   currency,
   suffix,
