@@ -12,7 +12,7 @@ export const TableBody = () => {
   //
   return (
     <TableBuilder.TBody>
-      <tr>
+      <TableBuilder.Tr>
         <td colSpan={9}>
           <div
             onClick={() => setCollapsed((s) => !s)}
@@ -32,10 +32,10 @@ export const TableBody = () => {
             <p>Last 72 Hours</p>
           </div>
         </td>
-      </tr>
+      </TableBuilder.Tr>
       {collapsed
         ? data.map((item, i) => (
-            <tr key={i}>
+            <TableBuilder.Tr key={i}>
               <TableBuilder.BuyBr text={item.type} />
               <TableBuilder.Amount currency="usd" value={item.value} />
               <TableBuilder.ObjBr
@@ -51,7 +51,7 @@ export const TableBody = () => {
               <TableBuilder.DateTime dt={item.createdAt} />
               <td></td>
               <TableBuilder.Action hasInfo />
-            </tr>
+            </TableBuilder.Tr>
           ))
         : null}
     </TableBuilder.TBody>

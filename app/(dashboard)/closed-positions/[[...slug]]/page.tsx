@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { CalendarDaysIcon } from "lucide-react";
 //
-import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { OutlineBtn } from "@/components/species/dashboard/components/form-builder";
+import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 
 export const metadata: Metadata = {
   title: "Close Positions",

@@ -13,13 +13,15 @@ export const GraphContainer = ({ children, rightSection }: Props) => {
   const fullScreen = useDashboardStore((s) => s.fullScreen);
   //
   return (
-    <main className="flex-sb">
+    <main className="flex-sb bg-background flex-1">
       <div className="flex-col-xx min-h-[90svh] flex-1">
         {fullScreen ? null : <section className="flex-1">{children}</section>}
-        <section className="flex-col-xb">
-          <Toolbar />
-          <Chart />
-        </section>
+        <div className="show-sm-block">
+          <section className="flex-col-xb">
+            <Toolbar />
+            <Chart />
+          </section>
+        </div>
       </div>
       {rightSection}
     </main>
