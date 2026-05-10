@@ -1,41 +1,16 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
-import { TableBuilder } from "../..//dashboard/components/table-builder";
-import { TableAction } from "../../dashboard/components/table-builder/action";
-import { InlineEditForm } from "./inline-edit-form";
-//
+import { Fragment } from "react";
+import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
+import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
+import { InlineEditForm } from "../inline-edit-form";
 import { IUser, UpdateUserDto } from "@/lib/fsdb/config";
-import data from "@/lib/fsdb/data/users.json";
+//
+import { useTableContent } from "./hook";
 
 export const TableContent = () => {
-  const [editIndex, setEditIndex] = useState(-1);
-  const [formData, setFormData] = useState<UpdateUserDto>({});
-
-  const toggleEdit = (i: number) => {
-    if (editIndex === i) {
-      setFormData({});
-      setEditIndex(-1);
-    } else {
-      const { email, password, ...rest } = data[i];
-      setFormData(rest);
-      setEditIndex(i);
-    }
-  };
-
-  const handleChange = (payload: UpdateUserDto) => {
-    console.log("🚀 ~ handleChange ~ payload:", payload)
-    setFormData((s) => ({ ...s, ...payload }));
-    
-  };
-
-  const handleSave = async () => {
-    console.log(formData);
-  };
-
-  useEffect(() => {
-    console.log("🚀 ~ useEffect ~ formData:", formData)
-  }, [formData]);
+  const { data, selected, formData, handleEdit, handleChange, handleSave } =
+    useTableContent();
   //
   return (
     <TableBuilder.TBody>
@@ -71,7 +46,7 @@ export const TableContent = () => {
           ].map((input, j) => {
             return (
               <Fragment key={j}>
-                {editIndex === i ? (
+                {selected === item.email ? (
                   <InlineEditForm
                     placeholder={input.placeholder}
                     value={input.value}
@@ -80,7 +55,7 @@ export const TableContent = () => {
                   />
                 ) : (
                   <TableBuilder.Amount
-                    value={item[input.name as keyof IUser]}
+                    value={item[input.name as keyof UpdateUserDto]}
                     currency="usd"
                   />
                 )}
@@ -88,7 +63,7 @@ export const TableContent = () => {
             );
           })}
           <TableBuilder.DateTime dt={item.updated_at} />
-          <TableAction hasEdit onEdit={() => toggleEdit(i)} hasDelete />
+          <TableAction hasEdit onEdit={() => handleEdit(item)} hasDelete />
         </TableBuilder.Tr>
       ))}
     </TableBuilder.TBody>
