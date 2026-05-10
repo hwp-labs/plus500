@@ -15,21 +15,21 @@ interface Props {
 }
 
 export const CtaButtons = ({ classNames }: Props) => {
-  const isMobile = useMediaQuery();
+  const mq = useMediaQuery();
   //
   return (
-    <div className={clsx(isMobile ? "grid" : "flex-cs", classNames?.div)}>
+    <div className={clsx(mq ? "grid" : "flex-cs", classNames?.div)}>
       <Link
         href={PATH.register}
         className={clsx("tonal-btn btn-lg btn", classNames?.btn1)}
       >
-        {isMobile ? "Download the App" : "Start Trading Now"}
+        {mq ? "Download the App" : "Start Trading Now"}
       </Link>
       <Link
         href={PATH.registerDemo}
         className={clsx("solid-btn btn-lg btn", classNames?.btn2)}
       >
-        {isMobile ? "Try our Free Demo" : "Try FREE Demo"}
+        {mq ? "Try our Free Demo" : "Try FREE Demo"}
       </Link>
     </div>
   );

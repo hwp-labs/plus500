@@ -4,7 +4,7 @@ import { IconBox } from "@tabler/icons-react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 export const Chips = () => {
-  const isMobile = useMediaQuery();
+  const mq = useMediaQuery();
   //
   return (
     <div className="">
@@ -13,7 +13,7 @@ export const Chips = () => {
           <li
             key={i}
             className={
-              isMobile
+              mq
                 ? "text-primary flex-col-cc _border h-[72px] rounded-lg bg-white px-2.5 text-lg font-semibold whitespace-nowrap shadow-2xl"
                 : "outline-pri-btn btn btn-lg text-lg font-semibold"
             }

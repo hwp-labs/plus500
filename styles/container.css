@@ -1,6 +1,6 @@
 @layer utilities {
   .container {
-    @apply mx-auto w-full md:w-[1280px];
+    @apply mx-auto w-full md:w-[1024px];
   }
 
   .container-sm {
@@ -11,8 +11,8 @@
     @apply mx-auto w-full md:w-[768px];
   }
 
-  .container-lg {
-    @apply mx-auto w-full md:w-[1024px];
+  .container-xl {
+    @apply mx-auto w-full md:w-[1280px];
   }
 
   .container-2xl {
@@ -22,7 +22,7 @@
 
 @layer utilities {
   .wrapper {
-    @apply w-full md:w-[1280px];
+    @apply w-full md:w-[1024px];
   }
 
   .wrapper-sm {
@@ -33,8 +33,8 @@
     @apply w-full md:w-[768px];
   }
 
-  .wrapper-lg {
-    @apply w-full md:w-[1024px];
+  .wrapper-xl {
+    @apply w-full md:w-[1280px];
   }
 
   .wrapper-2xl {

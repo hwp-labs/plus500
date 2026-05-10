@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 export const Approvals = () => {
-  const isMobile = useMediaQuery();
+  const mq = useMediaQuery();
   //
   return (
     <div className="flex-col-cc gap-6">
@@ -12,15 +12,15 @@ export const Approvals = () => {
         <Image
           src="/images/hero-fx-empire.png"
           alt=""
-          width={isMobile ? 171 : 226}
-          height={isMobile ? 62 : 91}
+          width={mq ? 171 : 226}
+          height={mq ? 62 : 91}
           priority
         />
         <Image
           src="/images/hero-trust-pilot.png"
           alt=""
-          width={isMobile ? 145 : 206}
-          height={isMobile ? 64 : 108}
+          width={mq ? 145 : 206}
+          height={mq ? 64 : 108}
           priority
         />
       </figure>
