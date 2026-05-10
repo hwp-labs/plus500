@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { data } from "../utils";
 
-export const TableBody = () => {
+export const TableContent = () => {
   const [collapsed, setCollapsed] = useState(true);
   //
   return (

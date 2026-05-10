@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 //
 import { GraphContainer } from "@/components/species/dashboard/components/graph-container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
-//
-import { TableBody } from "@/components/species/orders/components/table-body";
-import { CURRENCY } from "@/constants/CURRENCY";
+// 
+import { TableContent } from "@/components/species/orders/components/table-content";
 
 export const metadata: Metadata = {
   title: "Orders",
@@ -26,7 +25,7 @@ export default function OrdersPage() {
           ]}
           hasActions
         />
-        <TableBody />
+        <TableContent />
       </table>
     </GraphContainer>
   );

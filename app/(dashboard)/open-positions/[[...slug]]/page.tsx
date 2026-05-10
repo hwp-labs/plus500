@@ -29,7 +29,7 @@ export default function OpenPositionsPage() {
         />
         <TableBuilder.TBody>
           {data.map((item, i) => (
-            <tr key={i}>
+            <TableBuilder.Tr key={i}>
               <TableBuilder.BuyBr text={item.type} />
               <TableBuilder.Amount value={item.netPl} currency="eur" colored />
               <TableBuilder.Amount value={item.value} currency="usd" />
@@ -49,12 +49,12 @@ export default function OpenPositionsPage() {
               <TableBuilder.Amount value={item.overnightF} currency="eur" tc />
               <TableBuilder.DateTime dt={item.createdAt} />
               <TableBuilder.Action hasInfo />
-            </tr>
+            </TableBuilder.Tr>
           ))}
         </TableBuilder.TBody>
         <TableBuilder.TBodyPlaceholder className="min-h-[100px]!" />
         <TableBuilder.TFoot>
-          <tr>
+          <TableBuilder.Tr>
             <td></td>
             <TableBuilder.Amount
               value={-36.05}
@@ -66,7 +66,7 @@ export default function OpenPositionsPage() {
             <TableBuilder.Amount value={0} currency="eur" colored tc />
             <TableBuilder.Amount value={0} currency="eur" colored tc />
             <td></td>
-          </tr>
+          </TableBuilder.Tr>
         </TableBuilder.TFoot>
       </table>
     </GraphContainer>
