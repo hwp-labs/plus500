@@ -10,6 +10,7 @@ import { Empty } from "./empty";
 import data from "./data.json";
 
 export const TableContent = () => {
+  const open = useDashboardStore((s) => s.open);
   const reset = useDashboardStore((s) => s.reset);
   const filter = useDashboardStore((s) => s.filter);
   const setInstrument = useDashboardStore((s) => s.setInstrument);
@@ -18,8 +19,8 @@ export const TableContent = () => {
     reset();
   }, []);
   //
-  return (
-    <div className="bg-background h-[400px] flex-1 overflow-y-auto">
+  return open ? null : (
+    <div className="h-[400px] flex-1 overflow-y-auto">
       {filter === DASHBOARD_STORE.filter ? (
         <table className="w-full">
           <TableBuilder.THead
@@ -36,7 +37,7 @@ export const TableContent = () => {
           />
           <TableBuilder.TBody>
             {data.map((item, i) => (
-              <tr key={i}>
+              <TableBuilder.Tr key={i}>
                 <td>{item.name}</td>
                 <TableBuilder.Amount
                   value={item.change}
@@ -69,7 +70,7 @@ export const TableContent = () => {
                   hasInfo
                   onClickInfo={() => setInstrument(item.name)}
                 />
-              </tr>
+              </TableBuilder.Tr>
             ))}
           </TableBuilder.TBody>
         </table>

@@ -33,7 +33,7 @@ export const Offcanvas = () => {
   };
   //
   return open ? (
-    <aside className="bg-aside _bg-[#233042] h-[94svh] w-120 space-y-4 overflow-y-auto px-6 py-4">
+    <aside className="bg-aside _bg-[#233042] h-[94svh] sm:w-120 space-y-4 overflow-y-auto px-6 py-4">
       <button onClick={handleBackButton} title="Close">
         <ArrowRightIcon className="hover:text-secondary btn-fx" />
       </button>

@@ -1,8 +1,13 @@
+"use client";
+
+import { useDashboardStore } from "@/store/dashboard-store";
 import { Menu } from "./menu";
 
 export const TableFilters = () => {
-  return (
-    <div className="debug_ bg-background h-[400px] min-w-50 space-y-2 overflow-y-auto">
+  const open = useDashboardStore((s) => s.open);
+  //
+  return open ? null : (
+    <div className="border-aside h-[400px] space-y-2 overflow-y-auto border-b-6 sm:min-w-50 sm:border-0">
       <Menu
         label="Most Popular"
         data={[
