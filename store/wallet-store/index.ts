@@ -22,11 +22,21 @@ export const useFundsStore = create<StoreType>()(
 
           reset: () => set(defaultState),
 
+          setDeposit: (p) =>
+            set((s) => {
+              s.deposit = p;
+            }),
+
           toggleDeposit: () =>
             set((s) => {
               s.deposit = !s.deposit;
             }),
-         
+
+          setWithdraw: (p) =>
+            set((s) => {
+              s.withdraw = p;
+            }),
+
           toggleWithdraw: () =>
             set((s) => {
               s.withdraw = !s.withdraw;

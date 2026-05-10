@@ -15,12 +15,13 @@ export const PATH_PROTECTED = {
   home: "/trade",
   dashboard: "/trade",
   trade: "/trade",
-  orders: "/orders",
   openPositions: "/open-positions",
+  orders: "/orders",
   closedPositions: "/closed-positions",
   insights: "/insights",
-  //
   funds: "/funds",
-  fundsDeposit: "/funds/deposit",
-  fundsWithdraw: "/funds/withdraw",
+  //
+  transactions: "/transactions",
+  users: "/users",
+  settings: "/settings",
 } as const satisfies Record<string, PathType>;

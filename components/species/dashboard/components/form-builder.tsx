@@ -5,6 +5,34 @@ import { CheckIcon } from "lucide-react";
 import clsx from "clsx";
 import { useFileInput } from "@/hooks/use-file-input";
 
+interface TextInputProps {
+  defaultValue?: string;
+  sm?: boolean;
+}
+
+export const TextInput = ({ defaultValue, sm }: TextInputProps) => {
+  const [value, setValue] = useState(defaultValue || 0);
+
+  const handleChange = (
+    ev: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
+  ) => {
+    const valueSafe = ev.currentTarget.value.trim();
+    setValue(valueSafe);
+  };
+  //
+  return (
+    <input
+      type="text"
+      value={value}
+      onChange={handleChange}
+      className={clsx(
+        "input-reset border-ash5 w-full flex-1 border-2 px-2",
+        sm ? "size-8" : "size-10 text-2xl",
+      )}
+    />
+  );
+};
+
 interface NumberInputProps {
   defaultValue?: number;
   onChange?: (value: number) => void;

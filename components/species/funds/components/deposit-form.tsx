@@ -1,19 +1,24 @@
 "use client";
 
 import { IconCopy } from "@tabler/icons-react";
-import { FileInput } from "../../dashboard/components/form-builder";
+import {
+  FileInput,
+  NumberInput,
+} from "../../dashboard/components/form-builder";
 import { SectionHeading } from "./section-heading";
+//
+import data from "@/lib/fsdb/data/admin.json";
 
 interface Props {
   onClose?: () => void;
 }
 
-export const DepositForm = ({  onClose }: Props) => {
+export const DepositForm = ({ onClose }: Props) => {
   return (
     <section>
       <SectionHeading onClose={onClose}>Deposit Slip</SectionHeading>
       <ul className="mt-2 space-y-4 px-4 sm:space-y-2">
-        {data.map((item, i) => (
+        {list.map((item, i) => (
           <li
             key={i}
             className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
@@ -29,37 +34,45 @@ export const DepositForm = ({  onClose }: Props) => {
                 className="input-reset text-secondary w-full"
                 readOnly
               />
-              <button className="btn-fx" title="Copy">
+              <button
+                className="btn-fx"
+                title="Copy"
+                onClick={() => {
+                  prompt(`${item.label} Wallet Address`, item.address);
+                }}
+              >
                 <IconCopy size={16} />
               </button>
             </div>
           </li>
         ))}
       </ul>
+      <div className="mt-4"></div>
+      <NumberInput />
       <FileInput>Upload proof of deposit</FileInput>
     </section>
   );
 };
 
-const data = [
+const list = [
   {
     label: "BTC",
     src: "/images/coin-btc.png",
-    address: "1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2",
+    address: data.btc,
   },
   {
     label: "ETH",
     src: "/images/coin-eth.png",
-    address: "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
+    address: data.eth,
   },
   {
     label: "USDT",
     src: "/images/coin-usdt.png",
-    address: "TXkSb4FfBEbJXPRPg5V1HNsq9vr3dN85sS ",
+    address: data.usdt,
   },
   {
     label: "USDC",
     src: "/images/coin-usdc.png",
-    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    address: data.usdc,
   },
 ];

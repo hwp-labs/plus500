@@ -2,9 +2,12 @@ import {
   BriefcaseBusinessIcon,
   ChartLineIcon,
   LandmarkIcon,
+  LogsIcon,
   RecycleIcon,
+  SettingsIcon,
   TagIcon,
   TrendingUpIcon,
+  UsersIcon,
 } from "lucide-react";
 import { PATH_PROTECTED } from "@/constants/PATH";
 
@@ -39,5 +42,20 @@ export const menu = [
     Icon: LandmarkIcon,
     label: "Funds",
     path: PATH_PROTECTED.funds,
+  },
+  {
+    Icon: LogsIcon,
+    label: "Transactions",
+    path: PATH_PROTECTED.transactions,
+  },
+  {
+    Icon: UsersIcon,
+    label: "Users",
+    path: PATH_PROTECTED.users,
+  },
+  {
+    Icon: SettingsIcon,
+    label: "Settings",
+    path: PATH_PROTECTED.settings,
   },
 ];

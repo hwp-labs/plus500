@@ -1,6 +1,8 @@
 interface IActions {
   reset: () => void;
+  setDeposit: (payload: boolean) => void;
   toggleDeposit: () => void;
+  setWithdraw: (payload: boolean) => void;
   toggleWithdraw: () => void;
 }
 
