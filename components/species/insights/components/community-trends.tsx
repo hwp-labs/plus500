@@ -3,13 +3,13 @@ import { APP } from "@/constants/APP";
 
 export const CommunityTrends = () => {
   return (
-    <section className="wrapper">
+    <section className="">
       <h2 className="text-lg font-bold">Community trends</h2>
       <p>
         Analyse how the community is behaving and get up ot the top 10 results
         based on {APP.name} platform traders' activity.
       </p>
-      <ul className="flex-cb mt-4 gap-6">
+      <ul className="grid md:grid-cols-3 mt-4 gap-6">
         {data.map(({ label, Icon }, i) => (
           <li
             key={i}

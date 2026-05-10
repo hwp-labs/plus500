@@ -16,8 +16,10 @@ export default function InsightsPage() {
           <FunnelIcon size={18} />
         </div>
       </div>
-      <CommunityTrends />
-      <CompareTrends />
+      <div className="max-w-[1152px] space-y-8">
+        <CommunityTrends />
+        <CompareTrends />
+      </div>
     </main>
   );
 }
