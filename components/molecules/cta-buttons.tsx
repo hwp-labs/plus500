@@ -4,7 +4,7 @@ import Link from "next/link";
 import clsx from "clsx";
 //
 import { PATH } from "@/constants/PATH";
-import { useIsMobile } from "@/hooks/use-is-mobile";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface Props {
   classNames?: {
@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const CtaButtons = ({ classNames }: Props) => {
-  const isMobile = useIsMobile();
+  const isMobile = useMediaQuery();
   //
   return (
     <div className={clsx(isMobile ? "grid" : "flex-cs", classNames?.div)}>

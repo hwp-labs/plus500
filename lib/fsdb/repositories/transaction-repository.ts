@@ -1,9 +1,7 @@
-import path from "path";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 import {
   ApiResponseAsync,
   CreateTransactionDto,
-  DB_PATH,
   ITransaction,
   UpdateTransactionDto,
 } from "../config";
@@ -11,9 +9,8 @@ import { MUTATION } from "../utils";
 import { BaseRepository } from "./base-repository";
 
 class TransactionRepository extends BaseRepository {
-  constructor() {
-    const _path = path.join(process.cwd(), `${DB_PATH}/transactions.json`);
-    super(_path);
+  constructor(readonly filename: string) {
+    super(filename);
   }
 
   async getAll(): ApiResponseAsync<ITransaction[]> {
@@ -50,6 +47,20 @@ class TransactionRepository extends BaseRepository {
     await this.write(res);
     return { status: HTTP_STATUS_CODE.OK, data };
   }
+
+  async delete(id: ITransaction["id"]): ApiResponseAsync {
+    const res = await this.read<ITransaction[]>();
+
+    if (!res.some((row) => row.id === id))
+      return { status: HTTP_STATUS_CODE.NOT_FOUND };
+
+    const data = res.filter((row) => row.id !== id);
+
+    await this.write(data);
+    return { status: HTTP_STATUS_CODE.NO_CONTENT };
+  }
 }
 
-export const transactionRepository = new TransactionRepository();
+export const transactionRepository = new TransactionRepository(
+  `transactions.json`,
+);

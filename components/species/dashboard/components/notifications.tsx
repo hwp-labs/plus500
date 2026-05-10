@@ -30,7 +30,7 @@ export const Notifications = () => {
       </button>
 
       {open && (
-        <div className="bg-header absolute top-12 right-0 z-50 w-90 rounded shadow-lg">
+        <div className="bg-header absolute top-12 -right-10 z-50 w-90 rounded shadow-lg sm:right-0">
           <div className="flex-cb border-ash6 border-b-2 px-2.5 py-2.5">
             <p className="font-semibold">Notification Centre</p>
             <IconSettings />

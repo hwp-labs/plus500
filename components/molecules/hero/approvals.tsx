@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useIsMobile } from "@/hooks/use-is-mobile";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export const Approvals = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useMediaQuery();
   //
   return (
     <div className="flex-col-cc gap-6">
@@ -19,7 +19,7 @@ export const Approvals = () => {
         <Image
           src="/images/hero-trust-pilot.png"
           alt=""
-          width={isMobile ?145 : 206}
+          width={isMobile ? 145 : 206}
           height={isMobile ? 64 : 108}
           priority
         />

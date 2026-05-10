@@ -1,8 +1,7 @@
 "use client";
 
-import { Dispatch, SetStateAction } from "react";
-import { IconEye, IconEyeOff, IconSearch } from "@tabler/icons-react";
-// 
+import { IconEye, IconEyeOff } from "@tabler/icons-react";
+//
 import { asMoney } from "@/utils";
 import { CURRENCY } from "@/constants/CURRENCY";
 
@@ -15,7 +14,7 @@ export const Earnings = () => {
         { value: 616.58, label: "M. Margin" },
         { value: -36.15, label: "Profit/Loss" },
       ].map((item, i) => (
-        <li key={i}>
+        <li key={i} className="whitespace-nowrap">
           <div className="font-medium">
             {CURRENCY.Euro.symbol}
             {asMoney(item.value)}
@@ -29,12 +28,12 @@ export const Earnings = () => {
 
 interface EarningsToggleProps {
   show?: boolean;
-  setShow: Dispatch<SetStateAction<boolean>>;
+  onToggle: () => void;
 }
 
-export const EarningsToggle = ({ show, setShow }: EarningsToggleProps) => (
+export const EarningsToggle = ({ show, onToggle }: EarningsToggleProps) => (
   <button
-    onClick={() => setShow((s) => !s)}
+    onClick={onToggle}
     title={`${show ? "Hide" : "Show"} Earnings`}
     className="cursor-pointer"
   >

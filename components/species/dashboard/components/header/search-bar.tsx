@@ -1,6 +1,6 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { IconSearch } from "@tabler/icons-react";
 import { useDashboardStore } from "@/store/dashboard-store";
 
@@ -19,7 +19,7 @@ export const SearchBar = () => {
   };
   //
   return (
-    <div className="relative w-75">
+    <div className="relative flex-1">
       <input
         type="search"
         list="search-list"
@@ -41,22 +41,16 @@ export const SearchBar = () => {
 };
 
 interface SearchBarToggleProps {
-  isMobile?: boolean;
   show?: boolean;
-  setShow: Dispatch<SetStateAction<boolean>>;
+  onToggle: () => void;
 }
 
-export const SearchBarToggle = ({
-  isMobile,
-  show,
-  setShow,
-}: SearchBarToggleProps) =>
-  isMobile ? (
-    <button
-      onClick={() => setShow((s) => !s)}
-      title={`${show ? "Hide" : "Show"} Search`}
-      className="cursor-pointer"
-    >
-      <IconSearch />
-    </button>
-  ) : null;
+export const SearchBarToggle = ({ show, onToggle }: SearchBarToggleProps) => (
+  <button
+    onClick={onToggle}
+    title={`${show ? "Hide" : "Show"} Search`}
+    className="cursor-pointer"
+  >
+    <IconSearch />
+  </button>
+);

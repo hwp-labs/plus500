@@ -1,4 +1,8 @@
 {
   "email": "admin@plus500.com",
-  "password": "@superAdmin"
+  "password": "@superAdmin",
+  "btc": "bc1qjzn57cqgdf7nvq755xemnf6sqx7mhuyuuv55j8",
+  "eth": "0x5FfDDc9A5a18Fb3fD7F876BF01e02e6D00225999",
+  "usdt": "0x5FfDDc9A5a18Fb3fD7F876BF01e02e6D00225999",
+  "usdc": "0x5FfDDc9A5a18Fb3fD7F876BF01e02e6D00225999"
 }

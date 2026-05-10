@@ -1,12 +1,18 @@
+import path from "path";
 import fs from "fs/promises";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
+import { DB_PATH } from "../config";
 
 export class BaseRepository {
-  constructor(protected readonly path: string) {}
+  protected readonly dir: string;
+
+  constructor(filename: string) {
+    this.dir = path.join(process.cwd(), `${DB_PATH}/${filename}`);
+  }
 
   protected async read<T>(): Promise<T> {
     try {
-      const res = await fs.readFile(this.path, "utf-8");
+      const res = await fs.readFile(this.dir, "utf-8");
       return JSON.parse(res);
     } catch {
       throw new DatabaseError("Failed to read database");
@@ -15,7 +21,7 @@ export class BaseRepository {
 
   protected async write<T>(data: T): Promise<void> {
     try {
-      await fs.writeFile(this.path, JSON.stringify(data, null, 2));
+      await fs.writeFile(this.dir, JSON.stringify(data, null, 2));
     } catch {
       throw new DatabaseError("Failed to write database");
     }

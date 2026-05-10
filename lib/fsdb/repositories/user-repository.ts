@@ -11,9 +11,8 @@ import { MUTATION } from "../utils";
 import { BaseRepository } from "./base-repository";
 
 class UserRepository extends BaseRepository {
-  constructor() {
-    const _path = path.join(process.cwd(), `${DB_PATH}/users.json`);
-    super(_path);
+  constructor(readonly filename: string) {
+    super(filename);
   }
 
   async getAll(): ApiResponseAsync<IUser[]> {
@@ -76,4 +75,4 @@ class UserRepository extends BaseRepository {
   }
 }
 
-export const userRepository = new UserRepository();
+export const userRepository = new UserRepository(`users.json`);

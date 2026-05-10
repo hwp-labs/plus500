@@ -1,13 +1,11 @@
-import path from "path";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
-import { ApiResponseAsync, DB_PATH, IAdmin, UpdateAdminDto } from "../config";
+import { ApiResponseAsync, IAdmin, UpdateAdminDto } from "../config";
 import { MUTATION } from "../utils";
 import { BaseRepository } from "./base-repository";
 
 class AdminRepository extends BaseRepository {
-  constructor() {
-    const _path = path.join(process.cwd(), `${DB_PATH}/admin.json`);
-    super(_path);
+  constructor(readonly filename: string) {
+    super(filename);
   }
 
   async getFirst(): ApiResponseAsync<IAdmin> {
@@ -26,4 +24,4 @@ class AdminRepository extends BaseRepository {
   }
 }
 
-export const adminRepository = new AdminRepository();
+export const adminRepository = new AdminRepository(`admin.json`);

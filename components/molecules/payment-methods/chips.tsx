@@ -1,20 +1,20 @@
 "use client";
 
 import { IconBox } from "@tabler/icons-react";
-import { useIsMobile } from "@/hooks/use-is-mobile";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export const Chips = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useMediaQuery();
   //
   return (
     <div className="">
-      <ul className="flex-cc mt-8 lg:mt-10 gap-4 overflow-x-auto lg:pb-8 pb-4">
+      <ul className="flex-cc mt-8 gap-4 overflow-x-auto pb-4 lg:mt-10 lg:pb-8">
         {data.map(({ icon, label }, i) => (
           <li
             key={i}
             className={
               isMobile
-                ? "text-primary flex-col-cc _border h-[72px] rounded-lg px-2.5 text-lg font-semibold whitespace-nowrap shadow-2xl bg-white"
+                ? "text-primary flex-col-cc _border h-[72px] rounded-lg bg-white px-2.5 text-lg font-semibold whitespace-nowrap shadow-2xl"
                 : "outline-pri-btn btn btn-lg text-lg font-semibold"
             }
           >

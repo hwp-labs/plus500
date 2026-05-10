@@ -1,0 +1,43 @@
+@layer utilities {
+  .container {
+    @apply mx-auto w-full md:w-[1280px];
+  }
+
+  .container-sm {
+    @apply mx-auto w-full md:w-[640px];
+  }
+
+  .container-md {
+    @apply mx-auto w-full md:w-[768px];
+  }
+
+  .container-lg {
+    @apply mx-auto w-full md:w-[1024px];
+  }
+
+  .container-2xl {
+    @apply mx-auto w-full md:w-[1536px];
+  }
+}
+
+@layer utilities {
+  .wrapper {
+    @apply w-full md:w-[1280px];
+  }
+
+  .wrapper-sm {
+    @apply w-full md:w-[640px];
+  }
+
+  .wrapper-md {
+    @apply w-full md:w-[768px];
+  }
+
+  .wrapper-lg {
+    @apply w-full md:w-[1024px];
+  }
+
+  .wrapper-2xl {
+    @apply w-full md:w-[1536px];
+  }
+}

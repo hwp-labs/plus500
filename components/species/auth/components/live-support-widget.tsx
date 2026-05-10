@@ -1,11 +1,11 @@
 "use client";
 
 import { IconMessageDots } from "@tabler/icons-react";
-import { useIsMobile } from "@/hooks/use-is-mobile";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import clsx from "clsx";
 
 export const LiveSupportWidget = () => {
-  const isMobile = useIsMobile(640);
+  const isMobile = useMediaQuery('sm');
   //
   return (
     <button
