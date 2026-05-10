@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function InsightsPage() {
   return (
-    <main className="space-y-8 px-4">
+    <main className="space-y-8 px-4  bg-background flex-1">
       <div className="flex-cb mt-8">
         <h1 className="text-3xl font-bold">+Insights</h1>
         <div className="bg-card flex-cc size-8 rounded">

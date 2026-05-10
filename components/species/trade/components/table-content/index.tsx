@@ -45,24 +45,24 @@ export const TableContent = () => {
                   colored
                 />
                 <TableBuilder.Amount value={item.sell} tc colored />
-                <TableBuilder.Tc>
+                <TableBuilder.Tdc>
                   <OutlineBtn
                     onClick={() => setInstrument(item.name, "sell")}
                     className="py-1!"
                   >
                     Sell
                   </OutlineBtn>
-                </TableBuilder.Tc>
+                </TableBuilder.Tdc>
                 <TableBuilder.Amount value={item.buy} tc colored />
-                <TableBuilder.Tc>
+                <TableBuilder.Tdc>
                   <OutlineBtn
                     onClick={() => setInstrument(item.name, "buy")}
                     className="py-1!"
                   >
                     Buy
                   </OutlineBtn>
-                </TableBuilder.Tc>
-                <TableBuilder.Tc>{item.range}</TableBuilder.Tc>
+                </TableBuilder.Tdc>
+                <TableBuilder.Tdc>{item.range}</TableBuilder.Tdc>
                 <TableAction
                   hasStar
                   hasBell

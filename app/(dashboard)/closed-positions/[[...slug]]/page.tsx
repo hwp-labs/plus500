@@ -10,47 +10,45 @@ export const metadata: Metadata = {
 
 export default function ClosedPositionsPage() {
   return (
-    <main className="flex-col-xx min-h-[92svh]">
-      <section className="debug_ flex-1">
-        <div className="flex-es gap-6 bg-[#25364b] px-4 pt-2 pb-4">
-          <DateInput name="from" label="From" defaultValue="09/14/2021" />
-          <DateInput name="to" label="To" defaultValue="09/14/2022" />
-          <div className="flex-cs gap-4">
-            <OutlineBtn>Display</OutlineBtn>
-            <OutlineBtn>Send by email</OutlineBtn>
-          </div>
+    <main className="min-h-[92svh] flex-1 bg-background">
+      <section className="flex flex-col gap-4 bg-[#25364b] px-4 pt-2 pb-4 sm:flex-row sm:items-end sm:gap-6">
+        <DateInput name="from" label="From" defaultValue="09/14/2021" />
+        <DateInput name="to" label="To" defaultValue="09/14/2022" />
+        <div className="flex-cs gap-4">
+          <OutlineBtn>Display</OutlineBtn>
+          <OutlineBtn>Send by email</OutlineBtn>
         </div>
-        <table className="w-full">
-          <TableBuilder.THead
-            data={[
-              "Type",
-              "Net P&L",
-              "Close Value",
-              "Opening Rate<br/>Close Rate",
-              "Adjustments|c",
-              "Overnight Fun...|c",
-              "Close Time",
-              "Close Reason",
-            ]}
-          />
-          <TableBuilder.TBodyPlaceholder />
-          <TableBuilder.TFoot>
-            <tr>
-              <td></td>
-              <TableBuilder.Amount
-                value={0}
-                currency="eur"
-                suffix=" Total"
-                colored
-              />
-              <td colSpan={2}></td>
-              <TableBuilder.Amount value={0} currency="eur" colored tc />
-              <TableBuilder.Amount value={0} currency="eur" colored tc />
-              <td></td>
-            </tr>
-          </TableBuilder.TFoot>
-        </table>
       </section>
+      <table className="w-full">
+        <TableBuilder.THead
+          data={[
+            "Type",
+            "Net P&L",
+            "Close Value",
+            "Opening Rate<br/>Close Rate",
+            "Adjustments|c",
+            "Overnight Fun...|c",
+            "Close Time",
+            "Close Reason",
+          ]}
+        />
+        <TableBuilder.TBodyPlaceholder />
+        <TableBuilder.TFoot>
+          <TableBuilder.Tr>
+            <td></td>
+            <TableBuilder.Amount
+              value={0}
+              currency="eur"
+              suffix=" Total"
+              colored
+            />
+            <td colSpan={2}></td>
+            <TableBuilder.Amount value={0} currency="eur" colored tc />
+            <TableBuilder.Amount value={0} currency="eur" colored tc />
+            <td></td>
+          </TableBuilder.Tr>
+        </TableBuilder.TFoot>
+      </table>
     </main>
   );
 }
@@ -62,16 +60,16 @@ interface DateInputProps {
 }
 
 const DateInput = ({ name, label, defaultValue }: DateInputProps) => (
-  <div className="flex-col-xx space-y-1">
+  <div className="">
     <label htmlFor={name} className="font-semibold">
       {label}
     </label>
-    <div className="flex-cs gap-2">
+    <div className="flex-cs mt-1 gap-2">
       <input
         type="text"
         id={name}
         defaultValue={defaultValue}
-        className="input-reset bg-header w-50 px-2 py-1"
+        className="input-reset bg-header px-2 py-1 md:w-50"
       />
       <CalendarDaysIcon size={18} />
     </div>

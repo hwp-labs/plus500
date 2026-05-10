@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function FundsPage() {
   return (
-    <main className="container-sm px-6">
+    <main className="container-sm bg-background flex-1 px-6">
       <h1 className="mt-4 text-center text-3xl font-bold">Funds Management</h1>
       <AccountBal />
       <CtaButtons />

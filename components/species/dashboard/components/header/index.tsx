@@ -13,7 +13,7 @@ import { PATH_PROTECTED } from "@/constants/PATH";
 export const Header = () => {
   const mq = useMediaQuery();
   const [showSearch, setShowSearch] = useState(false);
-  const [showEarnings, setShowEarnings] = useState(false);
+  const [showEarnings, setShowEarnings] = useState(true);
   //
   return (
     <header className="bg-header _flex-1 px-4 py-1">

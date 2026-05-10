@@ -14,7 +14,7 @@ interface TheadProps {
 
 const THead = ({ data, hasNumbers, hasActions }: TheadProps) => (
   <thead className="border-ash6 border-b text-left [&>tr>th]:px-4 [&>tr>th]:py-2">
-    <tr>
+    <Tr>
       {hasNumbers && <th></th>}
       {data.map((item, i) => {
         const alignCenter = item.indexOf("|c") > 0;
@@ -34,7 +34,7 @@ const THead = ({ data, hasNumbers, hasActions }: TheadProps) => (
         );
       })}
       {hasActions && <th></th>}
-    </tr>
+    </Tr>
   </thead>
 );
 
@@ -46,11 +46,11 @@ const TBody = ({ children }: PropsWithChildren) => (
 
 const TBodyPlaceholder = ({ className }: { className?: string }) => (
   <TableBuilder.TBody>
-    <tr>
+    <Tr>
       <td colSpan={9}>
         <div className={clsx("min-h-[65svh]", className)}></div>
       </td>
-    </tr>
+    </Tr>
   </TableBuilder.TBody>
 );
 
@@ -60,11 +60,15 @@ const TFoot = ({ children }: PropsWithChildren) => (
   </tfoot>
 );
 
-const Tc = ({ children }: PropsWithChildren) => (
+const Tr = ({ children }: PropsWithChildren) => (
+  <tr className="grid sm:table-row">{children}</tr>
+);
+
+const Tdc = ({ children }: PropsWithChildren) => (
   <td className="text-center">{children}</td>
 );
 
-const Tr = ({ children }: PropsWithChildren) => (
+const Tdr = ({ children }: PropsWithChildren) => (
   <td className="text-right">{children}</td>
 );
 
@@ -163,8 +167,9 @@ export const TableBuilder = {
   TBody,
   TBodyPlaceholder,
   TFoot,
-  Tc,
   Tr,
+  Tdc,
+  Tdr,
   Amount,
   DateTime,
   Action,

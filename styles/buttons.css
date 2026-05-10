@@ -2,7 +2,7 @@
 
 @layer components {
   .btn-fx {
-    @apply cursor-pointer transition-colors duration-300;
+    @apply cursor-pointer whitespace-nowrap transition-colors duration-300;
   }
 
   .btn {

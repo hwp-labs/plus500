@@ -7,13 +7,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="dark text-sm">
-      <div className="hidden_ flex-sx">
-        <Sidebar />
-        <div className="flex-1">
-          <Header />
-          {children}
-        </div>
+    <div className="dark grid grid-cols-[60px_1fr] text-sm">
+      <Sidebar />
+      <div className="flex flex-col">
+        <Header />
+        {children}
       </div>
     </div>
   );
