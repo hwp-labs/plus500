@@ -1,22 +1,29 @@
 "use client";
 
-import { BellIcon, InfoIcon, StarIcon } from "lucide-react";
+import { PropsWithChildren } from "react";
+import { BellIcon, InfoIcon, StarIcon, Trash2Icon } from "lucide-react";
 
-interface ActionProps {
+interface ActionProps extends PropsWithChildren {
   hasStar?: boolean;
   hasBell?: boolean;
   hasInfo?: boolean;
-  onClickInfo?: () => void;
+  onInfo?: () => void;
+  hasDelete?: boolean;
+  onDelete?: () => void;
 }
 
 export const TableAction = ({
+  children,
   hasStar,
   hasBell,
   hasInfo,
-  onClickInfo,
+  onInfo,
+  hasDelete,
+  onDelete,
 }: ActionProps) => (
   <td className="">
     <div className="flex-cc debug_ gap-4">
+      {children}
       {hasStar && (
         <StarIcon className="dash-icon text-foreground size-[16px]!" />
       )}
@@ -25,8 +32,14 @@ export const TableAction = ({
       )}
       {hasInfo && (
         <InfoIcon
-          onClick={onClickInfo}
+          onClick={onInfo}
           className="dash-icon text-foreground size-[16px]!"
+        />
+      )}
+      {hasDelete && (
+        <Trash2Icon
+          onClick={onDelete}
+          className="dash-icon text-danger size-[16px]!"
         />
       )}
     </div>

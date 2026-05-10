@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { asMoney } from "@/utils";
 import { momentUtil } from "@/utils/moment-util";
 import { CURRENCY } from "@/constants/CURRENCY";
+import { ColorVariantType, colorVariantBg } from "@/types";
 
 interface TheadProps {
   data: string[];
@@ -109,6 +110,24 @@ const Amount = ({
   </td>
 );
 
+interface PillProps {
+  label: string;
+  variant?: ColorVariantType;
+}
+
+const Pill = ({ label, variant }: PillProps) => (
+  <td className="text-center">
+    <span
+      className={clsx(
+        "text-background rounded-full px-2 py-0.5 text-xs",
+        colorVariantBg(variant),
+      )}
+    >
+      {label}
+    </span>
+  </td>
+);
+
 const DateTime = ({ dt }: { dt?: string | null }) => (
   <td className="text-center">
     {momentUtil.stdDate(dt)}
@@ -171,6 +190,7 @@ export const TableBuilder = {
   Tdc,
   Tdr,
   Amount,
+  Pill,
   DateTime,
   Action,
   BuyBr,

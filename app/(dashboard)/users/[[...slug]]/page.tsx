@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 //
 import { GraphContainer } from "@/components/species/dashboard/components/graph-container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
-import { TableButton } from "@/components/species/dashboard/components/table-builder/button";
 //
 import { data } from "@/components/species/open-positions/utils";
 
 export const metadata: Metadata = {
-  title: "Open Positions",
+  title: "Manage Users",
 };
 
-export default function OpenPositionsPage() {
+export default function UsersPage() {
   return (
     <GraphContainer>
       <table className="w-full">
@@ -35,7 +34,14 @@ export default function OpenPositionsPage() {
               <TableBuilder.Amount value={item.netPl} currency="eur" colored />
               <TableBuilder.Amount value={item.value} currency="usd" />
               <TableBuilder.Amount value={item.change} suffix="%" colored tc />
-              <TableButton label="Edit">x Close</TableButton>
+              <TableBuilder.Tdc>
+                <div className="flex-col-cc gap-0.5">
+                  <span className="text-blue-400">Edit</span>
+                  <button className="rounded-full border px-3 py-0.5 text-xs">
+                    x Close
+                  </button>
+                </div>
+              </TableBuilder.Tdc>
               <TableBuilder.ObjBr
                 data={{ Limit: item.limit, Shop: item.shop }}
               />

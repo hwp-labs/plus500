@@ -12,7 +12,7 @@ export interface BaseEntity {
   id: string; // uuid
   created_at: string;
   updated_at: string;
-  deleted_at: string | null;
+  deleted_at?: string | null;
 }
 
 export interface IAdmin extends BaseEntity {

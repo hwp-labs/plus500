@@ -68,7 +68,7 @@ export const TableContent = () => {
                   hasStar
                   hasBell
                   hasInfo
-                  onClickInfo={() => setInstrument(item.name)}
+                  onInfo={() => setInstrument(item.name)}
                 />
               </TableBuilder.Tr>
             ))}

@@ -4,7 +4,7 @@ import { PropsWithChildren, useState } from "react";
 import { IconX } from "@tabler/icons-react";
 import clsx from "clsx";
 //
-import { ColorVariantType } from "@/types";
+import { colorVariantBg, ColorVariantType } from "@/types";
 import { MOCK } from "@/constants/MOCK";
 
 const form = MOCK.auth.portal;
@@ -19,13 +19,7 @@ export const Alert = ({ children, variant = "danger" }: AlertProps) => {
     <div
       className={clsx(
         "flex-sb font-roboto mt-4 px-2.5 py-3 text-[#fefafd]",
-        {
-          default: "bg-primary",
-          info: "bg-info",
-          success: "bg-success",
-          warning: "bg-warning",
-          danger: "bg-danger",
-        }[variant],
+        colorVariantBg(variant),
       )}
     >
       {children}
