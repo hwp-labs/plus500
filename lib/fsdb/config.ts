@@ -1,12 +1,13 @@
 export const DB_PATH = "lib/fsdb/data";
 
-export type ApiResponse<T> = {
-  data?: T;
-  error?: string;
+type BaseApiResponse = {
   status: number;
+  success: boolean;
 };
 
-export type ApiResponseAsync<T = undefined> = Promise<ApiResponse<T>>;
+type ApiResponse<T> = ({ data: T } | { message: string }) & BaseApiResponse;
+
+export type IApiResponse<T> = Promise<ApiResponse<T>>;
 
 export interface BaseEntity {
   id: string; // uuid

@@ -1,19 +1,26 @@
 "use client";
 
 import { PropsWithChildren } from "react";
+import clsx from "clsx";
 
 interface Props extends PropsWithChildren {
+  success?: boolean;
   loading?: boolean;
   onClick?: () => void;
 }
 
-export const SubmitButton = ({ children, loading, onClick }: Props) => {
+export const SubmitButton = ({
+  children,
+  success,
+  loading,
+  onClick,
+}: Props) => {
   return (
     <button
       type="submit"
       onClick={onClick}
       disabled={loading}
-      className="auth-solid-btn btn mt-5"
+      className={clsx("auth-solid-btn btn mt-5", success && "bg-success!")}
     >
       {loading && renderSpinner}
       {children}

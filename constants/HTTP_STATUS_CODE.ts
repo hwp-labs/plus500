@@ -13,3 +13,19 @@ export const HTTP_STATUS_CODE = {
   BAD_GATEWAY: 502,
   SERVICE_UNAVAILABLE: 503,
 } as const;
+
+export const HTTP_STATUS_TEXT = {
+  OK: "OK",
+  CREATED: "Created",
+  NO_CONTENT: "No Content",
+  BAD_REQUEST: "Bad Request",
+  UNAUTHORIZED: "Unauthorized",
+  FORBIDDEN: "Forbidden",
+  NOT_FOUND: "Not Found",
+  CONFLICT: "Conflict",
+  UNPROCESSABLE: "Unprocessable Entity",
+  TOO_MANY_REQUESTS: "Too Many Requests",
+  INTERNAL_SERVER_ERROR: "Internal Server Error",
+  BAD_GATEWAY: "Bad Gateway",
+  SERVICE_UNAVAILABLE: "Service Unavailable",
+} as const;

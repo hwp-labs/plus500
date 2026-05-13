@@ -31,6 +31,23 @@ export interface PageIdParams<T extends string | string[] = string> {
   searchParams: Promise<{ [key: string]: T | undefined }>;
 }
 
+export interface IPaginatedResource<T> {
+  status: number;
+  success: boolean;
+  message?: string;
+  data?: {
+    items: T[];
+    pagination: {
+      current_page: number; // 1;
+      per_page: number; // 15;
+      total: number; // 100;
+      last_page: number; // 7;
+      from: number; // 1;
+      to: number; // 15;
+    };
+  };
+}
+
 export type ColorVariantType =
   | "default"
   | "info"

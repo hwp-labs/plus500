@@ -5,20 +5,12 @@ import { IconX } from "@tabler/icons-react";
 import clsx from "clsx";
 //
 import { colorVariantBg, ColorVariantType } from "@/types";
-import { MOCK } from "@/constants/MOCK";
-
-const form = MOCK.auth.portal;
 interface AlertProps extends PropsWithChildren {
-  defaultShow?: boolean;
   variant?: ColorVariantType;
 }
 
-export const Alert = ({
-  children,
-  defaultShow,
-  variant = "danger",
-}: AlertProps) => {
-  const [show, setShow] = useState(defaultShow || Boolean(form));
+export const Alert = ({ children, variant = "danger" }: AlertProps) => {
+  const [show, setShow] = useState(true);
   //
   return show ? (
     <div
