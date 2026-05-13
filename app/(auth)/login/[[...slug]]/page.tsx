@@ -6,7 +6,7 @@ import {
   Email,
   Password,
   Checkbox,
-} from "@/components/species/auth/components/form-builder";
+} from "@/components/species/auth/components/input-builder";
 import { SubmitButton } from "@/components/species/auth/components/submit-button";
 import { OAuthButtons } from "@/components/species/auth/components/oauth-buttons";
 import { PATH } from "@/constants/PATH";

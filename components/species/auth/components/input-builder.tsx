@@ -9,22 +9,16 @@ import {
   IconCheck,
 } from "@tabler/icons-react";
 import clsx from "clsx";
-//
-import { MOCK } from "@/constants/MOCK";
 
-const form = MOCK.auth.formData
-  ? {
-      email: "dehphantom@yahoo.com",
-      password: "$Thatplus500b0y",
-    }
-  : {
-      email: "",
-      password: "",
-    };
+interface InputProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
 
-export const Email = () => {
-  const [value, setValue] = useState(form.email);
-  //
+export const Email = ({
+  value = "",
+  onChange = () => undefined,
+}: InputProps) => {
   return (
     <div className="auth-input-container">
       <IconMail size={28} className="text-ash4" />
@@ -36,7 +30,7 @@ export const Email = () => {
           type="email"
           placeholder="Email"
           value={value}
-          onChange={(ev) => setValue(ev.currentTarget.value)}
+          onChange={(ev) => onChange(ev.currentTarget.value)}
           className="auth-input"
         />
       </div>
@@ -44,8 +38,10 @@ export const Email = () => {
   );
 };
 
-export const Password = () => {
-  const [value, setValue] = useState(form.password);
+export const Password = ({
+  value = "",
+  onChange = () => undefined,
+}: InputProps) => {
   const [show, setShow] = useState(false);
   //
   return (
@@ -60,7 +56,7 @@ export const Password = () => {
             type={show ? "text" : "password"}
             placeholder="Password"
             value={value}
-            onChange={(ev) => setValue(ev.currentTarget.value)}
+            onChange={(ev) => onChange(ev.currentTarget.value)}
             className="auth-input"
           />
           <button
@@ -81,15 +77,15 @@ export const Password = () => {
   );
 };
 
-export const Checkbox = ({ children }: PropsWithChildren) => {
-  const [checked, setChecked] = useState(true);
-  //
+interface CheckboxProps extends PropsWithChildren {
+  checked?: boolean;
+  onChange?: () => void;
+}
+
+export const Checkbox = ({ children, checked, onChange }: CheckboxProps) => {
   return (
     <div className="flex-cc debug_">
-      <button
-        className="auth-checkbox-container"
-        onClick={() => setChecked((s) => !s)}
-      >
+      <button className="auth-checkbox-container" onClick={onChange}>
         <i
           className={clsx(
             "auth-checkbox",

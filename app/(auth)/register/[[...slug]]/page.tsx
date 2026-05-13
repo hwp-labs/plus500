@@ -1,15 +1,11 @@
 import Link from "next/link";
 //
 import { AuthContainer } from "@/components/species/auth/components/auth-container";
-import { Alert } from "@/components/species/auth/components/alert";
-import {
-  Email,
-  Password,
-} from "@/components/species/auth/components/form-builder";
-import { SubmitButton } from "@/components/species/auth/components/submit-button";
 import { OAuthButtons } from "@/components/species/auth/components/oauth-buttons";
 import { PageParams } from "@/types";
 import { PATH } from "@/constants/PATH";
+// 
+import { RegisterForm } from "@/components/species/auth/components/register-form";
 
 export default async function RegisterPage({ searchParams }: PageParams) {
   const searchParamsAsync = await searchParams;
@@ -17,17 +13,7 @@ export default async function RegisterPage({ searchParams }: PageParams) {
   return (
     <>
       <AuthContainer>
-        <Alert>
-          Registration failed. We're sorry but we currently cannot accept
-          traders from your country.
-        </Alert>
-        <div className="space-y-2">
-          <Email />
-          <Password />
-        </div>
-        <SubmitButton>
-          {searchParamsAsync.demo ? "Create Demo Account" : "Create Account"}
-        </SubmitButton>
+        <RegisterForm demo={searchParamsAsync.demo} />
         <div className="flex-ce">
           <Link href={PATH.login} className="link">
             Already have an account?

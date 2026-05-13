@@ -4,12 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { IconArrowRight, IconUserCircle } from "@tabler/icons-react";
 import { UserCircleIcon } from "lucide-react";
 //
+import { useAuthStore } from "@/store/auth-store";
 import { Accordion } from "./accordion";
 import { Menu } from "./menu";
 
 export const ProfileAvatarMenu = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
+  const session = useAuthStore((s) => s.session);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -35,7 +37,7 @@ export const ProfileAvatarMenu = () => {
         <div className="bg-header absolute top-10 right-0 z-50 w-90 rounded shadow-lg">
           <div className="flex-col-cc border-ash6 mt-2 gap-2 border-b-2 py-2">
             <UserCircleIcon className="text-secondary" size={40} />
-            <p className="text-muted">dehphantom@yahoo.com</p>
+            <p className="text-muted">{session?.email}</p>
           </div>
           <div className="p-4">
             <Accordion />

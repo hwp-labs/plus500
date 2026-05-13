@@ -2,7 +2,7 @@ import Link from "next/link";
 //
 import { AuthContainer } from "@/components/species/auth/components/auth-container";
 import { Alert } from "@/components/species/auth/components/alert";
-import { Email } from "@/components/species/auth/components/form-builder";
+import { Email } from "@/components/species/auth/components/input-builder";
 import { SubmitButton } from "@/components/species/auth/components/submit-button";
 import { PATH } from "@/constants/PATH";
 

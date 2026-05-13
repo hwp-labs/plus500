@@ -1,9 +1,7 @@
-import path from "path";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 import {
   ApiResponseAsync,
   CreateUserDto,
-  DB_PATH,
   IUser,
   UpdateUserDto,
 } from "../config";

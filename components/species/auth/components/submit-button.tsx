@@ -1,29 +1,21 @@
 "use client";
 
-import { PropsWithChildren, useState } from "react";
-import { useRouter } from "next/navigation";
-//
-import { sleep } from "@/utils";
-import { PATH_PROTECTED } from "@/constants/PATH";
+import { PropsWithChildren } from "react";
 
-export const SubmitButton = ({ children }: PropsWithChildren) => {
-  const router = useRouter();
-  const [submitting, setSubmitting] = useState(false);
-  const handleSubmit = async () => {
-    setSubmitting(true);
-    await sleep();
-    router.replace(PATH_PROTECTED.dashboard);
-    setSubmitting(false);
-  };
-  //
+interface Props extends PropsWithChildren {
+  loading?: boolean;
+  onClick?: () => void;
+}
+
+export const SubmitButton = ({ children, loading, onClick }: Props) => {
   return (
     <button
       type="submit"
-      onClick={handleSubmit}
-      disabled={submitting}
+      onClick={onClick}
+      disabled={loading}
       className="auth-solid-btn btn mt-5"
     >
-      {submitting && renderSpinner}
+      {loading && renderSpinner}
       {children}
     </button>
   );
