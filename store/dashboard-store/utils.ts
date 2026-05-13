@@ -1,10 +1,10 @@
-type Variant = "info" | "buy" | "sell";
+type VariantDto = "info" | "buy" | "sell";
 
 interface IActions {
   reset: () => void;
   setFilter: (payload: string) => void;
-  setInstrument: (instrument: string, variant?: Variant) => void;
-  setVariant: (payload: Variant) => void;
+  setInstrument: (instrument: string, variant?: VariantDto) => void;
+  setVariant: (payload: VariantDto) => void;
   toggleBackToInfo: () => void;
   toggleOpen: () => void;
   toggleStar: () => void;
@@ -18,7 +18,7 @@ interface IState {
 
   instrument: string | null;
   instrumentShort: string | null;
-  variant: Variant;
+  variant: VariantDto;
   backToInfo: boolean;
   open: boolean;
   star: boolean;
