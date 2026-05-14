@@ -4,7 +4,7 @@ import { PropsWithChildren, useState } from "react";
 import { IconX } from "@tabler/icons-react";
 import clsx from "clsx";
 //
-import { colorVariantBg, ColorVariantType } from "@/types";
+import { colorVariantBg, ColorVariantType } from "@/types/color-type";
 interface AlertProps extends PropsWithChildren {
   variant?: ColorVariantType;
 }

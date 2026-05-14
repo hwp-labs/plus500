@@ -4,8 +4,8 @@ import clsx from "clsx";
 //
 import { asMoney } from "@/utils";
 import { momentUtil } from "@/utils/moment-util";
+import { ColorVariantType, colorVariantBg } from "@/types/color-type";
 import { CURRENCY } from "@/constants/CURRENCY";
-import { ColorVariantType, colorVariantBg } from "@/types";
 
 interface TheadProps {
   data: string[];

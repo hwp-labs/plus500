@@ -1,4 +1,4 @@
-type SessionDto = {
+export type SessionDto = {
   email: string;
   role: "admin" | "user";
 };

@@ -1,8 +1,9 @@
+import { ApiResponseAsync } from "@/types/api-type";
 import {
   HTTP_STATUS_CODE,
   HTTP_STATUS_TEXT,
 } from "@/constants/HTTP_STATUS_CODE";
-import { IApiResponse, CreateUserDto, IUser, UpdateUserDto } from "../config";
+import { CreateUserDto, IUser, UpdateUserDto } from "../config";
 import { MUTATION } from "../utils";
 import { BaseRepository } from "./base-repository";
 
@@ -11,7 +12,7 @@ class UserRepository extends BaseRepository {
     super(filename);
   }
 
-  async getAll(): IApiResponse<IUser[]> {
+  async getAll(): ApiResponseAsync<IUser[]> {
     const data = await this.read<IUser[]>();
 
     return {
@@ -21,7 +22,7 @@ class UserRepository extends BaseRepository {
     };
   }
 
-  async getByEmail(email: IUser["email"]): IApiResponse<IUser> {
+  async getByEmail(email: IUser["email"]): ApiResponseAsync<IUser> {
     const res = await this.read<IUser[]>();
     const data = res.find((row) => row.email === email);
 
@@ -38,7 +39,7 @@ class UserRepository extends BaseRepository {
         };
   }
 
-  async create(req: CreateUserDto): IApiResponse<IUser> {
+  async create(req: CreateUserDto): ApiResponseAsync<IUser> {
     const res = await this.read<IUser[]>();
 
     if (res.some((row) => row.email === req.email)) {
@@ -60,7 +61,10 @@ class UserRepository extends BaseRepository {
     };
   }
 
-  async updateWallet(id: IUser["id"], req: UpdateUserDto): IApiResponse<IUser> {
+  async updateWallet(
+    id: IUser["id"],
+    req: UpdateUserDto,
+  ): ApiResponseAsync<IUser> {
     const res = await this.read<IUser[]>();
     const i = res.findIndex((row) => row.id === id);
 
@@ -86,7 +90,7 @@ class UserRepository extends BaseRepository {
     };
   }
 
-  async deleteByEmail(email: IUser["email"]): IApiResponse<null> {
+  async deleteByEmail(email: IUser["email"]): ApiResponseAsync<null> {
     const res = await this.read<IUser[]>();
 
     if (!res.some((row) => row.email === email)) {
@@ -108,4 +112,4 @@ class UserRepository extends BaseRepository {
   }
 }
 
-export const userRepository = new UserRepository(`users.json`);
+export const userRepo = new UserRepository(`users.json`);

@@ -6,6 +6,10 @@ export function useTableContent() {
   const [selected, setSelected] = useState("");
   const [formData, setFormData] = useState<UpdateUserDto>({});
 
+  useEffect(() => {
+    console.log("🚀 ~ useEffect ~ formData:", formData);
+  }, [formData]);
+
   const handleEdit = (item: IUser) => {
     if (selected === item.email) {
       setSelected("");
@@ -24,10 +28,6 @@ export function useTableContent() {
   const handleSave = async () => {
     console.log("🚀 ~ handleSave ~ formData:", formData);
   };
-
-  useEffect(() => {
-    console.log("🚀 ~ useEffect ~ formData:", formData);
-  }, [formData]);
 
   return { data, selected, formData, handleEdit, handleChange, handleSave };
 }

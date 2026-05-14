@@ -1,5 +1,5 @@
-import crypto from "crypto";
-import { BaseEntity } from "./config";
+import { BaseEntity } from "@/types/api-type";
+import { cryptoUtil } from "@/utils/crypto-util";
 
 type MutationParseResponse = Partial<BaseEntity & { password: string }>;
 
@@ -13,12 +13,7 @@ export const MUTATION = {
     const res: MutationParseResponse = { ...req };
     const ts = new Date().toISOString();
 
-    if (res.password) {
-      res.password = crypto
-        .createHash("sha256")
-        .update(res.password)
-        .digest("hex");
-    }
+    if (res.password) res.password = cryptoUtil.create(res.password);
 
     switch (method) {
       case "put":
@@ -28,7 +23,7 @@ export const MUTATION = {
         res.deleted_at = ts;
         break;
       default:
-        res.id = crypto.randomUUID();
+        res.id = cryptoUtil.uuid();
         res.created_at = ts;
         res.updated_at = ts;
     }

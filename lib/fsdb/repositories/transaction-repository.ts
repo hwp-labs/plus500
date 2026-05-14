@@ -1,9 +1,9 @@
+import { ApiResponseAsync } from "@/types/api-type";
 import {
   HTTP_STATUS_CODE,
   HTTP_STATUS_TEXT,
 } from "@/constants/HTTP_STATUS_CODE";
 import {
-  IApiResponse,
   CreateTransactionDto,
   ITransaction,
   UpdateTransactionDto,
@@ -16,7 +16,7 @@ class TransactionRepository extends BaseRepository {
     super(filename);
   }
 
-  async getAll(): IApiResponse<ITransaction[]> {
+  async getAll(): ApiResponseAsync<ITransaction[]> {
     const data = await this.read<ITransaction[]>();
 
     return {
@@ -26,7 +26,7 @@ class TransactionRepository extends BaseRepository {
     };
   }
 
-  async create(req: CreateTransactionDto): IApiResponse<ITransaction> {
+  async create(req: CreateTransactionDto): ApiResponseAsync<ITransaction> {
     const res = await this.read<ITransaction[]>();
 
     const data = MUTATION.parse({ req }) as ITransaction;
@@ -43,7 +43,7 @@ class TransactionRepository extends BaseRepository {
   async updateStatus(
     id: ITransaction["id"],
     req: UpdateTransactionDto,
-  ): IApiResponse<ITransaction> {
+  ): ApiResponseAsync<ITransaction> {
     const res = await this.read<ITransaction[]>();
     const i = res.findIndex((row) => row.id === id);
 
@@ -69,7 +69,7 @@ class TransactionRepository extends BaseRepository {
     };
   }
 
-  async delete(id: ITransaction["id"]): IApiResponse<null> {
+  async delete(id: ITransaction["id"]): ApiResponseAsync<null> {
     const res = await this.read<ITransaction[]>();
 
     if (!res.some((row) => row.id === id)) {
@@ -91,6 +91,4 @@ class TransactionRepository extends BaseRepository {
   }
 }
 
-export const transactionRepository = new TransactionRepository(
-  `transactions.json`,
-);
+export const transactionRepo = new TransactionRepository(`transactions.json`);

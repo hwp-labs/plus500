@@ -2,7 +2,7 @@ import Link from "next/link";
 //
 import { AuthContainer } from "@/components/species/auth/components/auth-container";
 import { OAuthButtons } from "@/components/species/auth/components/oauth-buttons";
-import { PageParams } from "@/types";
+import { PageParams } from "@/types/next-type";
 import { PATH } from "@/constants/PATH";
 // 
 import { RegisterForm } from "@/components/species/auth/components/register-form";
@@ -13,7 +13,7 @@ export default async function RegisterPage({ searchParams }: PageParams) {
   return (
     <>
       <AuthContainer>
-        <RegisterForm demo={searchParamsAsync.demo} />
+        <RegisterForm demoQueryParam={searchParamsAsync.demo} />
         <div className="flex-ce">
           <Link href={PATH.login} className="link">
             Already have an account?

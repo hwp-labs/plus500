@@ -46,6 +46,10 @@ export const NumberInput = ({
 }: NumberInputProps) => {
   const [value, setValue] = useState(defaultValue || 0);
 
+  useEffect(() => {
+    onChange(value);
+  }, [value]);
+
   const handleChange = (
     ev: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
   ) => {
@@ -53,16 +57,14 @@ export const NumberInput = ({
     const valueInt = Number(valueSafe);
     setValue(valueInt);
   };
+  
   const handleIncrease = () => {
     setValue((s) => s + 1);
   };
+
   const handleDecrease = () => {
     setValue((s) => s - 1);
   };
-
-  useEffect(() => {
-    onChange(value);
-  }, [value]);
   //
   return (
     <div className="flex-cb mt-1">

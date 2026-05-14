@@ -1,8 +1,9 @@
+import { ApiResponseAsync } from "@/types/api-type";
 import {
   HTTP_STATUS_CODE,
   HTTP_STATUS_TEXT,
 } from "@/constants/HTTP_STATUS_CODE";
-import { IApiResponse, IAdmin, UpdateAdminDto } from "../config";
+import { IAdmin, UpdateAdminDto } from "../config";
 import { MUTATION } from "../utils";
 import { BaseRepository } from "./base-repository";
 
@@ -11,7 +12,7 @@ class AdminRepository extends BaseRepository {
     super(filename);
   }
 
-  async getFirst(): IApiResponse<IAdmin> {
+  async getFirst(): ApiResponseAsync<IAdmin> {
     const data = await this.read<IAdmin>();
 
     return {
@@ -21,7 +22,7 @@ class AdminRepository extends BaseRepository {
     };
   }
 
-  async updateWallet(req: UpdateAdminDto): IApiResponse<IAdmin> {
+  async updateWallet(req: UpdateAdminDto): ApiResponseAsync<IAdmin> {
     const res = await this.read<IAdmin>();
     const req_ = MUTATION.parse({ req, method: "put" });
     const data = { ...res, ...req_ };
@@ -35,4 +36,4 @@ class AdminRepository extends BaseRepository {
   }
 }
 
-export const adminRepository = new AdminRepository(`admin.json`);
+export const adminRepo = new AdminRepository(`admin.json`);

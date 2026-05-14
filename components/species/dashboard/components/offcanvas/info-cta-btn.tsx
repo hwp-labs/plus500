@@ -1,6 +1,6 @@
 "use client";
 
-import { colorVariantText, ColorVariantType } from "@/types";
+import { colorVariantText, ColorVariantType } from "@/types/color-type";
 import { asMoney } from "@/utils";
 import clsx from "clsx";
 

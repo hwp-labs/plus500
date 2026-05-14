@@ -1,20 +1,6 @@
+import { BaseEntity } from "@/types/api-type";
+
 export const DB_PATH = "lib/fsdb/data";
-
-type BaseApiResponse = {
-  status: number;
-  success: boolean;
-};
-
-type ApiResponse<T> = ({ data: T } | { message: string }) & BaseApiResponse;
-
-export type IApiResponse<T> = Promise<ApiResponse<T>>;
-
-export interface BaseEntity {
-  id: string; // uuid
-  created_at: string;
-  updated_at: string;
-  deleted_at?: string | null;
-}
 
 export interface IAdmin extends BaseEntity {
   email: string;

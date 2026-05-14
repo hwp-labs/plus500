@@ -1,26 +1,20 @@
 import Link from "next/link";
 //
 import { AuthContainer } from "@/components/species/auth/components/auth-container";
-import { Alert } from "@/components/species/auth/components/alert";
-import {
-  Email,
-  Password,
-  Checkbox,
-} from "@/components/species/auth/components/input-builder";
-import { SubmitButton } from "@/components/species/auth/components/submit-button";
+import { Checkbox } from "@/components/species/auth/components/input-builder";
 import { OAuthButtons } from "@/components/species/auth/components/oauth-buttons";
+import { PageParams } from "@/types/next-type";
 import { PATH } from "@/constants/PATH";
+// 
+import { LoginForm } from "@/components/species/auth/components/login-form";
 
-export default function LoginPage() {
+export default async function LoginPage({ searchParams }: PageParams) {
+  const searchParamsAsync = await searchParams;
+  //
   return (
     <>
       <AuthContainer>
-        <Alert>Incorrect credentials. Retry or create an account.</Alert>
-        <div className="space-y-2">
-          <Email />
-          <Password />
-        </div>
-        <SubmitButton>Log in</SubmitButton>
+        <LoginForm logoutQueryParam={searchParamsAsync.logout} />
         <Link href={PATH.forgotPassword} className="link">
           Forgot password?
         </Link>
@@ -28,7 +22,7 @@ export default function LoginPage() {
           <OAuthButtons>or log in with</OAuthButtons>
         </div>
         <div className="mt-8 mb-4">
-          <Checkbox>Keep me logged in</Checkbox>
+          <Checkbox checked>Keep me logged in</Checkbox>
         </div>
       </AuthContainer>
       <footer className="flex-cc mt-5 pb-10">

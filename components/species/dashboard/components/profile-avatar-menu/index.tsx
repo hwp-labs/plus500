@@ -9,9 +9,10 @@ import { Accordion } from "./accordion";
 import { Menu } from "./menu";
 
 export const ProfileAvatarMenu = () => {
+  const session = useAuthStore((s) => s.session);
+  
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const session = useAuthStore((s) => s.session);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
