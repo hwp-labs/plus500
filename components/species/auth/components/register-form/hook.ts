@@ -38,7 +38,7 @@ export function useRegisterForm() {
 
     if (raw.status === HTTP_STATUS_CODE.CREATED) {
       const res: AuthResponseDto = await raw.json();
-      console.log("🚀 ~ handleSubmit ~ res:", res);
+      // console.log("🚀 ~ handleSubmit ~ res:", res);
 
       setSuccess(true);
       setForm({ email: "", password: "" });

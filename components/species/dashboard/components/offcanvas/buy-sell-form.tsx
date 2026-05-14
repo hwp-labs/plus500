@@ -1,19 +1,28 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   CheckboxInput,
   NumberInput,
   PairedSubmitBtn,
 } from "@/components/species/dashboard/components/form-builder";
-import { CURRENCY } from "@/constants/CURRENCY";
 import { useDashboardStore } from "@/store/dashboard-store";
+import { PATH_PROTECTED } from "@/constants/PATH";
+import { CURRENCY } from "@/constants/CURRENCY";
 
 export const BuySellForm = ({ buy }: { buy?: boolean }) => {
+  const router = useRouter();
   const reset = useDashboardStore((s) => s.reset);
+
   const [checkedP, setCheckedP] = useState(false);
   const [checkedL, setCheckedL] = useState(false);
   const [checkedG, setCheckedG] = useState(false);
+
+  const handleSubmit = () => {
+    reset();
+    router.push(PATH_PROTECTED.funds);
+  };
   //
   return (
     <div className="">
@@ -60,7 +69,9 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
           )}
         </div>
       </div>
-      <PairedSubmitBtn onSubmit={reset}>{buy ? "Buy" : "Sell"}</PairedSubmitBtn>
+      <PairedSubmitBtn onSubmit={handleSubmit}>
+        {buy ? "Buy" : "Sell"}
+      </PairedSubmitBtn>
     </div>
   );
 };

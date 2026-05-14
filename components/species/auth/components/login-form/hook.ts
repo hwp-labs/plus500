@@ -24,7 +24,7 @@ export function useLoginForm(logoutQueryParams?: string) {
 
   useEffect(() => {
     if (logoutQueryParams) {
-      console.log("🚀 ~ useEffect ~ logoutQueryParams:", logoutQueryParams);
+      // console.log("🚀 ~ useEffect ~ logoutQueryParams:", logoutQueryParams);
       reset();
     }
   }, []);
@@ -46,13 +46,19 @@ export function useLoginForm(logoutQueryParams?: string) {
 
     if (raw.status === HTTP_STATUS_CODE.OK) {
       const res: AuthResponseDto = await raw.json();
-      console.log("🚀 ~ handleSubmit ~ res:", res)
+      // console.log("🚀 ~ handleSubmit ~ res:", res)
 
       setSuccess(true);
       setForm({ email: "", password: "" });
       setSession(res.data);
 
-      M.router ? null : router.replace(PATH_PROTECTED.dashboard);
+      M.router
+        ? null
+        : router.replace(
+            res.data.role === "admin"
+              ? PATH_PROTECTED.transactions
+              : PATH_PROTECTED.dashboard,
+          );
 
       return;
     }

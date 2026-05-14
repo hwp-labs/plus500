@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import {
   XIcon,
@@ -10,15 +11,22 @@ import {
 } from "lucide-react";
 import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 //
+import { useAuthStore } from "@/store/auth-store";
 import { MenuItem } from "./menu-item";
 import { Toggle } from "./toggle";
-import { menu } from "./utils";
-import { usePathname } from "next/navigation";
+import { MENU, MENU_PROTECTED } from "./utils";
 
 export const Sidebar = () => {
   const pathname = usePathname();
+  const session = useAuthStore((s) => s.session);
   const [collapsed, setCollapsed] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
+
+  const menu = session
+    ? session.role === "admin"
+      ? MENU_PROTECTED
+      : MENU
+    : [];
   //
   return (
     <aside className="flex-col-cb bg-aside text-icon h-svh gap-4 pb-4">

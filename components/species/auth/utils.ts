@@ -14,7 +14,7 @@ export interface AuthResponseDto {
 
 export const defaultAuthForm: AuthRequestDto = M.formData
   ? {
-      email: "jack@plus500.com",
+      email: "john@plus500.com",
       password: "@testUser",
     }
   : {

@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { PATH_PROTECTED } from "@/constants/PATH";
 
-export const menu = [
+export const MENU = [
   {
     Icon: ChartLineIcon,
     label: "Trade",
@@ -43,6 +43,10 @@ export const menu = [
     label: "Funds",
     path: PATH_PROTECTED.funds,
   },
+];
+
+export const MENU_PROTECTED = [
+  
   {
     Icon: LogsIcon,
     label: "Transactions",
