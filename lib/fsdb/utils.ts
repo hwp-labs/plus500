@@ -1,5 +1,5 @@
-import { BaseEntity } from "@/types/api-type";
 import { cryptoUtil } from "@/utils/crypto-util";
+import { BaseEntity } from "@/types/api-type";
 
 type MutationParseResponse = Partial<BaseEntity & { password: string }>;
 
@@ -32,4 +32,6 @@ export const MUTATION = {
   },
 };
 
-export const QUERY = { parse() {} };
+export const QUERY = {
+  parse() {},
+};

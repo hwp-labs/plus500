@@ -1,21 +1,20 @@
 "use client";
 
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
-//
+import { useFetchUser } from "@/hooks/use-fetch-user";
 import { asMoney } from "@/utils";
 import { CURRENCY } from "@/constants/CURRENCY";
-import { useEffect } from "react";
 
 export const Earnings = () => {
-  useEffect(() => {}, []);
-  // 
+  const { user } = useFetchUser();
+  //
   return (
     <ul className="flex-cb flex-1 gap-4">
       {[
-        { value: 38730.68, label: "Available" },
-        { value: 39963.85, label: "Equity" },
-        { value: 616.58, label: "Mtn. Margin" },
-        { value: -36.15, label: "Profit/Loss" },
+        { value: user.available, label: "Available" },
+        { value: user.equity, label: "Equity" },
+        { value: user.m_margin, label: "Mtn. Margin" },
+        { value: user.profit_loss, label: "Profit/Loss" },
       ].map((item, i) => (
         <li key={i} className="whitespace-nowrap">
           <div className="font-medium">

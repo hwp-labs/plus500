@@ -1,7 +1,8 @@
 [
   {
     "email": "john@plus500.com",
-    "password": "4dcafe40658a41a5bc3cc964d79b3967a76f8d4847adcdae7965f5b7be3fcc5c"
+    "password": "4dcafe40658a41a5bc3cc964d79b3967a76f8d4847adcdae7965f5b7be3fcc5c",
+    "available": 1992
   },
   {
     "email": "jane@plus500.com",

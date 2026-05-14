@@ -23,7 +23,7 @@ export const HTTP_STATUS_TEXT = {
   FORBIDDEN: "Forbidden",
   NOT_FOUND: "Not Found",
   CONFLICT: "Conflict",
-  UNPROCESSABLE: "Unprocessable Entity",
+  UNPROCESSABLE: "Unprocessable",
   TOO_MANY_REQUESTS: "Too Many Requests",
   INTERNAL_SERVER_ERROR: "Internal Server Error",
   BAD_GATEWAY: "Bad Gateway",
