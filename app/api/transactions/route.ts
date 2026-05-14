@@ -12,7 +12,5 @@ export async function POST(req: Request) {
   
   const { status, ...res } = await transactionRepo.create(body);
 
-  // TODO: upload receipt
-
   return Response.json(res, { status });
 }
