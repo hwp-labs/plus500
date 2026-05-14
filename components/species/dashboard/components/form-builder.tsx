@@ -168,17 +168,19 @@ export const OutlineBtn = ({
 );
 
 interface PairedSubmitBtnProps extends PropsWithChildren {
-  onSubmit?: () => void;
+  loading?: boolean;
+  onClick?: () => void;
 }
 
 export const PairedSubmitBtn = ({
   children,
-  onSubmit = () => undefined,
+  loading,
+  onClick = () => undefined,
 }: PairedSubmitBtnProps) => {
   return (
     <div className="flex-cb mt-6">
       <button
-        onClick={onSubmit}
+        onClick={onClick}
         className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white"
       >
         {children}

@@ -8,6 +8,7 @@ import {
   PairedSubmitBtn,
 } from "@/components/species/dashboard/components/form-builder";
 import { useDashboardStore } from "@/store/dashboard-store";
+import { sleep } from "@/utils";
 import { PATH_PROTECTED } from "@/constants/PATH";
 import { CURRENCY } from "@/constants/CURRENCY";
 
@@ -15,13 +16,16 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
   const router = useRouter();
   const reset = useDashboardStore((s) => s.reset);
 
+  const [loading, setLoading] = useState(false);
   const [checkedP, setCheckedP] = useState(false);
   const [checkedL, setCheckedL] = useState(false);
   const [checkedG, setCheckedG] = useState(false);
 
-  const handleSubmit = () => {
-    reset();
+  const handleSubmit = async () => {
+    setLoading(true);
+    await sleep(1);
     router.push(PATH_PROTECTED.funds);
+    // reset();
   };
   //
   return (
@@ -69,8 +73,8 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
           )}
         </div>
       </div>
-      <PairedSubmitBtn onSubmit={handleSubmit}>
-        {buy ? "Buy" : "Sell"}
+      <PairedSubmitBtn onClick={handleSubmit}>
+        {loading ? "Processing..." : buy ? "Buy" : "Sell"}
       </PairedSubmitBtn>
     </div>
   );
