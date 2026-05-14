@@ -18,7 +18,7 @@ export default function FundsPage() {
       <h1 className="mt-4 text-center text-3xl font-bold">Funds Management</h1>
       <AccountBal />
       <CtaButtons />
-      <ul className="mt-8 grid gap-6 sm:grid-cols-3">
+      <ul className="mt-24 grid gap-6 sm:grid-cols-3">
         {[
           { label: "Account Snapshot", Icon: IconChartPie2Filled },
           { label: "Payment Methods", Icon: IconCash },

@@ -106,7 +106,7 @@ export const FileInput = ({
   if (error) alert(error);
   //
   return (
-    <div className="mt-6 flex flex-col justify-between sm:flex-row sm:items-center">
+    <div className="flex flex-col justify-between sm:flex-row sm:items-center">
       <div className="btn border-ash6 max-h-[40]! flex-1 rounded-none px-2 py-1">
         {data?.file?.name
           ? `${data.file.name} (${data.fileSizeMb}mb)`
@@ -181,6 +181,7 @@ export const PairedSubmitBtn = ({
     <div className="flex-cb mt-6">
       <button
         onClick={onClick}
+        disabled={loading}
         className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white"
       >
         {children}

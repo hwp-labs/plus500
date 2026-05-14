@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useAuthStore } from "@/store/auth-store";
 import { IAdmin } from "@/lib/fsdb/config";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
@@ -27,8 +26,6 @@ const defaultData = {
 };
 
 export function useFetchAdmin() {
-  const session = useAuthStore((s) => s.session);
-
   const [data, setData] = useState<typeof defaultData>(defaultData);
   const [loading, setLoading] = useState(false);
 

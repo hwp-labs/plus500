@@ -8,9 +8,11 @@ export async function GET(req: NextRequest) {
 
   if (q) {
     const { status, ...res } = await userRepo.getById(q);
+    
     return Response.json(res, { status });
   } else {
     const { status, ...res } = await userRepo.getAll();
+    
     return Response.json(res, { status });
   }
 }

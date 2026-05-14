@@ -17,28 +17,30 @@ export const CtaButtons = () => {
     <div className="">
       {deposit && <DepositForm onClose={toggleDeposit} />}
       {withdraw && <WithdrawForm onClose={toggleWithdraw} />}
-      <div className="mt-8 grid gap-6 sm:grid-cols-2">
-        <button
-          onClick={() => {
-            setWithdraw(false);
-            toggleDeposit();
-          }}
-          className="btn btn-lg bg-secondary max-h-[50px] rounded-full border-none"
-        >
-          <IconCreditCardPay />
-          Deposit
-        </button>
-        <button
-          onClick={() => {
-            setDeposit(false);
-            toggleWithdraw();
-          }}
-          className="btn btn-lg bg-secondary max-h-[50px] rounded-full border-none"
-        >
-          <IconCreditCardRefund />
-          Withdraw
-        </button>
-      </div>
+      {deposit || withdraw ? null : (
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <button
+            onClick={() => {
+              setWithdraw(false);
+              toggleDeposit();
+            }}
+            className="btn btn-lg bg-secondary max-h-[50px] rounded-full border-none"
+          >
+            <IconCreditCardPay />
+            Deposit
+          </button>
+          <button
+            onClick={() => {
+              setDeposit(false);
+              toggleWithdraw();
+            }}
+            className="btn btn-lg bg-secondary max-h-[50px] rounded-full border-none"
+          >
+            <IconCreditCardRefund />
+            Withdraw
+          </button>
+        </div>
+      )}
     </div>
   );
 };

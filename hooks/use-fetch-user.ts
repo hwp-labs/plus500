@@ -23,7 +23,7 @@ export function useFetchUser() {
 
   const fetcher = async () => {
     setLoading(true);
-    const raw = await fetch(`/api/users?q=${session?.email}`);
+    const raw = await fetch(`/api/users/?q=${session?.email}`);
 
     if (raw.status === HTTP_STATUS_CODE.OK) {
       const res: { data: IUser } = await raw.json();
