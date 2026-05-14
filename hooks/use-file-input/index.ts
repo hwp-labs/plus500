@@ -28,16 +28,16 @@ export function useFileInput(args?: Args) {
       return;
     }
 
-    setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    const base64 = await fileToBase64(file);
+    // setLoading(true);
+    // await sleep(2)
+    // const base64 = await fileToBase64(file);
     setData({
       file,
       fileSizeMb: bytesToMb(file.size),
-      base64,
-      blob: fileToBlob(file),
+      // base64,
+      // blob: fileToBlob(file),
     });
-    setLoading(false);
+    // setLoading(false);
   };
 
   return { data, error, loading, handleChange };

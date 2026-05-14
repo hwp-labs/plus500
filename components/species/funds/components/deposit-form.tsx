@@ -8,6 +8,7 @@ import {
 } from "../../dashboard/components/form-builder";
 import { SectionHeading } from "./section-heading";
 import { useFetchAdmin } from "@/hooks/use-fetch-admin";
+import { useMutateTransaction } from "@/hooks/use-mutate-transaction";
 
 interface Props {
   onClose?: () => void;
@@ -15,6 +16,7 @@ interface Props {
 
 export const DepositForm = ({ onClose }: Props) => {
   const { data } = useFetchAdmin();
+  const { setAmount, setFile, loading, handleDeposit } = useMutateTransaction();
   //
   return (
     <section>
@@ -49,11 +51,15 @@ export const DepositForm = ({ onClose }: Props) => {
           </li>
         ))}
       </ul>
-      <div className="mt-4 grid gap-8 sm:grid-cols-4">
-        <NumberInput />
-        <FileInput>Upload proof of payment</FileInput>
+      <div className="my-4 grid gap-4 sm:grid-cols-2">
+        <NumberInput onChange={(amount) => setAmount(amount)} />
+        <FileInput onChange={(file) => setFile(file)}>
+          Upload proof of payment
+        </FileInput>
       </div>
-      <PairedSubmitBtn>Confirm Deposit</PairedSubmitBtn>
+      <PairedSubmitBtn loading={loading} onClick={() => handleDeposit(onClose)}>
+        {loading ? "Processing..." : "Confirm Deposit"}
+      </PairedSubmitBtn>
     </section>
   );
 };

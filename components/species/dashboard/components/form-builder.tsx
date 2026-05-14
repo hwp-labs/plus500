@@ -57,7 +57,7 @@ export const NumberInput = ({
     const valueInt = Number(valueSafe);
     setValue(valueInt);
   };
-  
+
   const handleIncrease = () => {
     setValue((s) => s + 1);
   };
@@ -67,7 +67,7 @@ export const NumberInput = ({
   };
   //
   return (
-    <div className="flex-cb mt-1">
+    <div className="flex-cb mt-0">
       <input
         type="text"
         value={value.toLocaleString()}
@@ -94,14 +94,18 @@ export const NumberInput = ({
 };
 
 interface FileInputProps extends PropsWithChildren {
-  onSubmit?: () => void;
+  onChange?: (file: File) => void;
 }
 
 export const FileInput = ({
   children,
-  onSubmit = () => undefined,
+  onChange = () => undefined,
 }: FileInputProps) => {
   const { data, error, loading, handleChange } = useFileInput();
+
+  useEffect(() => {
+    if (data?.file?.name) onChange(data.file);
+  }, [data?.file]);
 
   if (error) alert(error);
   //
@@ -114,10 +118,7 @@ export const FileInput = ({
       </div>
       <label>
         <input type="file" onChange={handleChange} className="hidden" />
-        <div
-          onClick={onSubmit}
-          className="btn bg-secondary border-secondary max-h-[40]! rounded-none px-4 hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white"
-        >
+        <div className="btn bg-secondary border-secondary max-h-[40]! rounded-none px-4 hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white">
           {loading ? "Uploading..." : children}
         </div>
       </label>
@@ -178,7 +179,7 @@ export const PairedSubmitBtn = ({
   onClick = () => undefined,
 }: PairedSubmitBtnProps) => {
   return (
-    <div className="flex-cb mt-6">
+    <div className="flex-cb mt-0">
       <button
         onClick={onClick}
         disabled={loading}

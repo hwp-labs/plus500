@@ -12,16 +12,20 @@ interface Props {
 }
 
 export const WithdrawForm = ({ onClose }: Props) => {
-  const { setAmount, loading, handleCreate } = useMutateTransaction();
+  const { setAmount, loading, handleWithdraw } = useMutateTransaction();
   //
   return (
     <section>
       <SectionHeading onClose={onClose}>Withdrawal Slip</SectionHeading>
-      <div className="mt-2"></div>
-      <NumberInput onChange={setAmount} />
-      <PairedSubmitBtn loading={loading} onClick={() => handleCreate(onClose)}>
-        {loading ? "Processing..." : "Confirm Withdraw"}
-      </PairedSubmitBtn>
+      <div className="mt-2 grid gap-6 sm:grid-cols-2">
+        <NumberInput onChange={(amount) => setAmount(amount)} />
+        <PairedSubmitBtn
+          loading={loading}
+          onClick={() => handleWithdraw(onClose)}
+        >
+          {loading ? "Processing..." : "Confirm Withdrawal"}
+        </PairedSubmitBtn>
+      </div>
     </section>
   );
 };

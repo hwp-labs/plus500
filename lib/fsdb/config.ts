@@ -33,8 +33,8 @@ export interface ITransaction extends BaseEntity {
   email: string;
   amount: number;
   receipt?: string; // base64
-  type: 0 | 1; // "withdraw" | "deposit";
-  status: 0 | 1; //"pending" | "approved";
+  type: number; // "withdraw" | "deposit";
+  status: number; //"pending" | "approved";
 }
 
 export type CreateTransactionDto = Omit<ITransaction, keyof BaseEntity>;
