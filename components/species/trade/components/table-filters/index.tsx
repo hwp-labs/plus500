@@ -2,11 +2,13 @@
 
 import { useDashboardStore } from "@/store/dashboard-store";
 import { Menu } from "./menu";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export const TableFilters = () => {
+  const mq = useMediaQuery();
   const open = useDashboardStore((s) => s.open);
   //
-  return open ? null : (
+  return mq && open ? null : (
     <div className="border-aside h-[400px] space-y-2 overflow-y-auto border-b-6 sm:min-w-50 sm:border-0">
       <Menu
         label="Most Popular"

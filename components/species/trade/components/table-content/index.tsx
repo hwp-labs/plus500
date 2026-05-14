@@ -4,12 +4,14 @@ import { useEffect } from "react";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { OutlineBtn } from "@/components/species/dashboard/components/form-builder";
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { DASHBOARD_STORE, useDashboardStore } from "@/store/dashboard-store";
 //
 import { Empty } from "./empty";
 import data from "./data.json";
 
 export const TableContent = () => {
+  const mq = useMediaQuery();
   const open = useDashboardStore((s) => s.open);
   const reset = useDashboardStore((s) => s.reset);
   const filter = useDashboardStore((s) => s.filter);

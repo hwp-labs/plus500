@@ -19,6 +19,7 @@ import { MENU, MENU_PROTECTED } from "./utils";
 export const Sidebar = () => {
   const pathname = usePathname();
   const session = useAuthStore((s) => s.session);
+
   const [collapsed, setCollapsed] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
 

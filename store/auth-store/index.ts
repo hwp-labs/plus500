@@ -17,13 +17,23 @@ export const useAuthStore = create<StoreType>()(
 
           reset: () => set(defaultState),
 
+          _setHasHydrated: (p) =>
+            set((s) => {
+              s._hasHydrated = p;
+            }),
+
           setSession: (p) =>
             set((s) => {
               s.session = p;
             }),
         })),
       ),
-      { name },
+      {
+        name,
+        onRehydrateStorage: () => (s) => {
+          s?._setHasHydrated(true);
+        },
+      },
     ),
     { enabled: process.env.NODE_ENV === "development" },
   ),
