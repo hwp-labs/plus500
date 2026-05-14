@@ -4,8 +4,11 @@ import { IconEye, IconEyeOff } from "@tabler/icons-react";
 //
 import { asMoney } from "@/utils";
 import { CURRENCY } from "@/constants/CURRENCY";
+import { useEffect } from "react";
 
 export const Earnings = () => {
+  useEffect(() => {}, []);
+  // 
   return (
     <ul className="flex-cb flex-1 gap-4">
       {[

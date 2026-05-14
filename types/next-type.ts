@@ -11,3 +11,7 @@ export interface PageIdParams<T extends string | string[] = string> {
   params: Promise<{ id: T }>;
   searchParams: Promise<{ [key: string]: T | undefined }>;
 }
+
+export type RouteIdParams<T extends string | number = string> = {
+  params: { id: T };
+};

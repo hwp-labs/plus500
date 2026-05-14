@@ -5,7 +5,7 @@ import { Menu } from "./menu";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 export const TableFilters = () => {
-  const mq = useMediaQuery();
+  const mq = useMediaQuery("lg");
   const open = useDashboardStore((s) => s.open);
   //
   return mq && open ? null : (

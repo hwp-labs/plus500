@@ -41,11 +41,11 @@ class TransactionRepository extends BaseRepository {
   }
 
   async updateStatus(
-    id: ITransaction["id"],
     req: UpdateTransactionDto,
+    email: ITransaction["email"],
   ): ApiResponseAsync<ITransaction> {
     const res = await this.read<ITransaction[]>();
-    const i = res.findIndex((row) => row.id === id);
+    const i = res.findIndex((row) => row.email === email);
 
     if (i === -1) {
       return {
@@ -69,10 +69,10 @@ class TransactionRepository extends BaseRepository {
     };
   }
 
-  async delete(id: ITransaction["id"]): ApiResponseAsync<null> {
+  async delete(email: ITransaction["email"]): ApiResponseAsync<null> {
     const res = await this.read<ITransaction[]>();
 
-    if (!res.some((row) => row.id === id)) {
+    if (!res.some((row) => row.email === email)) {
       return {
         success: false,
         status: HTTP_STATUS_CODE.NOT_FOUND,
@@ -80,7 +80,7 @@ class TransactionRepository extends BaseRepository {
       };
     }
 
-    const data = res.filter((row) => row.id !== id);
+    const data = res.filter((row) => row.email !== email);
 
     await this.write(data);
     return {

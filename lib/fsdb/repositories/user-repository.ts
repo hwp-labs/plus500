@@ -22,7 +22,7 @@ class UserRepository extends BaseRepository {
     };
   }
 
-  async getByEmail(email: IUser["email"]): ApiResponseAsync<IUser> {
+  async getById(email: IUser["email"]): ApiResponseAsync<IUser> {
     const res = await this.read<IUser[]>();
     const data = res.find((row) => row.email === email);
 
@@ -62,11 +62,11 @@ class UserRepository extends BaseRepository {
   }
 
   async updateWallet(
-    id: IUser["id"],
     req: UpdateUserDto,
+    email: IUser["email"],
   ): ApiResponseAsync<IUser> {
     const res = await this.read<IUser[]>();
-    const i = res.findIndex((row) => row.id === id);
+    const i = res.findIndex((row) => row.email === email);
 
     if (i === -1) {
       return {
@@ -90,7 +90,7 @@ class UserRepository extends BaseRepository {
     };
   }
 
-  async deleteByEmail(email: IUser["email"]): ApiResponseAsync<null> {
+  async delete(email: IUser["email"]): ApiResponseAsync<null> {
     const res = await this.read<IUser[]>();
 
     if (!res.some((row) => row.email === email)) {

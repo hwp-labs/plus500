@@ -29,7 +29,7 @@ export async function POST(req: Request) {
       { status },
     );
   } else {
-    const { status, ...res } = await userRepo.getByEmail(body.email);
+    const { status, ...res } = await userRepo.getById(body.email);
     if (
       "data" in res &&
       res.data.email === body.email &&

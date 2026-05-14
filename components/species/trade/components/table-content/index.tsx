@@ -11,7 +11,7 @@ import { Empty } from "./empty";
 import data from "./data.json";
 
 export const TableContent = () => {
-  const mq = useMediaQuery();
+  const mq = useMediaQuery("sm");
   const open = useDashboardStore((s) => s.open);
   const reset = useDashboardStore((s) => s.reset);
   const filter = useDashboardStore((s) => s.filter);
@@ -21,7 +21,7 @@ export const TableContent = () => {
     reset();
   }, []);
   //
-  return open ? null : (
+  return mq && open ? null : (
     <div className="h-[400px] flex-1 overflow-y-auto">
       {filter === DASHBOARD_STORE.filter ? (
         <table className="w-full">
