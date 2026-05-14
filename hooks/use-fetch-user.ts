@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/auth-store";
-import { UpdateUserDto } from "@/lib/fsdb/config";
+import { IUser } from "@/lib/fsdb/config";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
-const defaultUser = {
+const defaultData = {
   available: 0,
   equity: 0,
   i_margin: 0,
@@ -14,20 +14,20 @@ const defaultUser = {
 export function useFetchUser() {
   const session = useAuthStore((s) => s.session);
 
-  const [user, setUser] = useState<UpdateUserDto>(defaultUser);
+  const [data, setData] = useState<typeof defaultData>(defaultData);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchUser();
+    fetcher();
   }, []);
 
-  const fetchUser = async () => {
+  const fetcher = async () => {
     setLoading(true);
     const raw = await fetch(`/api/users?q=${session?.email}`);
 
     if (raw.status === HTTP_STATUS_CODE.OK) {
-      const res: { data: UpdateUserDto } = await raw.json();
-      setUser({
+      const res: { data: IUser } = await raw.json();
+      setData({
         available: res.data?.available || 0,
         equity: res.data?.equity || 0,
         i_margin: res.data?.i_margin || 0,
@@ -39,5 +39,5 @@ export function useFetchUser() {
     setLoading(false);
   };
 
-  return { user, loading };
+  return { data, loading };
 }

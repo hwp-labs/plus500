@@ -6,19 +6,20 @@ import {
   NumberInput,
 } from "../../dashboard/components/form-builder";
 import { SectionHeading } from "./section-heading";
-//
-import data from "@/lib/fsdb/data/admin.json";
+import { useFetchAdmin } from "@/hooks/use-fetch-admin";
 
 interface Props {
   onClose?: () => void;
 }
 
 export const DepositForm = ({ onClose }: Props) => {
+  const { data } = useFetchAdmin();
+  //
   return (
     <section>
       <SectionHeading onClose={onClose}>Deposit Slip</SectionHeading>
       <ul className="mt-2 space-y-4 px-4 sm:space-y-2">
-        {list.map((item, i) => (
+        {Object.values(data).map((item, i) => (
           <li
             key={i}
             className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
@@ -30,7 +31,7 @@ export const DepositForm = ({ onClose }: Props) => {
             <div className="border-muted hidden flex-1 border-b border-dashed sm:flex"></div>
             <div className="flex-cs gap-2">
               <input
-                defaultValue={item.address}
+                defaultValue={item.value}
                 className="input-reset text-secondary w-full"
                 readOnly
               />
@@ -38,7 +39,7 @@ export const DepositForm = ({ onClose }: Props) => {
                 className="btn-fx"
                 title="Copy"
                 onClick={() => {
-                  prompt(`${item.label} Wallet Address`, item.address);
+                  prompt(`${item.label} Wallet Address`, item.value);
                 }}
               >
                 <IconCopy size={16} />
@@ -53,26 +54,3 @@ export const DepositForm = ({ onClose }: Props) => {
     </section>
   );
 };
-
-const list = [
-  {
-    label: "BTC",
-    src: "/images/coin-btc.png",
-    address: data.btc,
-  },
-  {
-    label: "ETH",
-    src: "/images/coin-eth.png",
-    address: data.eth,
-  },
-  {
-    label: "USDT",
-    src: "/images/coin-usdt.png",
-    address: data.usdt,
-  },
-  {
-    label: "USDC",
-    src: "/images/coin-usdc.png",
-    address: data.usdc,
-  },
-];
