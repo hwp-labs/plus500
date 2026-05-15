@@ -3,7 +3,7 @@ import {
   HTTP_STATUS_CODE,
   HTTP_STATUS_TEXT,
 } from "@/constants/HTTP_STATUS_CODE";
-import { CreateUserDto, IUser, UpdateUserDto } from "../config";
+import { CreateUserDto, UserEntity, UpdateUserDto } from "../config";
 import { MUTATION } from "../utils";
 import { BaseRepository } from "./base-repository";
 
@@ -12,8 +12,8 @@ class UserRepository extends BaseRepository {
     super(filename);
   }
 
-  async getAll(): ApiResponseAsync<IUser[]> {
-    const data = await this.read<IUser[]>();
+  async getAll(): ApiResponseAsync<UserEntity[]> {
+    const data = await this.read<UserEntity[]>();
 
     return {
       success: true,
@@ -22,8 +22,8 @@ class UserRepository extends BaseRepository {
     };
   }
 
-  async getById(email: IUser["email"]): ApiResponseAsync<IUser> {
-    const res = await this.read<IUser[]>();
+  async getById(email: UserEntity["email"]): ApiResponseAsync<UserEntity> {
+    const res = await this.read<UserEntity[]>();
     const data = res.find((row) => row.email === email);
 
     return data
@@ -39,8 +39,8 @@ class UserRepository extends BaseRepository {
         };
   }
 
-  async create(req: CreateUserDto): ApiResponseAsync<IUser> {
-    const res = await this.read<IUser[]>();
+  async create(req: CreateUserDto): ApiResponseAsync<UserEntity> {
+    const res = await this.read<UserEntity[]>();
 
     if (res.some((row) => row.email === req.email)) {
       return {
@@ -50,7 +50,7 @@ class UserRepository extends BaseRepository {
       };
     }
 
-    const data = MUTATION.parse({ req }) as IUser;
+    const data = MUTATION.parse({ req }) as UserEntity;
     res.push(data);
 
     await this.write(res);
@@ -63,9 +63,9 @@ class UserRepository extends BaseRepository {
 
   async updateWallet(
     req: UpdateUserDto,
-    email: IUser["email"],
-  ): ApiResponseAsync<IUser> {
-    const res = await this.read<IUser[]>();
+    email: UserEntity["email"],
+  ): ApiResponseAsync<UserEntity> {
+    const res = await this.read<UserEntity[]>();
     const i = res.findIndex((row) => row.email === email);
 
     if (i === -1) {
@@ -90,8 +90,8 @@ class UserRepository extends BaseRepository {
     };
   }
 
-  async delete(email: IUser["email"]): ApiResponseAsync<null> {
-    const res = await this.read<IUser[]>();
+  async delete(email: UserEntity["email"]): ApiResponseAsync<null> {
+    const res = await this.read<UserEntity[]>();
 
     if (!res.some((row) => row.email === email)) {
       return {

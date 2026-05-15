@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuthStore } from "@/store/auth-store";
-import { CreateTransactionDto, ITransaction } from "@/lib/fsdb/config";
+import { CreateTransactionDto, TransactionEntity } from "@/lib/fsdb/config";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 export function useMutateTransaction() {
@@ -54,7 +54,7 @@ export function useMutateTransaction() {
   };
 
   const handleUpdate = async (
-    payload: Pick<ITransaction, "email" | "status">,
+    payload: Pick<TransactionEntity, "email" | "status">,
     next?: () => void,
   ) => {
     setLoading(true);

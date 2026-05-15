@@ -2,7 +2,7 @@
 
 import { asMoney } from "@/utils";
 import { CURRENCY } from "@/constants/CURRENCY";
-import { useFetchUser } from "@/hooks/use-fetch-user";
+import { useFetchUser } from "@/hooks/services/use-fetch-user";
 
 export const AccountBal = () => {
   const { data } = useFetchUser();

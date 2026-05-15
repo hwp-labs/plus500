@@ -6,18 +6,21 @@ import clsx from "clsx";
 import { useFileInput } from "@/hooks/use-file-input";
 
 interface TextInputProps {
-  defaultValue?: string;
+  value?: string;
+  onChange?: (value: string) => void;
   sm?: boolean;
 }
 
-export const TextInput = ({ defaultValue, sm }: TextInputProps) => {
-  const [value, setValue] = useState(defaultValue || 0);
-
+export const TextInput = ({
+  value = "",
+  onChange = () => undefined,
+  sm,
+}: TextInputProps) => {
   const handleChange = (
     ev: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
   ) => {
-    const valueSafe = ev.currentTarget.value.trim();
-    setValue(valueSafe);
+    const valueSafe = ev.currentTarget.value;
+    onChange(valueSafe);
   };
   //
   return (
@@ -25,10 +28,7 @@ export const TextInput = ({ defaultValue, sm }: TextInputProps) => {
       type="text"
       value={value}
       onChange={handleChange}
-      className={clsx(
-        "input-reset border-ash5 w-full flex-1 border-2 px-2",
-        sm ? "size-8" : "size-10 text-2xl",
-      )}
+      className={clsx("input-reset", sm ? "dash-input-sm" : "dash-input")}
     />
   );
 };
@@ -73,19 +73,25 @@ export const NumberInput = ({
         value={value.toLocaleString()}
         onChange={handleChange}
         className={clsx(
-          "input-reset border-ash5 flex-1 border-2 px-2",
-          sm ? "size-8" : "size-10 text-2xl",
+          "input-reset flex-1",
+          sm ? "dash-input-sm" : "dash-input",
         )}
       />
       <button
         onClick={handleIncrease}
-        className={clsx("dash-input-btn btn-fx", sm ? "size-8" : "size-10")}
+        className={clsx(
+          "dash-input-btn btn-fx",
+          sm ? "dash-input-btn-sm" : "dash-input-btn",
+        )}
       >
         +
       </button>
       <button
         onClick={handleDecrease}
-        className={clsx("dash-input-btn btn-fx", sm ? "size-8" : "size-10")}
+        className={clsx(
+          "dash-input-btn btn-fx",
+          sm ? "dash-input-btn-sm" : "dash-input-btn",
+        )}
       >
         -
       </button>
@@ -170,26 +176,34 @@ export const OutlineBtn = ({
 
 interface PairedSubmitBtnProps extends PropsWithChildren {
   loading?: boolean;
+  success?: boolean;
+  error?: string | null;
   onClick?: () => void;
 }
 
 export const PairedSubmitBtn = ({
   children,
   loading,
+  success,
+  error,
   onClick = () => undefined,
 }: PairedSubmitBtnProps) => {
   return (
-    <div className="flex-cb mt-0">
-      <button
-        onClick={onClick}
-        disabled={loading}
-        className="btn bg-secondary border-secondary max-h-[40]! w-full rounded-none text-lg hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white"
-      >
-        {children}
-      </button>
-      <button className="btn border-ash6 border_ max-h-[40]! rounded-none px-10">
-        Cancel
-      </button>
+    <div className="">
+      <div className="flex-cb mt-0">
+        <button
+          onClick={onClick}
+          disabled={loading}
+          className={clsx(
+            "dash-submit-btn btn-fx",
+            success && "bg-success! border-success! text-white!",
+          )}
+        >
+          {success ? "Done!" : loading ? "Processing..." : children}
+        </button>
+        <button className="btn-fx dash-cancel-btn">Cancel</button>
+      </div>
+      {error ? <p className="text-danger mt-1 text-sm">{error}</p> : null}
     </div>
   );
 };

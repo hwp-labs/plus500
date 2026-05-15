@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
 import { InlineEditForm } from "../inline-edit-form";
-import { IUser, UpdateUserDto } from "@/lib/fsdb/config";
+import { UserEntity, UpdateUserDto } from "@/lib/fsdb/config";
 //
 import { useTableContent } from "./hook";
 
@@ -14,7 +14,7 @@ export const TableContent = () => {
   //
   return (
     <TableBuilder.TBody>
-      {(data as IUser[]).map((item, i) => (
+      {(data as UserEntity[]).map((item, i) => (
         <TableBuilder.Tr key={i}>
           <td>{item.email}</td>
           {[

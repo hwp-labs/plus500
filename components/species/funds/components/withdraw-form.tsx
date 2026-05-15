@@ -5,7 +5,7 @@ import {
   PairedSubmitBtn,
 } from "../../dashboard/components/form-builder";
 import { SectionHeading } from "./section-heading";
-import { useMutateTransaction } from "@/hooks/use-mutate-transaction";
+import { useMutateTransaction } from "@/hooks/services/use-mutate-transaction";
 
 interface Props {
   onClose?: () => void;

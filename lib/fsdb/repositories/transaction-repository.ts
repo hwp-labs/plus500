@@ -5,7 +5,7 @@ import {
 } from "@/constants/HTTP_STATUS_CODE";
 import {
   CreateTransactionDto,
-  ITransaction,
+  TransactionEntity,
   UpdateTransactionDto,
 } from "../config";
 import { MUTATION } from "../utils";
@@ -16,8 +16,8 @@ class TransactionRepository extends BaseRepository {
     super(filename);
   }
 
-  async getAll(): ApiResponseAsync<ITransaction[]> {
-    const data = await this.read<ITransaction[]>();
+  async getAll(): ApiResponseAsync<TransactionEntity[]> {
+    const data = await this.read<TransactionEntity[]>();
 
     return {
       success: true,
@@ -26,10 +26,10 @@ class TransactionRepository extends BaseRepository {
     };
   }
 
-  async create(req: CreateTransactionDto): ApiResponseAsync<ITransaction> {
-    const res = await this.read<ITransaction[]>();
+  async create(req: CreateTransactionDto): ApiResponseAsync<TransactionEntity> {
+    const res = await this.read<TransactionEntity[]>();
 
-    const data = MUTATION.parse({ req }) as ITransaction;
+    const data = MUTATION.parse({ req }) as TransactionEntity;
     res.push(data);
 
     await this.write(res);
@@ -42,9 +42,9 @@ class TransactionRepository extends BaseRepository {
 
   async updateStatus(
     req: UpdateTransactionDto,
-    email: ITransaction["email"],
-  ): ApiResponseAsync<ITransaction> {
-    const res = await this.read<ITransaction[]>();
+    email: TransactionEntity["email"],
+  ): ApiResponseAsync<TransactionEntity> {
+    const res = await this.read<TransactionEntity[]>();
     const i = res.findIndex((row) => row.email === email);
 
     if (i === -1) {
@@ -69,8 +69,8 @@ class TransactionRepository extends BaseRepository {
     };
   }
 
-  async delete(email: ITransaction["email"]): ApiResponseAsync<null> {
-    const res = await this.read<ITransaction[]>();
+  async delete(email: TransactionEntity["email"]): ApiResponseAsync<null> {
+    const res = await this.read<TransactionEntity[]>();
 
     if (!res.some((row) => row.email === email)) {
       return {

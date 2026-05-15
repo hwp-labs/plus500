@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IAdmin } from "@/lib/fsdb/config";
+import { AdminEntity } from "@/lib/fsdb/config";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 const defaultData = {
@@ -38,7 +38,7 @@ export function useFetchAdmin() {
     const raw = await fetch(`/api/admin`);
 
     if (raw.status === HTTP_STATUS_CODE.OK) {
-      const res: { data: IAdmin } = await raw.json();
+      const res: { data: AdminEntity } = await raw.json();
 
       const prevData = { ...data };
       prevData.btc.value = res.data?.btc || "";

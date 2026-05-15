@@ -26,4 +26,20 @@
   .auth-checkbox {
     @apply bg-ash2 hover:bg-ash3 flex size-6 items-center justify-center rounded transition-colors;
   }
+
+  .dash-input {
+    @apply border-ash5 h-[38px] border-2 px-2 text-2xl;
+  }
+
+  .dash-input-sm {
+    @apply border-ash5 h-[30px] border-2 px-2 text-lg;
+  }
+
+  .dash-input-btn {
+    @apply border-ash5 hover:bg-secondary flex h-[38px] items-center justify-center border-2 text-2xl hover:text-white;
+  }
+
+  .dash-input-btn-sm {
+    @apply border-ash5 hover:bg-secondary flex h-[30px] items-center justify-center border-2 text-lg hover:text-white;
+  }
 }

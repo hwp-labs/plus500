@@ -4,7 +4,7 @@ import { TableBuilder } from "@/components/species/dashboard/components/table-bu
 import { TableButton } from "@/components/species/dashboard/components/table-builder/button";
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
 //
-import { ITransaction } from "@/lib/fsdb/config";
+import { TransactionEntity } from "@/lib/fsdb/config";
 import data from "@/lib/fsdb/data/transactions.json";
 
 export const metadata: Metadata = {
@@ -16,11 +16,11 @@ export default function TransactionsPage() {
     <main className="bg-background flex-1">
       <table className="w-full">
         <TableBuilder.THead
-          data={[ "Date|c", "Account", "Type", "Amount", "Status|c",""]}
+          data={["Date|c", "Account", "Type", "Amount", "Status|c", ""]}
           hasActions // id:receipt,delete
         />
         <TableBuilder.TBody>
-          {(data as ITransaction[]).map((item, i) => (
+          {(data as TransactionEntity[]).map((item, i) => (
             <TableBuilder.Tr key={i}>
               <TableBuilder.DateTime dt={item.updated_at} />
               <td>{item.email}</td>

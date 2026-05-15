@@ -2,7 +2,7 @@
 
 @layer components {
   .btn-fx {
-    @apply cursor-pointer whitespace-nowrap transition-colors duration-300;
+    @apply font-f1 cursor-pointer whitespace-nowrap transition-colors duration-300;
   }
 
   .btn {
@@ -61,11 +61,15 @@
     @apply hover:text-secondary text-icon size-6 cursor-pointer;
   }
 
-  .dash-btn {
-    @apply border-ash5 text-ash3 hover:border-ash4 flex items-center justify-start gap-2 rounded-full border-2 font-medium hover:text-white;
+  .dash-submit-btn {
+    @apply bg-secondary border-secondary h-[38px] w-full rounded-none border-2 text-lg hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white;
   }
 
-  .dash-input-btn {
-    @apply border-ash5 hover:bg-secondary flex items-center justify-center border-2 text-2xl hover:text-white;
+  .dash-cancel-btn {
+    @apply border-ash6 h-[38px] rounded-none border-2 px-10 text-lg;
+  }
+
+  .dash-outline-btn {
+    @apply border-ash5 text-ash3 hover:border-ash4 flex items-center justify-start gap-2 rounded-full border-2 font-medium hover:text-white;
   }
 }

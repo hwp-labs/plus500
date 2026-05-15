@@ -3,7 +3,7 @@ import {
   HTTP_STATUS_CODE,
   HTTP_STATUS_TEXT,
 } from "@/constants/HTTP_STATUS_CODE";
-import { IAdmin, UpdateAdminDto } from "../config";
+import { AdminEntity, UpdateAdminDto } from "../config";
 import { MUTATION } from "../utils";
 import { BaseRepository } from "./base-repository";
 
@@ -12,8 +12,8 @@ class AdminRepository extends BaseRepository {
     super(filename);
   }
 
-  async getFirst(): ApiResponseAsync<IAdmin> {
-    const data = await this.read<IAdmin>();
+  async getFirst(): ApiResponseAsync<AdminEntity> {
+    const data = await this.read<AdminEntity>();
 
     return {
       success: true,
@@ -22,10 +22,9 @@ class AdminRepository extends BaseRepository {
     };
   }
 
-  async updateWallet(req: UpdateAdminDto): ApiResponseAsync<IAdmin> {
-    const res = await this.read<IAdmin>();
-    const req_ = MUTATION.parse({ req, method: "put" });
-    const data = { ...res, ...req_ };
+  async updateWallet(req: UpdateAdminDto): ApiResponseAsync<AdminEntity> {
+    const res = await this.read<AdminEntity>();
+    const data = { ...res, ...req };
 
     await this.write(data);
     return {

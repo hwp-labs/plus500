@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/auth-store";
-import { IUser } from "@/lib/fsdb/config";
+import { UserEntity } from "@/lib/fsdb/config";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 const defaultData = {
@@ -26,7 +26,7 @@ export function useFetchUser() {
     const raw = await fetch(`/api/users/?q=${session?.email}`);
 
     if (raw.status === HTTP_STATUS_CODE.OK) {
-      const res: { data: IUser } = await raw.json();
+      const res: { data: UserEntity } = await raw.json();
       setData({
         available: res.data?.available || 0,
         equity: res.data?.equity || 0,

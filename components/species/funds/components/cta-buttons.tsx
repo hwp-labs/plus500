@@ -3,7 +3,7 @@
 import { IconCreditCardPay, IconCreditCardRefund } from "@tabler/icons-react";
 import { DepositForm } from "./deposit-form";
 import { WithdrawForm } from "./withdraw-form";
-import { useFundsStore } from "@/store/wallet-store";
+import { useFundsStore } from "@/store/funds-store";
 
 export const CtaButtons = () => {
   const deposit = useFundsStore((s) => s.deposit);

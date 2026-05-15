@@ -7,15 +7,15 @@ import {
   PairedSubmitBtn,
 } from "../../dashboard/components/form-builder";
 import { SectionHeading } from "./section-heading";
-import { useFetchAdmin } from "@/hooks/use-fetch-admin";
-import { useMutateTransaction } from "@/hooks/use-mutate-transaction";
+import { useAdminApi } from "@/hooks/services/use-admin-api";
+import { useMutateTransaction } from "@/hooks/services/use-mutate-transaction";
 
 interface Props {
   onClose?: () => void;
 }
 
 export const DepositForm = ({ onClose }: Props) => {
-  const { data } = useFetchAdmin();
+  const { data } = useAdminApi();
   const { setAmount, setFile, loading, handleDeposit } = useMutateTransaction();
   //
   return (

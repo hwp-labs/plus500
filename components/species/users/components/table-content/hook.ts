@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IUser, UpdateUserDto } from "@/lib/fsdb/config";
+import { UserEntity, UpdateUserDto } from "@/lib/fsdb/config";
 import data from "@/lib/fsdb/data/users.json";
 
 export function useTableContent() {
@@ -10,7 +10,7 @@ export function useTableContent() {
     console.log("🚀 ~ useEffect ~ formData:", formData);
   }, [formData]);
 
-  const handleEdit = (item: IUser) => {
+  const handleEdit = (item: UserEntity) => {
     if (selected === item.email) {
       setSelected("");
       setFormData({});

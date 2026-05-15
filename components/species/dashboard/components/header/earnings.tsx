@@ -1,7 +1,7 @@
 "use client";
 
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
-import { useFetchUser } from "@/hooks/use-fetch-user";
+import { useFetchUser } from "@/hooks/services/use-fetch-user";
 import { asMoney } from "@/utils";
 import { CURRENCY } from "@/constants/CURRENCY";
 

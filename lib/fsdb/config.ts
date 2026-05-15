@@ -2,7 +2,7 @@ import { BaseEntity } from "@/types/api-type";
 
 export const DB_PATH = "lib/fsdb/data";
 
-export interface IAdmin {
+export interface AdminEntity {
   email: string;
   password: string;
   btc?: string;
@@ -11,9 +11,9 @@ export interface IAdmin {
   usdc?: string;
 }
 
-export type UpdateAdminDto = Omit<IAdmin, "email" | "password">;
+export type UpdateAdminDto = Omit<AdminEntity, "email" | "password">;
 
-export interface IUser extends BaseEntity {
+export interface UserEntity extends BaseEntity {
   email: string;
   password: string;
   available?: number;
@@ -23,13 +23,13 @@ export interface IUser extends BaseEntity {
   profit_loss?: number;
 }
 
-export type CreateUserDto = Omit<IUser, keyof BaseEntity>;
+export type CreateUserDto = Omit<UserEntity, keyof BaseEntity>;
 export type UpdateUserDto = Pick<
-  IUser,
+  UserEntity,
   "available" | "equity" | "i_margin" | "m_margin" | "profit_loss"
 >;
 
-export interface ITransaction extends BaseEntity {
+export interface TransactionEntity extends BaseEntity {
   email: string;
   amount: number;
   receipt?: string; // base64
@@ -37,5 +37,5 @@ export interface ITransaction extends BaseEntity {
   status: number; //"pending" | "approved";
 }
 
-export type CreateTransactionDto = Omit<ITransaction, keyof BaseEntity>;
-export type UpdateTransactionDto = Pick<ITransaction, "status">;
+export type CreateTransactionDto = Omit<TransactionEntity, keyof BaseEntity>;
+export type UpdateTransactionDto = Pick<TransactionEntity, "status">;
