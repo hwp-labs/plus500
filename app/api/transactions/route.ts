@@ -33,8 +33,8 @@ export async function DELETE(req: NextRequest) {
   const q = req.nextUrl.searchParams.get("q");
 
   if (q) {
-    const { status, ...res } = await transactionRepo.delete(q);
-    return Response.json(res, { status });
+    const { status } = await transactionRepo.delete(q);
+    return new Response(null, { status });
   }
 
   return routeUtil.missingQueryParam();

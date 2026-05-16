@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { IconCopy } from "@tabler/icons-react";
 import {
   FileInput,
@@ -15,8 +16,12 @@ interface Props {
 }
 
 export const DepositForm = ({ onClose }: Props) => {
-  const { data } = useAdminApi();
+  const { data, fetchAdmin } = useAdminApi();
   const { setAmount, setFile, loading, handleDeposit } = useMutateTransaction();
+
+  useEffect(() => {
+    fetchAdmin();
+  }, []);
   //
   return (
     <section>
@@ -34,7 +39,7 @@ export const DepositForm = ({ onClose }: Props) => {
             <div className="border-muted hidden flex-1 border-b border-dashed sm:flex"></div>
             <div className="flex-cs gap-2">
               <input
-                defaultValue={item.value}
+                value={item.value}
                 className="input-reset text-secondary w-full"
                 readOnly
               />
