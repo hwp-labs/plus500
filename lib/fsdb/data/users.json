@@ -3,9 +3,13 @@
     "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
     "email": "john@plus500.com",
     "password": "4dcafe40658a41a5bc3cc964d79b3967a76f8d4847adcdae7965f5b7be3fcc5c",
-    "available": 1970,
+    "available": 19.7,
     "created_at": "2024-01-15T08:30:00.000Z",
-    "updated_at": "2024-01-15T08:30:00.000Z"    
+    "updated_at": "2026-05-16T08:11:38.861Z",
+    "equity": 50.05,
+    "i_margin": 10.01,
+    "profit_loss": 3.142,
+    "m_margin": 17.83
   },
   {
     "id": "3f6e4c2a-1d8b-4f9e-a7c5-6b2d1e8f3a9c",
@@ -13,6 +17,22 @@
     "password": "4dcafe40658a41a5bc3cc964d79b3967a76f8d4847adcdae7965f5b7be3fcc5c",
     "available": 1995,
     "created_at": "2024-01-16T10:15:00.000Z",
-    "updated_at": "2024-01-16T10:15:00.000Z"    
+    "updated_at": "2026-05-16T08:16:37.826Z",
+    "equity": 80.88,
+    "i_margin": 3.142,
+    "profit_loss": 14.56,
+    "m_margin": 78.96
+  },
+  {
+    "id": "3f6e4c2a-1d8b-4f9e-a7c5-6b2d1e8f3a9c",
+    "email": "jack@plus500.com",
+    "password": "4dcafe40658a41a5bc3cc964d79b3967a76f8d4847adcdae7965f5b7be3fcc5c",
+    "available": 1995,
+    "created_at": "2024-01-16T10:15:00.000Z",
+    "updated_at": "2026-05-16T08:41:47.676Z",
+    "equity": 80.88,
+    "i_margin": 30.142,
+    "profit_loss": 14.56,
+    "m_margin": 78.96
   }
 ]

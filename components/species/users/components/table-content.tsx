@@ -1,47 +1,63 @@
 "use client";
 
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
-import { InlineEditForm } from "../inline-edit-form";
-import { UserEntity, UpdateUserDto } from "@/lib/fsdb/config";
-//
-import { useTableContent } from "./hook";
+import { InlineEditForm } from "./inline-edit-form";
+import { useUsersApi } from "@/hooks/services/use-users-api";
+import { UpdateUserDto } from "@/lib/fsdb/config";
 
 export const TableContent = () => {
-  const { data, selected, formData, handleEdit, handleChange, handleSave } =
-    useTableContent();
+  const {
+    refetchKey,
+    fetching,
+    loading,
+    success,
+    users,
+    form,
+    selected,
+    handleChange,
+    handleEdit,
+    fetchUsers,
+    handleUpdate,
+    handleDelete,
+  } = useUsersApi();
+
+  useEffect(() => {
+    fetchUsers();
+  }, [refetchKey]);
   //
   return (
     <TableBuilder.TBody>
-      {(data as UserEntity[]).map((item, i) => (
+      <TableBuilder.TrLoading show={fetching} />
+      {users.map((item, i) => (
         <TableBuilder.Tr key={i}>
           <td>{item.email}</td>
           {[
             {
               name: "available",
               placeholder: "Avail. Bal.",
-              value: formData.available,
+              value: form.available,
             },
             {
               name: "equity",
               placeholder: "Equity",
-              value: formData.equity,
+              value: form.equity,
             },
             {
               name: "i_margin",
               placeholder: "Ini. Margin",
-              value: formData.i_margin,
+              value: form.i_margin,
             },
             {
               name: "m_margin",
               placeholder: "Mtn. Margin",
-              value: formData.m_margin,
+              value: form.m_margin,
             },
             {
               name: "profit_loss",
               placeholder: "Profit/Loss",
-              value: formData.profit_loss,
+              value: form.profit_loss,
             },
           ].map((input, j) => {
             return (
@@ -51,7 +67,9 @@ export const TableContent = () => {
                     placeholder={input.placeholder}
                     value={input.value}
                     onChange={(v) => handleChange({ [input.name]: v })}
-                    onSave={handleSave}
+                    onSave={() => handleUpdate(item.email)}
+                    loading={loading}
+                    success={success}
                   />
                 ) : (
                   <TableBuilder.Amount
@@ -63,7 +81,13 @@ export const TableContent = () => {
             );
           })}
           <TableBuilder.DateTime dt={item.updated_at} />
-          <TableAction hasEdit onEdit={() => handleEdit(item)} hasDelete />
+          <TableAction
+            loading={loading}
+            hasEdit
+            onEdit={() => handleEdit(item)}
+            hasDelete
+            onDelete={() => handleDelete(item.email)}
+          />
         </TableBuilder.Tr>
       ))}
     </TableBuilder.TBody>

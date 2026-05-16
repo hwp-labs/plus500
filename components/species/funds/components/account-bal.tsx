@@ -1,21 +1,26 @@
 "use client";
 
+import { useEffect } from "react";
+import { useUsersApi } from "@/hooks/services/use-users-api";
 import { asMoney } from "@/utils";
 import { CURRENCY } from "@/constants/CURRENCY";
-import { useFetchUser } from "@/hooks/services/use-fetch-user";
 
 export const AccountBal = () => {
-  const { data } = useFetchUser();
+  const { user, fetchUser } = useUsersApi();
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
   //
   return (
     <section>
       <h2 className="mt-4 text-lg font-bold">Account Balance</h2>
       <ul className="mt-2 space-y-1 px-4">
         {[
-          { label: "Available to withdraw", value: data.available },
-          { label: "Equity", value: data.equity },
-          { label: "Initial margin", value: data.i_margin },
-          { label: "Maintenance margin", value: data.m_margin },
+          { label: "Available to withdraw", value: user.available },
+          { label: "Equity", value: user.equity },
+          { label: "Initial margin", value: user.i_margin },
+          { label: "Maintenance margin", value: user.m_margin },
         ].map(({ label, value }, i) => (
           <li key={i} className="flex-cb gap-2">
             <div>{label}</div>

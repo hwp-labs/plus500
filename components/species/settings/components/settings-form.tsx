@@ -9,6 +9,8 @@ import { useAdminApi } from "@/hooks/services/use-admin-api";
 
 export const SettingsForm = () => {
   const {
+    refetchKey,
+    fetching,
     loading,
     success,
     error,
@@ -16,13 +18,13 @@ export const SettingsForm = () => {
     form,
     setForm,
     handleChange,
-    getFirstQuery,
-    updateWalletMutation,
+    fetchAdmin,
+    handleUpdate,
   } = useAdminApi();
 
   useEffect(() => {
-    getFirstQuery();
-  }, []);
+    fetchAdmin();
+  }, [refetchKey]);
 
   useEffect(() => {
     setForm({
@@ -70,7 +72,7 @@ export const SettingsForm = () => {
         loading={loading}
         success={success}
         error={error}
-        onClick={updateWalletMutation}
+        onClick={handleUpdate}
       >
         Save
       </PairedSubmitBtn>

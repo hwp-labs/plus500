@@ -2,9 +2,11 @@ import { useState } from "react";
 import { UpdateAdminDto } from "@/lib/fsdb/config";
 import { sleep } from "@/utils";
 //
-import { DataDto, defaultData, getFirst, updateWallet } from "./utils";
+import { DataDto, defaultData, getAdmin, updateAdmin } from "./utils";
 
 export function useAdminApi() {
+  const [refetchKey, setRefetchKey] = useState(false);
+  const [fetching, setFetching] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -15,41 +17,43 @@ export function useAdminApi() {
     setForm((s) => ({ ...s, ...form }));
   };
 
-  const getFirstQuery = async () => {
-    setLoading(true);
+  const fetchAdmin = async () => {
+    setFetching(true);
 
-    const newData = await getFirst(data);
+    const newData = await getAdmin(data);
     if (newData) setData(newData);
 
-    setLoading(false);
+    setFetching(false);
   };
 
-  const updateWalletMutation = async () => {
+  const handleUpdate = async () => {
     setError(null);
     setLoading(true);
 
-    const ok = await updateWallet(form);
-    setLoading(false);
-
+    const ok = await updateAdmin(form);
     if (ok) {
       setSuccess(true);
       await sleep(2.5);
       setSuccess(false);
+      setRefetchKey((s) => !s);
     } else {
       setError("Update failed, please try again!");
     }
+
+    setLoading(false);
   };
 
   return {
+    refetchKey,
+    fetching,
     loading,
     success,
     error,
     data,
-    setData,
     form,
     setForm,
     handleChange,
-    getFirstQuery,
-    updateWalletMutation,
+    fetchAdmin,
+    handleUpdate,
   };
 }

@@ -65,6 +65,19 @@ const Tr = ({ children }: PropsWithChildren) => (
   <tr className="grid sm:table-row">{children}</tr>
 );
 
+interface TrLoadingProps extends PropsWithChildren {
+  show?: boolean;
+}
+
+const TrLoading = ({ children, show }: TrLoadingProps) =>
+  show ? (
+    <tr className="grid sm:table-row">
+      <td colSpan={9} className="bg-warning_ text-center">
+        {children || "Loading..."}
+      </td>
+    </tr>
+  ) : null;
+
 const Tdc = ({ children }: PropsWithChildren) => (
   <td className="text-center">{children}</td>
 );
@@ -187,6 +200,7 @@ export const TableBuilder = {
   TBodyPlaceholder,
   TFoot,
   Tr,
+  TrLoading,
   Tdc,
   Tdr,
   Amount,

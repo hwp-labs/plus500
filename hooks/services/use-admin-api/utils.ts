@@ -26,7 +26,7 @@ export const defaultData = {
   },
 };
 
-export const getFirst = async (prevData: DataDto) => {
+export const getAdmin = async (prevData: DataDto) => {
   const raw = await fetch(`/api/admin`);
 
   if (raw.status === HTTP_STATUS_CODE.OK) {
@@ -42,9 +42,9 @@ export const getFirst = async (prevData: DataDto) => {
   }
 };
 
-export const updateWallet = async (form: UpdateAdminDto) => {
+export const updateAdmin = async (form: UpdateAdminDto) => {
   const raw = await fetch(`/api/admin`, {
-    method: "POST",
+    method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(form),
   });

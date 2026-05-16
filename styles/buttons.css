@@ -5,6 +5,10 @@
     @apply font-f1 cursor-pointer whitespace-nowrap transition-colors duration-300;
   }
 
+  .btn-fx-success {
+    @apply bg-success! border-success! text-white!;
+  }
+
   .btn {
     @apply font-f1 flex h-[36px] cursor-pointer items-center justify-center rounded-lg border-2 border-inherit whitespace-nowrap transition-colors duration-300;
   }

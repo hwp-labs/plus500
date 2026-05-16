@@ -12,12 +12,17 @@ export interface AuthResponseDto {
   data: SessionDto;
 }
 
-export const defaultAuthForm: AuthRequestDto = M.formData
+export const defaultAuthForm: AuthRequestDto = MOCK.authAdmin.formData
   ? {
-      email: "john@plus500.com",
-      password: "@testUser",
+      email: process.env.NEXT_PUBLIC_AUTH_ADMIN!,
+      password: process.env.NEXT_PUBLIC_AUTH_ADMIN_PASS!,
     }
-  : {
-      email: "",
-      password: "",
-    };
+  : MOCK.auth.formData
+    ? {
+        email: process.env.NEXT_PUBLIC_AUTH_USER!,
+        password: process.env.NEXT_PUBLIC_AUTH_USER_PASS!,
+      }
+    : {
+        email: "",
+        password: "",
+      };

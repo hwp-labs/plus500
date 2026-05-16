@@ -14,7 +14,8 @@ export class BaseRepository {
     try {
       const res = await fs.readFile(this.dir, "utf-8");
       return JSON.parse(res);
-    } catch {
+    } catch(err) {
+      console.log("🚀 ~ BaseRepository ~ read ~ err:", err)
       throw new DatabaseError("Failed to read database");
     }
   }
@@ -22,7 +23,8 @@ export class BaseRepository {
   protected async write<T>(data: T): Promise<void> {
     try {
       await fs.writeFile(this.dir, JSON.stringify(data, null, 2));
-    } catch {
+    } catch(err) {
+      console.log("🚀 ~ BaseRepository ~ write ~ err:", err)
       throw new DatabaseError("Failed to write database");
     }
   }

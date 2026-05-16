@@ -48,7 +48,7 @@ export const MENU = [
 export const MENU_PROTECTED = [
   
   {
-    Icon: LogsIcon,
+    Icon: ChartLineIcon,
     label: "Transactions",
     path: PATH_PROTECTED.transactions,
   },
