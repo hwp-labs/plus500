@@ -6,10 +6,9 @@ export const routeUtil = {
   emailPassMatch: (body: AuthRequestDto, data: AuthRequestDto) =>
     body.email === data.email &&
     cryptoUtil.compare(body.password, data.password),
-
-  missingQueryParam: () =>
-    Response.json(
-      { success: false, message: "Missing query parameter" },
-      { status: HTTP_STATUS_CODE.UNPROCESSABLE },
-    ),
+  missingQueryParam: Response.json(
+    { success: false, message: "Missing query parameter" },
+    { status: HTTP_STATUS_CODE.UNPROCESSABLE },
+  ),
+  noContent: new Response(null, { status: 204 }),
 };

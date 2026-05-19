@@ -1,11 +1,11 @@
+import { type NextRequest } from "next/server";
 import { adminRepo } from "@/lib/fsdb/repositories/admin-repository";
 import { userRepo } from "@/lib/fsdb/repositories/user-repository";
 import { transactionRepo } from "@/lib/fsdb/repositories/transaction-repository";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const apiKey = searchParams.get("apiKey");
+export async function GET(req: NextRequest) {
+  const apiKey = req.nextUrl.searchParams.get("apiKey");
 
   if (apiKey !== process.env.API_KEY) {
     return Response.json(

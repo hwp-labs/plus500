@@ -1,4 +1,4 @@
-import { DashboardAuthGuard } from "@/components/species/dashboard/components/offcanvas/dashboard-auth-guard";
+import { DashboardAuthGuard } from "@/components/species/dashboard/components/dashboard-auth-guard";
 import { Header } from "@/components/species/dashboard/components/header";
 import { Sidebar } from "@/components/species/dashboard/components/sidebar";
 

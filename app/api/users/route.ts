@@ -8,11 +8,11 @@ export async function GET(req: NextRequest) {
 
   if (q) {
     const { status, ...res } = await userRepo.getById(q);
-    
+
     return Response.json(res, { status });
   } else {
     const { status, ...res } = await userRepo.getAll();
-    
+
     return Response.json(res, { status });
   }
 }
@@ -28,16 +28,16 @@ export async function PATCH(req: NextRequest) {
     return Response.json(res, { status });
   }
 
-  return routeUtil.missingQueryParam();
+  return routeUtil.missingQueryParam;
 }
 
 export async function DELETE(req: NextRequest) {
   const q = req.nextUrl.searchParams.get("q");
 
   if (q) {
-    const { status } = await userRepo.delete(q);
-    return new Response(null, { status });
+    await userRepo.delete(q);
+    return routeUtil.noContent;
   }
 
-  return routeUtil.missingQueryParam();
+  return routeUtil.missingQueryParam;
 }

@@ -32,7 +32,7 @@ export type UpdateUserDto = Pick<
 export interface TransactionEntity extends BaseEntity {
   email: string;
   amount: number;
-  receipt?: string; // base64
+  receipt?: string; // filename or base64
   type: number; // "withdraw" | "deposit";
   status: number; //"pending" | "approved";
 }

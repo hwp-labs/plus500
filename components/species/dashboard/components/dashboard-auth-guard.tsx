@@ -14,9 +14,9 @@ export const DashboardAuthGuard = ({
 
   useEffect(() => {
     if (_hasHydrated && !session) router.replace(PATH.login);
-  }, [session, _hasHydrated, router]);
+  }, [router, _hasHydrated, session]);
 
-  if (!_hasHydrated) return null;
+  if (!_hasHydrated || !session) return null;
 
   return (
     <div className="dark grid grid-cols-[60px_1fr] text-sm">{children}</div>

@@ -77,7 +77,7 @@ export function useUsersApi() {
   };
 
   const handleDelete = async (email: string) => {
-    if (confirm("Are you sure?")) {
+    if (confirm("Delete User?")) {
       setLoading(true);
 
       await deleteUser(email);

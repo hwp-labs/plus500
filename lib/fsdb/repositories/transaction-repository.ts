@@ -42,10 +42,10 @@ class TransactionRepository extends BaseRepository {
 
   async updateStatus(
     req: UpdateTransactionDto,
-    email: TransactionEntity["email"],
+    id: TransactionEntity["id"],
   ): ApiResponseAsync<TransactionEntity> {
     const res = await this.read<TransactionEntity[]>();
-    const i = res.findIndex((row) => row.email === email);
+    const i = res.findIndex((row) => row.id === id);
 
     if (i === -1) {
       return {
@@ -69,10 +69,10 @@ class TransactionRepository extends BaseRepository {
     };
   }
 
-  async delete(email: TransactionEntity["email"]): ApiResponseAsync<null> {
+  async delete(id: TransactionEntity["id"]): ApiResponseAsync<null> {
     const res = await this.read<TransactionEntity[]>();
 
-    if (!res.some((row) => row.email === email)) {
+    if (!res.some((row) => row.id === id)) {
       return {
         success: false,
         status: HTTP_STATUS_CODE.NOT_FOUND,
@@ -80,7 +80,7 @@ class TransactionRepository extends BaseRepository {
       };
     }
 
-    const data = res.filter((row) => row.email !== email);
+    const data = res.filter((row) => row.id !== id);
 
     await this.write(data);
     return {

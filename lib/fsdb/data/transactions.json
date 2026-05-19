@@ -2,8 +2,9 @@
   {
     "id": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
     "email": "john@plus500.com",
-    "type": 0,
+    "type": 1,
     "amount": 5000,
+    "receipt": "/uploads/mock-receipt.png",
     "status": 0,
     "created_at": "2024-01-15T08:30:00.000Z",
     "updated_at": "2024-01-15T08:30:00.000Z"
@@ -11,11 +12,10 @@
   {
     "id": "3f6e4c2a-1d8b-4f9e-a7c5-6b2d1e8f3a9c",
     "email": "jane@plus500.com",
-    "type": 1,
+    "type": 0,
     "amount": 2500,
-    "receipt": "data:image/png;base64,iVBORw0KGgoAAAANS==",
-    "status": 1,
+    "status": 0,
     "created_at": "2024-01-16T10:15:00.000Z",
-    "updated_at": "2024-01-16T10:15:00.000Z"
+    "updated_at": "2026-05-19T15:21:53.676Z"
   }
 ]

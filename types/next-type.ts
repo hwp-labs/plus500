@@ -13,5 +13,5 @@ export interface PageIdParams<T extends string | string[] = string> {
 }
 
 export type RouteIdParams<T extends string | number = string> = {
-  params: { id: T };
+  params: Promise<{ id: T }>;
 };

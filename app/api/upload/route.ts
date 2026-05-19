@@ -12,9 +12,10 @@ export async function POST(req: NextRequest) {
 
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
+  const newFilename = Date.now() + "." + file.name.split(".").pop();
 
   const uploadDir = path.join(process.cwd(), "public", "uploads");
-  const filePath = path.join(uploadDir, file.name);
+  const filePath = path.join(uploadDir, newFilename);
 
   await writeFile(filePath, buffer);
 
@@ -25,10 +26,13 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  const { fileName } = await req.json() as { fileName: string };
+  const { fileName } = (await req.json()) as { fileName: string };
 
   if (!fileName) {
-    return NextResponse.json({ message: "No filename provided" }, { status: 400 });
+    return NextResponse.json(
+      { message: "No filename provided" },
+      { status: 400 },
+    );
   }
 
   const filePath = path.join(process.cwd(), "public", "uploads", fileName);

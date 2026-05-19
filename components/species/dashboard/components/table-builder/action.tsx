@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 import {
   BellIcon,
   InfoIcon,
+  ReceiptTextIcon,
   SquarePenIcon,
   StarIcon,
   Trash2Icon,
@@ -16,6 +17,8 @@ interface ActionProps extends PropsWithChildren {
   hasBell?: boolean;
   hasInfo?: boolean;
   onInfo?: () => void;
+  hasFile?: boolean;
+  onFile?: () => void;
   hasEdit?: boolean;
   onEdit?: () => void;
   hasDelete?: boolean;
@@ -31,6 +34,8 @@ export const TableAction = ({
   hasBell,
   hasInfo,
   onInfo,
+  hasFile,
+  onFile,
   hasEdit,
   onEdit,
   hasDelete,
@@ -44,6 +49,11 @@ export const TableAction = ({
       {hasInfo && (
         <button title="View" onClick={onInfo} disabled={loading}>
           <InfoIcon className={classNames.icon} />
+        </button>
+      )}
+      {hasFile && (
+        <button title="Receipt" onClick={onFile} disabled={loading}>
+          <ReceiptTextIcon className={classNames.icon} />
         </button>
       )}
       {hasEdit && (
