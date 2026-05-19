@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { GraphContainer } from "@/components/species/dashboard/components/graph-container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
 // 
-import { TableContent } from "@/components/species/orders/components/table-content";
+import { TableContent } from "@/components/species/orders/components/table-content-old";
 
 export const metadata: Metadata = {
   title: "Orders",

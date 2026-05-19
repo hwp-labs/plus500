@@ -54,7 +54,21 @@ export function useTransactionsApi() {
     if (receipt) window.open(receipt, "_blank");
   };
 
-  const fetchData = async (q?: string | null) => {
+  const fetchData = async () => {
+    setFetching(true);
+
+    const newData = await getTransactions();
+    if (newData) setData(newData);
+
+    setFetching(false);
+  };
+
+  const fetchDataByEmail = async (q?: string | null) => {
+    if (!q) {
+      setData([]);
+      return;
+    }
+
     setFetching(true);
 
     const newData = await getTransactions(q);
@@ -146,6 +160,7 @@ export function useTransactionsApi() {
     error,
     data,
     fetchData,
+    fetchDataByEmail,
     handleChange,
     handleView,
     handleDeposit,

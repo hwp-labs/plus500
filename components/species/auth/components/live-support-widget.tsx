@@ -10,7 +10,12 @@ const WIDGET_ID = process.env.NEXT_PUBLIC_TAWKTO_WIDGET_ID!;
 
 declare global {
   interface Window {
-    Tawk_API?: { maximize: () => void };
+    Tawk_API?: {
+      maximize?: () => void;
+      hideWidget?: () => void;
+      showWidget?: () => void;
+      onLoad?: () => void;
+    };
   }
 }
 
@@ -19,6 +24,13 @@ export const LiveSupportWidget = () => {
 
   useEffect(() => {
     if (document.querySelector('script[src*="tawk.to"]')) return; // guard
+
+    if (window) {
+      window.Tawk_API = window.Tawk_API ?? {};
+      window.Tawk_API.onLoad = () => {
+        window.Tawk_API?.hideWidget?.(); // hide the default bubble on load
+      };
+    }
 
     const s = document.createElement("script");
     s.src = `https://embed.tawk.to/${PROPERTY_ID}/${WIDGET_ID}`;
@@ -31,7 +43,7 @@ export const LiveSupportWidget = () => {
   return (
     <button
       type="button"
-      onClick={() => window.Tawk_API?.maximize()}
+      onClick={() => window.Tawk_API?.maximize?.()}
       className={clsx(
         "flex-cc bg-ash1 text-primary hover:bg-secondary w-full gap-2 px-4 py-3 text-sm font-medium transition-colors hover:text-white",
         mq && "fixed bottom-0",

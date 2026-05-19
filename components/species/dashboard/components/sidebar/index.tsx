@@ -20,7 +20,7 @@ import { useTransactionsApi } from "@/hooks/services/use-transactions-api";
 export const Sidebar = () => {
   const pathname = usePathname();
   const session = useAuthStore((s) => s.session);
-  const { fetchData, refetchKey, data } = useTransactionsApi();
+  const { fetchDataByEmail, refetchKey, data } = useTransactionsApi();
 
   const [collapsed, setCollapsed] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
@@ -32,7 +32,7 @@ export const Sidebar = () => {
     : [];
 
   useEffect(() => {
-    fetchData(session?.email);
+    fetchDataByEmail(session?.email);
   }, [refetchKey]);
   //
   return (
