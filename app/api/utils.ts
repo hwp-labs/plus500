@@ -10,5 +10,13 @@ export const routeUtil = {
     { success: false, message: "Missing query parameter" },
     { status: HTTP_STATUS_CODE.UNPROCESSABLE },
   ),
-  noContent: new Response(null, { status: 204 }),
+  missingFieldValue: Response.json(
+    { success: false, message: "Missing field value" },
+    { status: HTTP_STATUS_CODE.UNPROCESSABLE },
+  ),
+  notFound: Response.json(
+    { success: false, message: "Record not found" },
+    { status: HTTP_STATUS_CODE.NOT_FOUND },
+  ),
+  noContent: new Response(null, { status: HTTP_STATUS_CODE.NO_CONTENT }),
 };

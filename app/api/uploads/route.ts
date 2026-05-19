@@ -1,6 +1,7 @@
 import path from "path";
 import { writeFile, unlink } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
+import { routeUtil } from "../utils";
 
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
@@ -26,21 +27,15 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  const { fileName } = (await req.json()) as { fileName: string };
+  const body: { name: string } = await req.json();
 
-  if (!fileName) {
-    return NextResponse.json(
-      { message: "No filename provided" },
-      { status: 400 },
-    );
-  }
-
-  const filePath = path.join(process.cwd(), "public", "uploads", fileName);
+  if (!body.name) return routeUtil.missingFieldValue;
 
   try {
+    const filePath = path.resolve("public" + body.name);
     await unlink(filePath);
-    return NextResponse.json({ message: "File deleted successfully" });
+    return routeUtil.noContent;
   } catch {
-    return NextResponse.json({ message: "File not found" }, { status: 404 });
+    return routeUtil.notFound;
   }
 }

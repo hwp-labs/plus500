@@ -48,10 +48,12 @@ export const TableContent = () => {
           <TableAction
             hasFile
             onFile={
-              item.type ? () => window.open(item?.receipt, "_blank") : undefined
+              item.receipt
+                ? () => window.open(item.receipt, "_blank")
+                : undefined
             }
             hasDelete
-            onDelete={() => handleDelete(item.id)}
+            onDelete={() => handleDelete(item)}
           />
         </TableBuilder.Tr>
       ))}

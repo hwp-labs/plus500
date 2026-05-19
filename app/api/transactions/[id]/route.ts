@@ -15,8 +15,6 @@ export async function PATCH(req: NextRequest, { params }: RouteIdParams) {
 export async function DELETE(_: NextRequest, { params }: RouteIdParams) {
   const { id } = await params;
 
-  // DELETE RECEIPT
-
   await transactionRepo.delete(id);
   return routeUtil.noContent;
 }

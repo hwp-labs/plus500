@@ -23,8 +23,16 @@ export const updateTransaction = async (
   return raw.status === HTTP_STATUS_CODE.OK;
 };
 
-export const deleteTransaction = async (id: TransactionEntity["id"]) => {
-  const raw = await fetch(`/api/transactions/${id}`, {
+export const deleteTransaction = async (item: TransactionEntity) => {
+  if (item.receipt) {
+    await fetch(`/api/uploads`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: item.receipt }),
+    });
+  }
+
+  const raw = await fetch(`/api/transactions/${item.id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });

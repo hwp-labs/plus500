@@ -40,11 +40,11 @@ export function useTransactionsApi() {
     }
   };
 
-  const handleDelete = async (id: TransactionEntity["id"]) => {
+  const handleDelete = async (item: TransactionEntity) => {
     if (confirm("Delete Transaction?")) {
       setLoading(true);
 
-      await deleteTransaction(id);
+      await deleteTransaction(item);
       setRefetchKey((s) => !s);
 
       setLoading(false);
