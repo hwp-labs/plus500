@@ -109,8 +109,8 @@ const Amount = ({
     className={clsx(
       tc && "text-center",
       tr && "text-right",
-      colored && value < 0 ? "text-danger" : "",
-      colored && value > 0 ? "text-success" : "",
+      colored && value < -1 ? "text-danger" : "",
+      colored && value > 1 ? "text-success" : "",
     )}
   >
     {currency === "usd"

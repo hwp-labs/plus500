@@ -31,7 +31,7 @@ export const Chart = () => {
 const renderEmpty = (
   <div className="flex-col-cc debug_ h-[255px] gap-2">
     <span className="text-xl_">Please select an instrument</span>
-    <OutlineBtn className="py-2 text-[16px]!">
+    <OutlineBtn className="mt-2 py-2 text-[16px]!">
       Search
       <IconSearch size={18} />
     </OutlineBtn>

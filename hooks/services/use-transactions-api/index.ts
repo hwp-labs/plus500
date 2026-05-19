@@ -80,7 +80,7 @@ export function useTransactionsApi() {
       if (ok) {
         alert("Deposit Pending Approval!");
         next?.();
-        router.push(PATH_PROTECTED.trade)
+        // router.push(PATH_PROTECTED.trade)
       } else {
         setError("Deposit failed, please try again!");
       }
@@ -101,7 +101,7 @@ export function useTransactionsApi() {
       if (ok) {
         alert("Withdrawal Pending Approval!");
         next?.();
-        router.push(PATH_PROTECTED.trade)
+        // router.push(PATH_PROTECTED.trade)
       } else {
         setError("Withdrawal failed, please try again!");
       }

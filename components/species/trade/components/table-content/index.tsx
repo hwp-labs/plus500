@@ -6,9 +6,9 @@ import { OutlineBtn } from "@/components/species/dashboard/components/form-build
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { DASHBOARD_STORE, useDashboardStore } from "@/store/dashboard-store";
+import { useTicker } from "@/hooks/use-ticker";
 //
 import { Empty } from "./empty";
-import data from "./data.json";
 
 export const TableContent = () => {
   const mq = useMediaQuery("sm");
@@ -16,6 +16,8 @@ export const TableContent = () => {
   const reset = useDashboardStore((s) => s.reset);
   const filter = useDashboardStore((s) => s.filter);
   const setInstrument = useDashboardStore((s) => s.setInstrument);
+
+  const { rows } = useTicker();
 
   useEffect(() => {
     reset();
@@ -38,7 +40,7 @@ export const TableContent = () => {
             hasActions
           />
           <TableBuilder.TBody>
-            {data.map((item, i) => (
+            {rows.map((item, i) => (
               <TableBuilder.Tr key={i}>
                 <td>{item.name}</td>
                 <TableBuilder.Amount
@@ -77,7 +79,7 @@ export const TableContent = () => {
           </TableBuilder.TBody>
         </table>
       ) : (
-        <Empty />
+        <Empty label={filter} />
       )}
     </div>
   );

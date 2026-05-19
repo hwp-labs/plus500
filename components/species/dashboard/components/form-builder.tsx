@@ -173,7 +173,7 @@ export const OutlineBtn = ({
 }: OutlineBtnProps) => (
   <button
     onClick={onClick}
-    className={clsx("dash-btn btn-fx px-6 py-1.5 text-xs", className)}
+    className={clsx("dash-outline-btn btn-fx px-6 py-1.5 text-xs", className)}
   >
     {children}
   </button>
