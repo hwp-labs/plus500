@@ -1,5 +1,14 @@
-import { UpdateTransactionDto, TransactionEntity } from "@/lib/fsdb/config";
+import {
+  UpdateTransactionDto,
+  TransactionEntity,
+  CreateTransactionDto,
+} from "@/lib/fsdb/config";
+import { ApiUploadsDto } from "@/app/api/uploads/route";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
+
+export type FormDto = { 
+amount?: number; 
+file?: File };
 
 export const getTransactions = async () => {
   const raw = await fetch(`/api/transactions`);
@@ -8,6 +17,36 @@ export const getTransactions = async () => {
     const { data }: { data: TransactionEntity[] } = await raw.json();
     return data;
   }
+};
+
+export const createTransaction = async (
+  form: CreateTransactionDto,
+  file?: File,
+) => {
+  const fileSafe = { ...form };
+
+  if (file) {
+    const body = new FormData();
+    body.append("file", file);
+
+    const raw = await fetch("/api/uploads", {
+      method: "POST",
+      body,
+    });
+
+    if (raw.status === HTTP_STATUS_CODE.CREATED) {
+      const res: { data: ApiUploadsDto } = await raw.json();
+      fileSafe.receipt = res.data.filename;
+    }
+  }
+
+  const raw = await fetch("/api/transactions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(fileSafe),
+  });
+
+  return raw.status === HTTP_STATUS_CODE.CREATED;
 };
 
 export const updateTransaction = async (
@@ -28,7 +67,7 @@ export const deleteTransaction = async (item: TransactionEntity) => {
     await fetch(`/api/uploads`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: item.receipt }),
+      body: JSON.stringify({ filename: item.receipt }),
     });
   }
 

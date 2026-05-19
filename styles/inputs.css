@@ -1,3 +1,4 @@
+/*  px-4 */
 @layer components {
   .input-reset {
     @apply font-f1 w-full outline-none focus:ring-0 focus:outline-none;
@@ -36,10 +37,10 @@
   }
 
   .dash-input-btn {
-    @apply border-ash5 hover:bg-secondary flex h-[38px] items-center justify-center border-2 text-2xl hover:text-white;
+    @apply border-ash5 hover:bg-secondary flex h-[38px] items-center justify-center border-2 text-2xl hover:text-white px-2.5;
   }
 
   .dash-input-btn-sm {
-    @apply border-ash5 hover:bg-secondary flex h-[30px] items-center justify-center border-2 text-lg hover:text-white;
+    @apply border-ash5 hover:bg-secondary flex h-[30px] items-center justify-center border-2 text-lg hover:text-white px-2.5;
   }
 }

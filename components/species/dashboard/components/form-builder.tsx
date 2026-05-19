@@ -3,7 +3,6 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { CheckIcon } from "lucide-react";
 import clsx from "clsx";
-import { useFileInput } from "@/hooks/use-file-input";
 
 interface TextInputProps {
   value?: string;
@@ -107,27 +106,33 @@ export const FileInput = ({
   children,
   onChange = () => undefined,
 }: FileInputProps) => {
-  const { data, error, loading, handleChange } = useFileInput();
+  const [filename, setFilename] = useState("No file selected");
+  const handleChange = async (
+    ev: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
+  ) => {
+    const file = ev.currentTarget.files?.[0];
 
-  useEffect(() => {
-    if (data?.file?.name) onChange(data.file);
-  }, [data?.file]);
+    setFilename("No file selected");
+    ev.target.value = ""; // reset input
 
-  if (error) alert(error);
+    if (!file) return;
+
+    setFilename(file.name);
+    onChange(file);
+  };
   //
   return (
-    <div className="flex flex-col justify-between sm:flex-row sm:items-center">
-      <div className="btn border-ash6 max-h-[40]! flex-1 rounded-none px-2 py-1">
-        {data?.file?.name
-          ? `${data.file.name} (${data.fileSizeMb}mb)`
-          : "No file selected"}
-      </div>
-      <label>
-        <input type="file" onChange={handleChange} className="hidden" />
-        <div className="btn bg-secondary border-secondary max-h-[40]! rounded-none px-4 hover:border-[#4678b5] hover:bg-[#4678b5] hover:text-white">
-          {loading ? "Uploading..." : children}
-        </div>
+    <div className="flex-cb mt-0">
+      <label className={clsx("dash-submit-btn btn-fx flex-cc text-base!")}>
+        <input
+          type="file"
+          accept="image/*,.pdf"
+          onChange={handleChange}
+          className="hidden"
+        />
+        {children}
       </label>
+      <div className="btn-fx dash-cancel-btn px-2!">{filename}</div>
     </div>
   );
 };
@@ -201,7 +206,7 @@ export const PairedSubmitBtn = ({
         >
           {success ? "Done!" : loading ? "Processing..." : children}
         </button>
-        <button className="btn-fx dash-cancel-btn">Cancel</button>
+        <div className="btn-fx dash-cancel-btn">Cancel</div>
       </div>
       {error ? <p className="text-danger mt-1 text-sm">{error}</p> : null}
     </div>

@@ -14,6 +14,7 @@ export const TableContent = () => {
     success,
     data,
     fetchData,
+    handleView,
     handleUpdate,
     handleDelete,
   } = useTransactionsApi();
@@ -47,11 +48,7 @@ export const TableContent = () => {
           )}
           <TableAction
             hasFile
-            onFile={
-              item.receipt
-                ? () => window.open(item.receipt, "_blank")
-                : undefined
-            }
+            onFile={() => handleView(item.receipt)}
             hasDelete
             onDelete={() => handleDelete(item)}
           />

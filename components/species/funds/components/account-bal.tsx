@@ -21,6 +21,7 @@ export const AccountBal = () => {
           { label: "Equity", value: user.equity },
           { label: "Initial margin", value: user.i_margin },
           { label: "Maintenance margin", value: user.m_margin },
+          { label: "Profit/Loss", value: user.profit_loss },
         ].map(({ label, value }, i) => (
           <li key={i} className="flex-cb gap-2">
             <div>{label}</div>

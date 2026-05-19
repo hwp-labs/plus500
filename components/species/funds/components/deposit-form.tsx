@@ -9,7 +9,7 @@ import {
 } from "../../dashboard/components/form-builder";
 import { SectionHeading } from "./section-heading";
 import { useAdminApi } from "@/hooks/services/use-admin-api";
-import { useMutateTransaction } from "@/hooks/services/use-mutate-transaction";
+import { useTransactionsApi } from "@/hooks/services/use-transactions-api";
 
 interface Props {
   onClose?: () => void;
@@ -17,7 +17,7 @@ interface Props {
 
 export const DepositForm = ({ onClose }: Props) => {
   const { data, fetchAdmin } = useAdminApi();
-  const { setAmount, setFile, loading, handleDeposit } = useMutateTransaction();
+  const { loading, success, error, handleChange, handleDeposit } = useTransactionsApi();
 
   useEffect(() => {
     fetchAdmin();
@@ -57,13 +57,18 @@ export const DepositForm = ({ onClose }: Props) => {
         ))}
       </ul>
       <div className="my-4 grid gap-4 sm:grid-cols-2">
-        <NumberInput onChange={(amount) => setAmount(amount)} />
-        <FileInput onChange={(file) => setFile(file)}>
-          Upload proof of payment
+        <NumberInput onChange={(amount) => handleChange({ amount })} />
+        <FileInput onChange={(file) => handleChange({ file })}>
+          Upload receipt
         </FileInput>
       </div>
-      <PairedSubmitBtn loading={loading} onClick={() => handleDeposit(onClose)}>
-        {loading ? "Processing..." : "Confirm Deposit"}
+      <PairedSubmitBtn
+        loading={loading}
+        success={success}
+        error={error}
+        onClick={() => handleDeposit(onClose)}
+      >
+        Confirm Deposit
       </PairedSubmitBtn>
     </section>
   );

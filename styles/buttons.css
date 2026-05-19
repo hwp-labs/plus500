@@ -1,4 +1,4 @@
-/* hover:border-primary-hover disabled:bg-muted  */
+/* hover:border-primary-hover disabled:bg-muted flex items-center justify-center  */
 
 @layer components {
   .btn-fx {
@@ -70,7 +70,7 @@
   }
 
   .dash-cancel-btn {
-    @apply border-ash6 h-[38px] rounded-none border-2 px-10 text-lg;
+    @apply border-ash6 flex h-[38px] items-center justify-center rounded-none border-2 px-10;
   }
 
   .dash-outline-btn {
