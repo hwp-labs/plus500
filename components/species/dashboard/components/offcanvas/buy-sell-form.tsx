@@ -31,7 +31,7 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
   return (
     <div className="">
       {renderInputLabel}
-      <NumberInput defaultValue={1992} />
+      <NumberInput defaultValue={0} />
       {renderInputDescription}
       <div className="mt-6 space-y-4">
         <div>
@@ -42,7 +42,7 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
           />
           {checkedP && (
             <div className="mt-2.5 space-y-1">
-              <NumberInput defaultValue={200.0} sm />
+              <NumberInput defaultValue={0} sm />
               <small>Profit: {CURRENCY.Euro.symbol}2,496.68 (55.45%)</small>
             </div>
           )}
@@ -56,7 +56,7 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
           {checkedL && (
             <>
               <div className="my-2.5 space-y-1">
-                <NumberInput defaultValue={127.37} sm />
+                <NumberInput defaultValue={0} sm />
                 <small>Loss: {CURRENCY.Euro.symbol}-45.15 (-1.00%)</small>
               </div>
               <CheckboxInput

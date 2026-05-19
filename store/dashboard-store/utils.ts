@@ -1,9 +1,18 @@
+export type InstrumentDto = {
+  name: string;
+  ticker: string;
+  change: number;
+  sell: number;
+  buy: number;
+  range: string;
+};
+
 type VariantDto = "info" | "buy" | "sell";
 
 interface IActions {
   reset: () => void;
   setFilter: (payload: string) => void;
-  setInstrument: (instrument: string, variant?: VariantDto) => void;
+  setInstrument: (instrument: InstrumentDto, variant?: VariantDto) => void;
   setVariant: (payload: VariantDto) => void;
   toggleBackToInfo: () => void;
   toggleOpen: () => void;
@@ -14,10 +23,8 @@ interface IActions {
 
 interface IState {
   filter: string;
-  filterSlug: string;
 
-  instrument: string | null;
-  instrumentShort: string | null;
+  instrument: InstrumentDto | null;
   variant: VariantDto;
   backToInfo: boolean;
   open: boolean;
@@ -29,10 +36,8 @@ interface IState {
 
 export const defaultState: IState = {
   filter: "All Popular",
-  filterSlug: "all-popular",
 
   instrument: null,
-  instrumentShort: null,
   variant: "info",
   backToInfo: false,
   open: false,

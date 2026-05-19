@@ -19,7 +19,6 @@ export const Offcanvas = () => {
   const variant = useDashboardStore((s) => s.variant);
   const setVariant = useDashboardStore((s) => s.setVariant);
   const instrument = useDashboardStore((s) => s.instrument);
-  const instrumentShort = useDashboardStore((s) => s.instrumentShort);
   const backToInfo = useDashboardStore((s) => s.backToInfo);
   const toggleBackToInfo = useDashboardStore((s) => s.toggleBackToInfo);
 
@@ -33,20 +32,20 @@ export const Offcanvas = () => {
   };
   //
   return open ? (
-    <aside className="bg-aside _bg-[#233042] h-[94svh] sm:w-120 space-y-4 overflow-y-auto px-6 py-4">
+    <aside className="bg-aside _bg-[#233042] h-[94svh] space-y-4 overflow-y-auto px-6 py-4 sm:w-120">
       <button onClick={handleBackButton} title="Close">
         <ArrowRightIcon className="hover:text-secondary btn-fx" />
       </button>
       {variant === "info" ? (
         <>
           <InfoHeader
-            name={instrument || NOT_APPLICABLE}
-            nameShort={instrumentShort || N_A}
+            name={instrument?.name || NOT_APPLICABLE}
+            nameShort={instrument?.ticker || N_A}
           />
           <div className="flex-cb gap-2">
             <InfoCtaBtn
               label="Sell"
-              value={127.69}
+              value={instrument?.sell || 0}
               onClick={() => {
                 toggleBackToInfo();
                 setVariant("sell");
@@ -54,12 +53,11 @@ export const Offcanvas = () => {
             />
             <InfoCtaBtn
               label="Buy"
-              value={128.65}
+              value={instrument?.buy || 0}
               onClick={() => {
                 toggleBackToInfo();
                 setVariant("buy");
               }}
-              variant="danger"
             />
           </div>
           <TradersSentiments />
@@ -69,8 +67,8 @@ export const Offcanvas = () => {
       ) : (
         <>
           <BuySellHeader
-            name={instrument || NOT_APPLICABLE}
-            nameShort={instrumentShort || N_A}
+            name={instrument?.name || NOT_APPLICABLE}
+            nameShort={instrument?.ticker || N_A}
           />
           <BuySellForm buy={variant === "buy"} />
           <AdvancedSection />

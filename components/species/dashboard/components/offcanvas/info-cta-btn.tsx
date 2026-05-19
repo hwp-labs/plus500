@@ -1,6 +1,5 @@
 "use client";
 
-import { colorVariantText, ColorVariantType } from "@/types/color-type";
 import { asMoney } from "@/utils";
 import clsx from "clsx";
 
@@ -8,17 +7,22 @@ interface Props {
   label: string;
   value: number;
   onClick?: () => void;
-  variant?: ColorVariantType;
 }
 
-export const InfoCtaBtn = ({ label, value, onClick, variant }: Props) => {
+export const InfoCtaBtn = ({ label, value, onClick }: Props) => {
   return (
     <button
       onClick={onClick}
       className="flex-col-cc border-ash5 btn-fx hover:bg-secondary hover:border-secondary h-18 flex-1 gap-0 border-2 hover:text-white"
     >
       <strong className="text-xs">{label}</strong>
-      <span className={clsx("text-2xl leading-7", colorVariantText(variant))}>
+      <span
+        className={clsx(
+          "text-2xl leading-7",
+          value < -1 && "text-danger",
+          value > 1 && "text-success",
+        )}
+      >
         {asMoney(value)}
       </span>
     </button>

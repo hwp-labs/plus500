@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { IconSearch } from "@tabler/icons-react";
 import { useDashboardStore } from "@/store/dashboard-store";
+import instruments from "@/data/instruments.json";
 
-const data = ["AMD|AMD", "AMZN|Amazon", "CPT|Camden", "DOX|Amdocs", "EUR/USD"];
+const data = instruments.map(({ name }) => name);
 
 export const SearchBar = () => {
   const [value, setValue] = useState("");
@@ -14,7 +15,8 @@ export const SearchBar = () => {
     ev: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
   ) => {
     const valueSafe = ev.currentTarget.value.trim();
-    if (data.includes(valueSafe)) setInstrument(valueSafe);
+    const i = data.indexOf(valueSafe);
+    if (i > -1) setInstrument(instruments[i]);
     setValue(valueSafe);
   };
   //

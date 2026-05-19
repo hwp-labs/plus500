@@ -27,7 +27,7 @@ export const AdvancedSection = ({ collapsed }: { collapsed?: boolean }) => {
           />
           {checkedT && (
             <div className="mt-2.5 space-y-1">
-              <NumberInput defaultValue={31} sm />
+              <NumberInput defaultValue={0} sm />
               <small>{CURRENCY.Euro.symbol}-44.46 -0.99%</small>
             </div>
           )}
@@ -40,7 +40,7 @@ export const AdvancedSection = ({ collapsed }: { collapsed?: boolean }) => {
           />
           {checkedB && (
             <div className="mt-2.5 space-y-1">
-              <NumberInput defaultValue={128.90} sm />
+              <NumberInput defaultValue={0} sm />
               <small>0.31% from last rate</small>
             </div>
           )}
