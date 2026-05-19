@@ -1,22 +1,32 @@
 import type { Metadata } from "next";
+//
+import { GraphContainer } from "@/components/species/dashboard/components/graph-container";
 import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
+// 
 import { TableContent } from "@/components/species/orders/components/table-content";
 
 export const metadata: Metadata = {
-  title: "My Orders",
+  title: "Orders",
 };
 
 export default function OrdersPage() {
   return (
-    <main className="bg-background flex-1">
+    <GraphContainer>
       <table className="w-full">
         <TableBuilder.THead
-          data={["Amount", "Type", "Status|c", "Date|c"]}
-          hasNumbers
+          data={[
+            "Type",
+            "Value",
+            "Rates",
+            "Amount|c",
+            "Limit/Snap",
+            "Created|c",
+            "Open Until",
+          ]}
           hasActions
         />
         <TableContent />
       </table>
-    </main>
+    </GraphContainer>
   );
 }

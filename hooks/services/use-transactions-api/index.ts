@@ -14,7 +14,7 @@ import {
 } from "./utils";
 
 export function useTransactionsApi() {
-  const router = useRouter()
+  const router = useRouter();
   const session = useAuthStore((s) => s.session);
 
   const [refetchKey, setRefetchKey] = useState(false);
@@ -54,10 +54,10 @@ export function useTransactionsApi() {
     if (receipt) window.open(receipt, "_blank");
   };
 
-  const fetchData = async () => {
+  const fetchData = async (q?: string | null) => {
     setFetching(true);
 
-    const newData = await getTransactions();
+    const newData = await getTransactions(q);
     if (newData) setData(newData);
 
     setFetching(false);

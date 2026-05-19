@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import {
@@ -15,10 +15,12 @@ import { useAuthStore } from "@/store/auth-store";
 import { MenuItem } from "./menu-item";
 import { Toggle } from "./toggle";
 import { MENU, MENU_PROTECTED } from "./utils";
+import { useTransactionsApi } from "@/hooks/services/use-transactions-api";
 
 export const Sidebar = () => {
   const pathname = usePathname();
   const session = useAuthStore((s) => s.session);
+  const { fetchData, refetchKey, data } = useTransactionsApi();
 
   const [collapsed, setCollapsed] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
@@ -26,8 +28,12 @@ export const Sidebar = () => {
   const menu = session
     ? session.role === "admin"
       ? MENU_PROTECTED
-      : MENU
+      : MENU(data.length)
     : [];
+
+  useEffect(() => {
+    fetchData(session?.email);
+  }, [refetchKey]);
   //
   return (
     <aside className="flex-col-cb bg-aside text-icon h-svh gap-4 pb-4">

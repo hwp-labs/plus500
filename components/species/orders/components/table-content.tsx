@@ -1,59 +1,36 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDownIcon, ChevronRightIcon } from "lucide-react";
-import clsx from "clsx";
-//
-import { TableBuilder } from "@/components/species/dashboard/components/table-builder";
-import { data } from "../utils";
+import { useEffect } from "react";
+import { TableBuilder } from "../../dashboard/components/table-builder";
+import { TableAction } from "../../dashboard/components/table-builder/action";
+import { useTransactionsApi } from "@/hooks/services/use-transactions-api";
+import { useAuthStore } from "@/store/auth-store";
 
 export const TableContent = () => {
-  const [collapsed, setCollapsed] = useState(true);
+  const session = useAuthStore((s) => s.session);
+  const { refetchKey, fetching, data, fetchData, handleView } =
+    useTransactionsApi();
+
+  useEffect(() => {
+    fetchData(session?.email);
+  }, [refetchKey]);
   //
   return (
     <TableBuilder.TBody>
-      <TableBuilder.Tr>
-        <td colSpan={9}>
-          <div
-            onClick={() => setCollapsed((s) => !s)}
-            className={clsx(
-              "flex-cb hover:bg-secondary cursor-pointer p-2",
-              collapsed ? "bg-secondary" : "bg-aside",
-            )}
-          >
-            <p className="flex-cs gap-2">
-              {collapsed ? (
-                <ChevronDownIcon size={18} strokeWidth={3} />
-              ) : (
-                <ChevronRightIcon size={18} strokeWidth={3} />
-              )}
-              Executed
-            </p>
-            <p>Last 72 Hours</p>
-          </div>
-        </td>
-      </TableBuilder.Tr>
-      {collapsed
-        ? data.map((item, i) => (
-            <TableBuilder.Tr key={i}>
-              <TableBuilder.BuyBr text={item.type} />
-              <TableBuilder.Amount currency="usd" value={item.value} />
-              <TableBuilder.ObjBr
-                data={{
-                  "Order rate": item.rates.order,
-                  "Current rate": item.rates.current,
-                }}
-              />
-              <TableBuilder.Amount value={item.amount} tc noDp />
-              <TableBuilder.ObjBr
-                data={{ Limit: item.limit, Snap: item.snap }}
-              />
-              <TableBuilder.DateTime dt={item.createdAt} />
-              <td></td>
-              <TableBuilder.Action hasInfo />
-            </TableBuilder.Tr>
-          ))
-        : null}
+      <TableBuilder.TrLoading show={fetching} />
+      {data.map((item, i) => (
+        <TableBuilder.Tr key={i}>
+          <td>{i + 1}</td>
+          <TableBuilder.Amount value={item.amount} currency="usd" />
+          <td>{item.type ? "Deposit" : "Withdrawal"}</td>
+          <TableBuilder.Pill
+            label={item.status ? "Approved" : "Pending"}
+            variant={item.status ? "success" : "danger"}
+          />
+          <TableBuilder.DateTime dt={item.updated_at} />
+          <TableAction hasFile onFile={() => handleView(item.receipt)} />
+        </TableBuilder.Tr>
+      ))}
     </TableBuilder.TBody>
   );
 };

@@ -6,12 +6,15 @@ import {
 import { ApiUploadsDto } from "@/app/api/uploads/route";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
-export type FormDto = { 
-amount?: number; 
-file?: File };
+export type FormDto = {
+  amount?: number;
+  file?: File;
+};
 
-export const getTransactions = async () => {
-  const raw = await fetch(`/api/transactions`);
+export const getTransactions = async (q?: string | null) => {
+  const raw = q
+    ? await fetch(`/api/transactions?q=${q}`)
+    : await fetch(`/api/transactions`);
 
   if (raw.status === HTTP_STATUS_CODE.OK) {
     const { data }: { data: TransactionEntity[] } = await raw.json();

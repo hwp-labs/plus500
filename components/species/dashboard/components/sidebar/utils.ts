@@ -11,22 +11,22 @@ import {
 } from "lucide-react";
 import { PATH_PROTECTED } from "@/constants/PATH";
 
-export const MENU = [
+export const MENU = (badge = 0) => [
   {
     Icon: ChartLineIcon,
     label: "Trade",
     path: PATH_PROTECTED.trade,
   },
   {
-    Icon: RecycleIcon,
-    label: "Open Positions",
-    path: PATH_PROTECTED.openPositions,
-    badge: 2,
-  },
-  {
     Icon: TagIcon,
     label: "Orders",
     path: PATH_PROTECTED.orders,
+    badge,
+  },
+  {
+    Icon: RecycleIcon,
+    label: "Open Positions",
+    path: PATH_PROTECTED.openPositions,
   },
   {
     Icon: BriefcaseBusinessIcon,
@@ -46,7 +46,6 @@ export const MENU = [
 ];
 
 export const MENU_PROTECTED = [
-  
   {
     Icon: ChartLineIcon,
     label: "Transactions",

@@ -16,8 +16,18 @@ class TransactionRepository extends BaseRepository {
     super(filename);
   }
 
-  async getAll(): ApiResponseAsync<TransactionEntity[]> {
+  async getAll(email?: string | null): ApiResponseAsync<TransactionEntity[]> {
     const data = await this.read<TransactionEntity[]>();
+
+    if (email) {
+      const filtered = data.filter((row) => row.email === email);
+
+      return {
+        success: true,
+        status: HTTP_STATUS_CODE.OK,
+        data: filtered,
+      };
+    }
 
     return {
       success: true,
