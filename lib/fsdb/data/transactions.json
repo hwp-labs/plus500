@@ -17,34 +17,5 @@
     "status": 0,
     "created_at": "2024-01-16T10:15:00.000Z",
     "updated_at": "2026-05-19T15:21:53.676Z"
-  },
-  {
-    "email": "john@plus500.com",
-    "status": 0,
-    "amount": 10002,
-    "type": 0,
-    "id": "4db7d597-bffc-4439-a14f-4ef760862ac3",
-    "created_at": "2026-05-19T18:18:38.761Z",
-    "updated_at": "2026-05-19T18:18:38.761Z"
-  },
-  {
-    "email": "john@plus500.com",
-    "amount": 6594144,
-    "type": 1,
-    "status": 0,
-    "receipt": "/uploads/1779217673079.png",
-    "id": "6faf47f4-4652-4246-9b72-af387d8fb0f0",
-    "created_at": "2026-05-19T19:07:53.479Z",
-    "updated_at": "2026-05-19T19:07:53.479Z"
-  },
-  {
-    "email": "john@plus500.com",
-    "amount": 7945665,
-    "type": 1,
-    "status": 0,
-    "receipt": "/uploads/1779217897051.png",
-    "id": "55e69ee7-7694-49e6-846f-6d686e79bcdf",
-    "created_at": "2026-05-19T19:11:37.140Z",
-    "updated_at": "2026-05-19T19:11:37.140Z"
   }
 ]
