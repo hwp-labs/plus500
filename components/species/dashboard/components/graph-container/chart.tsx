@@ -3,13 +3,14 @@
 import Image from "next/image";
 import { IconSearch } from "@tabler/icons-react";
 import { OutlineBtn } from "../form-builder";
-import { DASHBOARD_STORE, useDashboardStore } from "@/store/dashboard-store";
-import ChartV2 from "./chart-v2";
+import { DASHBOARD_STORE } from "@/store/dashboard-store";
 
-export const Chart = () => {
-  const filter = useDashboardStore((s) => s.filter);
-  const fullScreen = useDashboardStore((s) => s.fullScreen);
-  // return <ChartV2 />;
+interface Props {
+  filter?: string;
+  fullScreen?: boolean;
+}
+
+export const Chart = ({ filter, fullScreen }: Props) => {
   return (
     <div className="">
       {filter === DASHBOARD_STORE.filter ? (
