@@ -6,10 +6,10 @@ import clsx from "clsx";
 //
 import { TableBuilder } from "../../dashboard/components/table-builder";
 import { TableAction } from "../../dashboard/components/table-builder/action";
+import { TableEmpty } from "../../dashboard/components/table-builder/empty";
 import { useTransactionsApi } from "@/hooks/services/use-transactions-api";
 import { useAuthStore } from "@/store/auth-store";
 import { PATH_PROTECTED } from "@/constants/PATH";
-import { TrEmpty } from "../../dashboard/components/table-builder/empty";
 
 export const TableContent = () => {
   const session = useAuthStore((s) => s.session);
@@ -63,7 +63,7 @@ export const TableContent = () => {
             </TableBuilder.Tr>
           ))
         ) : (
-          <TrEmpty
+          <TableEmpty
             label="No transactions"
             buttonText="Start Trading"
             path={PATH_PROTECTED.trade}
