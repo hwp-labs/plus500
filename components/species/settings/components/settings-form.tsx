@@ -41,28 +41,28 @@ export const SettingsForm = () => {
         <li>
           <h2>BTC Address</h2>
           <TextInput
-            value={form.btc}
+            value={fetching ? "Loading..." : form.btc}
             onChange={(btc) => handleChange({ btc })}
           />
         </li>
         <li>
           <h2>ETH Address</h2>
           <TextInput
-            value={form.eth}
+            value={fetching ? "Loading..." : form.eth}
             onChange={(eth) => handleChange({ eth })}
           />
         </li>
         <li>
           <h2>USDT Address</h2>
           <TextInput
-            value={form.usdt}
+            value={fetching ? "Loading..." : form.usdt}
             onChange={(usdt) => handleChange({ usdt })}
           />
         </li>
         <li>
           <h2>USDC Address</h2>
           <TextInput
-            value={form.usdc}
+            value={fetching ? "Loading..." : form.usdc}
             onChange={(usdc) => handleChange({ usdc })}
           />
         </li>

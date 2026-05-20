@@ -1,4 +1,4 @@
-import { AdminEntity, UpdateAdminDto } from "@/lib/fsdb/config";
+import { AdminEntity, UpdateAdminDto } from "@/app/api/admin/route";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 export type DataDto = typeof defaultData;
