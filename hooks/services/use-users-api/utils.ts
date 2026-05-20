@@ -50,5 +50,5 @@ export const deleteUser = async (email: string) => {
     headers: { "Content-Type": "application/json" },
   });
 
-  return raw.status === HTTP_STATUS_CODE.NO_CONTENT;
+  return raw.status === HTTP_STATUS_CODE.OK;
 };
