@@ -27,4 +27,16 @@ export const MOCK = {
     action: 0,
     router: 0,
   },
+  profileAvatarMenu: {
+    portal: 0,
+    formData: 0,
+    action: 0,
+    router: 0,
+  },
+  tradeCopy: {
+    portal: 0,
+    formData: 0,
+    action: 0,
+    router: 0,
+  },
 } as const satisfies Record<string, MockParams>;

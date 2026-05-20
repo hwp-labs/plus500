@@ -55,7 +55,7 @@ export const Sidebar = () => {
           ))}
         </nav>
       </div>
-      <div className={clsx("flex-col-cx", collapsed ? "gap-4" : "gap-2")}>
+      <div className={clsx("flex-col-cx hidden!", collapsed ? "gap-4" : "gap-2")}>
         <div className="space-y-4">
           <Toggle
             label="Real Money"
@@ -70,9 +70,9 @@ export const Sidebar = () => {
               <IconSunFilled className="dash-icon" />
             )}
           </Toggle>
-          {/* <Toggle label="Real Money" collapsed={collapsed}>
+          <Toggle label="Real Money" collapsed={collapsed}>
             <RadioIcon className="dash-icon" />
-          </Toggle> */}
+          </Toggle>
         </div>
         <MenuItem
           Icon={MessageSquareMoreIcon}

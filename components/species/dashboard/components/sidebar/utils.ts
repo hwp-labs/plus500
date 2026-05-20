@@ -1,4 +1,5 @@
 import {
+  BookCopyIcon,
   BriefcaseBusinessIcon,
   ChartLineIcon,
   LandmarkIcon,
@@ -18,16 +19,21 @@ export const MENU = (badge = 0) => [
     path: PATH_PROTECTED.trade,
   },
   {
+    Icon: RecycleIcon,
+    label: "Copy Trading",
+    path: PATH_PROTECTED.tradeCopy,
+  },
+  {
     Icon: TagIcon,
-    label: "Orders",
+    label: "My Orders",
     path: PATH_PROTECTED.orders,
     badge,
   },
-  {
-    Icon: RecycleIcon,
-    label: "Open Positions",
-    path: PATH_PROTECTED.openPositions,
-  },
+  // {
+  //   Icon: RecycleIcon,
+  //   label: "Open Positions",
+  //   path: PATH_PROTECTED.openPositions,
+  // },
   {
     Icon: BriefcaseBusinessIcon,
     label: "Closed Positions",

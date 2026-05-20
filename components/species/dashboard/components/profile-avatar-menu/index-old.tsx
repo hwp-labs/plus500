@@ -1,29 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { IconHomeMove, IconLogin, IconUserCircle } from "@tabler/icons-react";
+import { IconArrowRight, IconUserCircle } from "@tabler/icons-react";
 import { UserCircleIcon } from "lucide-react";
 //
 import { useAuthStore } from "@/store/auth-store";
-import { MenuItem } from "./menu/item";
-import { PATH } from "@/constants/PATH";
-import { MOCK } from "@/constants/MOCK";
-
-const M  = MOCK.profileAvatarMenu
+import { Accordion } from "./accordion";
+import { Menu } from "./menu";
 
 export const ProfileAvatarMenu = () => {
-  const router = useRouter();
   const session = useAuthStore((s) => s.session);
 
   const ref = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(Boolean(M.portal));
-
-  const handleLogout = () => {
-    if (confirm("Log Out?")) {
-      router.replace(PATH.login + "?logout=true");
-    }
-  };
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -52,17 +41,14 @@ export const ProfileAvatarMenu = () => {
             <p className="text-muted">{session?.email}</p>
           </div>
           <div className="p-4">
-            <MenuItem
-              Icon={IconHomeMove}
-              label="Add To Home Screen"
-              path={PATH.home}
-            />
-            <button
-              onClick={handleLogout}
-              className="btn btn-lg mt-2 max-h-[48px]! rounded-full border-none bg-[#9272ff] font-semibold"
-            >
-              <IconLogin />
-              Sign out
+            <Accordion />
+            <Menu />
+            <p className="mt-6 text-center">
+              Complete your registration to become a trader!
+            </p>
+            <button className="btn btn-lg mt-2 max-h-[48px]! rounded-full border-none bg-[#9272ff] font-semibold">
+              <IconArrowRight />
+              Get Started
             </button>
           </div>
         </div>
