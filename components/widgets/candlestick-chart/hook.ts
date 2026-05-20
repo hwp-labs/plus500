@@ -33,7 +33,7 @@ const RAW_DATA: Candle[] = [
 const SELL_RATE = 1705.17;
 const BUY_RATE = 1705.58;
 
-export function useChartV2() {
+export function useCandlestickChart() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [tooltip, setTooltip] = useState<{

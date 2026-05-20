@@ -15,6 +15,7 @@ export const PATH_PROTECTED = {
   home: "/trade",
   dashboard: "/trade",
   trade: "/trade",
+  tradeCopy: "/trade-copy",
   openPositions: "/open-positions",
   orders: "/orders",
   closedPositions: "/closed-positions",

@@ -1,8 +1,8 @@
-import { useChartV2 } from "./hook";
+import { useCandlestickChart } from "./hook";
 
-export const ChartV2 = () => {
+export const CandlestickChart = () => {
   const { wrapRef, canvasRef, handleMouseMove, handleMouseLeave, tooltip } =
-    useChartV2();
+    useCandlestickChart();
 
   return (
     <div

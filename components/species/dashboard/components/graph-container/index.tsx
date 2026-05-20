@@ -2,7 +2,7 @@
 
 import { PropsWithChildren } from "react";
 import { Toolbar } from "./toolbar";
-import { ChartV2 } from "./chart-v2";
+import { CandlestickChart } from "@/components/widgets/candlestick-chart";
 import { useDashboardStore } from "@/store/dashboard-store";
 
 interface Props extends PropsWithChildren {
@@ -19,7 +19,7 @@ export const GraphContainer = ({ children, rightSection }: Props) => {
         <div className="show-sm-block">
           <section className="flex-col-xb">
             <Toolbar />
-            <ChartV2 />
+            <CandlestickChart />
           </section>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { OutlineBtn } from "@/components/species/dashboard/components/form-build
 import { TableAction } from "@/components/species/dashboard/components/table-builder/action";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { DASHBOARD_STORE, useDashboardStore } from "@/store/dashboard-store";
-import { useTicker } from "@/hooks/use-ticker";
+import { useInstruments } from "@/hooks/use-instruments";
 //
 import { Empty } from "./empty";
 
@@ -16,7 +16,7 @@ export const TableContent = () => {
   const reset = useDashboardStore((s) => s.reset);
   const setInstrument = useDashboardStore((s) => s.setInstrument);
 
-  const { rows } = useTicker();
+  const { rows } = useInstruments();
 
   useEffect(() => {
     reset();

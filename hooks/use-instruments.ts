@@ -3,7 +3,7 @@ import { InstrumentDto } from "@/store/dashboard-store/utils";
 import { useDashboardStore } from "@/store/dashboard-store";
 import instruments from "@/data/instruments.json";
 
-export function useTicker() {
+export function useInstruments() {
   const filter = useDashboardStore((s) => s.filter);
 
   // local rows state so we can mutate / randomize values for demo/live updates
