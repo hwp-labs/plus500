@@ -32,7 +32,7 @@ export const createTransactionApi = async (
     const body = new FormData();
     body.append("file", file);
 
-    const raw = await fetch("/api/uploads", {
+    const raw = await fetch("/api/uploads/v2", {
       method: "POST",
       body,
     });
@@ -67,7 +67,7 @@ export const updateTransactionApi = async (
 
 export const deleteTransactionApi = async (item: TransactionEntity) => {
   if (item.receipt) {
-    await fetch(`/api/uploads`, {
+    await fetch(`/api/uploads/v2`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ filename: item.receipt }),
