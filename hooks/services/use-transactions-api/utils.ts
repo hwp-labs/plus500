@@ -2,8 +2,8 @@ import {
   UpdateTransactionDto,
   TransactionEntity,
   CreateTransactionDto,
-} from "@/lib/fsdb/config";
-import { ApiUploadsDto } from "@/app/api/uploads/route";
+} from "@/app/api/transactions/types";
+import { UploadsDto } from "@/app/api/uploads/route";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 export type FormDto = {
@@ -11,7 +11,7 @@ export type FormDto = {
   file?: File;
 };
 
-export const getTransactions = async (q?: string | null) => {
+export const getTransactionsApi = async (q?: string | null) => {
   const raw = q
     ? await fetch(`/api/transactions?q=${q}`)
     : await fetch(`/api/transactions`);
@@ -22,7 +22,7 @@ export const getTransactions = async (q?: string | null) => {
   }
 };
 
-export const createTransaction = async (
+export const createTransactionApi = async (
   form: CreateTransactionDto,
   file?: File,
 ) => {
@@ -38,7 +38,7 @@ export const createTransaction = async (
     });
 
     if (raw.status === HTTP_STATUS_CODE.CREATED) {
-      const res: { data: ApiUploadsDto } = await raw.json();
+      const res: { data: UploadsDto } = await raw.json();
       fileSafe.receipt = res.data.filename;
     }
   }
@@ -52,7 +52,7 @@ export const createTransaction = async (
   return raw.status === HTTP_STATUS_CODE.CREATED;
 };
 
-export const updateTransaction = async (
+export const updateTransactionApi = async (
   form: UpdateTransactionDto,
   id: TransactionEntity["id"],
 ) => {
@@ -65,7 +65,7 @@ export const updateTransaction = async (
   return raw.status === HTTP_STATUS_CODE.OK;
 };
 
-export const deleteTransaction = async (item: TransactionEntity) => {
+export const deleteTransactionApi = async (item: TransactionEntity) => {
   if (item.receipt) {
     await fetch(`/api/uploads`, {
       method: "DELETE",
@@ -79,5 +79,5 @@ export const deleteTransaction = async (item: TransactionEntity) => {
     headers: { "Content-Type": "application/json" },
   });
 
-  return raw.status === HTTP_STATUS_CODE.NO_CONTENT;
+  return raw.status === HTTP_STATUS_CODE.OK;
 };

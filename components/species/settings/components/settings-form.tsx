@@ -72,7 +72,7 @@ export const SettingsForm = () => {
         loading={loading}
         success={success}
         error={error}
-        onClick={handleUpdate}
+        onSubmit={handleUpdate}
       >
         Save
       </PairedSubmitBtn>

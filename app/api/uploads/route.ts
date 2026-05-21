@@ -1,10 +1,9 @@
 import path from "path";
 import { writeFile, unlink } from "fs/promises";
-import { NextRequest, NextResponse } from "next/server";
-import { routeUtil } from "../utils";
+import { NextRequest } from "next/server";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
-export interface ApiUploadsDto {
+export interface UploadsDto {
   filename: string;
 }
 
@@ -12,7 +11,12 @@ export async function POST(req: NextRequest) {
   const formData = await req.formData();
   const file = formData.get("file") as File | null;
 
-  if (!file) return routeUtil.missingFieldValue;
+  if (!file) {
+    return Response.json(
+      { error: "Missing field value `file`" },
+      { status: HTTP_STATUS_CODE.UNPROCESSABLE },
+    );
+  }
 
   const ext = file.name.split(".").pop();
   const filename = `/uploads/${Date.now()}.${ext}`;
@@ -25,29 +29,40 @@ export async function POST(req: NextRequest) {
     await writeFile(filePath, buffer);
 
     return Response.json(
-      { success: true, data: { filename } },
+      { data: { filename } },
       { status: HTTP_STATUS_CODE.CREATED },
     );
   } catch {
     return Response.json(
-      { success: false, message: "Error uploading file" },
+      { error: "Failed to upload file" },
       { status: HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR },
     );
   }
 }
 
 export async function DELETE(req: NextRequest) {
-  const { filename }: ApiUploadsDto = await req.json();
+  const { filename }: UploadsDto = await req.json();
 
-  if (!filename) return routeUtil.missingFieldValue;
+  if (!filename) {
+    return Response.json(
+      { error: "Missing field value `filename`" },
+      { status: HTTP_STATUS_CODE.UNPROCESSABLE },
+    );
+  }
+
+  if (filename.indexOf("seed-") > -1)
+    return Response.json(null, { status: HTTP_STATUS_CODE.NO_CONTENT });
 
   try {
     const filePath = path.resolve("public" + filename);
 
     await unlink(filePath);
 
-    return routeUtil.noContent;
+    return Response.json(null, { status: HTTP_STATUS_CODE.NO_CONTENT });
   } catch {
-    return routeUtil.notFound;
+    return Response.json(
+      { error: "Failed to delete file" },
+      { status: HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR },
+    );
   }
 }

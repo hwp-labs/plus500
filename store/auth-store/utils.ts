@@ -1,17 +1,14 @@
-export type SessionDto = {
-  email: string;
-  role: "admin" | "user";
-};
+import { AuthResponseDto } from "@/app/api/auth/types";
 
 interface IActions {
   reset: () => void;
   _setHasHydrated: (p: boolean) => void;
-  setSession: (payload: SessionDto) => void;
+  setSession: (payload: AuthResponseDto) => void;
 }
 
 interface IState {
   _hasHydrated: boolean;
-  session: null | SessionDto;
+  session: null | AuthResponseDto;
 }
 
 export const defaultState: IState = {

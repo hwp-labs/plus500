@@ -14,14 +14,14 @@ export const TableContent = () => {
     loading,
     success,
     data,
-    fetchData,
+    fetchTransactions,
     handleView,
     handleUpdate,
     handleDelete,
   } = useTransactionsApi();
 
   useEffect(() => {
-    fetchData();
+    fetchTransactions();
   }, [refetchKey]);
   //
   return (

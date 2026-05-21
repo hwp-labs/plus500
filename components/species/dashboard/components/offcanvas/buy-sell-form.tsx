@@ -74,7 +74,7 @@ export const BuySellForm = ({ buy }: { buy?: boolean }) => {
         </div>
       </div>
       <div className="mt-6"></div>
-      <PairedSubmitBtn onClick={handleSubmit} loading={loading}>
+      <PairedSubmitBtn onSubmit={handleSubmit} loading={loading}>
         {buy ? "Buy" : "Sell"}
       </PairedSubmitBtn>
     </div>

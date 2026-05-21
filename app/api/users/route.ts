@@ -3,18 +3,25 @@ import { sql } from "@/lib/neon/config";
 import { UpdateUserDto } from "./types";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
+interface IdentityDto {
+  _identity: string;
+}
+
 export async function GET(req: NextRequest) {
   const q = req.nextUrl.searchParams.get("q");
 
   try {
     if (q) {
-      const data =
-        await sql`SELECT * FROM users WHERE email = ${q} AND deleted_at IS NULL LIMIT 1`;
+      const data = await sql`SELECT * FROM users 
+        WHERE email = ${q} 
+        AND deleted_at IS NULL 
+        LIMIT 1`;
       return Response.json({ data: data[0] });
     }
 
-    const data =
-      await sql`SELECT * FROM users WHERE deleted_at IS NULL ORDER BY updated_at DESC`;
+    const data = await sql`SELECT * FROM users 
+      WHERE deleted_at IS NULL 
+      ORDER BY updated_at DESC`;
     return Response.json({ data });
   } catch (error) {
     return Response.json(
@@ -27,27 +34,25 @@ export async function GET(req: NextRequest) {
 // POST /api/register
 
 export async function PATCH(req: NextRequest) {
-  const q = req.nextUrl.searchParams.get("q");
-  const body: UpdateUserDto = await req.json();
+  const { _identity, ...body }: UpdateUserDto & IdentityDto = await req.json();
 
-  if (!q) {
+  if (!_identity) {
     return Response.json(
-      { error: "Missing query parameter `q`" },
+      { error: "Missing field value `_identity`" },
       { status: HTTP_STATUS_CODE.UNPROCESSABLE },
     );
   }
 
   try {
-    const data = await sql`
-      UPDATE users SET
-        available = COALESCE(${body.available ?? null}, available),
-        equity = COALESCE(${body.equity ?? null}, equity),
-        i_margin = COALESCE(${body.i_margin ?? null}, i_margin),
-        m_margin = COALESCE(${body.m_margin ?? null}, m_margin),
-        profit_loss = COALESCE(${body.profit_loss ?? null}, profit_loss)  
-      WHERE email = ${q}
-      RETURNING *
-    `;
+    const data = await sql`UPDATE users 
+      SET updated_at = now(),
+        available = ${body.available},
+        equity = ${body.equity},
+        i_margin = ${body.i_margin},
+        m_margin = ${body.m_margin},
+        profit_loss = ${body.profit_loss} 
+      WHERE email = ${_identity}
+      RETURNING *`;
     return Response.json({ data: data[0] });
   } catch (error) {
     return Response.json(
@@ -58,18 +63,20 @@ export async function PATCH(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
-  const q = req.nextUrl.searchParams.get("q");
+  const { _identity }: IdentityDto = await req.json();
 
-  if (!q) {
+  if (!_identity) {
     return Response.json(
-      { error: "Missing query parameter `q`" },
+      { error: "Missing field value `_identity`" },
       { status: HTTP_STATUS_CODE.UNPROCESSABLE },
     );
   }
 
   try {
-    const data =
-      await sql`UPDATE users SET deleted_at = now() WHERE email = ${q} RETURNING *`;
+    const data = await sql`UPDATE users 
+      SET deleted_at = now() 
+      WHERE email = ${_identity} 
+      RETURNING *`;
     return Response.json({ data: data[0] });
   } catch (error) {
     return Response.json(

@@ -1,20 +1,42 @@
 import { type NextRequest } from "next/server";
-import { UpdateTransactionDto } from "@/lib/fsdb/config";
-import { transactionRepo } from "@/lib/fsdb/repositories/transaction-repository";
+import { sql } from "@/lib/neon/config";
 import { RouteIdParams } from "@/types/next-type";
-import { routeUtil } from "../../utils";
+import { UpdateTransactionDto } from "../types";
+import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 export async function PATCH(req: NextRequest, { params }: RouteIdParams) {
   const body: UpdateTransactionDto = await req.json();
   const { id } = await params;
 
-  const { status, ...res } = await transactionRepo.updateStatus(body, id);
-  return Response.json(res, { status });
+  try {
+    const data = await sql`UPDATE transactions 
+      SET updated_at = now(),
+        status = ${body.status}
+      WHERE id = ${id}
+      RETURNING *`;
+    return Response.json({ data: data[0] });
+  } catch (error) {
+    return Response.json(
+      { error: (error as Error).message },
+      { status: HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR },
+    );
+  }
 }
 
 export async function DELETE(_: NextRequest, { params }: RouteIdParams) {
   const { id } = await params;
 
-  await transactionRepo.delete(id);
-  return routeUtil.noContent;
+  try {
+    const data =
+      await sql`UPDATE transactions 
+        SET deleted_at = now() 
+        WHERE id = ${id} 
+        RETURNING *`;
+    return Response.json({ data: data[0] });
+  } catch (error) {
+    return Response.json(
+      { error: (error as Error).message },
+      { status: HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR },
+    );
+  }
 }

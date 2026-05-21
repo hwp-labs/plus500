@@ -8,18 +8,15 @@ import { TableBuilder } from "../../dashboard/components/table-builder";
 import { TableAction } from "../../dashboard/components/table-builder/action";
 import { TableEmpty } from "../../dashboard/components/table-builder/empty";
 import { useTransactionsApi } from "@/hooks/services/use-transactions-api";
-import { useAuthStore } from "@/store/auth-store";
 import { PATH_PROTECTED } from "@/constants/PATH";
 
 export const TableContent = () => {
-  const session = useAuthStore((s) => s.session);
-
-  const { fetching, data, fetchDataByEmail, handleView } = useTransactionsApi();
+  const { fetching, data, fetchTransaction, handleView } = useTransactionsApi();
 
   const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
-    fetchDataByEmail(session?.email);
+    fetchTransaction();
   }, []);
   //
   return (

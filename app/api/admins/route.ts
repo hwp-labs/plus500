@@ -4,7 +4,9 @@ import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 export async function GET() {
   try {
-    const data = await sql`SELECT * FROM admins WHERE id = ${1} LIMIT 1`;
+    const data = await sql`SELECT * FROM admins 
+    ORDER BY id ASC 
+    LIMIT 1`;
     return Response.json({ data: data[0] });
   } catch (error) {
     return Response.json(
@@ -18,15 +20,14 @@ export async function PATCH(req: Request) {
   const body: UpdateAdminDto = await req.json();
 
   try {
-    const data = await sql`
-      UPDATE admins SET
-        btc = COALESCE(${body.btc ?? null}, btc),
-        eth = COALESCE(${body.eth ?? null}, eth),
-        usdt = COALESCE(${body.usdt ?? null}, usdt),
-        usdc = COALESCE(${body.usdc ?? null}, usdc)
-      WHERE id = ${1}
-      RETURNING *
-    `;
+    const data = await sql`UPDATE admins 
+      SET updated_at = now(),
+        btc = ${body.btc},
+        eth = ${body.eth},
+        usdt = ${body.usdt},
+        usdc = ${body.usdc}
+      WHERE id = (SELECT id FROM admins ORDER BY id ASC LIMIT 1)
+      RETURNING *`;
     return Response.json({ data: data[0] });
   } catch (error) {
     return Response.json(
@@ -35,3 +36,10 @@ export async function PATCH(req: Request) {
     );
   }
 }
+
+/**
+    btc = COALESCE(${body.btc ?? null}, btc),
+    eth = COALESCE(${body.eth ?? null}, eth),
+    usdt = COALESCE(${body.usdt ?? null}, usdt),
+    usdc = COALESCE(${body.usdc ?? null}, usdc)
+ */

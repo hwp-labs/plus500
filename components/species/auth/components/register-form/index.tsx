@@ -3,12 +3,15 @@
 import { Alert } from "../alert";
 import { Email, Password } from "../input-builder";
 import { SubmitButton } from "../submit-button";
-//
-import { useRegisterForm } from "./hook";
+import { useAuthApi } from "@/hooks/services/use-auth-api";
 
-export const RegisterForm = ({ demoQueryParam }: { demoQueryParam?: string }) => {
-  const { form, error, success, submitting, handleChange, handleSubmit } =
-    useRegisterForm();
+export const RegisterForm = ({
+  demoQueryParam,
+}: {
+  demoQueryParam?: string;
+}) => {
+  const { loading, success, error, form, handleChange, handleRegister } =
+    useAuthApi();
   //
   return (
     <>
@@ -27,8 +30,8 @@ export const RegisterForm = ({ demoQueryParam }: { demoQueryParam?: string }) =>
       </div>
       <SubmitButton
         success={success}
-        loading={submitting}
-        onClick={handleSubmit}
+        loading={loading}
+        onClick={handleRegister}
       >
         {success
           ? "Account Created"

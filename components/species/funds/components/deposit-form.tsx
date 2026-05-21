@@ -56,7 +56,7 @@ export const DepositForm = ({ onClose }: Props) => {
           </li>
         ))}
       </ul>
-      <div className="my-4 grid gap-4 sm:grid-cols-2">
+      <div className="my-4 grid gap-4 sm:grid-cols-2  items-start">
         <NumberInput onChange={(amount) => handleChange({ amount })} />
         <FileInput onChange={(file) => handleChange({ file })}>
           Upload receipt
@@ -66,7 +66,8 @@ export const DepositForm = ({ onClose }: Props) => {
         loading={loading}
         success={success}
         error={error}
-        onClick={() => handleDeposit(onClose)}
+        onSubmit={() => handleDeposit(onClose)}
+        onCancel={onClose}
       >
         Confirm Deposit
       </PairedSubmitBtn>

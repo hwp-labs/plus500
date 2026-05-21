@@ -183,7 +183,8 @@ interface PairedSubmitBtnProps extends PropsWithChildren {
   loading?: boolean;
   success?: boolean;
   error?: string | null;
-  onClick?: () => void;
+  onSubmit?: () => void;
+  onCancel?: () => void;
 }
 
 export const PairedSubmitBtn = ({
@@ -191,13 +192,14 @@ export const PairedSubmitBtn = ({
   loading,
   success,
   error,
-  onClick = () => undefined,
+  onSubmit = () => undefined,
+  onCancel = () => undefined,
 }: PairedSubmitBtnProps) => {
   return (
     <div className="">
       <div className="flex-cb mt-0">
         <button
-          onClick={onClick}
+          onClick={onSubmit}
           disabled={loading}
           className={clsx(
             "dash-submit-btn btn-fx",
@@ -206,7 +208,7 @@ export const PairedSubmitBtn = ({
         >
           {success ? "Done!" : loading ? "Processing..." : children}
         </button>
-        <div className="btn-fx dash-cancel-btn">Cancel</div>
+        <button onClick={onCancel} className="btn-fx dash-cancel-btn">Cancel</button>
       </div>
       {error ? <p className="text-danger mt-1 text-sm">{error}</p> : null}
     </div>

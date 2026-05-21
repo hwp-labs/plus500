@@ -6,7 +6,7 @@ import { TableAction } from "@/components/species/dashboard/components/table-bui
 import { TableEmpty } from "../../dashboard/components/table-builder/empty";
 import { InlineEditForm } from "./inline-edit-form";
 import { useUsersApi } from "@/hooks/services/use-users-api";
-import { UpdateUserDto } from "@/lib/fsdb/config";
+import { UpdateUserDto } from "@/app/api/users/types";
 
 export const TableContent = () => {
   const {

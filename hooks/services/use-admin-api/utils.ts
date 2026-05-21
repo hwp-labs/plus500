@@ -1,4 +1,4 @@
-import { AdminEntity, UpdateAdminDto } from "@/app/api/admin/route";
+import { AdminEntity, UpdateAdminDto } from "@/app/api/admins/types";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 export type DataDto = typeof defaultData;
@@ -26,8 +26,15 @@ export const defaultData = {
   },
 };
 
-export const getAdmin = async (prevData: DataDto) => {
-  const raw = await fetch(`/api/admin`);
+export const defaultForm = {
+    // btc: null,
+    // eth: null,
+    // usdt: null,
+    // usdc: null,
+  }
+
+export const getAdminApi = async (prevData: DataDto) => {
+  const raw = await fetch(`/api/admins`);
 
   if (raw.status === HTTP_STATUS_CODE.OK) {
     const res: { data: AdminEntity } = await raw.json();
@@ -42,8 +49,8 @@ export const getAdmin = async (prevData: DataDto) => {
   }
 };
 
-export const updateAdmin = async (form: UpdateAdminDto) => {
-  const raw = await fetch(`/api/admin`, {
+export const updateAdminApi = async (form: UpdateAdminDto) => {
+  const raw = await fetch(`/api/admins`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(form),

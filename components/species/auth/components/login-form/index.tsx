@@ -3,16 +3,15 @@
 import { Alert } from "../alert";
 import { Email, Password } from "../input-builder";
 import { SubmitButton } from "../submit-button";
-//
-import { useLoginForm } from "./hook";
+import { useAuthApi } from "@/hooks/services/use-auth-api";
 
 export const LoginForm = ({
   logoutQueryParam,
 }: {
   logoutQueryParam?: string;
 }) => {
-  const { form, error, success, submitting, handleChange, handleSubmit } =
-    useLoginForm(logoutQueryParam);
+  const { loading, success, error, form, handleChange, handleLogin } =
+    useAuthApi(logoutQueryParam);
   //
   return (
     <>
@@ -28,11 +27,7 @@ export const LoginForm = ({
           onChange={(password) => handleChange({ password })}
         />
       </div>
-      <SubmitButton
-        success={success}
-        loading={submitting}
-        onClick={handleSubmit}
-      >
+      <SubmitButton success={success} loading={loading} onClick={handleLogin}>
         {success ? "Login Successful" : "Log in"}
       </SubmitButton>
     </>

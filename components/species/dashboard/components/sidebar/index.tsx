@@ -20,7 +20,7 @@ import { useTransactionsApi } from "@/hooks/services/use-transactions-api";
 export const Sidebar = () => {
   const pathname = usePathname();
   const session = useAuthStore((s) => s.session);
-  const { fetchDataByEmail, refetchKey, data } = useTransactionsApi();
+  const { fetchTransaction, refetchKey, data } = useTransactionsApi();
 
   const [collapsed, setCollapsed] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
@@ -32,7 +32,7 @@ export const Sidebar = () => {
     : [];
 
   useEffect(() => {
-    fetchDataByEmail(session?.email);
+    fetchTransaction(session?.email);
   }, [refetchKey]);
   //
   return (
@@ -55,7 +55,9 @@ export const Sidebar = () => {
           ))}
         </nav>
       </div>
-      <div className={clsx("flex-col-cx hidden!", collapsed ? "gap-4" : "gap-2")}>
+      <div
+        className={clsx("flex-col-cx hidden!", collapsed ? "gap-4" : "gap-2")}
+      >
         <div className="space-y-4">
           <Toggle
             label="Real Money"

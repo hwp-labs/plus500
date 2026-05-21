@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/auth-store";
-import { TransactionEntity } from "@/lib/fsdb/config";
+import { TransactionEntity } from "@/app/api/transactions/types";
 import { sleep } from "@/utils";
 import { PATH_PROTECTED } from "@/constants/PATH";
 //
 import {
   FormDto,
-  createTransaction,
-  deleteTransaction,
-  getTransactions,
-  updateTransaction,
+  createTransactionApi,
+  deleteTransactionApi,
+  getTransactionsApi,
+  updateTransactionApi,
 } from "./utils";
 
 export function useTransactionsApi() {
@@ -54,24 +54,20 @@ export function useTransactionsApi() {
     if (receipt) window.open(receipt, "_blank");
   };
 
-  const fetchData = async () => {
+  const fetchTransactions = async () => {
     setFetching(true);
 
-    const newData = await getTransactions();
+    const newData = await getTransactionsApi();
     if (newData) setData(newData);
 
     setFetching(false);
   };
 
-  const fetchDataByEmail = async (q?: string | null) => {
-    if (!q) {
-      setData([]);
-      return;
-    }
-
+  const fetchTransaction = async (email?: string) => {
     setFetching(true);
 
-    const newData = await getTransactions(q);
+    const q = email || session!.email;
+    const newData = await getTransactionsApi(q);
     if (newData) setData(newData);
 
     setFetching(false);
@@ -80,7 +76,7 @@ export function useTransactionsApi() {
   const handleDeposit = async (next?: () => void) => {
     if (validateForm(true)) {
       setLoading(true);
-      const ok = await createTransaction(
+      const ok = await createTransactionApi(
         {
           email: session!.email,
           amount: form.amount!,
@@ -92,9 +88,9 @@ export function useTransactionsApi() {
       setLoading(false);
 
       if (ok) {
-        alert("Deposit Pending Approval!");
         next?.();
-        // router.push(PATH_PROTECTED.trade)
+        alert("Deposit Pending Approval!");
+        window.location.reload();
       } else {
         setError("Deposit failed, please try again!");
       }
@@ -104,7 +100,7 @@ export function useTransactionsApi() {
   const handleWithdraw = async (next?: () => void) => {
     if (validateForm()) {
       setLoading(true);
-      const ok = await createTransaction({
+      const ok = await createTransactionApi({
         email: session!.email,
         amount: form.amount!,
         type: 0,
@@ -113,9 +109,9 @@ export function useTransactionsApi() {
       setLoading(false);
 
       if (ok) {
-        alert("Withdrawal Pending Approval!");
         next?.();
-        // router.push(PATH_PROTECTED.trade)
+        alert("Withdrawal Pending Approval!");
+        window.location.reload();
       } else {
         setError("Withdrawal failed, please try again!");
       }
@@ -127,7 +123,7 @@ export function useTransactionsApi() {
       setError(null);
       setLoading(true);
 
-      const ok = await updateTransaction({ status: 1 }, id);
+      const ok = await updateTransactionApi({ status: 1 }, id);
       if (ok) {
         setSuccess(true);
         await sleep(2);
@@ -145,7 +141,7 @@ export function useTransactionsApi() {
     if (confirm("Delete Transaction?")) {
       setLoading(true);
 
-      await deleteTransaction(item);
+      await deleteTransactionApi(item);
       setRefetchKey((s) => !s);
 
       setLoading(false);
@@ -158,9 +154,10 @@ export function useTransactionsApi() {
     loading,
     success,
     error,
+    setError,
     data,
-    fetchData,
-    fetchDataByEmail,
+    fetchTransactions,
+    fetchTransaction,
     handleChange,
     handleView,
     handleDeposit,

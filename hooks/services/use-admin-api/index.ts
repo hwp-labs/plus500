@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { UpdateAdminDto } from "@/lib/fsdb/config";
+import { UpdateAdminDto } from "@/app/api/admins/types";
 import { sleep } from "@/utils";
 //
-import { DataDto, defaultData, getAdmin, updateAdmin } from "./utils";
+import { DataDto, defaultData, defaultForm, getAdminApi, updateAdminApi } from "./utils";
 
 export function useAdminApi() {
   const [refetchKey, setRefetchKey] = useState(false);
@@ -11,7 +11,7 @@ export function useAdminApi() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<DataDto>(defaultData);
-  const [form, setForm] = useState<UpdateAdminDto>({});
+  const [form, setForm] = useState<UpdateAdminDto>(defaultForm);
 
   const handleChange = (form: UpdateAdminDto) => {
     setForm((s) => ({ ...s, ...form }));
@@ -20,7 +20,7 @@ export function useAdminApi() {
   const fetchAdmin = async () => {
     setFetching(true);
 
-    const newData = await getAdmin(data);
+    const newData = await getAdminApi(data);
     if (newData) setData(newData);
 
     setFetching(false);
@@ -30,7 +30,7 @@ export function useAdminApi() {
     setError(null);
     setLoading(true);
 
-    const ok = await updateAdmin(form);
+    const ok = await updateAdminApi(form);
     if (ok) {
       setSuccess(true);
       await sleep(2.5);

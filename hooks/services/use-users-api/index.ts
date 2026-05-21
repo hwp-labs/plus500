@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useAuthStore } from "@/store/auth-store";
-import { UpdateUserDto, UserEntity } from "@/lib/fsdb/config";
+import { UpdateUserDto, UserEntity } from "@/app/api/users/types";
 import { sleep } from "@/utils";
 //
 import {
   defaultUser,
-  deleteUser,
-  getUser,
-  getUsers,
-  updateUser,
+  deleteUserApi,
+  getUserApi,
+  getUsersApi,
+  updateUserApi,
 } from "./utils";
 
 export function useUsersApi() {
@@ -21,7 +21,7 @@ export function useUsersApi() {
   const [error, setError] = useState<string | null>(null);
   const [users, setUsers] = useState<UserEntity[]>([]);
   const [user, setUser] = useState<UpdateUserDto>(defaultUser);
-  const [form, setForm] = useState<UpdateUserDto>({});
+  const [form, setForm] = useState<UpdateUserDto>(defaultUser);
   const [selected, setSelected] = useState("");
 
   const handleChange = (form: UpdateUserDto) => {
@@ -30,7 +30,7 @@ export function useUsersApi() {
 
   const handleEdit = (item: UserEntity) => {
     if (selected === item.email) {
-      setForm({});
+      setForm(defaultUser);
       setSelected("");
     } else {
       const { available, equity, i_margin, m_margin, profit_loss } = item;
@@ -42,18 +42,17 @@ export function useUsersApi() {
   const fetchUsers = async () => {
     setFetching(true);
 
-    const newData = await getUsers();
+    const newData = await getUsersApi();
     if (newData) setUsers(newData);
 
     setFetching(false);
   };
 
   const fetchUser = async (email?: string) => {
-    const q = email || session!.email;
-
     setFetching(true);
 
-    const newData = await getUser(q);
+    const q = email || session!.email;
+    const newData = await getUserApi(q);
     if (newData) setUser(newData);
 
     setFetching(false);
@@ -63,7 +62,7 @@ export function useUsersApi() {
     setError(null);
     setLoading(true);
 
-    const ok = await updateUser(form, email);
+    const ok = await updateUserApi(form, email);
     if (ok) {
       setSuccess(true);
       await sleep(2);
@@ -80,7 +79,7 @@ export function useUsersApi() {
     if (confirm("Delete User?")) {
       setLoading(true);
 
-      await deleteUser(email);
+      await deleteUserApi(email);
       setRefetchKey((s) => !s);
 
       setLoading(false);
