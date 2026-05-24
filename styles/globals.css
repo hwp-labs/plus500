@@ -92,6 +92,10 @@
   --color-ash9: var(--ash9);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
