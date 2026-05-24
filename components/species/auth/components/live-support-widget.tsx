@@ -28,7 +28,7 @@ export const LiveSupportWidget = () => {
     if (window) {
       window.Tawk_API = window.Tawk_API ?? {};
       window.Tawk_API.onLoad = () => {
-        window.Tawk_API?.hideWidget?.(); // hide the default bubble on load
+       // window.Tawk_API?.hideWidget?.(); // hide the default bubble on load
       };
     }
 
