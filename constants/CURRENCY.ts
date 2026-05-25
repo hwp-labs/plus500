@@ -26,7 +26,7 @@ export const CURRENCY = {
   Euro: {
     name: "Euro",
     country: "European Union",
-    symbol: "€",
+    symbol: "$",
     abbreviation: "EUR",
   },
   Cedi: {
