@@ -1,4 +1,8 @@
-import { AuthRequestDto } from "@/app/api/auth/types";
+import {
+  AuthRequestDto,
+  AuthResponseDto,
+  UpdatePasswordDto,
+} from "@/app/api/auth/types";
 import { MOCK } from "@/constants/MOCK";
 
 export const mockRouter = MOCK.authAdmin.router || MOCK.auth.router;
@@ -31,3 +35,18 @@ export const loginApi = async (form: AuthRequestDto) =>
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(form),
   });
+
+export const updatePasswordApi = async (
+  form: UpdatePasswordDto,
+  _session: AuthResponseDto,
+) => {
+  const raw = await fetch(`/api/auth/update-password`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ...form, _session }),
+  });
+
+  const res = await raw.json();
+
+  return res
+};

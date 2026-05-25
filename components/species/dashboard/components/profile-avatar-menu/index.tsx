@@ -1,29 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import { IconHomeMove, IconLogin, IconUserCircle } from "@tabler/icons-react";
+import {
+  IconHomeMove,
+  IconLockPassword,
+  IconLogin,
+  IconUserCircle,
+} from "@tabler/icons-react";
 import { UserCircleIcon } from "lucide-react";
 //
-import { useAuthStore } from "@/store/auth-store";
 import { MenuItem } from "./menu/item";
-import { PATH } from "@/constants/PATH";
+import { useAuthApi } from "@/hooks/services/use-auth-api";
+import { PATH, PATH_PROTECTED } from "@/constants/PATH";
 import { MOCK } from "@/constants/MOCK";
 
-const M  = MOCK.profileAvatarMenu
+const M = MOCK.profileAvatarMenu;
 
 export const ProfileAvatarMenu = () => {
-  const router = useRouter();
-  const session = useAuthStore((s) => s.session);
+  const { session, handleSignOut } = useAuthApi();
 
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(Boolean(M.portal));
-
-  const handleLogout = () => {
-    if (confirm("Log Out?")) {
-      router.replace(PATH.login + "?logout=true");
-    }
-  };
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -53,12 +50,17 @@ export const ProfileAvatarMenu = () => {
           </div>
           <div className="p-4">
             <MenuItem
+              Icon={IconLockPassword}
+              label="Update Password"
+              path={PATH_PROTECTED.updatePassword}
+            />
+            <MenuItem
               Icon={IconHomeMove}
-              label="Add To Home Screen"
+              label="Visit Website"
               path={PATH.home}
             />
             <button
-              onClick={handleLogout}
+              onClick={handleSignOut}
               className="btn btn-lg mt-2 max-h-[48px]! rounded-full border-none bg-[#9272ff] font-semibold"
             >
               <IconLogin />

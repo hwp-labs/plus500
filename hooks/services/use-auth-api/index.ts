@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/auth-store";
-import { AuthRequestDto, AuthResponseDto } from "@/app/api/auth/types";
-import { PATH_PROTECTED } from "@/constants/PATH";
+import {
+  AuthRequestDto,
+  AuthResponseDto,
+  UpdatePasswordDto,
+} from "@/app/api/auth/types";
+import { PATH, PATH_PROTECTED } from "@/constants/PATH";
 import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 //
-import { mockRouter, defaultForm, loginApi, registerApi } from "./utils";
+import {
+  mockRouter,
+  defaultForm,
+  loginApi,
+  registerApi,
+  updatePasswordApi,
+} from "./utils";
 
 export function useAuthApi(logoutQueryParams?: string) {
   const router = useRouter();
   const reset = useAuthStore((s) => s.reset);
+  const session = useAuthStore((s) => s.session);
   const setSession = useAuthStore((s) => s.setSession);
 
   const [loading, setLoading] = useState(false);
@@ -28,7 +39,7 @@ export function useAuthApi(logoutQueryParams?: string) {
     setForm((s) => ({ ...s, ...payload }));
   };
 
-  const handleRegister = async () => {
+  const handleSignUp = async () => {
     setSuccess(false);
     setError(null);
     setLoading(true);
@@ -56,7 +67,7 @@ export function useAuthApi(logoutQueryParams?: string) {
     setError(`Something went wrong, please try again.`);
   };
 
-  const handleLogin = async () => {
+  const handleSignIn = async () => {
     setSuccess(false);
     setError(null);
     setLoading(true);
@@ -75,7 +86,7 @@ export function useAuthApi(logoutQueryParams?: string) {
         ? null
         : router.replace(
             res.data.role === "admin"
-              ? PATH_PROTECTED.transactions
+              ? PATH_PROTECTED.settings
               : PATH_PROTECTED.dashboard,
           );
 
@@ -91,13 +102,39 @@ export function useAuthApi(logoutQueryParams?: string) {
     setError(`Something went wrong, please try again.`);
   };
 
+  const handleSignOut = () => {
+    if (confirm("Sign Out?")) {
+      router.replace(PATH.login + "?logout=true");
+    }
+  };
+
+  const handleUpdatePassword = async (form: UpdatePasswordDto) => {
+    setSuccess(false);
+    setError(null);
+    setLoading(true);
+
+    const { data, error } = await updatePasswordApi(form, session!);
+    setLoading(false);
+
+    if (data) {
+      setSuccess(true);
+      router.replace(PATH.login + "?logout=true");
+      return;
+    }
+
+    setError(error);
+  };
+
   return {
+    session,
     loading,
     success,
     error,
     form,
     handleChange,
-    handleRegister,
-    handleLogin,
+    handleSignUp,
+    handleSignIn,
+    handleSignOut,
+    handleUpdatePassword,
   };
 }

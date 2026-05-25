@@ -37,7 +37,7 @@ export const SettingsForm = () => {
   //
   return (
     <>
-      <ul className="space-y-4 [&>li]:space-y-1 [&>li>h2]:text-lg">
+      <ul className="space-y-4 [&>li]:space-y-1 [&>li>h2]:text-lg mt-4">
         <li>
           <h2>BTC Address</h2>
           <TextInput

@@ -10,6 +10,11 @@ export interface AuthResponseDto {
   role: "admin" | "user";
 }
 
+export interface UpdatePasswordDto {
+  password: string;
+  newPassword: string;
+}
+
 export const AuthResponse = {
   ok: (email: string, isAdmin = false) =>
     Response.json({

@@ -10,7 +10,7 @@ export const LoginForm = ({
 }: {
   logoutQueryParam?: string;
 }) => {
-  const { loading, success, error, form, handleChange, handleLogin } =
+  const { loading, success, error, form, handleChange, handleSignIn } =
     useAuthApi(logoutQueryParam);
   //
   return (
@@ -27,7 +27,7 @@ export const LoginForm = ({
           onChange={(password) => handleChange({ password })}
         />
       </div>
-      <SubmitButton success={success} loading={loading} onClick={handleLogin}>
+      <SubmitButton success={success} loading={loading} onClick={handleSignIn}>
         {success ? "Login Successful" : "Log in"}
       </SubmitButton>
     </>

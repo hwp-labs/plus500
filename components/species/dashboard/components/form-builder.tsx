@@ -2,6 +2,7 @@
 
 import { PropsWithChildren, useEffect, useState } from "react";
 import { CheckIcon } from "lucide-react";
+import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import clsx from "clsx";
 
 interface TextInputProps {
@@ -15,20 +16,46 @@ export const TextInput = ({
   onChange = () => undefined,
   sm,
 }: TextInputProps) => {
-  const handleChange = (
-    ev: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
-  ) => {
-    const valueSafe = ev.currentTarget.value;
-    onChange(valueSafe);
-  };
-  //
   return (
     <input
       type="text"
       value={value}
-      onChange={handleChange}
+      onChange={(ev) => onChange(ev.target.value)}
       className={clsx("input-reset", sm ? "dash-input-sm" : "dash-input")}
     />
+  );
+};
+
+interface PasswordInputProps {
+  value?: string;
+  onChange?: (value: string) => void;
+  sm?: boolean;
+}
+
+export const PasswordInput = ({
+  value = "",
+  onChange = () => undefined,
+  sm,
+}: PasswordInputProps) => {
+  const [show, setShow] = useState(false);
+  //
+  return (
+    <div className="relative">
+      <input
+        type={show ? "text" : "password"}
+        value={value}
+        onChange={(ev) => onChange(ev.target.value)}
+        className={clsx("input-reset", sm ? "dash-input-sm" : "dash-input")}
+      />
+      <button
+        type="button"
+        title={show ? "Hide" : "Show"}
+        onClick={() => setShow((s) => !s)}
+        className="absolute right-2.5 top-1.5"
+      >
+        {show ? <IconEyeOff /> : <IconEye />}
+      </button>
+    </div>
   );
 };
 
@@ -208,7 +235,9 @@ export const PairedSubmitBtn = ({
         >
           {success ? "Done!" : loading ? "Processing..." : children}
         </button>
-        <button onClick={onCancel} className="btn-fx dash-cancel-btn">Cancel</button>
+        <button onClick={onCancel} className="btn-fx dash-cancel-btn">
+          Cancel
+        </button>
       </div>
       {error ? <p className="text-danger mt-1 text-sm">{error}</p> : null}
     </div>

@@ -10,7 +10,7 @@ export const RegisterForm = ({
 }: {
   demoQueryParam?: string;
 }) => {
-  const { loading, success, error, form, handleChange, handleRegister } =
+  const { loading, success, error, form, handleChange, handleSignUp } =
     useAuthApi();
   //
   return (
@@ -28,11 +28,7 @@ export const RegisterForm = ({
           onChange={(password) => handleChange({ password })}
         />
       </div>
-      <SubmitButton
-        success={success}
-        loading={loading}
-        onClick={handleRegister}
-      >
+      <SubmitButton success={success} loading={loading} onClick={handleSignUp}>
         {success
           ? "Account Created"
           : demoQueryParam
