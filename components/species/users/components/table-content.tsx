@@ -75,7 +75,9 @@ export const TableContent = () => {
                     />
                   ) : (
                     <TableBuilder.Amount
-                      value={item[input.name as keyof UpdateUserDto]}
+                      value={
+                        item[input.name as keyof Omit<UpdateUserDto, "wallet">]
+                      }
                       currency="usd"
                     />
                   )}
