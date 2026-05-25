@@ -6,7 +6,7 @@ import { PATH } from "@/constants/PATH";
 export const Fab = () => {
   return (
     <Link
-      href={PATH.hash}
+      href={"#top"}
       className="fixed right-2 bottom-2 z-50 cursor-pointer"
       title="24/7 Support"
     >

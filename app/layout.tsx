@@ -16,7 +16,7 @@ export default function RootLayout({
       lang="en"
       className={`${robotoFont.variable} ${poppinsFont.variable} h-full antialiased`}
     >
-      <body className="">{children}</body>
+      <body id="top">{children}</body>
     </html>
   );
 }
