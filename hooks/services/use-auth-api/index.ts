@@ -126,6 +126,7 @@ export function useAuthApi(logoutQueryParams?: string) {
   };
 
   return {
+    router,
     session,
     loading,
     success,

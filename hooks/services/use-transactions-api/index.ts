@@ -99,10 +99,16 @@ export function useTransactionsApi() {
 
   const handleWithdraw = async (next?: () => void) => {
     if (validateForm()) {
+      if (!form.wallet) {
+        setError("Enter your wallet address!");
+        return false;
+      }
+
       setLoading(true);
       const ok = await createTransactionApi({
         email: session!.email,
         amount: form.amount!,
+        wallet: form.wallet!,
         type: 0,
         status: 0,
       });
@@ -149,6 +155,7 @@ export function useTransactionsApi() {
   };
 
   return {
+    router,
     refetchKey,
     fetching,
     loading,
@@ -156,6 +163,8 @@ export function useTransactionsApi() {
     error,
     setError,
     data,
+    form,
+    setForm,
     fetchTransactions,
     fetchTransaction,
     handleChange,

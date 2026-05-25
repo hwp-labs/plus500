@@ -17,7 +17,7 @@ import { MOCK } from "@/constants/MOCK";
 const M = MOCK.profileAvatarMenu;
 
 export const ProfileAvatarMenu = () => {
-  const { session, handleSignOut } = useAuthApi();
+  const { router, session, handleSignOut } = useAuthApi();
 
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(Boolean(M.portal));
@@ -30,7 +30,7 @@ export const ProfileAvatarMenu = () => {
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, []);
+  }, [router]);
   //
   return (
     <div ref={ref} className="flex-cc relative">

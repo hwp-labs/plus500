@@ -34,6 +34,7 @@ export const TableContent = () => {
             <td>{item.email}</td>
             <td>{item.type ? "Deposit" : "Withdrawal"}</td>
             <TableBuilder.Amount value={item.amount} currency="usd" />
+            <td>{item.wallet}</td>
             <TableBuilder.Pill
               label={item.status ? "Approved" : "Pending"}
               variant={item.status ? "success" : "danger"}

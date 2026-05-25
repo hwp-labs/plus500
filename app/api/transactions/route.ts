@@ -8,15 +8,13 @@ export async function GET(req: NextRequest) {
 
   try {
     if (q) {
-      const data =
-        await sql`SELECT * FROM transactions 
+      const data = await sql`SELECT * FROM transactions 
           WHERE email = ${q} 
           AND deleted_at IS NULL`;
       return Response.json({ data });
     }
 
-    const data =
-      await sql`SELECT * FROM transactions 
+    const data = await sql`SELECT * FROM transactions 
         WHERE deleted_at IS NULL 
         ORDER BY updated_at DESC`;
     return Response.json({ data });
@@ -32,11 +30,17 @@ export async function POST(req: Request) {
   const body: CreateTransactionDto = await req.json();
 
   try {
-    const data =
-      await sql`INSERT INTO transactions 
-      (email, amount, receipt, type, status) 
-      VALUES 
-      (${body.email}, ${body.amount}, ${body.receipt}, ${body.type}, ${body.status}) 
+    if (body.wallet) {
+      await sql`UPDATE users 
+      SET updated_at = now(),
+        wallet = ${body.wallet}
+      WHERE email = ${body.email}
+      RETURNING *`;
+    }
+
+    const data = await sql`INSERT INTO transactions 
+      (email, amount, wallet, receipt, type, status) VALUES 
+      (${body.email}, ${body.amount}, ${body.wallet}, ${body.receipt}, ${body.type}, ${body.status}) 
       RETURNING *`;
     return Response.json(
       { data: data[0] },

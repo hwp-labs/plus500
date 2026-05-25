@@ -25,6 +25,7 @@ export async function POST(req: Request) {
     const data = await sql`SELECT id FROM users 
       WHERE email = ${body.email} 
       AND password = ${hashedPassword} 
+      AND deleted_at IS NULL 
       LIMIT 1`;
 
     if (data[0]) {

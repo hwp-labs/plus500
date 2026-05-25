@@ -50,6 +50,7 @@ export const TableContent = () => {
             <TableBuilder.Tr key={i}>
               <td>{i + 1}</td>
               <TableBuilder.Amount value={item.amount} currency="usd" />
+              <td>{item.wallet}</td>
               <td>{item.type ? "Deposit" : "Withdrawal"}</td>
               <TableBuilder.Pill
                 label={item.status ? "Approved" : "Pending"}

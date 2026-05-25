@@ -22,7 +22,7 @@ export default function OrdersPage() {
       </section>
       <table className="w-full">
         <TableBuilder.THead
-          data={["Amount", "Type", "Status|c", "Date|c"]}
+          data={["Amount", "Wallet", "Type", "Status|c", "Date|c"]}
           hasNumbers
           hasActions
         />

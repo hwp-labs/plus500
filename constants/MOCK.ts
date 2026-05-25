@@ -17,13 +17,13 @@ export const MOCK = {
   },
   auth: {
     portal: 0,
-    formData: 0,
+    formData: 1,
     action: 0,
     router: 0,
   },
   authAdmin: {
     portal: 0,
-    formData: 0,
+    formData: 1,
     action: 0,
     router: 0,
   },

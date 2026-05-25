@@ -12,7 +12,15 @@ export default function TransactionsPage() {
     <main className="bg-background flex-1">
       <table className="w-full">
         <TableBuilder.THead
-          data={["Date|c", "Account", "Type", "Amount", "Status|c", ""]}
+          data={[
+            "Date|c",
+            "Account",
+            "Type",
+            "Amount",
+            "Wallet",
+            "Status|c",
+            "",
+          ]}
           hasActions // id:receipt,delete
         />
         <TableContent />

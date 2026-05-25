@@ -8,6 +8,7 @@ import { HTTP_STATUS_CODE } from "@/constants/HTTP_STATUS_CODE";
 
 export type FormDto = {
   amount?: number;
+  wallet?: string;
   file?: File;
 };
 
@@ -26,7 +27,7 @@ export const createTransactionApi = async (
   form: CreateTransactionDto,
   file?: File,
 ) => {
-  const fileSafe = { ...form };
+  const formSafe = { ...form };
 
   if (file) {
     const body = new FormData();
@@ -39,14 +40,14 @@ export const createTransactionApi = async (
 
     if (raw.status === HTTP_STATUS_CODE.CREATED) {
       const res: { data: UploadsDto } = await raw.json();
-      fileSafe.receipt = res.data.filename;
+      formSafe.receipt = res.data.filename;
     }
   }
 
   const raw = await fetch("/api/transactions", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(fileSafe),
+    body: JSON.stringify(formSafe),
   });
 
   return raw.status === HTTP_STATUS_CODE.CREATED;

@@ -25,8 +25,7 @@ export async function POST(req: Request) {
     }
 
     await sql`INSERT INTO users 
-      (email, password) 
-      VALUES 
+      (email, password) VALUES 
       (${body.email}, ${hashedPassword})`;
 
     return AuthResponse.created(body.email);

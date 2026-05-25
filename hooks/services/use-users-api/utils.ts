@@ -30,6 +30,7 @@ export const getUserApi = async (email: string) => {
       i_margin: data?.i_margin || 0,
       m_margin: data?.m_margin || 0,
       profit_loss: data?.profit_loss || 0,
+      wallet: data?.wallet || '',
     };
   }
 };
