@@ -698,5 +698,3 @@ export const CandlestickChart = () => {
     </div>
   );
 };
-
-export default CandlestickChart;
