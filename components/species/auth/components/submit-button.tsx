@@ -17,7 +17,7 @@ export const SubmitButton = ({
 }: Props) => {
   return (
     <button
-      type="submit"
+      type="button"
       onClick={onClick}
       disabled={loading}
       className={clsx("auth-solid-btn btn mt-5", success && "bg-success!")}
