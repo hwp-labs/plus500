@@ -28,6 +28,8 @@ export function useAuthApi(logoutQueryParams?: string) {
   const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState<AuthRequestDto>(defaultForm);
 
+  const canSubmit = form.email.trim().length >= 7 && form.password.trim().length > 7
+
   useEffect(() => {
     if (logoutQueryParams) {
       // console.log("🚀 ~ useEffect ~ logoutQueryParams:", logoutQueryParams);
@@ -42,64 +44,72 @@ export function useAuthApi(logoutQueryParams?: string) {
   const handleSignUp = async () => {
     setSuccess(false);
     setError(null);
-    setLoading(true);
 
-    const raw = await registerApi(form);
+    if (canSubmit) {
+      setLoading(true);
+      const raw = await registerApi(form);
 
-    if (raw.status === HTTP_STATUS_CODE.CREATED) {
-      const res: { data: AuthResponseDto } = await raw.json();
-      // console.log("🚀 ~ handleSubmit ~ res:", res);
+      if (raw.status === HTTP_STATUS_CODE.CREATED) {
+        const res: { data: AuthResponseDto } = await raw.json();
+        // console.log("🚀 ~ handleSubmit ~ res:", res);
 
-      setSuccess(true);
-      setForm({ email: "", password: "" });
-      setSession(res.data);
+        setSuccess(true);
+        setForm({ email: "", password: "" });
+        setSession(res.data);
 
-      mockRouter ? null : router.replace(PATH_PROTECTED.dashboard);
-      return;
+        mockRouter ? null : router.replace(PATH_PROTECTED.dashboard);
+        return;
+      }
+
+      setLoading(false);
+      if (raw.status === HTTP_STATUS_CODE.CONFLICT) {
+        setError(`This email has already been registered.`);
+        return;
+      }
+
+      setError(`Something went wrong, please try again.`);
     }
-
-    setLoading(false);
-    if (raw.status === HTTP_STATUS_CODE.CONFLICT) {
-      setError(`This email has already been registered.`);
-      return;
-    }
-
-    setError(`Something went wrong, please try again.`);
+    
+    setError(`Enter a valid email and strong password.`);
   };
 
   const handleSignIn = async () => {
     setSuccess(false);
     setError(null);
-    setLoading(true);
 
-    const raw = await loginApi(form);
+    if (canSubmit) {
+      setLoading(true);
+      const raw = await loginApi(form);
 
-    if (raw.status === HTTP_STATUS_CODE.OK) {
-      const res: { data: AuthResponseDto } = await raw.json();
-      // console.log("🚀 ~ handleSubmit ~ res:", res)
+      if (raw.status === HTTP_STATUS_CODE.OK) {
+        const res: { data: AuthResponseDto } = await raw.json();
+        // console.log("🚀 ~ handleSubmit ~ res:", res)
 
-      setSuccess(true);
-      setForm({ email: "", password: "" });
-      setSession(res.data);
+        setSuccess(true);
+        setForm({ email: "", password: "" });
+        setSession(res.data);
 
-      mockRouter
-        ? null
-        : router.replace(
-            res.data.role === "admin"
-              ? PATH_PROTECTED.settings
-              : PATH_PROTECTED.dashboard,
-          );
+        mockRouter
+          ? null
+          : router.replace(
+              res.data.role === "admin"
+                ? PATH_PROTECTED.settings
+                : PATH_PROTECTED.dashboard,
+            );
 
-      return;
+        return;
+      }
+
+      setLoading(false);
+      if (raw.status === HTTP_STATUS_CODE.NOT_FOUND) {
+        setError(`Incorrect credentials. Retry or create an account.`);
+        return;
+      }
+
+      setError(`Something went wrong, please try again.`);
     }
 
-    setLoading(false);
-    if (raw.status === HTTP_STATUS_CODE.NOT_FOUND) {
-      setError(`Incorrect credentials. Retry or create an account.`);
-      return;
-    }
-
-    setError(`Something went wrong, please try again.`);
+    setError(`Invalid log in details. Retry or create an account.`);
   };
 
   const handleSignOut = () => {
